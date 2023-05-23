@@ -12,15 +12,16 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('shift_mg', function (Blueprint $table) {
+        Schema::create('shift_mgs', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('staff_id');
             $table->date('request_date');
             $table->Time('start_time');
             $table->Time('end_time');
             $table->timestamps();
+            
             //制約
-            $table->foreign('staff_id')->references('staff_id')->on('employee');//外部キー
+            $table->foreign('staff_id')->references('staff_id')->on('employees');//外部キー
         });
     }
     

@@ -14,15 +14,17 @@ return new class extends Migration
         // 社員番号:(staff_id)　主キー兼外部キー
         // 出勤時間(attend_time)主キー
         // 退勤時間(leaving_work)
-        Schema::create('attend_leave', function (Blueprint $table) {
-            $table->unsignedBigInteger('staff_id')->unique();
+        Schema::create('attend_leaves', function (Blueprint $table) {
+            $table->unsignedBigInteger('staff_id');
             $table->date('work_date');//日付
 
             $table->time('attend_time');
             $table->time('leaving_work')->nullable();
+            $table->rememberToken();
+            $table->timestamps();
             
             $table->primary(['staff_id','work_date']);
-            $table->foreign('staff_id')->references('staff_id')->on('employee');
+            $table->foreign('staff_id')->references('staff_id')->on('employees');
             
         });
     }

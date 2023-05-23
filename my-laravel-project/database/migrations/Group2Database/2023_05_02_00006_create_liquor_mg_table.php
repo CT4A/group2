@@ -13,13 +13,15 @@ return new class extends Migration
     public function up(): void
     {
         //酒管理
-        Schema::create('liquor_mg', function (Blueprint $table) {
-            $table->unsignedBigInteger('liquor_id')->primary();
+        Schema::create('liquor_mgs', function (Blueprint $table) {
+            $table->unsignedBigInteger('liquor_id')->autoIncrement();
             $table->string('liquor_name');
             $table->string('liquor_type');
 
             $table->integer('liquor_number')->default(1);            
             $table->string('remarks')->nullable();
+            $table->rememberToken();
+            $table->timestamps();
         });
     }
 

@@ -12,14 +12,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('customer', function (Blueprint $table) {
+        Schema::create('customers', function (Blueprint $table) {
             $table->unsignedBigInteger('customer_id')->autoIncrement();
-            $table->string('customer_name')->default(null);
-            $table->string('company_name')->default(null);
+            $table->string('customer_name')->default("null");
+            $table->string('company_name')->default("null");
             $table->date('birthday')->nullable();
             $table->unsignedBigInteger('staff_id');
-
-            $table->foreign('staff_id')->references('staff_id')->on('employee');
+            $table->rememberToken();
+            $table->timestamps();
+            $table->foreign('staff_id')->references('staff_id')->on('employees');
         });
     }
     

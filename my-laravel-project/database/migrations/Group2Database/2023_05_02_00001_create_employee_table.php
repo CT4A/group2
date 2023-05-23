@@ -19,8 +19,8 @@ return new class extends Migration
             // 時給:(hourly_wage)
             // 誕生日:(birthday)
             // 備考:(remarks)
-        Schema::create('employee', function (Blueprint $table) {
-            $table->unsignedBigInteger('staff_id')->primary();
+        Schema::create('employees', function (Blueprint $table) {
+            $table->unsignedBigInteger('staff_id')->autoIncrement();
             $table->string('staff_pass');
             $table->string('staff_name');
             $table->string('tel')->nullable();
@@ -28,6 +28,8 @@ return new class extends Migration
             $table->string('hourly_wage')->nullable();
             $table->string('birthday')->nullable();
             $table->string('remarks')->nullable();
+            $table->rememberToken();
+            $table->timestamps(); 
         });
     }
 

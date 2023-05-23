@@ -16,15 +16,16 @@ return new class extends Migration
         // 社員番号:(staff_id)外部キー主キー
         // 日時:(ap_day)主キー
         // 会計金額:(acc_am)
-        Schema::create('slip_mg', function (Blueprint $table) {
+        Schema::create('slip_mgs', function (Blueprint $table) {
             $table->unsignedBigInteger('customer_id');
             $table->unsignedBigInteger('staff_id');
             $table->timestamp('ap_day');
             $table->unsignedInteger('total');
-
+            $table->rememberToken();
+            $table->timestamps();
             //制約
-            $table->foreign('customer_id')->references('customer_id')->on('customer');
-            $table->foreign('staff_id')->references('staff_id')->on('employee');
+            $table->foreign('customer_id')->references('customer_id')->on('customers');
+            $table->foreign('staff_id')->references('staff_id')->on('employees');
             $table->primary(['customer_id','staff_id','ap_day']);
         });
     }

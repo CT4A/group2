@@ -12,33 +12,35 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('liquor_link', function (Blueprint $table) {
-            $table->unsignedBigInteger('id')->primary();
+        Schema::create('liquor_links', function (Blueprint $table) {
+            $table->unsignedBigInteger('id')->autoIncrement();
             $table->unsignedBigInteger('customer_id');
             $table->unsignedBigInteger('liquor_id');    
             $table->unsignedBigInteger('liquor_number');//自分で入力可能   
-            
+            $table->rememberToken();
+            $table->timestamps();
             //外部キー
-            $table->foreign('customer_id')->references('customer_id')->on('slip_mg');
+            $table->foreign('liquor_id')->references('liquor_id')->on('liquor_mgs');
+            $table->foreign('customer_id')->references('customer_id')->on('customers');
         });
     }
 
-    public function upa(): void
-    {
-        Schema::create('liquor_link', function (Blueprint $table) {
-            $table->unsignedBigInteger('id')->primary();
-            $table->unsignedBigInteger('customer_id')->nullable();
-            $table->string('group_name')->nullable();
+    // public function upa(): void
+    // {
+    //     Schema::create('liquor_link', function (Blueprint $table) {
+    //         $table->unsignedBigInteger('id')->primary();
+    //         $table->unsignedBigInteger('customer_id')->nullable();
+    //         $table->string('group_name')->nullable();
 
-            $table->unsignedBigInteger('liquor_id');    
-            $table->unsignedBigInteger('liquor_number');//自分で入力可能   
-            $table->datetime('liquor_day')->notnull();
-            //外部キー
-            $table->foreign('customer_id')->references('customer_id')->on('slip_mg');
-            $table->foreign('liquor_id')->references('liquor_id')->on('liquor');
+    //         $table->unsignedBigInteger('liquor_id');    
+    //         $table->unsignedBigInteger('liquor_number');//自分で入力可能   
+    //         $table->datetime('liquor_day')->notnull();
+    //         //外部キー
+    //         $table->foreign('customer_id')->references('customer_id')->on('slip_mg');
+    //         $table->foreign('liquor_id')->references('liquor_id')->on('liquor');
  
-        });
-    }
+    //     });
+    // }
     /**
      * Reverse the migrations.
      */

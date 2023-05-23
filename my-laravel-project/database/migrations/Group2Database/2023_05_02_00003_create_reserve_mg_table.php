@@ -12,20 +12,21 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('reserve_mg', function (Blueprint $table) {
+        Schema::create('reserve_mgs', function (Blueprint $table) {
             $table->unsignedBigInteger('reserve_id')->primary();
             $table->string('customer');
             $table->unsignedBigInteger('staff_id');
             $table->date('reserve_date');
-
-            $table->time('reserve_time')->default(null);
-            $table->unsignedInteger('reserve_people')->default(null);
-            $table->unsignedInteger('table_num')->default(null);
-            $table->string('remarks')->default(null);
-            $table->unsignedBigInteger('upper_limit')->default(0);
             
+            $table->time('reserve_time')->nullable()->default(null);
+            $table->unsignedInteger('reserve_people')->nullable()->default(null);
+            $table->unsignedInteger('table_num')->nullable()->default(null);
+            $table->string('remarks')->nullable()->default(null);
+            $table->unsignedBigInteger('upper_limit')->default(0);
+            $table->rememberToken();
+            $table->timestamps();
             // 制約
-            $table->foreign('staff_id')->references('staff_id')->on('employee');
+            $table->foreign('staff_id')->references('staff_id')->on('employees');
         });
     }
 
