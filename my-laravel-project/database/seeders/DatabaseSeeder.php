@@ -2,7 +2,6 @@
 
 namespace Database\Seeders;
 
-// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -19,14 +18,25 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
 
-        \App\Models\employee::factory(10)->create();
-        \App\Models\attend_leave::factory(10)->create();
-        \App\Models\customer::factory(10)->create();
-        \App\Models\liquor_mg::factory(10)->create();
-        \App\Models\liquor_link::factory(10)->create();
+        // \App\Models\employee::factory(10)->create();
+        // \App\Models\attend_leave::factory(10)->create();
+        // \App\Models\customer::factory(10)->create();
+        // \App\Models\liquor_mg::factory(10)->create();
+        // \App\Models\liquor_link::factory(10)->create();
         
-        \App\Models\reserve_mg::factory(10)->create();
-        \App\Models\shift_mg::factory(10)->create();
-        \App\Models\slip_mg::factory(10)->create();
+        // \App\Models\reserve_mg::factory(10)->create();
+        // \App\Models\shift_mg::factory(10)->create();
+        // \App\Models\slip_mg::factory(10)->create();
+        
+        $this->call([
+            EmployeeSeeder::class,
+            AttendLeaveSeeder::class,
+            CustomerSeeder::class,
+            LiquorMgSeeder::class,
+            LiquorLinkSeeder::class,
+            ReserveMgSeeder::class,
+            ShiftMgSeeder::class,
+            SlipMgSeeder::class
+            ]);
     }
 }
