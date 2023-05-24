@@ -26,3 +26,19 @@ Route::get('/newemployee', function () {
     return view('newemployee');
 });
 Route::post('/login','AuthController@login')->name('login');
+
+Route::get('/customer-register', function () {
+    return view('customer-register');
+});
+Route::get('/header', function () {
+    return view('header');
+});
+Route::get('/register', function () {
+    return view('register');
+});
+Route::get('/syukkin', function () {
+    return view('syukkin');
+});
+Route::get('/itiran', function () {
+    return view('itiran');
+});

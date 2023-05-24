@@ -5,7 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>勤退登録画面</title>
-    <link rel="stylesheet" href="./css/syukkin.css">
+    {{-- <link rel="stylesheet" href="./css/syukkin.css"> --}}
+    
+    <link rel="stylesheet" href="{{asset('css/syukkin.css')}}">
 </head>
 <main>
 <body>
@@ -38,7 +40,9 @@
         </section>
      </div>
      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-     <script src= "./js/time.js"></script>
+     {{-- <script src= "./js/time.js"></script> --}}
+     <script src= "{{asset('js/time.js')}}"></script>
+     
     </body>
 </main>
 </html>

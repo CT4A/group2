@@ -5,9 +5,13 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>社員一覧</title>
-<link rel="stylesheet" href="./css/header.css">
+{{-- <link rel="stylesheet" href="./css/header.css">
 <link rel="stylesheet" href="./css/register.css">
-<link rel="stylesheet" href="./css/information.css">
+<link rel="stylesheet" href="./css/information.css"> --}}
+
+<link rel="stylesheet" href="{{asset("css/header.css")}}">
+<link rel="stylesheet" href="{{asset("css/register.css")}}">
+<link rel="stylesheet" href="{{asset("css/information.css")}}">
 </head>
 <body class="">
         <header>
@@ -122,7 +126,7 @@
         </section>
     </main>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="js/register.js"></script>
-<script src="js/index.js"></script>
+<script src="{{asset('js/register.js')}}"></script>
+<script src="{{asset('js/index.js')}}"></script>
 </body>
 </html>

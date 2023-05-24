@@ -5,12 +5,17 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>社員一覧</title>
-<link rel="stylesheet" href="./css/header.css">
-<link rel="stylesheet" href="./css/information.css">
+
+{{-- <link rel="stylesheet" href="./css/header.css">
+<link rel="stylesheet" href="./css/information.css"> --}}
+
+<link rel="stylesheet" href="{{asset("css/header.css")}}">
+<link rel="stylesheet" href=".{{asset("css/information.css")}}">
+
 </head>
 <body class="info-aft">
         <header>
-            <a href="#"><img src="./img/logaut.webp" alt=""></a>
+            <a href="#"><img src="{{asset('img/logaut.webp')}}" alt=""></a>
             <ul class="menu">
                 <li class="menu__item">
                     <a href="" class="menu__link">社員</a>
@@ -158,7 +163,7 @@
 
     </main>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src ="js/infomation.js"></script>
-<script src="js/index.js"></script>
+<script src ="{{asset('js/infomation.js')}}"></script>
+<script src="{{asset('js/index.js')}}"></script>
 </body>
 </html>
