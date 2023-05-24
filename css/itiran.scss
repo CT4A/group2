@@ -1,0 +1,145 @@
+@import "./color.scss";
+body{
+    // overflow: hidden;
+    background: $itiran-color;
+    transition: all 0.5s;
+}
+li{
+    list-style: none;
+}
+main{
+    display: flex;
+    width: 100%;
+    @media screen and (max-width:780px) {
+    display: block;
+    }
+}
+section{
+    width: 80%;
+    height: 100%;
+    @media screen and (max-width:780px) {
+        width: 100%;
+        }
+    h1{
+        font-size: 6em;
+        border-bottom: solid 1px #000;
+        width: 70%;
+        margin:10px auto;
+    }
+    span{
+        position: relative;
+        font-size: 24px;
+    }
+}
+.emp-list-area{
+    form{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 80%;
+        margin: 50px auto;
+        background-color: $form-color;
+        border-radius: 25px;
+        button{
+            background-color: $form-color;
+            border: solid 1px $form-color;
+            border-radius: 25px;
+            img{
+                width: 20px;
+            }
+        }
+        input[type ="text"]{
+            background-color: $form-color;
+            width: 100%;
+            font-size: 24px;
+            border: solid 0px;
+            outline: none;
+            border-radius: 50px;
+        }
+    }
+    .emp-name{
+        ul{
+            height: 300px;
+            overflow-y: scroll;
+            &::-webkit-scrollbar{
+                width: 5px;
+            }
+            &::-webkit-scrollbar-track{
+                background-color: #ccc;
+            }
+            &::-webkit-scrollbar-thumb{
+                background: $blue;
+                border-radius: 25px;
+            }
+            li{
+                margin: 10px 0;
+                text-align: center;
+                span{
+                    border-bottom: #000 solid 2px;
+                    line-height: 2;
+                    cursor: pointer;
+                }   
+            }
+        }
+    }
+}
+.intell{
+    @media screen and (max-width:780px) {
+    background-color: #ccc;
+    transition: all 1s;
+    position: inherit;
+    left: 500px;
+    opacity: 0;
+    width: 80%;
+    margin: 150px 10%;
+    }
+    ul{
+        margin: 50px auto;
+        font-size: 24px;
+            li{
+                display: flex;
+                span{
+                    margin: 10px;
+                    word-wrap: break-word; /* 長い単語を途中で改行する */
+                    overflow-wrap: break-word; /* 上記のプロパティのエイリアス */
+                    &:nth-child(1){
+                        width: 100px;
+                    }
+                }
+        }
+    }
+}
+.intell-aft{
+    @media screen and (max-width:780px) {
+        display: block;
+        opacity: 1;
+        background-color:rgba(0, 0, 0,0.5);
+        .intell{
+            opacity: 1;
+            position: absolute;
+            width: 80%;
+            height: 100vh;
+            margin: 150px 10%;
+            left: 0;
+            top: 0px;
+            background: $itiran-color;
+            pointer-events: all;
+            transition: all 0.5s;
+            &::before{
+                content: "x";
+                position: absolute;
+                right: -30px;
+                top: -20px;
+                padding: 20px;
+                background-color:rgba(0, 0, 0,0.5);
+                font-size: 24px;
+                font-weight: 800;
+                pointer-events: all;
+                color: aliceblue;
+                @media screen and (max-width:780px) {
+                
+                }
+            }
+        }
+    }
+}
