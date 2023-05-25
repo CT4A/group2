@@ -89,52 +89,26 @@
                 </div>
             </div>
             <div class="row even-main">
-                <div class="col-sm-4 col-4 ">
-                    <div class="card-body">
-                        <div class="name mt-1">Aさん</div>
-                    </div>
-                </div>
-                <div class="col-sm-4 col-4">
-                    <div class="card-body">
-                        <div class="mt-1 yellow">4月29日</div>
-                    </div>
-                </div>
-                <div class="col-sm-4 col-4">
-                    <div class="card-body">
-                        <div class="mt-1 yellow">誕生日</div>
-                    </div>
-                </div>
-                <div class="col-sm-4 col-4 ">
-                    <div class="card-body">
-                        <div class="name mt-1">Bさん</div>
-                    </div>
-                </div>
-                <div class="col-sm-4 col-4">
-                    <div class="card-body">
-                        <div class="mt-1 yellow">5月2日</div>
-                    </div>
-                </div>
-                <div class="col-sm-4 col-4">
-                    <div class="card-body">
-                        <div class="mt-1 yellow">記念日</div>
-                    </div>
-                </div>
                 
-                <div class="col-sm-4 col-4 ">
-                    <div class="card-body">
-                        <div class="name mt-1">Cさん</div>
+                @foreach ($customerDatas as $customerData)
+                   
+                    <div class="col-sm-4 col-4 ">
+                        <div class="card-body">
+                            <div class="name mt-1"> {{$customerData->customer_name}}</div>
+                        </div>
                     </div>
-                </div>
-                <div class="col-sm-4 col-4">
-                    <div class="card-body">
-                        <div class="mt-1 yellow">5月4日</div>
+                    <div class="col-sm-4 col-4">
+                        <div class="card-body">
+                            <div class="mt-1 yellow">{{$customerData->birthday}}</div>
+                        </div>
                     </div>
-                </div>
-                <div class="col-sm-4 col-4">
-                    <div class="card-body">
-                        <div class="mt-1 yellow">誕生日</div>
+                    <div class="col-sm-4 col-4">
+                        <div class="card-body">
+                            <div class="mt-1 yellow">誕生日</div>
+                        </div>
                     </div>
-                </div>
+                @endforeach
+                
             </div>
         </div>
    </div>

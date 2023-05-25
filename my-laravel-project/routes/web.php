@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\GetListStaffController;
+use App\Http\Controllers\homeController;
+use App\Http\Controllers\testController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,11 +20,9 @@ Route::get('/', function () {
     return view('login');
 });
 
-Route::get('/test',[GetListStaff::class,'GetListStaff']);
+Route::get('/test',[testController::class,'index']);
 
-Route::get('/home', function () {
-    return view('home');
-});
+Route::get('/home', [homeController::class,'index']);
 
 Route::get('/newemployee', function () {
     return view('newemployee');
