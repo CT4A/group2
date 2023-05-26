@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\GetListStaffController;
+use App\Http\Controllers\homeController;
+use App\Http\Controllers\testController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,29 +19,37 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('login');
 });
-Route::get('/test', function () {
-    return view('test');
-});
-Route::get('/home', function () {
-    return view('home');
-});
+
+Route::get('/test',[testController::class,'index']);
+
+Route::get('/home', [homeController::class,'index']);
+
 Route::get('/newemployee', function () {
     return view('newemployee');
 });
+//ログイン処理する
 Route::post('/login','AuthController@login')->name('login');
 
+// 顧客を登録する
 Route::get('/customer-register', function () {
     return view('customer-register');
 });
+
 Route::get('/header', function () {
     return view('header');
 });
+// 登録
 Route::get('/register', function () {
     return view('register');
 });
+// 出勤退勤
 Route::get('/syukkin', function () {
     return view('syukkin');
 });
-Route::get('/itiran', function () {
-    return view('itiran');
-});
+// // 一覧表示。
+// Route::get('/itiran', function () {
+//     return view('itiran');
+// });
+
+Route::get('/itiran' ,[GetListStaffController::class,'index']);
+Route::post('/getInfoStaff/{id}', [GetListStaffController::class,'GetListStaff']);
