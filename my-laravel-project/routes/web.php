@@ -30,6 +30,9 @@ Route::get('/newemployee', function () {
 //ログイン処理する
 Route::post('/login','AuthController@login')->name('login');
 
+Route::get('/login',function(){
+    return view('login');
+});
 // 顧客を登録する
 Route::get('/customer-register', function () {
     return view('customer-register');
