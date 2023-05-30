@@ -4,7 +4,7 @@ const inptxt = $("input[type='text']");
 const plus = $(".plus");
 var plusCnt =1;
 $(chkbox).click(function () {
-    //console.log("test");
+    console.log("test");
     if ($("#checkbox").prop("checked") == true) {
         $('ol').removeClass("close").addClass("open");
     } else {
@@ -12,9 +12,9 @@ $(chkbox).click(function () {
     };
 });
     $(inptxt).click(function(event) {
-        //console.log("test");
+        console.log("test");
         var test =$(inptxt).eq(event).parent();
-        //console.log(test)
+        console.log(test)
     });
     $(plus).click(function(event) {
         plusCnt+=1;

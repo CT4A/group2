@@ -1,0 +1,14 @@
+$fsize44:44px;
+$white:#fff;
+$blue:#38B6FF;
+$gradation: linear-gradient(90deg, rgb(140, 82, 255) 0%, rgb(92, 225, 230) 100%);
+$border-color:#0CC0DF;
+$button-color1:#38B6FF;
+$button-color2:#ff7531;
+$itiran-color:#F4F1EC;
+$form-color:#F6F6F6;
+.ContentCenter{
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-content: center;
+};

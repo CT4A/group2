@@ -50,9 +50,9 @@ Route::get('/syukkin', function () {
     return view('syukkin');
 });
 // // 一覧表示。
-// Route::get('/itiran', function () {
-//     return view('itiran');
-// });
+Route::get('/itiran', function () {
+    return view('itiran');
+});
 
 Route::get('/itiran' ,[GetListStaffController::class,'index']);
 Route::post('/getInfoStaff/{id}', [GetListStaffController::class,'GetListStaff']);
