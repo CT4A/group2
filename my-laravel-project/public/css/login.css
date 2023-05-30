@@ -1,0 +1,78 @@
+.main{
+    background: linear-gradient(90deg, #cdffd8, #94b9ff);
+    height:100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loginBox{
+    position: relative;
+    height: 500px;
+    width: 500px;
+    position: absolute;
+}
+
+.loginBox::before{
+    border-radius: 30px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    content: "";
+    position: absolute; /* Đặt vị trí tuyệt đối cho màn phủ */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.2); /* Đặt màu nền cho màn phủ */
+    z-index: 1; /* Đảm bảo màn phủ hiển thị trên nền */
+}
+
+.loginBox-main{
+    position: relative;
+    z-index: 2;
+    color: #000;
+}
+
+.inputArea{
+    margin: 0 auto;
+    position: relative;
+    width: 70%;
+    margin-top: 20%;
+    font-size: 20px;
+}
+
+input{
+    width: 100%;
+    height: 100%;
+    margin-bottom: 10px;
+    background-color: rgba(0, 0, 0, 0.0);
+    border: none;
+}
+.userIdArea , .passArea {
+    border-bottom:1px solid #000;
+    height: 3em;
+    margin-bottom: 10px;
+    display: flex;
+}
+
+img{
+    height: 100%;
+    padding-bottom: 2px;
+}
+.userIdArea img{
+    padding-right: 5px;
+}
+.TextHeader{
+    margin-top: 40px;
+}
+.btnlogin{
+    width: 35%;
+    border-radius: 20px;
+    border: 2px solid black;
+    background: linear-gradient(90deg, #8c52ff, #5ce1e6);
+}
+.button{
+    text-align: center;
+    position: relative;
+    bottom: -40px;
+}

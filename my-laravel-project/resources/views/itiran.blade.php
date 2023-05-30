@@ -1,7 +1,9 @@
 @extends('main')
-<link rel="stylesheet" href="{{asset('css/header.css')}}">
+@section('styles')
 <link rel="stylesheet" href="{{asset('css/itiran.css')}}">
+@endsection
 @section('title', '一覧社員')
+
 @section('content')
 <main>
     <section class="emp-list">
@@ -56,7 +58,6 @@
     </section>
 </main>
 @endsection
-
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="{{asset('js/index.js')}}"></script>
+@section('scripts')
 <script src="{{asset('js/itiran.js')}}"></script>
+@endsection
