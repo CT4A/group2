@@ -1,0 +1,48 @@
+.bgorgi{
+    background-color: #ff8e51;
+    font-weight: bold;
+}
+.schedule{
+    background-color: #9c8bef;
+}
+.event{
+    background-color: #ffbd59;
+}
+.content{
+    background-color: #FFFBE0;
+}
+
+.mainTable{
+    padding: 0 10%;
+}
+.headerTable,.contentTable{
+    height: 100px;
+}
+main{
+    background-color: #FFFBE0;
+    height: 100vh;
+}
+.card-body{
+    border:2px solid #000;
+}
+.eventHeaderColor{
+    background-color: #FFD83F;
+    border:2px solid #000;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.header{
+    margin: 40px 0;
+    padding: 10px 10%;
+    height: 100px;
+    position: relative;
+}
+img{
+    height: 100%;
+    position: relative;
+}
+.imgLetter{
+    text-align: right;
+}
