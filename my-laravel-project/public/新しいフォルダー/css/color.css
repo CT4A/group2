@@ -1,0 +1,5 @@
+.ContentCenter {
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-content: center;
+}/*# sourceMappingURL=color.css.map */
