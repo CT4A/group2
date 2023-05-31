@@ -11,12 +11,18 @@
 .content{
     background-color: #FFFBE0;
 }
-
+.headerTable{
+    display: flex;
+}
+.headerTable div{
+    width: 73%;
+    text-align: center;
+    padding-left: 30px;
+    font-size: 21px;
+    margin-top: 20px;
+}
 .mainTable{
     padding: 0 10%;
-}
-.headerTable,.contentTable{
-    height: 100px;
 }
 main{
     background-color: #FFFBE0;
@@ -34,15 +40,22 @@ main{
     align-items: center;
 }
 .header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin: 40px 0;
     padding: 10px 10%;
     height: 100px;
-    position: relative;
 }
-img{
-    height: 100%;
-    position: relative;
+.eventHeaderColor{
+    justify-content: center;
+    width: 60%;
+    margin-right: 25px;
+    font-size: 40px;
 }
 .imgLetter{
     text-align: right;
+    width: 164px;
+    height: 113px;
+    margin-left: 40px
 }
