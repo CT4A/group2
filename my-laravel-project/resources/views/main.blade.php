@@ -13,56 +13,54 @@
 
 </head>
 <body>
-    <header>
-        <a href="#"><img src="./img/logaut.webp" alt=""></a>
-        <ul class="menu">
-            <li class="menu__item">
-                <a href="" class="menu__link">社員</a>
-                    <ol class="drop-menu">
-                        <li class="drop-menu__item"><a href="" class="drop-menu__link">社員一覧</a></li>
-                        <li class="drop-menu__item"><a href="" class="drop-menu__link">社員登録</a></li>
-                        <li class="drop-menu__item"><a href="" class="drop-menu__link">社員編集</a></li>
+<header>
+            <a href="#"><img src="./img/logaut.webp" alt=""></a>
+            <ul class="menu">
+                <li class="menu_list">
+                  <span>社員</span>
+                  <ol>
+                    <li><a href="#">社員一覧</a></li>
+                    <li><a href="#">社員登録</a></li>
+                    <li><a href="#">社員編集</a></li>
+                  </ol>
+                </li>
+                <li class="menu_list">
+                  <span>顧客</span>
+                  <ol>
+                    <li><a href="#">顧客一覧</a></li>
+                    <li><a href="#">顧客登録</a></li>
+                    <li><a href="#">顧客編集</a></li>
+                  </ol>
+                </li>
+                <li class="menu_list">
+                  <span>キープボトル</span>
+                  <ol>
+                    <li><a href="#">ボトル一覧</a></li>
+                    <li><a href="#">ボトル登録</a></li>
+                    <li><a href="#">ボトル編集</a></li>
+                  </ol>
+                </li>
+                <li class="menu_list">
+                  <span>出勤退勤履歴</span>
+                  <ol>
+                    <li><a href="#">社員一覧</a></li>
+                    <li><a href="#">社員登録</a></li>
+                    <li><a href="#">社員編集</a></li>
+                  </ol>
+                </li>
+                <li class="menu_list">
+                    <span>伝票</span>
+                    <ol>
+                      <li><a href="#">社員一覧</a></li>
+                      <li><a href="#">社員登録</a></li>
+                      <li><a href="#">社員編集</a></li>
                     </ol>
-            </li>
-            <li class="menu__item">
-                <a href="" class="menu__link">顧客</a>
-                <ol class="drop-menu">
-                    <li class="drop-menu__item"><a href="" class="drop-menu__link">顧客一覧</a></li>
-                    <li class="drop-menu__item"><a href="" class="drop-menu__link">顧客登録</a></li>
-                    <li class="drop-menu__item"><a href="" class="drop-menu__link">顧客編集</a></li>
-                </ol>
-            </li>
-            <li class="menu__item">
-                <a href="" class="menu__link">キープボトル</a>
-                <ol class="drop-menu">
-                    <li class="drop-menu__item"><a href="" class="drop-menu__link">顧客一覧</a></li>
-                    <li class="drop-menu__item"><a href="" class="drop-menu__link">顧客登録</a></li>
-                    <li class="drop-menu__item"><a href="" class="drop-menu__link">顧客編集</a></li>
-                </ol>
-            </li>
-            <li class="menu__item">
-                <a href="" class="menu__link">出退勤履歴</a>
-                <ol class="drop-menu">
-                    <li class="drop-menu__item"><a href="" class="drop-menu__link">顧客一覧</a></li>
-                    <li class="drop-menu__item"><a href="" class="drop-menu__link">顧客登録</a></li>
-                    <li class="drop-menu__item"><a href="" class="drop-menu__link">顧客編集</a></li>
-                </ol>
-            </li>
-            <li class="menu__item">
-                <a href="" class="menu__link">伝票</a>
-                <ol class="drop-menu">
-                    <li class="drop-menu__item">
-                        <a href="" class="drop-menu__link">顧客一覧</a>
-                    </li>
-                </ol>
-            </li>
-        </ul>
-        <div class="hamburger-area">
+                  </li>
+              </ul>
+            <div class="hamburger-area">
             <div class="hamburger-icon">
-                <span class="hamburger-area1"></span>
-                <span class="hamburger-area2"></span>
-                <span class="hamburger-area3"></span>
-            </div>
+                    <span></span>
+                </div>
             <div class="hamburgerContents">
                 <ul>
                 <li>
@@ -77,7 +75,7 @@
                 </li>
                 <li>
                     <div class="accordion">
-                        <span>顧客</span>
+                        <span>顧客</span> 
                     <div class="accordion-content">
                         <a href="">顧客一覧</a>
                         <a href="">顧客登録</a>
@@ -86,18 +84,19 @@
                 </div>
                 </li>
                 <li><div class="accordion">
-                        <span>キープボトル</span>
-                        <div class="accordion-content">
-                            <a href="">test2</a>
-                            <a href="">test3</a>
-                        </div>
-                    </div>
-                </li>
-                <li><a href="">出勤退勤履歴</a></li>
-                <li><a href="">伝票</a></li>
-                        </ul>
+                    <span>キープボトル</span>
+                <div class="accordion-content">
+                    <a href="">ボトル一覧</a>
+                    <a href="">ボトル登録</a>
+                    <a href="">ボトル編集</a>
+                </div>
             </div>
-        </div>
+        </li>
+        <li><a href="">出勤退勤履歴</a></li>
+        <li><a href="">伝票</a></li>
+                </ul>
+            </div>
+            </div>
     </header>
     <main>
         @yield('content')

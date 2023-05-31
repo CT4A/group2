@@ -14,13 +14,10 @@ $(document).ready(function(){
     });
     $(empName).on('click', function(event) {
       event.stopPropagation();
-      console.log("clicked empName span");
       if($(event.target).closest("span").length || $(event.target).closest("intell").length) {
-        console.log("add intell-aft");
         $('body').addClass("intell-aft");
       }
     });
-    $(intellButton)
   });
 btn.onclick = function () {
   modal.style.display = "block";

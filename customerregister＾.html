@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>顧客新規作成画面</title>
+<title>社員一覧</title>
 <link rel="stylesheet" href="./css/header.css">
 <link rel="stylesheet" href="./css/register.css">
 <link rel="stylesheet" href="./css/information.css">
@@ -97,25 +97,39 @@
     <main>
         <section class="register">
             <div class="register-area">
-                <h1>顧客新規作成</h1>
+                <h1>出勤登録画面</h1>
                 <ul>
                     <form action="" method="POST">
                     <li>
-                        <span>顧客名</span>
-                        <input type="text" name="customer_id">
+                        <span>開始時間</span>
+                        <input type="time" name="start_time">
                     </li>
                     <li>
-                        <span>誕生日</span>
-                        <input type="text" name="birthday">
+                        <span>終了時間</span>
+                        <input type="time" name="end_time">
                     </li>
                     <li>
-                        <span>担当者</span>
-                        <input type="text" name="staff_id">
+                        <input type="checkbox" name="time" id="checkbox">
+                        <span>同伴がある場合はこちらをチェックしてください。</span>
                     </li>
-                    <li>
-                        <span>備考</span>
-                        <input type="text" name="remarks">
-                    </li>
+                    <ol class="close">
+                        <li>
+                            <span>人数</span>
+                            <input type="text" name="reserve_people">
+                        </li>
+                        <li>
+                            <span>顧客数</span>
+                            <input type="text" name="time">
+                        </li>
+                        <li>
+                            <span>同伴名</span>
+                            <input type="text" name="time">
+                        </li>
+                        <li>
+                            <span>出勤者名</span>
+                            <input type="text" name="time">
+                        </li>
+                    </ol>
                     <input type="submit">
                     </form>
                 </ul>

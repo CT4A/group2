@@ -4,13 +4,14 @@
     // DOM取得
     // 親メニューのli要素
     const parentMenuItem = $('.menu__item');
-    const hoverTest = $('')
     const header = $('header');
     const hamburgerIcon = $('.hamburger-icon');
     const hamburgerArea = $('.hamburger-area');
-    const menuItem  =  $('.menu_item');
+    const menuList  =  $('.menu_list');
     const accordion = $('.accordion');
+    const menuItem =$(".menu_item");
     var hamburgerCnt =0;
+    var windowNow = $(window);
     let prevScrollpos = window.pageYOffset;
     $(window).scroll(function(){
         let currentScrollPos = window.pageYOffset;
@@ -24,11 +25,9 @@
     $(hamburgerIcon).click(function() {
         if(hamburgerCnt ==0){
             $(hamburgerArea).addClass('hamburger-area-aft');
-            // $(header).removeClass('scroll-up').addClass('scroll-down');
             hamburgerCnt = 1;
         }else{
             $(hamburgerArea).removeClass('hamburger-area-aft');
-            // $(header).removeClass('scroll-down');
             hamburgerCnt = 0;
         }
     });
@@ -41,16 +40,21 @@
             var numChildren = $(this).find('a').length;
         }
     });
-    $(header).hover(
+    $(window).resize(function(){
+        windowNow =$(window);
+        console.log(windowNow);
+    });
+    $(header).hover( 
+        function(){     
+            if($(windowNow).width() >= 767 && !$(hamburgerArea).hasClass("hamburger-area-aft")){
+                $(menuList).addClass("menu_list_aft");
+       }
+    },
         function(){
-            console.log("開始");
-            $(menuItem).addClass("menu_item_aft");
-        },
-        function(){
-            console.log("終了");
-            $(menuItem).removeClass("menu_item_aft");
-        }
+            $(menuList).removeClass("menu_list_aft");
+    }
     )
+
         // イベントを付加
     for (let i = 0; i < parentMenuItem.length; i++) {
         parentMenuItem[i].addEventListener('mouseover', dropDownMenuOpen);

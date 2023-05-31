@@ -18,6 +18,6 @@ $(chkbox).click(function () {
     });
     $(plus).click(function(event) {
         plusCnt+=1;
-        $(plus).before('<li><span>出勤者名' + plusCnt + '</span><input type="text" name="time"></li>');
+        $(plus).before('<li><span>顧客名' + plusCnt + '</span><input type="text" name="time"></li>');
     });
 });

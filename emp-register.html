@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>顧客新規作成画面</title>
+<title>社員新規作成</title>
 <link rel="stylesheet" href="./css/header.css">
 <link rel="stylesheet" href="./css/register.css">
 <link rel="stylesheet" href="./css/information.css">
@@ -83,8 +83,9 @@
             <li><div class="accordion">
                 <span>キープボトル</span>
             <div class="accordion-content">
-                <a href="">test2</a>
-                <a href="">test3</a>
+                <a href="">ボトル一覧</a>
+                <a href="">ボトル登録</a>
+                <a href="">ボトル編集</a>
             </div>
         </div>
     </li>
@@ -97,25 +98,35 @@
     <main>
         <section class="register">
             <div class="register-area">
-                <h1>顧客新規作成</h1>
+                <h1>社員新規作成</h1>
                 <ul>
                     <form action="" method="POST">
                     <li>
-                        <span>顧客名</span>
+                        <span>社員名</span>
                         <input type="text" name="customer_id">
                     </li>
                     <li>
-                        <span>誕生日</span>
+                        <span>電話番号</span>
                         <input type="text" name="birthday">
                     </li>
                     <li>
-                        <span>担当者</span>
+                        <span>住所</span>
+                        <input type="text" name="staff_id">
+                    </li>
+                    <li>
+                        <span>誕生日</span>
+                        <input type="text" name="staff_id">
+                    </li>
+                    <li>
+                        <span>時給</span>
                         <input type="text" name="staff_id">
                     </li>
                     <li>
                         <span>備考</span>
-                        <input type="text" name="remarks">
+                        <textarea name="remarks" ></textarea>
                     </li>
+                    <!-- <li><textarea name="remarks" ></textarea></li> -->
+                    
                     <input type="submit">
                     </form>
                 </ul>

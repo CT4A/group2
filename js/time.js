@@ -27,7 +27,6 @@ $(document).ready(function(){
     },1000);
     };
     $(".test").click(function(){
-        console.log("test"); 
     });
     LoadProc();
 });
