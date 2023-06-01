@@ -93,3 +93,8 @@ Route::get('/keepbottle-list', [keepbottleController::class,'index']);
 Route::get('/reserve-register', function () {
     return view('reserve-register');
 });
+
+// 給料明細
+Route::get('/pay-statement', function () {
+    return view('pay-statement');
+});

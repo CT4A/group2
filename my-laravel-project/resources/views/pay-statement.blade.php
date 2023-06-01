@@ -1,6 +1,6 @@
 @extends('main')
 @section('styles')
-<link rel="stylesheet" href="{{asset('css/itiran.css')}}">
+<link rel="stylesheet" href="{{asset('css/pay-statement.css')}}">
 @endsection
 @section('title', '社員一覧')
 
@@ -8,7 +8,7 @@
 <main>
     <section class="emp-list">
         <div class="emp-list-area">
-            <h1>社員一覧</h1>
+            <h1>給料明細</h1>
             <form action="#">
                 <button type="submit">
                     <img src="./img/oqCh3X9ndfQ__xOuxd5Oww==.png" alt="">
@@ -17,16 +17,17 @@
             </form>
             <div class="emp-name">
                 <ul>
-                    @foreach ($staffs as $staff)
-                    <li><span id={{$staff->staff_id}}>{{$staff->staff_name}}</span></li>
-                    @endforeach
+                    <li>
+                        <span id="1">名前</span>
+                        <span id="1">給料</span>
+                    </li>
                 </ul>
             </div>
         </div>
     </section>
     <section class="intell">
         <div class="intell-aera" itemscope itemtype="http://schema.org/Person">
-            <h1 id="TxtNameHeader">情報</h1>
+            <h1 id="TxtNameHeader">さんの給料明細</h1>
             <ul>
                 <li itemprop="identifier">
                     <span>番号</span>
@@ -47,6 +48,10 @@
                 <li itemprop="birthDate">
                     <span>誕生日</span>
                     <span id="birthday"></span>
+                </li>
+                <li itemprop="description">
+                    <span>備考</span>
+                    <span id="remarks"></span>
                 </li>
                 <li itemprop="description">
                     <span>備考</span>
