@@ -11,15 +11,18 @@
 .content{
     background-color: #FFFBE0;
 }
-.headerTable{
+.row{
     display: flex;
 }
-.headerTable div{
+.row div{
     width: 73%;
     text-align: center;
     padding-left: 30px;
     font-size: 21px;
     margin-top: 20px;
+}
+.eventheader div :nth-child(1) :not(.bgorgi .text-center) {
+    background: #fff;
 }
 .mainTable{
     padding: 0 10%;
@@ -47,10 +50,16 @@ main{
     padding: 10px 10%;
     height: 100px;
 }
+.imgLetter img{
+    height: 109px;
+    margin-left: 48px;
+    margin-top: 44px;
+}
 .eventHeaderColor{
     justify-content: center;
-    width: 60%;
-    margin-right: 25px;
+    width: 41%;
+    margin-left: 148px;
+    margin-top: 57px;
     font-size: 40px;
 }
 .imgLetter{
