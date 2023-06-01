@@ -100,6 +100,7 @@
                 <h1>顧客新規作成</h1>
                 <ul>
                     <form action="" method="POST">
+                        @csrf
                     <li>
                         <span>顧客名</span>
                         <input type="text" name="customer_id">

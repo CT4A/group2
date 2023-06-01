@@ -20,6 +20,7 @@ return new class extends Migration
 
             $table->time('attend_time');
             $table->time('leaving_work')->nullable();
+            $table->unsignedBigInteger('num_people')->nullable()->default(0);
             $table->rememberToken();
             $table->timestamps();
             

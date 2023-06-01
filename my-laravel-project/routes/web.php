@@ -1,7 +1,12 @@
 <?php
 
+use App\Http\Controllers\employeeController;
+use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\GetListStaffController;
 use App\Http\Controllers\homeController;
+use App\Http\Controllers\registerController;
+use App\Http\Controllers\keepbottleController;
+
 use App\Http\Controllers\testController;
 use Illuminate\Support\Facades\Route;
 
@@ -37,22 +42,54 @@ Route::get('/login',function(){
 Route::get('/customer-register', function () {
     return view('customer-register');
 });
+// Route::post('/customer-register','customer');
 
 Route::get('/header', function () {
     return view('header');
 });
 // 登録
-Route::get('/register', function () {
-    return view('register');
+Route::get('/shift-register', function () {
+    return view('shift-register');
 });
+Route::post('/registerSchedule', [registerController::class,'register']);
+
 // 出勤退勤
 Route::get('/syukkin', function () {
     return view('syukkin');
 });
+
 // // 一覧表示。
 Route::get('/itiran', function () {
     return view('itiran');
 });
 
-Route::get('/itiran' ,[GetListStaffController::class,'index']);
-Route::post('/getInfoStaff/{id}', [GetListStaffController::class,'GetListStaff']);
+//社員一覧
+Route::get('/list-staff' ,[EmployeeController::class,'index']);
+Route::post('/getInfoStaff/{id}', [EmployeeController::class,'GetListStaff']);
+
+//社員登録
+Route::get('/emp-register', function () {
+    return view('emp-register');
+});
+Route::post('/emp-register',[ EmployeeController::class,'register']);
+
+// 顧客一覧
+Route::get('/list-customer' ,[CustomerController::class,'index']);
+Route::post('/getInfoCustomer/{id}', [CustomerController::class,'GetListCustomer']);
+Route::post('/customer-register', [CustomerController::class,'register']);
+
+//出勤退勤履歴
+Route::get('/history', function () {
+    return view('history');
+});
+
+//キープボトル一覧
+Route::get('/keepbottle-list', function () {
+    return view('keepbottle-list');
+});
+Route::get('/keepbottle-list', [keepbottleController::class,'index']);
+
+//予約
+Route::get('/reserve-register', function () {
+    return view('reserve-register');
+});

@@ -8,6 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class employee extends Model
 {
     use HasFactory;
-
-    protected $fillname=['staff_id','staff_name','tel','residence','birthday','remarks'];
+    protected $primaryKey = 'staff_id';
+    public function customer()
+    {
+        return $this->hasMany(customer::class, 'staff_id');
+    }
 }

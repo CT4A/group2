@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class customer extends Model
 {
     use HasFactory;
+    protected $primaryKey = 'customer_id';
+
+    public function employee()
+    {
+        return $this->belongsTo(employee::class, 'staff_id');
+        
+    }
 }

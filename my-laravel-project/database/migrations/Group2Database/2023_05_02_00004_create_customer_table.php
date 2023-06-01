@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('company_name')->default("null");
             $table->date('birthday')->nullable();
             $table->unsignedBigInteger('staff_id');
+            $table->string('remarks')->nullable()->default("null");
             $table->rememberToken();
             $table->timestamps();
             $table->foreign('staff_id')->references('staff_id')->on('employees');
