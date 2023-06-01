@@ -87,6 +87,9 @@ Route::get('/history', function () {
 Route::get('/keepbottle-list', function () {
     return view('keepbottle-list');
 });
+Route::get('/keepbottle-register', function () {
+    return view('keepbottle-register');
+});
 Route::get('/keepbottle-list', [keepbottleController::class,'index']);
 
 //予約

@@ -35,6 +35,13 @@
   background: none;
   border: none;
 }
+.register-area ul li textarea {
+  font-size: 24px;
+  width: 100%;
+  overflow-y: hidden;
+  resize: none;
+  max-width: 500px;
+}
 .register-area ul li input[type=checkbox] {
   height: 50px;
   width: 50px;
@@ -60,4 +67,13 @@
   width: 60px;
   cursor: pointer;
   border-radius: 25px;
+}
+.register-area ul .kinds .kind-list {
+  margin-bottom: 20px;
+  height: 150px;
+  overflow-x: scroll;
+  overflow-x: hidden;
+}
+.register-area ul .kinds .kind-list .kind-Click {
+  background-color: rgba(252, 252, 252, 0.2117647059);
 }/*# sourceMappingURL=register.css.map */

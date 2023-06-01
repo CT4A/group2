@@ -35,6 +35,13 @@
             background: none;
             border: none;
             }
+            textarea{
+                font-size: 24px;
+                width: 100%;
+                overflow-y: hidden;
+                resize: none;
+                max-width: 500px;
+            }
             input[type="checkbox"]{
                 height: 50px;
                 width: 50px;
@@ -62,5 +69,16 @@
             cursor: pointer;
             border-radius: 25px;
         }
+        .kinds{
+        .kind-list{
+            margin-bottom: 20px;
+            height: 150px;
+            overflow-x: scroll;
+            overflow-x: hidden;
+            .kind-Click{
+                background-color: #fcfcfc36;
+            }
+        }
+    }
     }
 }
