@@ -12,8 +12,9 @@
                 <button type="submit">
                     <img src="./img/oqCh3X9ndfQ__xOuxd5Oww==.png" alt="">
                 </button>
-                <input type="text" placeholder="顧客の名前を入力してください">
+                <input id="search" type="text" placeholder="顧客の名前を入力してください">
         </form>
+        <ul class="search-list"></ul>
         <div class="emp-name">
         <ul>
             @foreach ($customers as $customer)

@@ -41,7 +41,27 @@ $(document).ready(function(){
         }
       });
     });
-
+    var flagSearch=0;
+    //検索機能
+    $('#search').keyup(function (e) { 
+      let keySearch=$(this).val();
+      let staffList = $(".emp-name ul li span");
+      if(flagSearch==1||keySearch==""){
+        staffList.fadeIn();
+      }
+      for (let i = 0; i < staffList.length; i++) {
+        if (staffList[i].textContent.indexOf(keySearch) == -1) {
+          $(".emp-name ul li span").eq(i).fadeOut();
+          flag=1;
+        }
+        
+        
+        // let listPositonTop =  $(".emp-name ul").offset().top;
+        // let idPositionTop = $('#'+id).offset().top;
+        // $(".emp-name ul").scroll(listPositonTop-idPositionTop);
+      }
+    });
+  
     function showInfo(data){
       $("#TxtNameHeader").text(data["staff_name"]+"の情報");
       $("#staff_id").text(data["staff_id"]);
@@ -50,18 +70,6 @@ $(document).ready(function(){
       $("#residence").text(data["residence"]);
       $("#birthday").text(data["birthday"]);
       $("#remarks").text(data["remarks"]);
-
     }
-  });
-// btn.onclick = function () {
-//   modal.style.display = "block";
-// };
-// span.onclick = function () {
-//   modal.style.display = "none";
-// };
 
-// window.onclick = function (event) {
-//   if (event.target == modal) {
-//     modal.style.display = "none";
-//   }
-// };
+});

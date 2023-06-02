@@ -17,20 +17,25 @@
                     <li>
                         <span>所有者</span>
                         <input type="text" name="customer_name">
+                        <select name="liquor_type">
+                            <option value="ウイスキー">ウイスキー</option>
+                            <option value="日本酒">日本酒</option>
+                            <option value="その他">その他</option>
+                        </select>
                     </li>
                     <li>
                         <span>酒名</span>
-                        <input type="text" name="company_name">
+                        <input type="text" name="liquor_name">
                     </li>
                     <li class="kinds">
+                        <select name="liquor_type">
+                            <option value="ウイスキー">ウイスキー</option>
+                            <option value="日本酒">日本酒</option>
+                            <option value="その他">その他</option>
+                        </select>
                         <span>種類</span>
                         <ul class="kind-list">
                             <li>ウイスキー</li>
-                            <li>ウイスキー</li>
-                            <li>ウイスキー</li>
-                            <li>ウイスキー</li>
-                            <li>日本酒</li>
-                            <li>日本酒</li>
                             <li>日本酒</li>
                             <li>その他</li>
                         </ul>
