@@ -20,7 +20,7 @@
                     </li>
                     <li>
                         <span>酒名</span>
-                        <input type="text" name="company_name">
+                        <input type="text" name="liquor_name">
                     </li>
                     <li class="kinds">
                         <span>種類</span>
@@ -35,11 +35,11 @@
                             <li>日本酒</li>
                             <li>その他</li>
                         </ul>
-                        <input type="text" id ="kinds-inp" placeholder="種類を入力してください">
+                        <input type="text" id ="liquor_type" placeholder="種類を入力してください">
                     </li>
                     <li>
                         <span>日付</span>
-                        <input type="text" name="staff_id">
+                        <input type="text" name="テーブル表に載ってない">
                     </li>
                     <li>
                         <span>備考</span>

@@ -14,15 +14,15 @@
                 <form action="" method="POST">
                     <li>
                         <span>人数</span>
-                        <input type="text" name="">
+                        <input type="text" name="reserve_people">
                     </li>
                     <li>
                         <span>顧客名</span>
-                        <input type="text" name="time">
+                        <input type="text" name="customer"> <!-- customer_id????? -->
                     </li>
                     <li>
                         <span>担当者</span>
-                        <input type="text" name="time">
+                        <input type="text" name="staff_id">
                     </li>
                     <li>
                         <span>日時</span>
@@ -30,7 +30,7 @@
                     </li>
                     <li>
                         <span>備考</span>
-                        <textarea name="remarks" id="" cols="30" rows="10"></textarea>
+                        <textarea name="remarks" id="" ></textarea>
                     </li>
                 <input type="submit" value="登録">
                 </form>
