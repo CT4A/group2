@@ -1,3 +1,4 @@
+@charset "UTF-8";
 .register {
   height: 100%;
   padding: 50px 0;
@@ -68,12 +69,47 @@
   cursor: pointer;
   border-radius: 25px;
 }
-.register-area ul .kinds .kind-list {
-  margin-bottom: 20px;
+.register-area ul .kinds {
+  position: relative;
+}
+.register-area ul .kinds input[type=text] {
+  height: 0;
+  width: 0;
+}
+.register-area ul .kinds-aft input[type=text] {
+  height: 100%;
+  width: 100%;
+}
+.register-area .kinds-selecter {
+  position: relative;
+  width: 80%;
+  margin: auto;
+}
+.register-area .kinds-selecter::after {
+  content: "▼";
+  position: absolute;
+  right: 0;
+  transition: all 0.3s;
+}
+.register-area .kinds-selecter-aft::after {
+  transition: all 0.3s;
+  transform: rotateZ(-180deg);
+}
+.register-area .kind-list {
+  position: absolute;
+  background-color: #666;
+  color: #333;
+  height: 0;
+  overflow-x: hidden;
+  transition: all 0s;
+}
+.register-area .kind-list-aft {
+  transition: all 0.5s;
   height: 150px;
   overflow-x: scroll;
   overflow-x: hidden;
+  border: #000 solid 2px;
 }
-.register-area ul .kinds .kind-list .kind-Click {
+.register-area .kind-list-aft li:hover {
   background-color: rgba(252, 252, 252, 0.2117647059);
 }/*# sourceMappingURL=register.css.map */

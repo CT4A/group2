@@ -5,6 +5,8 @@ const plus = $(".plus");
 const kindList = $(".kind-list");
 const kinds = $(".kinds");
 const kindsli = $(".kinds li");
+const kindsSelecter = $(".kinds-selecter");
+const kindsInp =$("#kinds-inp");
 var plusCnt =1;
 $(chkbox).click(function () {
     //console.log("test");
@@ -14,25 +16,33 @@ $(chkbox).click(function () {
         $('ol').removeClass("open").addClass("close");
     };
 });
+$(kindsSelecter).click(function(){
+    if(!$(kindsSelecter).hasClass("kinds-selecter-aft")){
+    $(kindList).addClass("kind-list-aft");
+    $(kindsSelecter).addClass("kinds-selecter-aft");
+    }else{
+        $(kindList).removeClass("kind-list-aft");
+        $(kindsSelecter).removeClass("kinds-selecter-aft");
+    }
+
+});
 $(kindsli).click(function () {
     console.log("click");
     kindsli.removeClass("kind-Click");
-    $(this).addClass("kind-Click")
-    if($(this).text() == "その他" && !$(kinds).hasClass("kinds-aft")){
-        console.log($(this).text());
-        // $(kinds).addClass("kinds-aft");
-        var input = $('<input type="text" />');
-        $(kinds).append(input);
+    $(this).addClass("kind-Click");
+    if($(this).text() == "その他"){
+        $(kinds).addClass("kinds-aft");
+        kindsInp.val("");
     }else{
     // $(kinds).removeClass("kinds-aft");
-    $(kinds+'input:last-child').remove();
-    console.log($(this).text());
+    $(kinds).addClass("kinds-aft");
+    kindsInp.val($(this).text());
     }
+    $(kindList).removeClass("kind-list-aft");
+    $(kindsSelecter).removeClass("kinds-selecter-aft");
 });
     $(inptxt).click(function(event) {
-        //console.log("test");
         var test =$(inptxt).eq(event).parent();
-        //console.log(test)
     });
     $(plus).click(function(event) {
         plusCnt+=1;

@@ -24,6 +24,7 @@
                     </li>
                     <li class="kinds">
                         <span>種類</span>
+                        <div class="kinds-selecter">選択してください</div>
                         <ul class="kind-list">
                             <li>ウイスキー</li>
                             <li>ウイスキー</li>
@@ -34,6 +35,7 @@
                             <li>日本酒</li>
                             <li>その他</li>
                         </ul>
+                        <input type="text" id ="kinds-inp" placeholder="種類を入力してください">
                     </li>
                     <li>
                         <span>日付</span>
