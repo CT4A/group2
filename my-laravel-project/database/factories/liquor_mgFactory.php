@@ -19,9 +19,11 @@ class liquor_mgFactory extends Factory
     public function definition(): array
     {   static $i =1;
         return [            
-            'liquor_name'=>fake()->name(),
+            'liquor_name'=>"whisky".Str::random(4),
             
-            'liquor_type'=>"whisky".Str::random(4)
+            'liquor_type'=>"whiskyの種類".Str::random(4),
+            'liquor_number'=>fake()->randomNumber(1),
+            'remarks'=>'なし'
             //
         ];
     }

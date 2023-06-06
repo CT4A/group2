@@ -15,7 +15,6 @@
                 </button>
                 <input id="search" type="text" placeholder="社員の名前を入力してください">
             </form>
-            <ul class="search-list"></ul>
             <div class="emp-name">
                 <ul>
                     @foreach ($staffs as $staff)

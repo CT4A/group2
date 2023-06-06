@@ -21,7 +21,9 @@ class EmployeeFactory extends Factory
             'staff_name'=>fake()->name(),
             'tel'=>fake()->phoneNumber(),
             'hourly_wage'=>1000,
-            'birthday'=>fake()->date()
+            'residence'=>'名古屋市熱田区',
+            'birthday'=>fake()->date(),
+            'remarks'=>'なし'
             //
         ];
     }

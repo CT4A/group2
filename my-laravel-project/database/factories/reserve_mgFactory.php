@@ -19,11 +19,14 @@ class reserve_mgFactory extends Factory
         static $i=1;
         return [
             'reserve_id'=>$i++,
-            'customer'=>fake()->name(),
+            'customer_name'=>fake()->name(),
             'staff_id'=>function(){
                 return \App\Models\employee::inRandomOrder()->first()->staff_id;
             },
-            'reserve_date'=>fake()->date()
+            'reserve_date'=>fake()->date(),
+            'reserve_people'=>fake()->randomNumber(1),
+            'table_num'=>fake()->randomNumber(1),
+            'remarks'=>'なし'
             //
         ];
     }

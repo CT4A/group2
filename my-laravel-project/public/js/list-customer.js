@@ -48,15 +48,18 @@ $(document).ready(function(){
     var flagSearch=0;
     //検索機能
     $('#search').keyup(function (e) { 
+      console.log(e.key);
+      console.log("tesa");
       let keySearch=$(this).val();
+      console.log(keySearch);
       let staffList = $(".emp-name ul li span");
-      if(flagSearch==1||keySearch==""){
-        staffList.fadeIn();
-      }
+      staffList.fadeIn();
+      // staffList.fadeIn(0, function () {
+        
+      // });
       for (let i = 0; i < staffList.length; i++) {
         if (staffList[i].textContent.indexOf(keySearch) == -1) {
           $(".emp-name ul li span").eq(i).fadeOut();
-          flag=1;
         }
         
         

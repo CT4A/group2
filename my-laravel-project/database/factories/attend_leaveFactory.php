@@ -16,13 +16,19 @@ class attend_leaveFactory extends Factory
      */
     public function definition(): array
     {
+        $attend_time=fake()->time();
+        $leaving_work=fake()->time();
+        while($attend_time >= $leaving_work){
+            $attend_time=fake()->time();
+            $leaving_work=fake()->time();
+        }
         return [
             'staff_id'=>function () {
                 return \App\Models\employee::inRandomOrder()->first()->staff_id;
             },
             'work_date'=>fake()->date(),
-            'attend_time'=>fake()->time(),
-            'leaving_work'=>fake()->time()
+            'attend_time'=>$attend_time,
+            'leaving_work'=>$leaving_work
         ];
     }
 }

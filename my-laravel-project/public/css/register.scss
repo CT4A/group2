@@ -70,15 +70,55 @@
             border-radius: 25px;
         }
         .kinds{
-        .kind-list{
-            margin-bottom: 20px;
-            height: 150px;
-            overflow-x: scroll;
-            overflow-x: hidden;
-            .kind-Click{
-                background-color: #fcfcfc36;
+            position: relative;
+        input[type="text"]{
+            height: 0;
+            width: 0;
+        }
+    }
+        .kinds-aft{
+            input[type="text"]{
+                height: 100%;
+                width: 100%;
             }
         }
     }
+    .kinds-selecter{
+        position: relative;
+        width: 80%;
+        margin: auto;
+        &::after{
+            content: "▼";
+            position: absolute;
+            right: 0;
+            transition: all 0.3s;
+        }
+    }
+    .kinds-selecter-aft{
+        &::after{
+            transition: all 0.3s;
+            transform: rotateZ(-180deg);
+        }        
+    }
+    .kind-list{
+    position: absolute;
+    background-color: #666;
+    color: #333;
+    height: 0;
+    overflow-x: hidden;
+    transition: all 0s;
+}
+    .kind-list-aft{
+        transition: all 0.5s;
+        height: 150px;
+        overflow-x: scroll;
+        overflow-x: hidden;
+        border: #000 solid 2px;
+        li:hover{
+            background-color: #fcfcfc36;
+        }
+        .kind-Click{
+            // background-color: #fcfcfc36;
+        }
     }
 }
