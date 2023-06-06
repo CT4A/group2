@@ -14,15 +14,39 @@
             <ul>
                 <form action="/keepbottle-register" method="POST">
                     @csrf
-                    <li>
+                    <li class="kinds">
                         <span>所有者</span>
-                        <input type="text" name="customer_name">
+                        <div class="kinds-selecter">
+                        <span>選択してください</span>
+                        <ul class="kind-list" id ="">
+                            <li>test1</li>
+                            <li>test2</li>
+                            <li>test3</li>
+                            <li>test4</li>
+                            <li>その他</li>
+                        </ul> 
+                        </div>
+                        <input type="text" id ="liquor_type" class="kinds-inp" name="customer_name" placeholder="種類を入力してください">   
+                    </li>
+                    <li class="kinds">
+                        <span>会社名</span>
+                        <div class="kinds-selecter">
+                        <span>選択してください</span>
+                        <ul class="kind-list" id ="">
+                            <li>test1</li>
+                            <li>test2</li>
+                            <li>test3</li>
+                            <li>test4</li>
+                            <li>その他</li>
+                        </ul> 
+                        </div>
+                        <input type="text" id ="liquor_type" class="kinds-inp" name="liquor_name" placeholder="種類を入力してください">   
                     </li>
                     <li class="kinds">
                         <span>酒名</span>
                         <div class="kinds-selecter">
                         <span>選択してください</span>
-                        <ul class="kind-list">
+                        <ul class="kind-list" id ="">
                             <li>test1</li>
                             <li>test2</li>
                             <li>test3</li>
@@ -34,7 +58,7 @@
                     </li>
                     <li class="kinds">
                         <span>種類</span>
-                        <div class="kinds-selecter">
+                        <div class="kinds-selecter" id ="">
                             <span>選択してください</span>
                             <ul class="kind-list">
                             <li>ウイスキー</li>
