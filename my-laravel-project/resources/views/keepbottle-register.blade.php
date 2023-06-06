@@ -18,7 +18,7 @@
                         <span>所有者</span>
                         <input type="text" name="customer_name">
                     </li>
-                    <!-- <li class="kinds">
+                    <li class="kinds">
                         <span>酒名</span>
                         <div class="kinds-selecter">
                         <span>選択してください</span>
@@ -42,16 +42,6 @@
                             <li>その他</li>
                         </ul>
                         </div>
-                        <input type="text" id ="liquor_type" class="kinds-inp" name="liquor_type" placeholder="種類を入力してください">
-                    </li> -->
-                    <li class="kinds">
-                        <label for="">種類を入力してください</label>
-                        <select name="" id="" >
-                        <option value="">テスト1</option>
-                        <option value="">テスト2</option>
-                        <option value="">テスト3</option>
-                        <option value="">テスト4</option>
-                        </select>
                         <input type="text" id ="liquor_type" class="kinds-inp" name="liquor_type" placeholder="種類を入力してください">
                     </li>
                     <li>

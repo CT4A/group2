@@ -21,11 +21,9 @@ $(document).ready(function(){
     
     $(kindsSelecter).click(function(){
         if(!$(this).hasClass("kinds-selecter-aft")){
-
             $(this).addClass("kinds-selecter-aft");
             $(this).find(kindList).addClass("kind-list-aft");
         }else{
-            
             $(this).removeClass("kinds-selecter-aft");
             $(this).find(kindList).removeClass("kind-list-aft");
         
@@ -44,19 +42,18 @@ $(document).ready(function(){
 // });
     
     $(kindsli).click(function () {
-        kindsli.removeClass("kind-Click");
-        $(this).addClass("kind-Click");
+        var ListPush = $(this).parent();
+        var kindadd = ListPush.parent().parent();
+        ListPush.find(kindsInp).addClass("kind-Click");
         if($(this).text() == "その他"){
-            $(kinds).addClass("kinds-aft");
-            kindsInp.val("");
-            console.log("その他");
+            kindadd.addClass("kinds-aft");
+            kindadd.find(kindsInp).val("");
         }else{
-            // $(kinds).removeClass("kinds-aft");
-            $(kinds).addClass("kinds-aft");
-            kindsInp.val($(this).text());
+            kindadd.addClass("kinds-aft");
+            kindadd.find(kindsInp).val($(this).text());
         }
-        $(kindList).removeClass("kind-list-aft");
-        $(kindsSelecter).removeClass("kinds-selecter-aft");
+        ListPush.find(kindList).removeClass("kind-list-aft");
+        ListPush.find(kindsSelecter).removeClass("kinds-selecter-aft");
     });
     
     
