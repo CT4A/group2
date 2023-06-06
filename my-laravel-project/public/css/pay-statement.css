@@ -34,7 +34,7 @@ section {
     }
 }
 section h1 {
-    font-size: 6em;
+    font-size: 3.8em;
     border-bottom: solid 1px #000;
     width: 70%;
     margin: 10px auto;
@@ -70,7 +70,7 @@ section span {
     border-radius: 50px;
 }
 .emp-list-area .emp-name ul {
-    height: 300px;
+    height: 365px;
     overflow-y: scroll;
 }
 .emp-list-area .emp-name ul::-webkit-scrollbar {
@@ -88,9 +88,20 @@ section span {
     text-align: center;
 }
 .emp-list-area .emp-name ul li span {
-    border-bottom: #000 solid 2px;
-    line-height: 2;
+    width: 300px;
+    display: inline-block;
+    line-height: 1.8;
     cursor: pointer;
+    margin: 3px;
+    margin-left: 45px;
+    margin-right: 38px;
+}
+.emp-list-area .emp-name ul li span::after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 0.1px;
+    background: #000;
 }
 
 @media screen and (max-width: 780px) {
@@ -116,8 +127,9 @@ section span {
     word-wrap: break-word; /* 長い単語を途中で改行する */
     overflow-wrap: break-word; /* 上記のプロパティのエイリアス */
 }
+
 .intell ul li span:nth-child(1) {
-    width: 100px;
+    width: 150px;
 }
 
 @media screen and (max-width: 780px) {

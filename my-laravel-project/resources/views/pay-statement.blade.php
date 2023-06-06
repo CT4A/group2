@@ -21,6 +21,43 @@
                         <span id="1">名前</span>
                         <span id="1">給料</span>
                     </li>
+                    <li>
+                        <span id="1">NGUYEN</span>
+                        <span id="1">19,0000円</span>
+                    </li>
+                    <li>
+                        <span id="1">CHIEN</span>
+                        <span id="1">19,0000円</span>
+                    </li>
+                    <li>
+                        <span id="1">CHIEN</span>
+                        <span id="1">19,0000円</span>
+                    </li>
+                    <li>
+                        <span id="1">CHIEN</span>
+                        <span id="1">19,0000円</span>
+                    </li>
+                    <li>
+                        <span id="1">CHIEN</span>
+                        <span id="1">19,0000円</span>
+                    </li>
+                    <li>
+                        <span id="1">CHIEN</span>
+                        <span id="1">19,0000円</span>
+                    </li>
+                    <li>
+                        <span id="1">CHIEN</span>
+                        <span id="1">19,0000円</span>
+                    </li>
+                    <li>
+                        <span id="1">CHIEN</span>
+                        <span id="1">19,0000円</span>
+                    </li>
+                    <li>
+                        <span id="1">CHIEN</span>
+                        <span id="1">19,0000円</span>
+                    </li>
+
                 </ul>
             </div>
         </div>
@@ -30,33 +67,46 @@
             <h1 id="TxtNameHeader">さんの給料明細</h1>
             <ul>
                 <li itemprop="identifier">
-                    <span>番号</span>
+                    <span>基本給</span>
+                    <span>1000円</span>
                     <span id="staff_id"></span>
                 </li>
                 <li itemprop="name">
-                    <span>名前</span>
+                    <span>出勤日数</span>
+                    <span>24日</span>
                     <span id="staff_name"></span>
                 </li>
                 <li itemprop="telephone">
-                    <span>電話番号</span>
+                    <span>実働時間</span>
+                    <span>170時間</span>
                     <span id="tel"></span>
                 </li>
                 <li itemprop="address">
-                    <span>住所</span>
+                    <span>同伴</span>
+                    <span>5,0000円</span>
+                    <span id="residence"></span>
+                </li>
+                <li itemprop="address">
+                    <span>回数</span>
+                    <span>2回</span>
                     <span id="residence"></span>
                 </li>
                 <li itemprop="birthDate">
-                    <span>誕生日</span>
+                    <span>控除金額</span>
+                    <span>6000円</span>
                     <span id="birthday"></span>
                 </li>
                 <li itemprop="description">
-                    <span>備考</span>
+                    <span>基本給総合</span>
+                    <span>19,0000円</span>
                     <span id="remarks"></span>
                 </li>
                 <li itemprop="description">
-                    <span>備考</span>
+                    <span>総支給額</span>
+                    <span>23,0000円</span>
                     <span id="remarks"></span>
                 </li>
+
             </ul>
         </div>
         @csrf
