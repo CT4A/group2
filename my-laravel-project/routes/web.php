@@ -87,11 +87,15 @@ Route::get('/history', function () {
 Route::get('/keepbottle-list', function () {
     return view('keepbottle-list');
 });
+//キープボトル登録
 Route::get('/keepbottle-register', function () {
     return view('keepbottle-register');
 });
 Route::get('/keepbottle-list', [keepbottleController::class,'index']);
-
+// パスワード変更
+Route::get('/bottle-register', function () {
+    return view('bottle-register');
+});
 //予約
 Route::get('/reserve-register', function () {
     return view('reserve-register');

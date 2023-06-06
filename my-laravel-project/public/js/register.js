@@ -20,7 +20,9 @@ $(document).ready(function(){
     
     
     $(kindsSelecter).click(function(){
+        $(kindList).removeClass("kind-list-aft");
         if(!$(this).hasClass("kinds-selecter-aft")){
+            $(kindsSelecter).removeClass("kinds-selecter-aft");
             $(this).addClass("kinds-selecter-aft");
             $(this).find(kindList).addClass("kind-list-aft");
         }else{
@@ -29,18 +31,8 @@ $(document).ready(function(){
         
         }
     });
-    
 
-// $(kindsSelecter).click(function(){
-//     if(!$(kindsSelecter).hasClass("kinds-selecter-aft")){
-//     $(kindList).addClass("kind-list-aft");
-//     $(kindsSelecter).addClass("kinds-selecter-aft");
-//     }else{
-//         $(kindList).removeClass("kind-list-aft");
-//         $(kindsSelecter).removeClass("kinds-selecter-aft");
-//     }
-// });
-    
+
     $(kindsli).click(function () {
         var test = $(this).parent();
         var ListPush = test.parent().parent();
@@ -61,10 +53,6 @@ $(document).ready(function(){
     
         $(inptxt).click(function(event) {
             var test =$(inptxt).eq(event).parent();
-        });
-        $(plus).click(function(event) {
-            plusCnt+=1;
-            $(plus).before('<li><span>出勤者名' + plusCnt + '</span><input type="text" name="time"></li>');
         });
     });
     

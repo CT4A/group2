@@ -3,10 +3,9 @@ $(document).ready(function(){
     const ele = $(".intell-aft");
     const intellmain = $('main');
     const empName =$(".emp-name span");
-    var modal = document.getElementById("modalBox");
-    var btn = document.getElementById("boxBtn");
-    var span = document.getElementsByClassName("close")[0];
-
+    var modal = $("#modalBox");
+    var btn = $("#boxBtn");
+    var span = $(".close")[0];
     $(intellmain).on('click', function(event) {
       if ($(event.target).closest('.intell').length == 0) 
       {
@@ -18,10 +17,7 @@ $(document).ready(function(){
     $(empName).on('click', function(event) {
       event.stopPropagation();
       var id = $(this).attr("id");
-      //console.log("clicked empName span");
-      //console.log("id = "+ id);
       if($(event.target).closest("span").length) {
-        //console.log("add intell-aft");
         $('body').addClass("intell-aft");
       }
       
@@ -36,7 +32,6 @@ $(document).ready(function(){
         data: {"id":id
             },
         success: function (data) {
-          // console.log("success");
           showInfo(data[0]);
         }
       });
