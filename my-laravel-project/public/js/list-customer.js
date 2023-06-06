@@ -13,18 +13,13 @@ $(document).ready(function(){
         $('body').removeClass("intell-aft");
       }
     });
-    
+
     //スタッフのリストの名前をクリックの処理
     $(empName).on('click', function(event) {
-      event.stopPropagation();
       var id = $(this).attr("id");
-      //console.log("clicked empName span");
-      //console.log("id = "+ id);
       if($(event.target).closest("span").length) {
-        //console.log("add intell-aft");
         $('body').addClass("intell-aft");
       }
-      
       $.ajaxSetup({
         headers:{
             'X-CSRF-TOKEN' : $('meta[name="csrf-token"]').attr('content')
@@ -36,18 +31,41 @@ $(document).ready(function(){
         data: {"id":id
             },
         success: function (data) {
-          // console.log("success");
           showInfo(data[0]);
         }
       });
     });
 
+    //顧客の情報を表示する
     function showInfo(data){
       $("#TxtNameHeader").text(data["customer_name"]+"様の情報");
       $("#customer_name").text(data["customer_name"]);
       $("#birthday").text(data["birthday"]);
       $("#company_name").text(data["company_name"]);
       $("#staff_name").text(data["staff_name"]);
-        console.log(data['staff_name']);
     }
+
+    var flagSearch=0;
+    //検索機能
+    $('#search').keyup(function (e) { 
+      console.log(e.key);
+      console.log("tesa");
+      let keySearch=$(this).val();
+      console.log(keySearch);
+      let staffList = $(".emp-name ul li span");
+      staffList.fadeIn();
+      // staffList.fadeIn(0, function () {
+        
+      // });
+      for (let i = 0; i < staffList.length; i++) {
+        if (staffList[i].textContent.indexOf(keySearch) == -1) {
+          $(".emp-name ul li span").eq(i).fadeOut();
+        }
+        
+        
+        // let listPositonTop =  $(".emp-name ul").offset().top;
+        // let idPositionTop = $('#'+id).offset().top;
+        // $(".emp-name ul").scroll(listPositonTop-idPositionTop);
+      }
+    });
   });

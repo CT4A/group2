@@ -8,4 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class liquor_mg extends Model
 {
     use HasFactory;
+    protected $fillable=['liquor_name','liquor_type','remarks'];
 }

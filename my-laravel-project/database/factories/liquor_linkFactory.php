@@ -25,7 +25,9 @@ class liquor_linkFactory extends Factory
             'liquor_number'=>$i++,
             'customer_id'=>function(){
                 return \App\Models\customer::inRandomOrder()->first()->customer_id;
-            }
+            },
+            'group_name'=>'なし',
+            'liquor_day'=>fake()->date()
         ];
     }
 }

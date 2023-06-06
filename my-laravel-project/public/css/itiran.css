@@ -92,7 +92,19 @@ section span {
   line-height: 2;
   cursor: pointer;
 }
-
+.emp-list-area .search-list{
+  position: relative;
+  width: 80%;
+  margin: -50px auto 50px;
+  background-color: #F6F6F6;
+  border-radius: 25px;
+  z-index: 5;
+}
+.emp-list-area .search-list li{
+  cursor: pointer;
+  padding: 3px 10px;
+  padding-bottom: 1px;
+}
 @media screen and (max-width: 780px) {
   .intell {
     background-color: #ccc;
