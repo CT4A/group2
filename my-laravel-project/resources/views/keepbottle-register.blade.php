@@ -16,7 +16,6 @@
                     @csrf
                     <li class="kinds">
                         <span>所有者</span>
-<<<<<<< HEAD
                         <div class="kinds-selecter">
                         <span>選択してください</span>
                         <ul class="kind-list" id ="">
@@ -42,14 +41,6 @@
                         </ul> 
                         </div>
                         <input type="text" id ="liquor_type" class="kinds-inp" name="liquor_name" placeholder="種類を入力してください">   
-=======
-                        <input type="text" name="customer_name">
-                        <select name="liquor_type">
-                            <option value="ウイスキー">ウイスキー</option>
-                            <option value="日本酒">日本酒</option>
-                            <option value="その他">その他</option>
-                        </select>
->>>>>>> 9672b6edf2ce0e5bdf311e2e49fe6e134cac716a
                     </li>
                     <li class="kinds">
                         <span>酒名</span>
@@ -64,23 +55,6 @@
                         </ul> 
                         </div>
                         <input type="text" id ="liquor_type" class="kinds-inp" name="liquor_name" placeholder="種類を入力してください">   
-                    </li>
-                    <li class="kinds">
-                        <select name="liquor_type">
-                            <option value="ウイスキー">ウイスキー</option>
-                            <option value="日本酒">日本酒</option>
-                            <option value="その他">その他</option>
-                        </select>
-                        <span>種類</span>
-                        <div class="kinds-selecter" id ="">
-                            <span>選択してください</span>
-                            <ul class="kind-list">
-                            <li>ウイスキー</li>
-                            <li>日本酒</li>
-                            <li>その他</li>
-                        </ul>
-                        </div>
-                        <input type="text" id ="liquor_type" class="kinds-inp" name="liquor_type" placeholder="種類を入力してください">
                     </li>
                     <li>
                         <span>日付</span>
