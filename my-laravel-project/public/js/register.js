@@ -38,7 +38,7 @@ $(document).ready(function(){
         if($(this).text() == "その他"){
             $(kinds).addClass("kinds-aft");
             console.log(test.find(kindsInp))
-            test.find(kindsInp).val("");
+            ListPush.find(kindsInp).val($("").text());
             console.log("その他");
         }else{
             console.log($(this).text())
