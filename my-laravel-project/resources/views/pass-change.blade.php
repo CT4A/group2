@@ -1,5 +1,5 @@
 @extends('main')
-@yield('title','社員登録')
+@yield('title','パスワード変更')
 @section('styles')
 <link rel="stylesheet" href="./css/register.css">
 <link rel="stylesheet" href="./css/information.css">
@@ -8,21 +8,24 @@
 <main>
     <section class="register">
         <div class="register-area">
-            <h1>社員新規作成</h1>
+            <h1>パスワード変更</h1>
             <ul>
                 <form action="/emp-register" method="POST">
                     @csrf
-                <li>
+                <li class="passList">
                     <span>現在のパスワード</span>
-                    <input type="text" name="staff_name">
+                    <input type="text" name="now_password" required>
+                    <span></span>
                 </li>
-                <li>
+                <li class="passList">
                     <span>新規パスワード</span>
-                    <input type="text" name="staff_name" >
+                    <input type="text" name="new_password" required>
+                    <span></span>
                 </li>
-                <li>
+                <li class="passList">
                     <span>新規パスワード[確認]</span>
-                    <input type="text" name="staff_name">
+                    <input type="text" name="new_password" required>
+                    <span></span>
                 </li>
                 <input type="submit" value="登録">
                 </form>

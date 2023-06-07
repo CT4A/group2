@@ -17,8 +17,6 @@
             opacity: 0;
             height: 0;
         }
-        .open{
-        }
         width: 80%;
         margin: 0 10%;
         ol{
@@ -70,13 +68,12 @@
             border-radius: 25px;
         }
         .kinds{
+            input[type="text"]{
+                height: 0;
+                width: 0;
+            }
             position: relative;
             }
-
-        input[type="text"]{
-            height: 0;
-            width: 0;
-        }
     }
         .kinds-aft{
             input[type="text"]{
@@ -122,9 +119,6 @@
         li:hover{
             background-color: #fcfcfc36;
         }
-        // .kind-Click{
-        //     background-color: #fcfcfc36;
-        // }
         &::-webkit-scrollbar{
             width: 3px;
         }
@@ -136,4 +130,20 @@
             border-radius: 25px;
         }
     }
-}
+    .passList{
+        input[type="text"]:valid + span::after{
+                position: absolute;
+                content: "";
+                display: block;
+                color: #fff;
+                font-size: 24px;
+                width: 100%;
+            }
+            input[type="text"]:invalid + span::after{
+                content: "パスワードを入力してください";
+                display: block;
+                color: #fff;
+                font-size: 24px;
+                width: 100%;
+            }
+        }
