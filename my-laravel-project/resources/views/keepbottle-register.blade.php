@@ -76,7 +76,7 @@
                     </li>
                     <li>
                         <span>備考</span>
-                        <textarea name="remarks" ></textarea>
+                        <textarea name="remarks"></textarea>
                     </li>
                     <input type="submit" value="登録">
                 </form>

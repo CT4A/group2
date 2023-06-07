@@ -36,12 +36,9 @@ $(document).ready(function(){
         var ListPush = test.parent().parent();
         test.find(kindsInp).addClass("kind-Click");
         if($(this).text() == "その他"){
-            $(kinds).addClass("kinds-aft");
-            console.log(test.find(kindsInp))
+            ListPush.addClass("kinds-aft");
             ListPush.find(kindsInp).val($("").text());
-            console.log("その他");
         }else{
-            console.log($(this).text())
             ListPush.addClass("kinds-aft");
             ListPush.find(kindsInp).val($(this).text());
         }

@@ -109,3 +109,8 @@ Route::get('/pay-statement', function () {
 Route::get('/pass-change', function () {
     return view('pass-change');
 });
+
+// 伝票一覧
+Route::get('/list-bill', function () {
+    return view('list-bill');
+});
