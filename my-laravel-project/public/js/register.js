@@ -8,8 +8,6 @@ $(document).ready(function(){
     const kindsSelecter = $(".kinds-selecter");
     const kindsInp =$(".kinds-inp");
     var plusCnt =1;
-    
-    
     $(chkbox).click(function () {
         if ($("#checkbox").prop("checked") == true) {
             $('ol').removeClass("close").addClass("open");
@@ -43,16 +41,23 @@ $(document).ready(function(){
             test.find(kindsInp).val("");
             console.log("その他");
         }else{
+            console.log($(this).text())
             ListPush.addClass("kinds-aft");
             ListPush.find(kindsInp).val($(this).text());
         }
         test.find(kindList).removeClass("kind-list-aft");
         test.find(kindsSelecter).removeClass("kinds-selecter-aft");
     });
-    
-    
         $(inptxt).click(function(event) {
             var test =$(inptxt).eq(event).parent();
         });
     });
+    $(".passList").each(function(){
+        var nowpass = $(this).attr(".now_password");
+        console.log(nowpass);
+    })
     
+    // function passChange(){
+        // var nowpass = attr("new_passwordConf");
+        // console.log(nowpass); 
+    // }

@@ -10,7 +10,7 @@
 <main>
 <section class="register">
         <div class="register-area">
-            <h1>キープボトル登録</h1>
+            <h1>ボトル登録</h1>
             <ul>
                 <form action="/keepbottle-register" method="POST">
                     @csrf
@@ -26,16 +26,16 @@
                             <li>その他</li>
                         </ul> 
                         </div>
-                        <input type="text" id ="liquor_type" class="kinds-inp" name="liquor_name" placeholder="種類を入力してください">   
+                        <input type="text" id ="liquor_type" class="kinds-inp" name="liquor_name" placeholder="種類を入力してください" required>   
                     </li>
                     <li>
                         <span>酒名</span>
-                        <input type="text" name="テーブル表に載ってない">
+                        <input type="text" name="テーブル表に載ってない" required>
                     </li>
-                    <li>
+                    <!-- <li>
                         <span>備考</span>
                         <textarea name="remarks" ></textarea>
-                    </li>
+                    </li> -->
                     <input type="submit" value="登録">
                 </form>
             </ul>

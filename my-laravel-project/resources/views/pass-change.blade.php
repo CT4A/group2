@@ -24,7 +24,7 @@
                 </li>
                 <li class="passList">
                     <span>新規パスワード[確認]</span>
-                    <input type="text" name="new_password" required>
+                    <input type="text" name="new_passwordConf" required>
                     <span></span>
                 </li>
                 <input type="submit" value="登録">
