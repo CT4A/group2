@@ -17,7 +17,6 @@ return new class extends Migration
         Schema::create('attend_leaves', function (Blueprint $table) {
             $table->unsignedBigInteger('staff_id');
             $table->date('work_date');//日付
-
             $table->time('attend_time');
             $table->time('leaving_work')->nullable();
             $table->unsignedBigInteger('num_people')->nullable()->default(0);

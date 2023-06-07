@@ -15,14 +15,20 @@ class shift_mgFactory extends Factory
      * @return array<string, mixed>
      */
     public function definition(): array
-    {
+    {   
+        $start_time=fake()->time();
+        $end_time=fake()->time();
+        while($start_time >= $end_time){
+            $start_time=fake()->time();
+            $end_time=fake()->time();
+        }
         return [
             'staff_id'=>function(){
                 return \App\Models\employee::inRandomOrder()->first()->staff_id;
             },
             'request_date'=>fake()->date(),
-            'start_time'=>fake()->time(),
-            'end_time'=>fake()->time()
+            'start_time'=>$start_time,
+            'end_time'=>$end_time
             //
         ];
     }

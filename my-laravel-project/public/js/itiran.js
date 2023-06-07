@@ -3,10 +3,9 @@ $(document).ready(function(){
     const ele = $(".intell-aft");
     const intellmain = $('main');
     const empName =$(".emp-name span");
-    var modal = document.getElementById("modalBox");
-    var btn = document.getElementById("boxBtn");
-    var span = document.getElementsByClassName("close")[0];
-
+    var modal = $("#modalBox");
+    var btn = $("#boxBtn");
+    var span = $(".close")[0];
     $(intellmain).on('click', function(event) {
       if ($(event.target).closest('.intell').length == 0) 
       {
@@ -18,10 +17,7 @@ $(document).ready(function(){
     $(empName).on('click', function(event) {
       event.stopPropagation();
       var id = $(this).attr("id");
-      //console.log("clicked empName span");
-      //console.log("id = "+ id);
       if($(event.target).closest("span").length) {
-        //console.log("add intell-aft");
         $('body').addClass("intell-aft");
       }
       
@@ -36,12 +32,28 @@ $(document).ready(function(){
         data: {"id":id
             },
         success: function (data) {
-          // console.log("success");
           showInfo(data[0]);
         }
       });
     });
-
+    var flagSearch=0;
+    //検索機能
+    $('#search').keyup(function (e) { 
+      let keySearch=$(this).val();
+      let staffList = $(".emp-name ul li span");
+      staffList.fadeIn();
+      for (let i = 0; i < staffList.length; i++) {
+        if (staffList[i].textContent.indexOf(keySearch) == -1) {
+          $(".emp-name ul li span").eq(i).fadeOut();
+        }
+        
+        
+        // let listPositonTop =  $(".emp-name ul").offset().top;
+        // let idPositionTop = $('#'+id).offset().top;
+        // $(".emp-name ul").scroll(listPositonTop-idPositionTop);
+      }
+    });
+  
     function showInfo(data){
       $("#TxtNameHeader").text(data["staff_name"]+"の情報");
       $("#staff_id").text(data["staff_id"]);
@@ -50,18 +62,6 @@ $(document).ready(function(){
       $("#residence").text(data["residence"]);
       $("#birthday").text(data["birthday"]);
       $("#remarks").text(data["remarks"]);
-
     }
-  });
-// btn.onclick = function () {
-//   modal.style.display = "block";
-// };
-// span.onclick = function () {
-//   modal.style.display = "none";
-// };
 
-// window.onclick = function (event) {
-//   if (event.target == modal) {
-//     modal.style.display = "none";
-//   }
-// };
+});

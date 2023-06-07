@@ -19,11 +19,12 @@ class CustomerFactory extends Factory
     {
         return [
             'customer_name'=>fake()->name(),
+            'company_name'=>'なし',
             'birthday'=>fake()->date(),
             'staff_id'=>function () {
                 return \App\Models\employee::inRandomOrder()->first()->staff_id;
-            }
-            //
+            },
+            'remarks'=>'なし'
         ];
     }
 }

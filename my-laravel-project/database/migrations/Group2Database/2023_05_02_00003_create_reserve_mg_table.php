@@ -14,10 +14,9 @@ return new class extends Migration
     {
         Schema::create('reserve_mgs', function (Blueprint $table) {
             $table->unsignedBigInteger('reserve_id')->primary();
-            $table->string('customer');
+            $table->string('customer_name');
             $table->unsignedBigInteger('staff_id');
             $table->date('reserve_date');
-            
             $table->time('reserve_time')->nullable()->default(null);
             $table->unsignedInteger('reserve_people')->nullable()->default(null);
             $table->unsignedInteger('table_num')->nullable()->default(null);

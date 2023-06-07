@@ -14,28 +14,47 @@
             <ul>
                 <form action="/keepbottle-register" method="POST">
                     @csrf
-                    <li>
+                    <li class="kinds">
                         <span>所有者</span>
-                        <input type="text" name="customer_name">
-                    </li>
-                    <li>
-                        <span>酒名</span>
-                        <input type="text" name="liquor_name">
+                        <div class="kinds-selecter">
+                        <span>選択してください</span>
+                        <ul class="kind-list" id ="">
+                            <li>test1</li>
+                            <li>test2</li>
+                            <li>test3</li>
+                            <li>test4</li>
+                            <li>その他</li>
+                        </ul> 
+                        </div>
+                        <input type="text" id ="liquor_type" class="kinds-inp" name="customer_name" placeholder="種類を入力してください">   
                     </li>
                     <li class="kinds">
-                        <span>種類</span>
-                        <div class="kinds-selecter">選択してください</div>
-                        <ul class="kind-list">
-                            <li>ウイスキー</li>
-                            <li>ウイスキー</li>
-                            <li>ウイスキー</li>
-                            <li>ウイスキー</li>
-                            <li>日本酒</li>
-                            <li>日本酒</li>
-                            <li>日本酒</li>
+                        <span>会社名</span>
+                        <div class="kinds-selecter">
+                        <span>選択してください</span>
+                        <ul class="kind-list" id ="">
+                            <li>test1</li>
+                            <li>test2</li>
+                            <li>test3</li>
+                            <li>test4</li>
                             <li>その他</li>
-                        </ul>
-                        <input type="text" id ="liquor_type" placeholder="種類を入力してください">
+                        </ul> 
+                        </div>
+                        <input type="text" id ="liquor_type" class="kinds-inp" name="liquor_name" placeholder="種類を入力してください">   
+                    </li>
+                    <li class="kinds">
+                        <span>酒名</span>
+                        <div class="kinds-selecter">
+                        <span>選択してください</span>
+                        <ul class="kind-list" id ="">
+                            <li>test1</li>
+                            <li>test2</li>
+                            <li>test3</li>
+                            <li>test4</li>
+                            <li>その他</li>
+                        </ul> 
+                        </div>
+                        <input type="text" id ="liquor_type" class="kinds-inp" name="liquor_name" placeholder="種類を入力してください">   
                     </li>
                     <li>
                         <span>日付</span>

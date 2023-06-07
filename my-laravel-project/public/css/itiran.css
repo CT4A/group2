@@ -70,6 +70,9 @@ section span {
   border-radius: 50px;
 }
 .emp-list-area .emp-name ul {
+  justify-content: center;
+  align-items: center;
+  display: grid;
   height: 300px;
   overflow-y: scroll;
 }
@@ -85,7 +88,7 @@ section span {
 }
 .emp-list-area .emp-name ul li {
   margin: 10px 0;
-  text-align: center;
+  white-space: nowrap;
 }
 .emp-list-area .emp-name ul li span {
   border-bottom: #000 solid 2px;
@@ -97,27 +100,26 @@ section span {
   .intell {
     background-color: #ccc;
     transition: all 1s;
-    position: inherit;
+    position: fixed;
     left: 500px;
+    top: 0;
     opacity: 0;
     width: 80%;
     margin: 150px 10%;
   }
 }
-.intell ul {
+
+ul {
   margin: 50px auto;
   font-size: 24px;
 }
-.intell ul li {
+ul li {
   display: flex;
 }
-.intell ul li span {
+ul li span {
   margin: 10px;
   word-wrap: break-word; /* 長い単語を途中で改行する */
   overflow-wrap: break-word; /* 上記のプロパティのエイリアス */
-}
-.intell ul li span:nth-child(1) {
-  width: 100px;
 }
 
 @media screen and (max-width: 780px) {
@@ -137,17 +139,5 @@ section span {
     background: #F4F1EC;
     pointer-events: all;
     transition: all 0.5s;
-  }
-  .intell-aft .intell::before {
-    content: "x";
-    position: absolute;
-    right: -30px;
-    top: -20px;
-    padding: 20px;
-    background-color: rgba(0, 0, 0, 0.5);
-    font-size: 24px;
-    font-weight: 800;
-    pointer-events: all;
-    color: aliceblue;
   }
 }/*# sourceMappingURL=itiran.css.map */

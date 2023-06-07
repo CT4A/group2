@@ -11,23 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-            // 番号:(staff_id)　主キー
-            // パスワード:(staff_pass)
-            // 社員名:(staff_name)
-            // 電話番号:(tel)
-            // 住所:(residence)
-            // 時給:(hourly_wage)
-            // 誕生日:(birthday)
-            // 備考:(remarks)
         Schema::create('employees', function (Blueprint $table) {
             $table->unsignedBigInteger('staff_id')->autoIncrement();
             $table->string('staff_pass');
             $table->string('staff_name');
-            $table->string('tel')->nullable();
-            $table->string('residence')->nullable();
-            $table->string('hourly_wage')->nullable();
-            $table->string('birthday')->nullable();
-            $table->string('remarks')->nullable();
+            $table->string('tel');
+            $table->string('residence');
+            $table->string('hourly_wage');
+            $table->string('birthday');
+            $table->string('remarks')->nullable()->default(null);
             $table->rememberToken();
             $table->timestamps(); 
         });

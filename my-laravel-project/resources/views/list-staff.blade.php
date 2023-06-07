@@ -5,7 +5,6 @@
 @section('title', '社員一覧')
 
 @section('content')
-<main>
     <section class="emp-list">
         <div class="emp-list-area">
             <h1>社員一覧</h1>
@@ -13,12 +12,12 @@
                 <button type="submit">
                     <img src="./img/oqCh3X9ndfQ__xOuxd5Oww==.png" alt="">
                 </button>
-                <input type="text" placeholder="社員の名前を入力してください">
+                <input id="search" type="text" placeholder="社員の名前を入力してください">
             </form>
             <div class="emp-name">
                 <ul>
                     @foreach ($staffs as $staff)
-                    <li><span id={{$staff->staff_id}}>{{$staff->staff_name}}</span></li>
+                    <li><span id='{{$staff->staff_id}}'>{{$staff->staff_name}}</span></li>
                     @endforeach
                 </ul>
             </div>
@@ -56,7 +55,6 @@
         </div>
         @csrf
     </section>
-</main>
 @endsection
 @section('scripts')
 <script src="{{asset('js/itiran.js')}}"></script>

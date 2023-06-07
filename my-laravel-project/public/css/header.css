@@ -40,6 +40,7 @@ header {
   border-bottom: #c1ab05 solid 3px;
   display: flex;
   font-size: 24px;
+  z-index: 9999;
 }
 header img {
   left: 0;

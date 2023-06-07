@@ -13,15 +13,20 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('liquor_links', function (Blueprint $table) {
-            $table->unsignedBigInteger('id')->autoIncrement();
             $table->unsignedBigInteger('customer_id');
             $table->unsignedBigInteger('liquor_id');    
             $table->unsignedBigInteger('liquor_number');//自分で入力可能   
+            $table->string('group_name')->nullable()->default('なし');
+            $table->date('liquor_day');
+            $table->string('remarks')->nullable()->default(null);
             $table->rememberToken();
             $table->timestamps();
+            
             //外部キー
             $table->foreign('liquor_id')->references('liquor_id')->on('liquor_mgs');
             $table->foreign('customer_id')->references('customer_id')->on('customers');
+            //主キー
+            $table->primary(['customer_id','liquor_number']);
         });
     }
 

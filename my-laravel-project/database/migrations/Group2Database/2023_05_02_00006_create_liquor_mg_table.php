@@ -19,9 +19,11 @@ return new class extends Migration
             $table->string('liquor_type');
 
             $table->integer('liquor_number')->default(1);            
-            $table->string('remarks')->nullable();
+            $table->string('remarks')->nullable()->default(null);
             $table->rememberToken();
             $table->timestamps();
+            
+            $table->unique(['liquor_name','liquor_type']);
         });
     }
 

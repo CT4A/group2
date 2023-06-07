@@ -76,40 +76,73 @@
   height: 0;
   width: 0;
 }
-.register-area ul .kinds-aft input[type=text] {
+.register-area .kinds-aft input[type=text] {
   height: 100%;
   width: 100%;
 }
-.register-area .kinds-selecter {
+
+.kinds-selecter {
   position: relative;
   width: 80%;
   margin: auto;
 }
-.register-area .kinds-selecter::after {
+.kinds-selecter::after {
   content: "▼";
   position: absolute;
   right: 0;
   transition: all 0.3s;
 }
-.register-area .kinds-selecter-aft::after {
+
+.kinds-selecter-aft::after {
   transition: all 0.3s;
   transform: rotateZ(-180deg);
 }
-.register-area .kind-list {
+
+.kind-list {
   position: absolute;
   background-color: #666;
   color: #333;
   height: 0;
   overflow-x: hidden;
   transition: all 0s;
+  z-index: 100;
+  width: 100%;
+  margin: auto;
 }
-.register-area .kind-list-aft {
+
+.kind-list-aft {
   transition: all 0.5s;
   height: 150px;
   overflow-x: scroll;
   overflow-x: hidden;
   border: #000 solid 2px;
 }
-.register-area .kind-list-aft li:hover {
+.kind-list-aft li:hover {
   background-color: rgba(252, 252, 252, 0.2117647059);
+}
+.kind-list-aft::-webkit-scrollbar {
+  width: 3px;
+}
+.kind-list-aft::-webkit-scrollbar-track {
+  background-color: #ccc;
+}
+.kind-list-aft::-webkit-scrollbar-thumb {
+  background: #6389fa;
+  border-radius: 25px;
+}
+
+.passList input[type=text]:valid + span::after {
+  position: absolute;
+  content: "";
+  display: block;
+  color: #fff;
+  font-size: 24px;
+  width: 100%;
+}
+.passList input[type=text]:invalid + span::after {
+  content: "パスワードを入力してください";
+  display: block;
+  color: #fff;
+  font-size: 24px;
+  width: 100%;
 }/*# sourceMappingURL=register.css.map */

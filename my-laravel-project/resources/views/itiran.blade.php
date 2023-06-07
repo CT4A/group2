@@ -18,7 +18,7 @@
         <div class="emp-name">
         <ul>
             @foreach ($staffs as $staff)
-                <li><span id={{$staff->staff_id}}>{{$staff->staff_name}}</span></li>
+                <li><span id="{{$staff->staff_id}}">{{$staff->staff_name}}</span></li>
             @endforeach
         </ul>
     </div>

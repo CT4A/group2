@@ -1,4 +1,5 @@
 
 <h1>Test Page</h1>
-<p>liquors:</p>
-{{$liquors}}
+<h2>customer-register Test</h2>
+<p>customer:</p>
+{{$customer}}
