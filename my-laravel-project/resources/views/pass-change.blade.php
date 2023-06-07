@@ -13,28 +13,16 @@
                 <form action="/emp-register" method="POST">
                     @csrf
                 <li>
-                    <span>社員名</span>
+                    <span>現在のパスワード</span>
                     <input type="text" name="staff_name">
                 </li>
                 <li>
-                    <span>電話番号</span>
-                    <input type="text" name="tel">
+                    <span>新規パスワード</span>
+                    <input type="text" name="staff_name" >
                 </li>
                 <li>
-                    <span>住所</span>
-                    <input type="text" name="residence">
-                </li>
-                <li>
-                    <span>誕生日</span>
-                    <input type="text" name="birthday">
-                </li>
-                <li>
-                    <span>時給</span>
-                    <input type="text" name="hourly_wage">
-                </li>
-                <li>
-                    <span>備考</span>
-                    <textarea name="remarks" ></textarea>
+                    <span>新規パスワード[確認]</span>
+                    <input type="text" name="staff_name">
                 </li>
                 <input type="submit" value="登録">
                 </form>

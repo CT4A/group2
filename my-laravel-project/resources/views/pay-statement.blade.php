@@ -18,8 +18,8 @@
             <div class="emp-name">
                 <ul>
                     <li>
-                        <span id="1">名前</span>
-                        <span id="1">給料</span>
+                        <span >名前</span>
+                        <span >給料</span>
                     </li>
                     <li>
                         <span id="1">NGUYEN</span>
