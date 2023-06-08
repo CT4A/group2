@@ -78,6 +78,7 @@ Route::get('/list-customer' ,[CustomerController::class,'index']);
 Route::post('/getInfoCustomer/{id}', [CustomerController::class,'GetListCustomer']);
 Route::post('/customer-register', [CustomerController::class,'register']);
 
+
 //出勤退勤履歴
 Route::get('/history', function () {
     return view('history');
@@ -87,10 +88,9 @@ Route::get('/history', function () {
 Route::get('/keepbottle-list', function () {
     return view('keepbottle-list');
 });
-Route::get('/keepbottle-register', function () {
-    return view('keepbottle-register');
-});
-Route::get('/keepbottle-list', [keepbottleController::class,'index']);
+Route::get('/keepbottle-register', [keepbottleController::class,'indexRegister']);
+Route::get('/keepbottle-list', [keepbottleController::class,'indexList']);
+Route::post('/getLiquorType/{liquor_name}', [keepbottleController::class,'GetLiquorType']);
 
 //予約
 Route::get('/reserve-register', function () {

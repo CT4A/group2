@@ -17,7 +17,6 @@ return new class extends Migration
             $table->unsignedBigInteger('liquor_id')->autoIncrement();
             $table->string('liquor_name');
             $table->string('liquor_type');
-
             $table->integer('liquor_number')->default(1);            
             $table->string('remarks')->nullable()->default(null);
             $table->rememberToken();
