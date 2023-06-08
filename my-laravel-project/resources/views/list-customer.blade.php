@@ -4,11 +4,10 @@
 @endsection
 @section('title', '顧客一覧')
 @section('content')
-<main>
     <section class="emp-list">
         <div class="emp-list-area">
         <h1>顧客一覧</h1>
-        <form action="#">
+        <form action="#" class="search">
                 <button type="submit">
                     <img src="./img/oqCh3X9ndfQ__xOuxd5Oww==.png" alt="">
                 </button>
@@ -17,7 +16,7 @@
         <div class="emp-name">
         <ul>
             @foreach ($customers as $customer)
-                <li><span id={{$customer->customer_id}}>{{$customer->customer_name}}</span></li>
+                <li><span id="{{$customer->customer_id}}">{{$customer->customer_name}}</span></li>
             @endforeach
         </ul>
     </div>
@@ -47,8 +46,8 @@
         </div>
         @csrf
     </section>
-</main>
 @endsection
 @section('scripts')
+<script src="{{asset('js/itiran.js')}}"></script>
 <script src="{{asset('js/list-customer.js')}}"></script>
 @endsection

@@ -3,14 +3,14 @@ $(document).ready(function(){
     const ele = $(".intell-aft");
     const intellmain = $('main');
     const empName =$(".emp-name span");
-    var modal = document.getElementById("modalBox");
-    var btn = document.getElementById("boxBtn");
-    var span = document.getElementsByClassName("close")[0];
-
+    var modal =$("#modalBox");
+    var btn =$("boxBtn");
+    var span =$(".boxBtn")[0];
     $(intellmain).on('click', function(event) {
-      if ($(event.target).closest('.intell').length == 0) 
+      if ($(event.target).closest('.intell').length == 0 && $("body").hasClass("intell-aft")) 
       {
-        $('body').removeClass("intell-aft");
+        console.log("test");
+        // $('body').removeClass("intell-aft");
       }
     });
 

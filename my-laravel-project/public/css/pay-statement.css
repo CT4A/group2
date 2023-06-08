@@ -34,7 +34,7 @@ section {
     }
 }
 section h1 {
-    font-size: 3.8em;
+    font-size: 3em;
     border-bottom: solid 1px #000;
     width: 70%;
     margin: 10px auto;
@@ -104,17 +104,11 @@ section span {
     background: #000;
 }
 
-@media screen and (max-width: 780px) {
-    .intell {
-        background-color: #ccc;
-        transition: all 1s;
-        position: inherit;
-        left: 500px;
-        opacity: 0;
-        width: 80%;
-        margin: 150px 10%;
-    }
+#span1 {
+    font-size: 29px;
+    font-weight: bold;
 }
+
 .intell ul {
     margin: 50px auto;
     font-size: 24px;
@@ -130,6 +124,18 @@ section span {
 
 .intell ul li span:nth-child(1) {
     width: 150px;
+}
+
+@media screen and (max-width: 780px) {
+    .intell {
+        background-color: #ccc;
+        transition: all 1s;
+        position: inherit;
+        left: 500px;
+        opacity: 0;
+        width: 80%;
+        margin: 150px 10%;
+    }
 }
 
 @media screen and (max-width: 780px) {
@@ -163,3 +169,26 @@ section span {
         color: aliceblue;
     }
 } /*# sourceMappingURL=itiran.css.map */
+
+/* test */
+@media screen and (max-width: 780px) {
+    .emp-list {
+        /* background-color: #f4f1ec; */
+        left: 500px;
+        width: 100%;
+        margin: 0;
+    }
+
+    input::placeholder {
+        width: 100%;
+        font-size: 20px;
+    }
+
+    .emp-list-area .emp-name ul li {
+        display: flex;
+    }
+    .emp-list-area .emp-name ul li span {
+        margin-left: 0;
+        margin-right: 0;
+    }
+}

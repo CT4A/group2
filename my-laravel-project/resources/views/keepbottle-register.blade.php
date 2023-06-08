@@ -26,7 +26,7 @@
                         </ul> 
                         </div>
                         <input type="text" id ="customer_name" class="kinds-inp" name="customer_name" placeholder="種類を入力してください">  
-                        <input type="text" id ="customer_id" class="kinds-inp-hidden" name="customer_id" value="" hidden>    
+                        <input type="text" id ="customer_id" class="kinds-inp-hidden" name="customer_id" value="" hidden>      
                     </li>
                     <li class="kinds alcohol">
                         <span>酒名</span>
@@ -39,7 +39,7 @@
                             <li>その他</li>
                         </ul> 
                         </div>
-                        <input type="text" id ="liquor_name" class="kinds-inp" name="liquor_name" placeholder="種類を入力してください"> 
+                        <input type="text" id ="liquor_type" class="kinds-inp" name="liquor_name" placeholder="種類を入力してください">   
                     </li>
                     <li class="kinds liquorType">
                         <span>種類</span>
@@ -50,8 +50,7 @@
                             {{-- <li>その他</li> --}}
                         </ul> 
                         </div>
-                        <input type="text" id ="liquor_type" class="kinds-inp" name="liquor_type" placeholder="種類を入力してください"> 
-                        <input type="text" id ="liquor_id " class="kinds-inp-hidden" name="liquor_id" value="" hidden>      
+                        <input type="text" id ="liquor_type" class="kinds-inp" name="liquor_name" placeholder="種類を入力してください">   
                     </li>
                     <li>
                         <span>日付</span>
@@ -59,7 +58,7 @@
                     </li>
                     <li>
                         <span>備考</span>
-                        <textarea name="remarks" ></textarea>
+                        <textarea name="remarks"></textarea>
                     </li>
                     <input type="submit" value="登録">
                 </form>

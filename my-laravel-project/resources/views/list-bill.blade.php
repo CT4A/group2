@@ -2,23 +2,26 @@
 @section('styles')
 <link rel="stylesheet" href="{{asset('css/itiran.css')}}">
 @endsection
-@section('title', '社員一覧')
+@section('title', '伝票一覧')
 
 @section('content')
     <section class="emp-list">
         <div class="emp-list-area">
-            <h1>社員一覧</h1>
-            <form action="#" class="search">
-                <button type="submit">
-                    <img src="./img/oqCh3X9ndfQ__xOuxd5Oww==.png" alt="">
-                </button>
-                <input id="search" type="text" placeholder="社員の名前を入力してください">
+            <h1>伝票一覧</h1>
+            <form action="#">
+                <section class="filter">
+                    <button type="button" class="filter-btn">絞り込み</button>
+                    <div class="filter-area">
+                        <ul class="filter-header">
+                            <li class="filter-close"><span></span></li>
+                            <li><h2>フィルター</h2></li>
+                            <li><span class="filter-clear">クリア</span></li>
+                        </ul>
+                    </div>
+                </section>
             </form>
             <div class="emp-name">
                 <ul>
-                    @foreach ($staffs as $staff)
-                    <li><span id='{{$staff->staff_id}}'>{{$staff->staff_name}}</span></li>
-                    @endforeach
                 </ul>
             </div>
         </div>

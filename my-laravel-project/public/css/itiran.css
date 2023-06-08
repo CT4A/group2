@@ -44,7 +44,57 @@ section span {
   font-size: 24px;
 }
 
-.emp-list-area form {
+.emp-list-area .filter-area {
+  background-color: #ccc;
+  width: 80%;
+  height: 100%;
+  margin: 0 10%;
+  z-index: 999;
+  position: absolute;
+}
+.emp-list-area .filter-area .filter-header {
+  border-bottom: solid 3px #000;
+  display: flex;
+}
+.emp-list-area .filter-area .filter-header .filter-close span {
+  position: relative;
+  left: 20px;
+}
+.emp-list-area .filter-area .filter-header .filter-close span::before {
+  position: absolute;
+  content: "";
+  display: block;
+  width: 20px;
+  height: 2px;
+  background-color: #000;
+  top: 0;
+  transform: rotateZ(-315deg);
+}
+.emp-list-area .filter-area .filter-header .filter-close span::after {
+  position: absolute;
+  content: "";
+  background-color: #000;
+  display: block;
+  width: 20px;
+  height: 2px;
+  top: 0;
+  transform: rotateZ(315deg);
+}
+.emp-list-area .filter-area .filter-header li {
+  width: 100%;
+}
+.emp-list-area .filter-area .filter-header li :nth-child(1) {
+  width: 100%;
+}
+.emp-list-area .filter-area .filter-header li .filter-clear {
+  text-align: right;
+  margin-right: 40px;
+}
+.emp-list-area .filter-area .filter-header h2 {
+  text-align: center;
+  margin: 0;
+}
+.emp-list-area .search {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -53,15 +103,15 @@ section span {
   background-color: #F6F6F6;
   border-radius: 25px;
 }
-.emp-list-area form button {
+.emp-list-area .search button {
   background-color: #F6F6F6;
   border: solid 1px #F6F6F6;
   border-radius: 25px;
 }
-.emp-list-area form button img {
+.emp-list-area .search button img {
   width: 20px;
 }
-.emp-list-area form input[type=text] {
+.emp-list-area .search input[type=text] {
   background-color: #F6F6F6;
   width: 100%;
   font-size: 24px;
@@ -69,7 +119,15 @@ section span {
   outline: none;
   border-radius: 50px;
 }
+.emp-list-area .search input[type=date] {
+  width: 100%;
+  border: solid 0px;
+  outline: none;
+}
 .emp-list-area .emp-name ul {
+  justify-content: center;
+  align-items: center;
+  display: grid;
   height: 300px;
   overflow-y: scroll;
 }
@@ -85,51 +143,38 @@ section span {
 }
 .emp-list-area .emp-name ul li {
   margin: 10px 0;
-  text-align: center;
+  white-space: nowrap;
 }
 .emp-list-area .emp-name ul li span {
   border-bottom: #000 solid 2px;
   line-height: 2;
   cursor: pointer;
 }
-.emp-list-area .search-list{
-  position: relative;
-  width: 80%;
-  margin: -50px auto 50px;
-  background-color: #F6F6F6;
-  border-radius: 25px;
-  z-index: 5;
-}
-.emp-list-area .search-list li{
-  cursor: pointer;
-  padding: 3px 10px;
-  padding-bottom: 1px;
-}
+
 @media screen and (max-width: 780px) {
   .intell {
     background-color: #ccc;
     transition: all 1s;
-    position: inherit;
+    position: fixed;
     left: 500px;
+    top: 0;
     opacity: 0;
     width: 80%;
     margin: 150px 10%;
   }
 }
-.intell ul {
+
+ul {
   margin: 50px auto;
   font-size: 24px;
 }
-.intell ul li {
+ul li {
   display: flex;
 }
-.intell ul li span {
+ul li span {
   margin: 10px;
   word-wrap: break-word; /* 長い単語を途中で改行する */
   overflow-wrap: break-word; /* 上記のプロパティのエイリアス */
-}
-.intell ul li span:nth-child(1) {
-  width: 100px;
 }
 
 @media screen and (max-width: 780px) {
@@ -149,17 +194,5 @@ section span {
     background: #F4F1EC;
     pointer-events: all;
     transition: all 0.5s;
-  }
-  .intell-aft .intell::before {
-    content: "x";
-    position: absolute;
-    right: -30px;
-    top: -20px;
-    padding: 20px;
-    background-color: rgba(0, 0, 0, 0.5);
-    font-size: 24px;
-    font-weight: 800;
-    pointer-events: all;
-    color: aliceblue;
   }
 }/*# sourceMappingURL=itiran.css.map */
