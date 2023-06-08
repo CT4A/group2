@@ -39,7 +39,7 @@
                             <li>その他</li>
                         </ul> 
                         </div>
-                        <input type="text" id ="liquor_type" class="kinds-inp" name="liquor_name" placeholder="種類を入力してください">   
+                        <input type="text" id ="liquor_name" class="kinds-inp" name="liquor_name" placeholder="種類を入力してください">   
                     </li>
                     <li class="kinds liquorType">
                         <span>種類</span>
@@ -50,7 +50,8 @@
                             {{-- <li>その他</li> --}}
                         </ul> 
                         </div>
-                        <input type="text" id ="liquor_type" class="kinds-inp" name="liquor_name" placeholder="種類を入力してください">   
+                        <input type="text" id ="liquor_type" class="kinds-inp" name="liquor_type" placeholder="種類を入力してください">
+                        <input type="text" id ="liquor_id" class="kinds-inp" name="liquor_id" hidden>      
                     </li>
                     <li>
                         <span>日付</span>

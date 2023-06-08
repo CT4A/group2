@@ -18,7 +18,6 @@ class keepbottleController extends Controller
         $customers= customer::select('customer_id','customer_name')->get();
         $companys= customer::select('customer_id','company_name')->get();
         $liquors=liquor_mg::select('liquor_name')->groupBy('liquor_name')->get();
-        // return view('test',compact('liquors','customers','companys'));
 
         return view('keepbottle-register',compact('liquors','customers','companys'));
     }

@@ -88,14 +88,26 @@ Route::get('/history', function () {
 Route::get('/keepbottle-list', function () {
     return view('keepbottle-list');
 });
+<<<<<<< HEAD
+=======
+//キープボトル登録
+>>>>>>> 532485a7c14e49acfd73a67dc5ec58377d4ba69d
 Route::get('/keepbottle-register', [keepbottleController::class,'indexRegister']);
 Route::get('/keepbottle-list', [keepbottleController::class,'indexList']);
 Route::post('/getLiquorType/{liquor_name}', [keepbottleController::class,'GetLiquorType']);
 
+<<<<<<< HEAD
 // ボトル登録
 Route::get('/bottle-register', function () {
     return view('bottle-register');
 });
+=======
+// パスワード変更
+Route::get('/bottle-register', function () {
+    return view('bottle-register');
+});
+
+>>>>>>> 532485a7c14e49acfd73a67dc5ec58377d4ba69d
 //予約
 Route::get('/reserve-register', function () {
     return view('reserve-register');

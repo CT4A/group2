@@ -103,7 +103,7 @@ $(document).ready(function(){
                 let liquor_id = clickedElement.dataset.value;
                 console.log("id :"+liquor_id);
                 console.log("Clicked liquorType: " + liquor_type);
-                
+                $(".liquorType").addClass("kinds-aft")
                 $("#liquor_type").val(liquor_type);
                 $("#liquor_id").attr("value",liquor_id); 
             }
