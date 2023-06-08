@@ -6,7 +6,9 @@ $(document).ready(function(){
     var modal = $("#modalBox");
     var btn = $("#boxBtn");
     var span = $(".close")[0];
-    filBtn =$(".filter-btn");
+    filBtn =$("#filter-btn");
+    filArea =$(".filter-area");
+    filterClose=$(".filter-close");
     $(intellmain).on('click', function(event) {
       if ($(event.target).closest('.intell').length == 0) {
         $('body').removeClass("intell-aft");
@@ -14,9 +16,11 @@ $(document).ready(function(){
     });
     $(filBtn).click(function(){
       console.log("test");
-      
+      $(filArea).addClass("filter-area-aft")
     });
-    
+    $(filterClose).click(function(){
+      $(filArea).removeClass("filter-area-aft")
+    });
     //スタッフのリストの名前をクリックの処理
     $(empName).on('click', function(event) {
       event.stopPropagation();
