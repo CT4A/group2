@@ -27,6 +27,9 @@
 
         }
     }
+    .history-date{
+        display: contents;
+    }
     .history_info{
         margin: 20px;
         font-size: 24px;
@@ -34,6 +37,9 @@
         justify-content: center;
         align-items: center;
         // background-color:blueviolet;
+        @media screen and (max-width:780px) {
+            display: grid;
+        }   
         .history_info_item{
             width: 60%;
             font-size: 44px;
@@ -43,6 +49,9 @@
             padding: 25px;
             justify-content: center;
             align-items: center;
+            @media screen and (max-width:780px) {
+                width: 100%;
+            }   
             div{
                 margin: 20px;
                 margin-left: 75px;
@@ -55,6 +64,10 @@
         .history_info_btn{
             display: grid;
             margin: 30px;
+            @media screen and (max-width:780px) {
+            display: flex;
+            justify-content: center;
+            }   
             button{
                 border: none;
                 width:100px;

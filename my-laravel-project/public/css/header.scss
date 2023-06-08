@@ -126,59 +126,6 @@ header {
     }
 }
 }
-// .menu__link {
-//     display: block;
-//     padding: 10px 20px;
-//     &:hover{
-//         background-color: #ebebeb;
-//         color: #666;
-//     }
-// }
-// .drop-menu {
-//     background-color: #ebebeb; 
-//     position: absolute;
-//     transition: all .3s;
-//     left: 0;
-//     top: 75px;
-//     width: 100%;
-//     justify-content:center ;
-//     display: flex;
-    
-// }
-// .drop-menu__item a{
-//     text-align: center;
-// }
-// .drop-menu__link {
-//     display: block; 
-//     // text-align: center;
-//     background-color: #ebebeb;
-//     padding: 0px 20px;
-//     line-height: 0; 
-//     opacity: 0;
-//     transform: scaleY(0);
-//     transition: all .3s , opacity 0s,line-height 0s; 
-    
-//     &:hover::after{
-//         width: 100%;
-//     }
-//         &::after{
-//             content: "";
-//             display: block;
-//             position: absolute;
-//             justify-content: center;
-//             width: 0%;
-//             padding: 0;
-//             height: 2px;
-//             transition: all 0.5s;
-//             background-color: rgb(255, 255, 255);
-//     }
-// }
-// .drop-menu__link.is-active {
-//     padding: 10px 20px;
-//     line-height: 1.6; 
-//     transform: scaleY(1); 
-//     opacity: 1;
-// }
 .scroll-down{
     transition:all 1s;
     top: -300px;

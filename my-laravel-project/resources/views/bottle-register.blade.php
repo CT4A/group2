@@ -26,7 +26,7 @@
                             <li>その他</li>
                         </ul> 
                         </div>
-                        <input type="text" id ="liquor_type" class="kinds-inp" name="liquor_name" placeholder="種類を入力してください" required>   
+                        <input type="text" id ="liquor_type" class="kinds-inp" name="liquor_name" placeholder="種類を入力してください" required>
                     </li>
                     <li>
                         <span>酒名</span>

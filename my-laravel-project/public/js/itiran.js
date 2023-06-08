@@ -6,11 +6,15 @@ $(document).ready(function(){
     var modal = $("#modalBox");
     var btn = $("#boxBtn");
     var span = $(".close")[0];
+    filBtn =$(".filter-btn");
     $(intellmain).on('click', function(event) {
-      if ($(event.target).closest('.intell').length == 0) 
-      {
+      if ($(event.target).closest('.intell').length == 0) {
         $('body').removeClass("intell-aft");
       }
+    });
+    $(filBtn).click(function(){
+      console.log("test");
+      
     });
     
     //スタッフのリストの名前をクリックの処理
