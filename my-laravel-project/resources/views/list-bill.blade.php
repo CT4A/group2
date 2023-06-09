@@ -5,8 +5,8 @@
 @section('title', '伝票一覧')
 
 @section('content')
-    <section class="emp-list">
-        <div class="emp-list-area">
+    <section class="bill-list">
+        <div class="bill-list-area">
             <h1>伝票一覧</h1>
             <button type="button" id="filter-btn">絞り込み</button>
             <form action="#" class="search">
@@ -48,42 +48,148 @@
                     </div>
                 </section>
             </form>
-            <div class="emp-name">
+            </div>
+            <div class="bill-list-items">
                 <ul>
+                <li>
+                    <span>名前</span>
+                    <span>担当者</span>
+                    <span>日付</span>
+                    <span>金額</span>
+                </li>
+                    <li>
+                        <span>赤羽竜也</span>
+                        <span>松岡chin</span>
+                        <span>2023/01/01/12/00</span>
+                        <span>￥120,000</span>
+                    </li>
+                    <li>
+                        <span>赤羽竜也</span>
+                        <span>松岡chin</span>
+                        <span>2023/01/01/12/00</span>
+                        <span>￥120,000</span>
+                    </li>
+                    <li>
+                        <span>赤羽竜也</span>
+                        <span>松岡chin</span>
+                        <span>2023/01/01/12/00</span>
+                        <span>￥120,000</span>
+                    </li>
+                    <li>
+                        <span>赤羽竜也</span>
+                        <span>松岡chin</span>
+                        <span>2023/01/01/12/00</span>
+                        <span>￥120,000</span>
+                    </li>
+                    <li>
+                        <span>赤羽竜也</span>
+                        <span>松岡chin</span>
+                        <span>2023/01/01/12/00</span>
+                        <span>￥120,000</span>
+                    </li>
+                    <li>
+                        <span>赤羽竜也</span>
+                        <span>松岡chin</span>
+                        <span>2023/01/01/12/00</span>
+                        <span>￥120,000</span>
+                    </li>
+                    <li>
+                        <span>赤羽竜也</span>
+                        <span>松岡chin</span>
+                        <span>2023/01/01/12/00</span>
+                        <span>￥120,000</span>
+                    </li>
+                    <li>
+                        <span>赤羽竜也</span>
+                        <span>松岡chin</span>
+                        <span>2023/01/01/12/00</span>
+                        <span>￥120,000</span>
+                    </li>
+                    <li>
+                        <span>赤羽竜也</span>
+                        <span>松岡chin</span>
+                        <span>2023/01/01/12/00</span>
+                        <span>￥120,000</span>
+                    </li>
+                    <li>
+                        <span>赤羽竜也</span>
+                        <span>松岡chin</span>
+                        <span>2023/01/01/12/00</span>
+                        <span>￥120,000</span>
+                    </li>
+
+                                        <li>
+                        <span>赤羽竜也</span>
+                        <span>松岡chin</span>
+                        <span>2023/01/01/12/00</span>
+                        <span>￥120,000</span>
+                    </li>
+                                        <li>
+                        <span>赤羽竜也</span>
+                        <span>松岡chin</span>
+                        <span>2023/01/01/12/00</span>
+                        <span>￥120,000</span>
+                    </li>
+                    <li>
+                        <span>赤羽竜也</span>
+                        <span>松岡chin</span>
+                        <span>2023/01/01/12/00</span>
+                        <span>￥120,000</span>
+                    </li>
+                    <li>
+                        <span>赤羽竜也</span>
+                        <span>松岡chin</span>
+                        <span>2023/01/01/12/00</span>
+                        <span>￥120,000</span>
+                    </li>
+                    <li>
+                        <span>赤羽竜也</span>
+                        <span>松岡chin</span>
+                        <span>2023/01/01/12/00</span>
+                        <span>￥120,000</span>
+                    </li>
+
+                                        <li>
+                        <span>赤羽竜也</span>
+                        <span>松岡chin</span>
+                        <span>2023/01/01/12/00</span>
+                        <span>￥120,000</span>
+                    </li>
+                    <li>
+                        <span>赤羽竜也</span>
+                        <span>松岡chin</span>
+                        <span>2023/01/01/12/00</span>
+                        <span>￥120,000</span>
+                    </li>
+                    <li>
+                        <span>赤羽竜也</span>
+                        <span>松岡chin</span>
+                        <span>2023/01/01/12/00</span>
+                        <span>￥120,000</span>
+                    </li>
+                    <li>
+                        <span>赤羽竜也</span>
+                        <span>松岡chin</span>
+                        <span>2023/01/01/12/00</span>
+                        <span>￥120,000</span>
+                    </li>
+                    <li>
+                        <span>赤羽竜也</span>
+                        <span>松岡chin</span>
+                        <span>2023/01/01/12/00</span>
+                        <span>￥120,000</span>
+                    </li>
+                    <li>
+                        <span>赤羽竜也</span>
+                        <span>松岡chin</span>
+                        <span>2023/01/01/12/00</span>
+                        <span>￥120,000</span>
+                    </li>
+
                 </ul>
             </div>
-        </div>
     </section>
-    <section class="intell">
-        <div class="intell-aera" itemscope itemtype="http://schema.org/Person">
-            <h1 id="TxtNameHeader">情報</h1>
-            <ul>
-                <li itemprop="identifier">
-                    <span>番号</span>
-                    <span id="staff_id"></span>
-                </li>
-                <li itemprop="name">
-                    <span>名前</span>
-                    <span id="staff_name"></span>
-                </li>
-                <li itemprop="telephone">
-                    <span>電話番号</span>
-                    <span id="tel"></span>
-                </li>
-                <li itemprop="address">
-                    <span>住所</span>
-                    <span id="residence"></span>
-                </li>
-                <li itemprop="birthDate">
-                    <span>誕生日</span>
-                    <span id="birthday"></span>
-                </li>
-                <li itemprop="description">
-                    <span>備考</span>
-                    <span id="remarks"></span>
-                </li>
-            </ul>
-        </div>
+
         @csrf
     </section>
 @endsection

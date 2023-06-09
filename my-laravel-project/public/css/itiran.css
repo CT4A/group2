@@ -54,87 +54,6 @@ section span {
   font-size: 24px;
 }
 
-.emp-list-area .filter-area {
-  background-color: #ccc;
-  width: 100%;
-  height: 100%;
-  z-index: 999;
-  position: fixed;
-  top: 300%;
-  left: 0;
-  margin-top: 50px;
-  transition: all 0.5s ease-in;
-}
-.emp-list-area .filter-area .filter-header {
-  border-bottom: solid 3px #000;
-  display: flex;
-}
-.emp-list-area .filter-area .filter-header .filter-close span {
-  position: relative;
-  left: 20px;
-}
-.emp-list-area .filter-area .filter-header .filter-close span::before {
-  position: absolute;
-  content: "";
-  display: block;
-  width: 20px;
-  height: 2px;
-  background-color: #000;
-  top: 0;
-  transform: rotateZ(-315deg);
-}
-.emp-list-area .filter-area .filter-header .filter-close span::after {
-  position: absolute;
-  content: "";
-  background-color: #000;
-  display: block;
-  width: 20px;
-  height: 2px;
-  top: 0;
-  transform: rotateZ(315deg);
-}
-.emp-list-area .filter-area .filter-header li {
-  width: 100%;
-}
-.emp-list-area .filter-area .filter-header li :nth-child(1) {
-  width: 100%;
-}
-.emp-list-area .filter-area .filter-header li .filter-clear {
-  text-align: right;
-  margin-right: 40px;
-}
-.emp-list-area .filter-area .filter-header h2 {
-  text-align: center;
-  margin: 0;
-}
-.emp-list-area .filter-area .filter-items {
-  width: 95%;
-  margin: 20px auto;
-  position: relative;
-  display: flex;
-  flex-wrap: wrap;
-}
-.emp-list-area .filter-area .filter-items h2 {
-  border-bottom: #000;
-  font-size: 18px;
-  position: absolute;
-  top: -30px;
-  left: 30px;
-  margin: 0;
-}
-.emp-list-area .filter-area .filter-items button {
-  flex: 0 0 20%;
-  width: 100%;
-  margin: 20px;
-  padding: 15px;
-  font-size: 24px;
-  border: none;
-}
-.emp-list-area .filter-area-aft {
-  position: absolute;
-  top: 0%;
-  transition: top 0.5s;
-}
 .emp-list-area .search {
   display: flex;
   justify-content: center;
@@ -236,4 +155,103 @@ ul li span {
     pointer-events: all;
     transition: all 0.5s;
   }
+}
+
+.bill-list {
+  width: 100%;
+}
+.bill-list .bill-list-items {
+  width: 90%;
+  margin: 0 auto;
+}
+.bill-list .bill-list-items ul {
+  width: 100%;
+}
+.bill-list .bill-list-items ul li {
+  width: 100%;
+  border-bottom: solid 1px #000;
+}
+.bill-list .bill-list-items ul li span {
+  width: 100%;
+}
+.bill-list .filter-area {
+  background-color: #ccc;
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+  position: fixed;
+  top: 300%;
+  left: 0;
+  margin-top: 50px;
+  transition: all 0.5s ease-in;
+}
+.bill-list .filter-area .filter-header {
+  border-bottom: solid 3px #000;
+  display: flex;
+}
+.bill-list .filter-area .filter-header .filter-close span {
+  position: relative;
+  left: 20px;
+}
+.bill-list .filter-area .filter-header .filter-close span::before {
+  position: absolute;
+  content: "";
+  display: block;
+  width: 20px;
+  height: 2px;
+  background-color: #000;
+  top: 0;
+  transform: rotateZ(-315deg);
+}
+.bill-list .filter-area .filter-header .filter-close span::after {
+  position: absolute;
+  content: "";
+  background-color: #000;
+  display: block;
+  width: 20px;
+  height: 2px;
+  top: 0;
+  transform: rotateZ(315deg);
+}
+.bill-list .filter-area .filter-header li {
+  width: 100%;
+}
+.bill-list .filter-area .filter-header li :nth-child(1) {
+  width: 100%;
+}
+.bill-list .filter-area .filter-header li .filter-clear {
+  text-align: right;
+  margin-right: 40px;
+}
+.bill-list .filter-area .filter-header h2 {
+  text-align: center;
+  margin: 0;
+}
+.bill-list .filter-area .filter-items {
+  width: 95%;
+  margin: 20px auto;
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+}
+.bill-list .filter-area .filter-items h2 {
+  border-bottom: #000;
+  font-size: 18px;
+  position: absolute;
+  top: -30px;
+  left: 30px;
+  margin: 0;
+}
+.bill-list .filter-area .filter-items button {
+  flex: 0 0 20%;
+  width: 100%;
+  margin: 20px;
+  padding: 15px;
+  font-size: 24px;
+  border: none;
+}
+.bill-list .filter-area-aft {
+  position: absolute;
+  top: 0%;
+  transition: top 0.5s;
 }/*# sourceMappingURL=itiran.css.map */
