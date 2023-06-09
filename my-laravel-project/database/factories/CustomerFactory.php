@@ -17,9 +17,11 @@ class CustomerFactory extends Factory
      */
     public function definition(): array
     {
+        $customerTypes = ['customer', 'company', 'group'];
         return [
             'customer_name'=>fake()->name(),
             'company_name'=>'なし',
+            'customer_type'=>fake()->randomElement($customerTypes),
             'birthday'=>fake()->date(),
             'staff_id'=>function () {
                 return \App\Models\employee::inRandomOrder()->first()->staff_id;

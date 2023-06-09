@@ -73,10 +73,10 @@
   position: relative;
 }
 .register-area ul .kinds input[type=text] {
-  height: 0;
-  width: 0;
+  height: 0%;
+  width: 0%;
 }
-.register-area .kinds-aft input[type=text] {
+.register-area ul .kinds-aft input[type=text] {
   height: 100%;
   width: 100%;
 }

@@ -1,6 +1,7 @@
 @extends('main')
 @section('styles')
 <link rel="stylesheet" href="{{asset('css/itiran.css')}}">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 @endsection
 @section('title', '社員一覧')
 
@@ -8,7 +9,7 @@
     <section class="emp-list">
         <div class="emp-list-area">
             <h1>社員一覧</h1>
-            <form action="#">
+            <form action="#" class="search">
                 <button type="submit">
                     <img src="./img/oqCh3X9ndfQ__xOuxd5Oww==.png" alt="">
                 </button>

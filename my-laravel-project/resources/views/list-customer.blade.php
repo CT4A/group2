@@ -7,7 +7,7 @@
     <section class="emp-list">
         <div class="emp-list-area">
         <h1>顧客一覧</h1>
-        <form action="#">
+        <form action="#" class="search">
                 <button type="submit">
                     <img src="./img/oqCh3X9ndfQ__xOuxd5Oww==.png" alt="">
                 </button>

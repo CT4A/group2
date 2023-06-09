@@ -16,6 +16,7 @@ return new class extends Migration
             $table->unsignedBigInteger('customer_id')->autoIncrement();
             $table->string('customer_name');
             $table->string('company_name')->nullable()->default('null');
+            $table->string('customer_type')->default('customer');
             $table->date('birthday')->nullable()->default(null);
             $table->unsignedBigInteger('staff_id');
             $table->string('remarks')->nullable()->default("null");

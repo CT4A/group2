@@ -1,5 +1,7 @@
 
 <h1>Test Page</h1>
-<h2>customer-register Test</h2>
-<p>customer:</p>
-{{$customer}}
+<h2>history Test</h2>
+
+<p>staffs:</p>
+{{$staffs}}
+

@@ -9,6 +9,16 @@ body {
   background: #F4F1EC;
   transition: all 0.5s;
 }
+body::-webkit-scrollbar {
+  width: 10px;
+}
+body::-webkit-scrollbar-track {
+  background-color: none;
+}
+body::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 50px;
+}
 
 li {
   list-style: none;
@@ -44,7 +54,7 @@ section span {
   font-size: 24px;
 }
 
-.emp-list-area form {
+.emp-list-area .search {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -53,21 +63,26 @@ section span {
   background-color: #F6F6F6;
   border-radius: 25px;
 }
-.emp-list-area form button {
+.emp-list-area .search button {
   background-color: #F6F6F6;
   border: solid 1px #F6F6F6;
   border-radius: 25px;
 }
-.emp-list-area form button img {
+.emp-list-area .search button img {
   width: 20px;
 }
-.emp-list-area form input[type=text] {
+.emp-list-area .search input[type=text] {
   background-color: #F6F6F6;
   width: 100%;
   font-size: 24px;
   border: solid 0px;
   outline: none;
   border-radius: 50px;
+}
+.emp-list-area .search input[type=date] {
+  width: 100%;
+  border: solid 0px;
+  outline: none;
 }
 .emp-list-area .emp-name ul {
   justify-content: center;
@@ -140,4 +155,121 @@ ul li span {
     pointer-events: all;
     transition: all 0.5s;
   }
+}
+
+.filter-header {
+  width: 100%;
+}
+.filter-header #filter-btn {
+  border: none;
+}
+
+.bill-list {
+  width: 100%;
+}
+.bill-list .bill-header {
+  position: fixed;
+  width: 100%;
+  background-color: #F4F1EC;
+  z-index: 500;
+}
+.bill-list .bill-header #filter-btn {
+  position: absolute;
+  top: 50%;
+  left: 5%;
+}
+.bill-list .bill-list-items {
+  width: 90%;
+  margin: 100px auto;
+}
+.bill-list .bill-list-items ul {
+  width: 100%;
+}
+.bill-list .bill-list-items ul li {
+  width: 100%;
+  border-bottom: solid 1px #000;
+}
+.bill-list .bill-list-items ul li span {
+  width: 100%;
+}
+.bill-list .filter-area {
+  background-color: #ccc;
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+  position: fixed;
+  top: 300%;
+  left: 0;
+  margin-top: 50px;
+  transition: all 0.5s ease-in;
+}
+.bill-list .filter-area .filter-header {
+  border-bottom: solid 3px #000;
+  display: flex;
+}
+.bill-list .filter-area .filter-header .filter-close span {
+  position: relative;
+  left: 20px;
+}
+.bill-list .filter-area .filter-header .filter-close span::before {
+  position: absolute;
+  content: "";
+  display: block;
+  width: 20px;
+  height: 2px;
+  background-color: #000;
+  top: 0;
+  transform: rotateZ(-315deg);
+}
+.bill-list .filter-area .filter-header .filter-close span::after {
+  position: absolute;
+  content: "";
+  background-color: #000;
+  display: block;
+  width: 20px;
+  height: 2px;
+  top: 0;
+  transform: rotateZ(315deg);
+}
+.bill-list .filter-area .filter-header li {
+  width: 100%;
+}
+.bill-list .filter-area .filter-header li :nth-child(1) {
+  width: 100%;
+}
+.bill-list .filter-area .filter-header li .filter-clear {
+  text-align: right;
+  margin-right: 40px;
+}
+.bill-list .filter-area .filter-header h2 {
+  text-align: center;
+  margin: 0;
+}
+.bill-list .filter-area .filter-items {
+  width: 95%;
+  margin: 20px auto;
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+}
+.bill-list .filter-area .filter-items h2 {
+  border-bottom: #000;
+  font-size: 18px;
+  position: absolute;
+  top: -30px;
+  left: 30px;
+  margin: 0;
+}
+.bill-list .filter-area .filter-items button {
+  flex: 0 0 20%;
+  width: 100%;
+  margin: 20px;
+  padding: 15px;
+  font-size: 24px;
+  border: none;
+}
+.bill-list .filter-area-aft {
+  position: absolute;
+  top: 0%;
+  transition: top 0.5s;
 }/*# sourceMappingURL=itiran.css.map */

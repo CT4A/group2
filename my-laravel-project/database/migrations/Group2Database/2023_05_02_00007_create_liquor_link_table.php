@@ -21,10 +21,11 @@ return new class extends Migration
             $table->string('remarks')->nullable()->default(null);
             $table->rememberToken();
             $table->timestamps();
-            
+
             //外部キー
             $table->foreign('liquor_id')->references('liquor_id')->on('liquor_mgs');
             $table->foreign('customer_id')->references('customer_id')->on('customers');
+
             //主キー
             $table->primary(['customer_id','liquor_number']);
         });
