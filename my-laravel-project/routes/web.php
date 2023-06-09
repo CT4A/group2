@@ -105,7 +105,13 @@ Route::get('/reserve-register', function () {
 Route::get('/pay-statement', function () {
     return view('pay-statement');
 });
+
 // パスワード変更
 Route::get('/pass-change', function () {
     return view('pass-change');
+});
+
+// 伝票登録
+Route::get('/bill-register', function () {
+    return view('bill-register');
 });

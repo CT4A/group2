@@ -56,3 +56,45 @@ $(document).ready(function(){
         });
     });
     
+
+    // 金額に自動的追加　”、”　
+function updateTextView(_obj) {
+        var num = getNumber(_obj.val());
+        if(num==0){
+          _obj.val('');
+        }else{
+          _obj.val(num.toLocaleString());
+        }
+      }
+      function getNumber(_str){
+        var arr = _str.split('');
+        var out = new Array();
+        for(var cnt=0;cnt<arr.length;cnt++){
+          if(isNaN(arr[cnt])==false){
+            out.push(arr[cnt]);
+          }
+        }
+          return Number(out.join(''));
+          
+      }
+      $(document).ready(function(){
+        $('input[type=text]').on('keyup',function(){
+          updateTextView($(this));
+        });
+      });
+
+
+    //   time
+    var date = new Date();
+    var year = date.getFullYear();
+    var month = date.getMonth() + 1;
+    var day = date.getDate();
+var hour = date.getHours();
+var minute = date.getMinutes();
+    if (month < 10) month = "0" + month;
+    if (day < 10) day = "0" + day;
+
+    var today = year + "-" + month + "-" + day;
+
+
+    document.getElementById('theDate').value = today;
