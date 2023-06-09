@@ -8,34 +8,40 @@
 
 @section('content')
 <main>
+    <div class="message text-center">
+        <div class="alert alert-primary" role="alert">
+            <strong>{{session('message')}}</strong>
+        </div>
+    </div>
 <section class="register">
         <div class="register-area">
             <h1>ボトル登録</h1>
             <ul>
-                <form action="/keepbottle-register" method="POST">
+                <form action="/bottle-register" method="POST">
                     @csrf
                     <li class="kinds">
                         <span>種類</span>
                         <div class="kinds-selecter">
                         <span>選択してください</span>
                         <ul class="kind-list" id ="">
-                            <li>test1</li>
-                            <li>test2</li>
-                            <li>test3</li>
-                            <li>test4</li>
+                            @foreach ($liquors as $liquor)
+                            <li>{{$liquor->liquor_type}}</li>
+                            @endforeach
                             <li>その他</li>
                         </ul> 
                         </div>
-                        <input type="text" id ="liquor_type" class="kinds-inp" name="liquor_name" placeholder="種類を入力してください" required>
+                        <input type="text" id ="liquor_type" class="kinds-inp" name="liquor_type" placeholder="種類を入力してください">
+                        @if ($errors->has('liquor_type'))
+                            <span class="error">{{ $errors->first('liquor_type') }}</span>
+                        @endif
                     </li>
                     <li>
                         <span>酒名</span>
-                        <input type="text" name="テーブル表に載ってない" required>
+                        <input type="text" name="liquor_name">
+                        @if ($errors->has('liquor_name'))
+                            <span class="error">{{ $errors->first('liquor_name') }}</span>
+                        @endif
                     </li>
-                    <!-- <li>
-                        <span>備考</span>
-                        <textarea name="remarks" ></textarea>
-                    </li> -->
                     <input type="submit" value="登録">
                 </form>
             </ul>

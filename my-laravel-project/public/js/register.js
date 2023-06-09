@@ -68,8 +68,7 @@ $(document).ready(function(){
         });
 
     $(".alcohol li").click(function (e) { 
-        let liquor_name = $(this).text();
-        console.log(liquor_name);
+        let liquor_type = $(this).text();
         $.ajaxSetup({
             headers:{
                 'X-CSRF-TOKEN' : $('meta[name="csrf-token"]').attr('content')
@@ -78,7 +77,7 @@ $(document).ready(function(){
           $.ajax({
             type: "post",
             url: "/getLiquorType/{liquor_name}",
-            data: {"liquor_name":liquor_name
+            data: {"liquor_type":liquor_type
                 },
             datatype:"json",
             success: function (datas) {
@@ -91,7 +90,7 @@ $(document).ready(function(){
         function showInfo(datas) {
             let htmlString="";
             datas.forEach(data => {
-                htmlString +="<li data-value = "+data["liquor_id"]+">"+data["liquor_type"]+"</li>";
+                htmlString +="<li data-value = "+data["liquor_id"]+">"+data["liquor_name"]+"</li>";
             });
             $(".liquorType ul").html(htmlString);
         }
@@ -99,12 +98,12 @@ $(document).ready(function(){
             const clickedElement = event.target;
             
             if (clickedElement.tagName === "LI" ) {
-                let liquor_type=clickedElement.textContent;
+                let liquor_name=clickedElement.textContent;
                 let liquor_id = clickedElement.dataset.value;
                 console.log("id :"+liquor_id);
-                console.log("Clicked liquorType: " + liquor_type);
+                console.log("Clicked liquorType: " + liquor_name);
                 $(".liquorType").addClass("kinds-aft")
-                $("#liquor_type").val(liquor_type);
+                $("#liquor_name").val(liquor_name);
                 $("#liquor_id").attr("value",liquor_id); 
             }
         })

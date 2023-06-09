@@ -13,7 +13,7 @@
                 <form action="" method="POST">
                 <li>
                         <span>出勤者名</span>
-                        <input type="text" name="staff_id">
+                        <input type="text" name="staff_name">
                     </li>
                 <li>
                     <span>開始時間</span>

@@ -50,12 +50,16 @@ class EmployeeController extends Controller
         return view('test',['message'<='success']);
     } 
 
-    public function history(Request $request)
+    public function indexHistory(Request $request)
     {
-        $id = $request->id;
-        $datas = attend_leave::select('work_date','attend_time','leaving_work')
-                    ->where('staff_id',$id)
-                    ->get();
-        return view('history',compact('datas'));
+        // $id = $request->id;
+        $id = 1;//
+        $staff_name = employee::select('staff_name')
+                                    ->where('staff_id',$id)
+                                    ->first();
+        $staffs = attend_leave::select('work_date','attend_time','leaving_work')
+                                ->where('staff_id',$id)
+                                ->get();
+        return view('history',compact('staffs','staff_name'));
     }
 }

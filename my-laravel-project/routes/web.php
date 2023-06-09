@@ -1,11 +1,13 @@
 <?php
 
+use App\Http\Controllers\bottleController;
 use App\Http\Controllers\employeeController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\GetListStaffController;
 use App\Http\Controllers\homeController;
 use App\Http\Controllers\registerController;
 use App\Http\Controllers\keepbottleController;
+use App\Http\Controllers\resrveController;
 
 use App\Http\Controllers\testController;
 use Illuminate\Support\Facades\Route;
@@ -83,35 +85,27 @@ Route::post('/customer-register', [CustomerController::class,'register']);
 Route::get('/history', function () {
     return view('history');
 });
+Route::get('/history', [employeeController::class,'indexHistory']);
 
 //キープボトル一覧
 Route::get('/keepbottle-list', function () {
     return view('keepbottle-list');
 });
-<<<<<<< HEAD
-=======
 //キープボトル登録
->>>>>>> 532485a7c14e49acfd73a67dc5ec58377d4ba69d
-Route::get('/keepbottle-register', [keepbottleController::class,'indexRegister']);
+Route::get('/keepbottle-register', [keepbottleController::class,'indexRegister'])->name('indexRegister');
+Route::post('/keepbottle-register', [keepbottleController::class,'RegisterLiquorLink']);
+
 Route::get('/keepbottle-list', [keepbottleController::class,'indexList']);
 Route::post('/getLiquorType/{liquor_name}', [keepbottleController::class,'GetLiquorType']);
 
-<<<<<<< HEAD
-// ボトル登録
-Route::get('/bottle-register', function () {
-    return view('bottle-register');
-});
-=======
-// パスワード変更
-Route::get('/bottle-register', function () {
-    return view('bottle-register');
-});
 
->>>>>>> 532485a7c14e49acfd73a67dc5ec58377d4ba69d
+// ボトル登録
+Route::get('/bottle-register', [bottleController::class,'index']);
+Route::post('/bottle-register', [bottleController::class,'RegisterBottle']);
+
 //予約
-Route::get('/reserve-register', function () {
-    return view('reserve-register');
-});
+Route::get ('/reserve-register',  [resrveController::class,'index']);
+Route::post('/reserve-register',  [resrveController::class,'reserveRegister']);
 
 // 給料明細
 Route::get('/pay-statement', function () {

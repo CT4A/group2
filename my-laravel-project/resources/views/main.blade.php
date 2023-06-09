@@ -21,7 +21,6 @@
                   <ol>
                     <li><a href="#">社員一覧</a></li>
                     <li><a href="#">社員登録</a></li>
-                    <li><a href="#">社員編集</a></li>
                   </ol>
                 </li>
                 <li class="menu_list">
@@ -29,15 +28,20 @@
                   <ol>
                     <li><a href="#">顧客一覧</a></li>
                     <li><a href="#">顧客登録</a></li>
-                    <li><a href="#">顧客編集</a></li>
                   </ol>
                 </li>
                 <li class="menu_list">
                   <span>キープボトル</span>
                   <ol>
+                    <li><a href="#">キープボトル一覧</a></li>
+                    <li><a href="#">キープボトル登録</a></li>
+                  </ol>
+                </li>
+                <li class="menu_list">
+                  <span>ボトル</span>
+                  <ol>
                     <li><a href="#">ボトル一覧</a></li>
                     <li><a href="#">ボトル登録</a></li>
-                    <li><a href="#">ボトル編集</a></li>
                   </ol>
                 </li>
                 <li class="menu_list">
@@ -45,15 +49,13 @@
                   <ol>
                     <li><a href="#">社員一覧</a></li>
                     <li><a href="#">社員登録</a></li>
-                    <li><a href="#">社員編集</a></li>
                   </ol>
                 </li>
                 <li class="menu_list">
                     <span>伝票</span>
                     <ol>
-                      <li><a href="#">社員一覧</a></li>
-                      <li><a href="#">社員登録</a></li>
-                      <li><a href="#">社員編集</a></li>
+                      <li><a href="#">伝票一覧</a></li>
+                      <li><a href="#">伝票登録</a></li>
                     </ol>
                   </li>
               </ul>
