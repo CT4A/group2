@@ -145,12 +145,28 @@ section{
         }
     }
 }
-
+.filter-header{
+    width: 100%;
+    #filter-btn{
+        border: none;
+}
+}
 .bill-list{
     width: 100%;
+    .bill-header{
+        position: fixed;
+        width: 100%;
+        background-color: $itiran-color;
+        z-index:500;
+        #filter-btn{
+            position: absolute;
+            top: 50%;
+            left: 5%;
+        }
+    }
     .bill-list-items{
         width: 90%;
-        margin: 0 auto;
+        margin: 100px auto;
         ul{
             width: 100%;
             li{

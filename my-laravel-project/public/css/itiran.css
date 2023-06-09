@@ -157,12 +157,30 @@ ul li span {
   }
 }
 
+.filter-header {
+  width: 100%;
+}
+.filter-header #filter-btn {
+  border: none;
+}
+
 .bill-list {
   width: 100%;
 }
+.bill-list .bill-header {
+  position: fixed;
+  width: 100%;
+  background-color: #F4F1EC;
+  z-index: 500;
+}
+.bill-list .bill-header #filter-btn {
+  position: absolute;
+  top: 50%;
+  left: 5%;
+}
 .bill-list .bill-list-items {
   width: 90%;
-  margin: 0 auto;
+  margin: 100px auto;
 }
 .bill-list .bill-list-items ul {
   width: 100%;
