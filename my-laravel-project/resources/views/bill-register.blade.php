@@ -1,3 +1,7 @@
+@php
+use Carbon\Carbon;
+$today = Carbon::now()->format('Y/m/d');
+@endphp
 @extends('main')
 @yield('title','顧客登録')
 @section('styles')
@@ -17,46 +21,32 @@
                     <li>
                         <span>顧客名</span>
                         <input type="text" name="customer_name" value="{{ old('customer_name') }}">
+                        <input type="text" name="customer_id" value="{{ old('customer_id') }}" hidden>
+                        
                         @if ($errors->has('customer_name'))
-                        <span class="error">{{ $errors->first('customer_name') }}</span>
+                            <span class="error">{{ $errors->first('customer_name') }}</span>
                         @endif
                     </li>
                     <li>
                         <span>社員名</span>
-                        <input type="text" name="company_name" value="{{ old('company_name') }}">
-                        @if ($errors->has('company_name'))
-                        <span class="error">{{ $errors->first('company_name') }}</span>
+                        <input type="text" name="staff_name" value="{{ old('staff_name') }}">
+                        <input type="text" name="staff_id" value="{{ old('staff_id') }}" hidden>
+                        @if ($errors->has('staff_name'))
+                            <span class="error">{{ $errors->first('staff_name') }}</span>
                         @endif
                     </li>
                     <li>
                         <span>日付</span>
-                        <!-- <input type="text" name="birthday" value="{{ old('birthday') }}"> -->
-                        <input type="date" id="theDate">
-                        @if ($errors->has('birthday'))
-                        <span class="error">{{ $errors->first('birthday') }}</span>
-                        @endif
-                    </li>
-                    <li>
-                        <span>人数</span>
-                        <input type="text" name="staff_id" value="{{ old('staff_id') }}">
-                        @if ($errors->has('staff_id'))
-                        <span class="error">{{ $errors->first('staff_id') }}</span>
-                        @endif
-                    </li>
-                    <li>
-                        <span>テーブル番号</span>
-                        <input type="text" name="staff_id" value="{{ old('staff_id') }}">
-                        @if ($errors->has('staff_id'))
-                        <span class="error">{{ $errors->first('staff_id') }}</span>
+                        <input type="text" id="theDate" name="ap_day" value="{{$today}}">
+                        @if ($errors->has('ap_day'))
+                        <span class="error">{{ $errors->first('ap_day') }}</span>
                         @endif
                     </li>
                     <li>
                         <span>金額</span>
-                        <input class="money" type="text" id='demo_input' placeholder="￥">
-                        <!-- <input type="text" class="number" value="￥"> -->
-
-                        @if ($errors->has('remarks'))
-                        <span class="error">{{ $errors->first('remarks') }}</span>
+                        <input class="money" type="text" id='demo_input' name="total" placeholder="￥">
+                        @if ($errors->has('total'))
+                        <span class="error">{{ $errors->first('total') }}</span>
                         @endif
                     </li>
                     <div></div>

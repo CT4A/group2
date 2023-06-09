@@ -35,8 +35,8 @@ $today = Carbon::now()->format('Y/m/d');
                             <li>その他</li>
                         </ul> 
                         </div>
-                        <input type="text" id ="customer_name" class="kinds-inp" name="customer_name" placeholder="種類を入力してください">  
-                        <input type="text" id ="customer_id" class="kinds-inp-hidden" name="customer_id" value="" hidden>      
+                        <input type="text" id ="customer_name" class="kinds-inp" name="customer_name" placeholder="種類を入力してください" value="{{ old('customer_name') }}">  
+                        <input type="text" id ="customer_id" class="kinds-inp-hidden" name="customer_id" value="{{ old('customer_id') }}" hidden>      
                         @if ($errors->has('customer_id'))
                             <span class="error">{{ $errors->first('customer_id') }}</span>
                         @endif
@@ -53,7 +53,7 @@ $today = Carbon::now()->format('Y/m/d');
                             {{-- <li>その他</li> --}}
                         </ul> 
                         </div>
-                        <input type="text" id ="liquor_type" class="kinds-inp" name="liquor_type" placeholder="種類を入力してください">
+                        <input type="text" id ="liquor_type" class="kinds-inp" name="liquor_type" value="{{ old('liquor_type') }}" placeholder="種類を入力してください">
                     </li>
                     <li class="kinds  liquorType">
                         <span>酒名</span>
@@ -63,8 +63,8 @@ $today = Carbon::now()->format('Y/m/d');
                             
                         </ul> 
                         </div>
-                        <input type="text" id ="liquor_name" class="kinds-inp" name="liquor_name" placeholder="種類を入力してください">   
-                        <input type="text" id ="liquor_id" class="kinds-inp" name="liquor_id" hidden>      
+                        <input type="text" id ="liquor_name" class="kinds-inp" name="liquor_name" value="{{ old('liquor_name') }}" placeholder="種類を入力してください">   
+                        <input type="text" id ="liquor_id" class="kinds-inp" name="liquor_id" value="{{ old('liquor_id') }}" hidden>      
                         @if ($errors->has('liquor_id'))
                             <span class="error">{{ $errors->first('liquor_id') }}</span>
                         @endif
@@ -78,7 +78,7 @@ $today = Carbon::now()->format('Y/m/d');
                     </li>
                     <li>
                         <span>備考</span>
-                        <textarea name="remarks"></textarea>
+                        <textarea name="remarks" value="{{ old('remarks') }}"></textarea>
                     </li>
                     <input type="submit" value="登録">
                 </form>

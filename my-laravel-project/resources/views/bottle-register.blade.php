@@ -30,14 +30,14 @@
                             <li>その他</li>
                         </ul> 
                         </div>
-                        <input type="text" id ="liquor_type" class="kinds-inp" name="liquor_type" placeholder="種類を入力してください">
+                        <input type="text" id ="liquor_type" value="{{ old('liquor_type') }}" class="kinds-inp"  name="liquor_type" placeholder="種類を入力してください">
                         @if ($errors->has('liquor_type'))
                             <span class="error">{{ $errors->first('liquor_type') }}</span>
                         @endif
                     </li>
                     <li>
                         <span>酒名</span>
-                        <input type="text" name="liquor_name">
+                        <input type="text" name="liquor_name" value="{{ old('liquor_name') }}">
                         @if ($errors->has('liquor_name'))
                             <span class="error">{{ $errors->first('liquor_name') }}</span>
                         @endif

@@ -92,7 +92,7 @@ Route::get('/keepbottle-list', function () {
     return view('keepbottle-list');
 });
 //キープボトル登録
-<<<<<<< HEAD
+
 Route::get('/keepbottle-register', [keepbottleController::class,'indexRegister'])->name('indexRegister');
 Route::post('/keepbottle-register', [keepbottleController::class,'RegisterLiquorLink']);
 
@@ -103,17 +103,6 @@ Route::post('/getLiquorType/{liquor_name}', [keepbottleController::class,'GetLiq
 // ボトル登録
 Route::get('/bottle-register', [bottleController::class,'index']);
 Route::post('/bottle-register', [bottleController::class,'RegisterBottle']);
-
-=======
-Route::get('/keepbottle-register', [keepbottleController::class,'indexRegister']);
-Route::get('/keepbottle-list', [keepbottleController::class,'indexList']);
-Route::post('/getLiquorType/{liquor_name}', [keepbottleController::class,'GetLiquorType']);
-
-// ボトル登録
-Route::get('/bottle-register', function () {
-    return view('bottle-register');
-});
->>>>>>> 7d0d2a02c5fa38a0b32c765b7132369338c04e4e
 //予約
 Route::get ('/reserve-register',  [resrveController::class,'index']);
 Route::post('/reserve-register',  [resrveController::class,'reserveRegister']);
@@ -128,14 +117,11 @@ Route::get('/pass-change', function () {
     return view('pass-change');
 });
 
-<<<<<<< HEAD
 // 伝票登録
 Route::get('/bill-register', function () {
     return view('bill-register');
 });
-=======
 // 伝票一覧
 Route::get('/list-bill', function () {
     return view('list-bill');
 });
->>>>>>> bc0f57e0222bb9de403907b0bf01953309cb5c59

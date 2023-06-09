@@ -14,6 +14,7 @@
                 <li>
                         <span>出勤者名</span>
                         <input type="text" name="staff_name">
+                        <input type="text" name="staff_id" hidden>
                     </li>
                 <li>
                     <span>開始時間</span>
