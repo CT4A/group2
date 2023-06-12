@@ -22,19 +22,27 @@ $today = Carbon::now()->format('Y/m/d');
                         <span>顧客名</span>
                         <input type="text" name="customer_name" value="{{ old('customer_name') }}">
                         <input type="text" name="customer_id" value="{{ old('customer_id') }}" hidden>
-                        
+
                         @if ($errors->has('customer_name'))
-                            <span class="error">{{ $errors->first('customer_name') }}</span>
+                        <span class="error">{{ $errors->first('customer_name') }}</span>
                         @endif
                     </li>
-                    <li>
+                    <li class="kinds  liquorType">
                         <span>社員名</span>
-                        <input type="text" name="staff_name" value="{{ old('staff_name') }}">
-                        <input type="text" name="staff_id" value="{{ old('staff_id') }}" hidden>
-                        @if ($errors->has('staff_name'))
-                            <span class="error">{{ $errors->first('staff_name') }}</span>
+                        <div class="kinds-selecter">
+                            <span>選択してください</span>
+                            <ul class="kind-list" id="">
+                            </ul>
+                        </div>
+                        <input type="text" id="staff_name" class="kinds-inp" name="staff_name"
+                            value="{{ old('staff_name') }}" placeholder="種類を入力してください">
+                        <input type="text" id="staff_id" class="kinds-inp" name="staff_id" value="{{ old('staff_id') }}"
+                            hidden>
+                        @if ($errors->has('staff_id'))
+                        <span class="error">{{ $errors->first('staff_id') }}</span>
                         @endif
                     </li>
+
                     <li>
                         <span>日付</span>
                         <input type="text" id="theDate" name="ap_day" value="{{$today}}">
