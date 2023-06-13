@@ -27,4 +27,5 @@ class EmployeeFactory extends Factory
             //
         ];
     }
+    
 }

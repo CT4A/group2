@@ -37,16 +37,23 @@ $today = Carbon::now()->format('Y/m/d');
                     </li>
                     <li>
                         <span>日付</span>
-                        <input type="text" id="theDate" name="ap_day" value="{{$today}}">
+                        <input type="text" id="theDate" name="ap_day" value="{{$today}}" placeholder="例：0000-00-00">
                         @if ($errors->has('ap_day'))
-                        <span class="error">{{ $errors->first('ap_day') }}</span>
+                            <span class="error">{{ $errors->first('ap_day') }}</span>
+                        @endif
+                    </li>
+                    <li>
+                        <span>時間</span>
+                        <input type="text" id="time" name="time" value="{{ old('time') }}" placeholder="例：00-00">
+                        @if ($errors->has('time'))
+                            <span class="error">{{ $errors->first('time') }}</span>
                         @endif
                     </li>
                     <li>
                         <span>金額</span>
-                        <input class="money" type="text" id='demo_input' name="total" placeholder="￥">
+                        <input class="money" type="text" id='demo_input' value="{{ old('demo_input') }}" name="total" placeholder="￥">
                         @if ($errors->has('total'))
-                        <span class="error">{{ $errors->first('total') }}</span>
+                            <span class="error">{{ $errors->first('total') }}</span>
                         @endif
                     </li>
                     <div></div>

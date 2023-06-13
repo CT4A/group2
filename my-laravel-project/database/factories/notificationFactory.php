@@ -15,11 +15,14 @@ class notificationFactory extends Factory
      * @return array<string, mixed>
      */
     public function definition(): array
-    {   
-        
+    {        
         return [
+            'staff_id'=>function () {
+                return \App\Models\employee::inRandomOrder()->first()->staff_id;
+            },
             'day'=>fake()->date(),
-            'message'=>'オーナーか連絡事項です。ご注意ください。'
+            'message'=>'オーナーか連絡事項です。ご注意ください。',
+            
         ];
     }
 }

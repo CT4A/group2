@@ -14,10 +14,13 @@ return new class extends Migration
     {
         Schema::create('notifications', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('staff_id');
             $table->date('day')->useCurrent();
             $table->string('message');
             $table->timestamps();
-         });
+
+            $table->foreign('staff_id')->references('staff_id')->on('employees');
+        });
     }
     
 

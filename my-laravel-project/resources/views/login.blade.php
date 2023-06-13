@@ -19,19 +19,24 @@
                     @csrf
                     <div class="inputArea">
                         <div class="userIdArea">
-                            <input type="text" name="" id="" placeholder="ユーザーID">
+                            <input type="text" name="tel" id="" placeholder="電話番号：080999999">
                             <img src="{{asset('img/t.webp')}}" alt="">
+                            
                         </div>
+                        @if ($errors->has('tel'))
+                            <span class="error">{{ $errors->first('tel') }}</span>
+                        @endif
                         <div class="passArea">
-                            <input type="password" name="" id="" placeholder="パスワード">
+                            <input type="password" name="password" id="" placeholder="パスワード">
                             <img src="{{asset('img/lock.png')}}" alt="">
                         </div>
+                        @if ($errors->has('password'))
+                            <span class="error">{{ $errors->first('password') }}</span>
+                        @endif
                     </div>
                     <div class="button"><input class="btn btn-primary btnlogin" type="submit" value="ログイン"></div>
-                    
                 </form>
             </div>
-            
         </div>
     </div>
 </body>

@@ -8,7 +8,7 @@ use App\Http\Controllers\homeController;
 use App\Http\Controllers\registerController;
 use App\Http\Controllers\keepbottleController;
 use App\Http\Controllers\resrveController;
-
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\testController;
 use Illuminate\Support\Facades\Route;
 
@@ -35,7 +35,7 @@ Route::get('/newemployee', function () {
     return view('newemployee');
 });
 //ログイン処理する
-Route::post('/login','AuthController@login')->name('login');
+Route::post('/login',[AuthController::class,'login']);
 
 Route::get('/login',function(){
     return view('login');

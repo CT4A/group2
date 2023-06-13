@@ -8,5 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class notification extends Model
 {
     use HasFactory;
-    protected $fillable =['day','message'];
+    protected $fillable =['staff_id','day','message'];
 }

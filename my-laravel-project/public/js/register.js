@@ -131,11 +131,10 @@ function updateTextView(_obj) {
           return Number(out.join(''));
           
       }
-      $(document).ready(function(){
-        $('input[type=text]').on('keyup',function(){
+      
+        $('input[placeholder=￥]').on('keyup',function(){
           updateTextView($(this));
         });
-      });
 
 
     //   time

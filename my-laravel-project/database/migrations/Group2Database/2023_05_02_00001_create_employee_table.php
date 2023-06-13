@@ -15,6 +15,7 @@ return new class extends Migration
             $table->unsignedBigInteger('staff_id')->autoIncrement();
             $table->string('staff_pass');
             $table->string('staff_name');
+            $table->string('role')->default('staff');
             $table->string('tel');
             $table->string('residence');
             $table->string('hourly_wage');
