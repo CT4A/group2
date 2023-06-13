@@ -6,8 +6,6 @@
 
 .containt {
   width: 100%;
-  margin: 100px;
-  height: 100vh;
   background: #fff;
 }
 
@@ -69,4 +67,40 @@ body {
 
 .currTime {
   font-size: 72.7px !important;
+}
+
+.fileter {
+  justify-content: center;
+  width: 80%;
+  margin: auto;
+  display: flex;
+  flex: 0 0 20%;
+}
+.fileter .flter-selector {
+  cursor: pointer;
+  padding: 30px;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 0 5%;
+  background-color: aqua;
+}
+.fileter .flter-selector .filter-button {
+  font-size: 0;
+  opacity: 0;
+  left: 0;
+  display: flex;
+  position: absolute;
+  bottom: 10%;
+}
+.fileter .flter-selector .filter-button span {
+  width: 100%;
+  text-align: center;
+}
+.fileter .flter-selector .filter-button-aft {
+  font-size: 24px;
+  opacity: 1;
+  width: 80%;
+  left: 10%;
+  background-color: #ff7531;
 }/*# sourceMappingURL=syukkin.css.map */

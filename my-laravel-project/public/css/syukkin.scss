@@ -2,8 +2,6 @@
 
 .containt{
     width: 100%;
-    margin: 100px;
-    height: 100vh;
     background:$white; 
 }
 body{
@@ -61,4 +59,39 @@ body{
 }
 .currTime{
     font-size: 72.7px !important; 
+}
+.fileter{
+    justify-content: center;
+    width: 80%;
+    margin: auto;
+    display: flex;
+    flex: 0 0 calc(100% / 5);
+.flter-selector{
+    cursor: pointer;
+    padding: 30px;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 0 5%;
+    background-color: aqua;
+    .filter-button{
+        font-size: 0;
+        opacity: 0;
+        left: 0;
+        display: flex;
+        position: absolute;
+        bottom: 10%;
+        span{
+            width: 100%;
+            text-align: center;
+        }
+    }
+    .filter-button-aft{
+        font-size: 24px;
+        opacity: 1;
+        width: 80%;
+        left: 10%;
+        background-color: #ff7531;
+    }    
+    }
 }

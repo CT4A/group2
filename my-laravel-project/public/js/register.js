@@ -41,16 +41,13 @@ $(document).ready(function(){
 //         $(kindsSelecter).removeClass("kinds-selecter-aft");
 //     }
 // });
-    
     $(kindsli).click(function () {
         var test = $(this).parent();
         var ListPush = test.parent().parent();
         test.find(kindsInp).addClass("kind-Click");
         if($(this).text() == "その他"){
             $(kinds).addClass("kinds-aft");
-            console.log(test.find(kindsInp))
             test.find(kindsInp).val("");
-            console.log("その他");
         }else{
             ListPush.addClass("kinds-aft");
             ListPush.find(kindsInp).val($(this).text());

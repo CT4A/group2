@@ -1,4 +1,8 @@
 $(document).ready(function(){
+    $(".flter-selector").click(function () {
+        $(".filter-button").removeClass("filter-button-aft");
+        $(this).find(".filter-button").addClass("filter-button-aft");
+    });
     function LoadProc(){
       setInterval(function(){
         var now = new Date();
