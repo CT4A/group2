@@ -50,16 +50,14 @@ body{
     }
 }
 .leavetimeArea{
-    color: $white;
+    color: #000;
     font-size: $fsize44;
     padding: 50px;
-    width: 500px;
+    width: 100%;
     display: grid;
     text-align: center;
-    border-radius: 25px;
-    background: $blue;
     margin: auto;
-
+    height: 300px;
 }
 .currtimefiled{
     background: $blue;
@@ -96,18 +94,19 @@ body{
     height: 200px;
     padding: 0;
     li{
+        padding:  20px 0;
         font-size: 24px;
         border-bottom: rgba(99, 137, 250,0.3) solid 1px;
         cursor: pointer;
         &:hover{
-            background-color: #ccc;
+            background-color: rgba(204, 204, 204,0.5);
         }
     }
     #customer-select-number{
-    background:#ccc;        
+                background-color: rgba(204, 204, 204,0.5);        
     }
     #emp-select-number{
-        background:#ccc;        
+                    background-color: rgba(204, 204, 204,0.5);        
         }
     }
 }

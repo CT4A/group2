@@ -56,15 +56,14 @@ body {
 }
 
 .leavetimeArea {
-  color: #fff;
+  color: #000;
   font-size: 44px;
   padding: 50px;
-  width: 500px;
+  width: 100%;
   display: grid;
   text-align: center;
-  border-radius: 25px;
-  background: #38B6FF;
   margin: auto;
+  height: 300px;
 }
 
 .currtimefiled {
@@ -106,16 +105,17 @@ body {
   padding: 0;
 }
 .fileter ul li {
+  padding: 20px 0;
   font-size: 24px;
   border-bottom: rgba(99, 137, 250, 0.3) solid 1px;
   cursor: pointer;
 }
 .fileter ul li:hover {
-  background-color: #ccc;
+  background-color: rgba(204, 204, 204, 0.5);
 }
 .fileter ul #customer-select-number {
-  background: #ccc;
+  background-color: rgba(204, 204, 204, 0.5);
 }
 .fileter ul #emp-select-number {
-  background: #ccc;
+  background-color: rgba(204, 204, 204, 0.5);
 }/*# sourceMappingURL=syukkin.css.map */
