@@ -118,6 +118,11 @@ Route::get('/pass-change', function () {
     return view('pass-change');
 });
 
+//お知らせ追加画面
+Route::get('/news', function () {
+    return view('news');
+});
+
 // 伝票登録
 Route::get('/bill-register', [BillController::class,'index']);
 Route::post('/bill-register', [BillController::class,'register']);

@@ -39,10 +39,12 @@ class keepbottleController extends Controller
         $validatedData = $request->validate([
             'customer_id' => 'required',
             'liquor_id' => 'required',
+            'liquor_number' => 'required',
             'liquor_day' => 'required',
         ],[
             'customer_id.required'=>'リストからスタッフの名前を選択してください。',
             'liquor_id.required'=>'リストからスタッフの名前を選択してください。ないの場合は顧客新規登録してください',
+            'liquor_number.required'=>'リストからお酒の種類を選択してください。',
             'liquor_day.required'=>'日付を入力してください。'            
         ]);
         $liquor = liquor_mg::find(  $request->liquor_id);
