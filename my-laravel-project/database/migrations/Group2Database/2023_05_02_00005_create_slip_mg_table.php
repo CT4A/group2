@@ -21,11 +21,14 @@ return new class extends Migration
             $table->unsignedBigInteger('staff_id');
             $table->timestamp('ap_day');
             $table->unsignedInteger('total');
+            $table->unsignedBigInteger('responsibility');
             $table->rememberToken();
             $table->timestamps();
+            
             //制約
             $table->foreign('customer_id')->references('customer_id')->on('customers');
             $table->foreign('staff_id')->references('staff_id')->on('employees');
+            $table->foreign('responsibility')->references('staff_id')->on('employees');
             $table->primary(['customer_id','staff_id','ap_day']);
         });
     }

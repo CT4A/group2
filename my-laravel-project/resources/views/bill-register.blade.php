@@ -16,15 +16,22 @@ $today = Carbon::now()->format('Y/m/d');
         <div class="register-area">
             <h1>伝票登録</h1>
             <ul>
-                <form action="/customer-register" method="POST">
+                <form action="/bill-register" method="POST">
                     @csrf
                     <li>
                         <span>顧客名</span>
-                        <input type="text" name="customer_name" value="{{ old('customer_name') }}">
-                        <input type="text" name="customer_id" value="{{ old('customer_id') }}" hidden>
-
-                        @if ($errors->has('customer_name'))
-                        <span class="error">{{ $errors->first('customer_name') }}</span>
+                        <div class="kinds-selecter">
+                            <span>選択してください</span>
+                            <ul class="kind-list" id="customerList">
+                                @foreach ($customers as $customer)
+                                    <li data='{{$customer->customer_id}}'>{{$customer->customer_name}}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                        <input type="text" id="customer_name" class="kinds-inp" name="customer_name" value="{{ old('customer_name') }}">
+                        <input type="text" id="customer_id" class="kinds-inp-hidden" name="customer_id" value="{{ old('customer_id') }}" hidden>
+                        @if ($errors->has('customer_id'))
+                        <span class="error">{{ $errors->first('customer_id') }}</span>
                         @endif
                     </li>
                     <li class="kinds  kinds-aft">
@@ -47,9 +54,9 @@ $today = Carbon::now()->format('Y/m/d');
 
                     <li>
                         <span>日付</span>
-                        <input type="text" id="theDate" name="ap_day" value="{{$today}}" placeholder="例：0000-00-00">
+                        <input type="text" id="theDate" name="day" value="{{$today}}" placeholder="例：0000-00-00">
                         @if ($errors->has('ap_day'))
-                            <span class="error">{{ $errors->first('ap_day') }}</span>
+                            <span class="error">{{ $errors->first('day') }}</span>
                         @endif
                     </li>
                     <li>

@@ -152,6 +152,13 @@ $(document).ready(function(){
         $('#staff_name').css({'height':'auto','width':'auto'}).val(staff_name);
         $('#staff_id').val(staff_id);
     });
+
+    $('#customerList li').click(function () {
+        let staff_name = $(this).text();
+        let staff_id = $(this).attr('data');
+        $('#customer_name').val(staff_name);
+        $('#customer_id').val(staff_id);
+    });
 });
     
 
