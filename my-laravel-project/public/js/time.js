@@ -1,8 +1,18 @@
 $(document).ready(function(){
-    $(".flter-selector").click(function () {
-        $(".filter-button").removeClass("filter-button-aft");
-        $(this).find(".filter-button").addClass("filter-button-aft");
+    customerNumbeList =(".customer-number-list li");
+    empNumberList = (".emp-number-list li");
+    
+    $(customerNumbeList).click(function () {
+        $(customerNumbeList).removeAttr("id");
+        $(this).attr("id","customer-select-number");
     });
+
+    $(empNumberList).click(function () {
+        $(empNumberList).removeAttr("id");
+        $(this).attr("id","emp-select-number");
+    });
+    
+    
     function LoadProc(){
       setInterval(function(){
         var now = new Date();
