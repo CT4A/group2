@@ -21,40 +21,31 @@ $(document).ready(function(){
     
     
     $(kindsSelecter).click(function(){
+
         if(!$(this).hasClass("kinds-selecter-aft")){
             $(this).addClass("kinds-selecter-aft");
             $(this).find(kindList).addClass("kind-list-aft");
         }else{
             $(this).removeClass("kinds-selecter-aft");
             $(this).find(kindList).removeClass("kind-list-aft");
-        
         }
     });
-    
 
-// $(kindsSelecter).click(function(){
-//     if(!$(kindsSelecter).hasClass("kinds-selecter-aft")){
-//     $(kindList).addClass("kind-list-aft");
-//     $(kindsSelecter).addClass("kinds-selecter-aft");
-//     }else{
-//         $(kindList).removeClass("kind-list-aft");
-//         $(kindsSelecter).removeClass("kinds-selecter-aft");
-//     }
-// });
     $(kindsli).click(function () {
-        var test = $(this).parent();
-        var ListPush = test.parent().parent();
-        test.find(kindsInp).addClass("kind-Click");
+        var thisList = $(this).parent();
+        var ListPush = thisList.parent().parent();
+        thisList.find(kindsInp).addClass("kind-Click");
         if($(this).text() == "その他"){
             $(kinds).addClass("kinds-aft");
-            test.find(kindsInp).val("");
+            ListPush.find(kindsInp).val("");
         }else{
             ListPush.addClass("kinds-aft");
             ListPush.find(kindsInp).val($(this).text());
             ListPush.find(kindsInpHidden).attr('value', $(this).attr('data'));
         }
-        test.find(kindList).removeClass("kind-list-aft");
-        test.find(kindsSelecter).removeClass("kinds-selecter-aft");
+        thisList.find(kindList).removeClass("kind-list-aft");
+        thisList.find(kindsSelecter).removeClass("kinds-selecter-aft");
+        $(kindsSelecter).removeClass("kind-list-aft");
     });
         $(inptxt).click(function(event) {
             var test =$(inptxt).eq(event).parent();
