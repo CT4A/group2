@@ -4,10 +4,19 @@
   justify-content: center;
 }
 
+ul::-webkit-scrollbar {
+  width: 3px;
+}
+ul::-webkit-scrollbar-track {
+  background-color: #ccc;
+}
+ul::-webkit-scrollbar-thumb {
+  background: #6389fa;
+  border-radius: 25px;
+}
+
 .containt {
   width: 100%;
-  margin: 100px;
-  height: 100vh;
   background: #fff;
 }
 
@@ -69,4 +78,44 @@ body {
 
 .currTime {
   font-size: 72.7px !important;
+}
+
+.fileter {
+  display: flex;
+  width: 70%;
+  margin: 0 auto;
+}
+.fileter > div {
+  display: flex;
+  width: 100%;
+}
+.fileter > div h2 {
+  writing-mode: vertical-lr;
+  text-align: center;
+  background: #6389fa;
+  margin-left: 8px;
+  margin-right: 0px;
+  font-weight: 500;
+  color: #fff;
+}
+.fileter ul {
+  list-style: none;
+  width: 100%;
+  overflow-y: scroll;
+  height: 200px;
+  padding: 0;
+}
+.fileter ul li {
+  font-size: 24px;
+  border-bottom: rgba(99, 137, 250, 0.3) solid 1px;
+  cursor: pointer;
+}
+.fileter ul li:hover {
+  background-color: #ccc;
+}
+.fileter ul #customer-select-number {
+  background: #ccc;
+}
+.fileter ul #emp-select-number {
+  background: #ccc;
 }/*# sourceMappingURL=syukkin.css.map */

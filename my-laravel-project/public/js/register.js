@@ -41,16 +41,13 @@ $(document).ready(function(){
 //         $(kindsSelecter).removeClass("kinds-selecter-aft");
 //     }
 // });
-    
     $(kindsli).click(function () {
         var test = $(this).parent();
         var ListPush = test.parent().parent();
         test.find(kindsInp).addClass("kind-Click");
         if($(this).text() == "その他"){
             $(kinds).addClass("kinds-aft");
-            console.log(test.find(kindsInp))
             test.find(kindsInp).val("");
-            console.log("その他");
         }else{
             ListPush.addClass("kinds-aft");
             ListPush.find(kindsInp).val($(this).text());
@@ -107,34 +104,30 @@ $(document).ready(function(){
                 $("#liquor_id").attr("value",liquor_id); 
             }
         })
-
-    });
-    
-
     // 金額に自動的追加　”、”　
-function updateTextView(_obj) {
+    function updateTextView(_obj) {
         var num = getNumber(_obj.val());
         if(num==0){
-          _obj.val('');
+        _obj.val('');
         }else{
-          _obj.val(num.toLocaleString());
+        _obj.val(num.toLocaleString());
         }
-      }
-      function getNumber(_str){
-        var arr = _str.split('');
-        var out = new Array();
-        for(var cnt=0;cnt<arr.length;cnt++){
-          if(isNaN(arr[cnt])==false){
-            out.push(arr[cnt]);
-          }
-        }
-          return Number(out.join(''));
-          
-      }
-      
-        $('input[placeholder=￥]').on('keyup',function(){
-          updateTextView($(this));
-        });
+    }
+    function getNumber(_str){
+    var arr = _str.split('');
+    var out = new Array();
+    for(var cnt=0;cnt<arr.length;cnt++){
+    if(isNaN(arr[cnt])==false){
+        out.push(arr[cnt]);
+    }
+    }
+    return Number(out.join(''));
+
+    }
+
+    $('input[placeholder=￥]').on('keyup',function(){
+    updateTextView($(this));
+    });
 
 
     //   time
@@ -142,8 +135,8 @@ function updateTextView(_obj) {
     var year = date.getFullYear();
     var month = date.getMonth() + 1;
     var day = date.getDate();
-var hour = date.getHours();
-var minute = date.getMinutes();
+    var hour = date.getHours();
+    var minute = date.getMinutes();
     if (month < 10) month = "0" + month;
     if (day < 10) day = "0" + day;
 
@@ -151,3 +144,15 @@ var minute = date.getMinutes();
 
 
     document.getElementById('theDate').value = today;
+
+    //bill-registerの社員名クリックの処理：
+    $('#staffList li').click(function () {
+        let staff_name = $(this).text();
+        let staff_id = $(this).attr('data');
+        $('#staff_name').css({'height':'auto','width':'auto'}).val(staff_name);
+        $('#staff_id').val(staff_id);
+    });
+});
+    
+
+   

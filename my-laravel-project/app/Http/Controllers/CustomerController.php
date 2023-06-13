@@ -40,13 +40,13 @@ class CustomerController extends Controller
             'staff_id' => $request->input('staff_id'),
             'remarks' => $request->input('remarks')
         ]);
-        $customer = [
-            'customer_name' => $request->input('customer_name'),
-            'company_name' => $request->input('company_name'),
-            'birthday' => $request->input('birthday'),
-            'staff_id' => $request->input('staff_id'),
-            'remarks' => $request->input('remarks')
-        ];
+        // $customer = [
+        //     'customer_name' => $request->input('customer_name'),
+        //     'company_name' => $request->input('company_name'),
+        //     'birthday' => $request->input('birthday'),
+        //     'staff_id' => $request->input('staff_id'),
+        //     'remarks' => $request->input('remarks')
+        // ];
         $customer=json_encode($customer);
         return view('test',compact('customer'));
         // return redirecr();

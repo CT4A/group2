@@ -9,6 +9,7 @@ use App\Http\Controllers\registerController;
 use App\Http\Controllers\keepbottleController;
 use App\Http\Controllers\resrveController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\BillController;
 use App\Http\Controllers\testController;
 use Illuminate\Support\Facades\Route;
 
@@ -118,9 +119,8 @@ Route::get('/pass-change', function () {
 });
 
 // 伝票登録
-Route::get('/bill-register', function () {
-    return view('bill-register');
-});
+Route::get('/bill-register', [BillController::class,'index']);
+Route::post('/bill-register', [BillController::class,'register']);
 // 伝票一覧
 Route::get('/list-bill', function () {
     return view('list-bill');

@@ -30,11 +30,32 @@
             </div>
        </div>
         </section>
-        <section class="leavetime">
+        <section class="fileter">
+        <div class="leavetime">
             <div class="leavetimeArea">
                 <span>00:00出勤</span>
                 <span>00:00退勤</span>
             </div>
+        </div>
+            <div class="customer-number">
+                <h2>同伴者数</h2>
+                <ul class="customer-number-list">
+                <li id="customer-select-number"><span >0</span></li>
+                @for ($i = 1; $i <= 50; $i++)
+                <li><span>{{$i}}</span></li>
+                @endfor
+                </ul>
+            </div>
+            <div class="emp-number">
+                <h2>担当人数</h2>
+            <ul class="emp-number-list">
+                <li id ="emp-select-number"><span>0</span></li>
+                @for ($i = 1; $i <= 50; $i++)
+                <li><span>{{$i}}</span></li>
+                @endfor
+                </ul>
+            </div>
+
         </section>
      </div>
      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
