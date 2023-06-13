@@ -28,7 +28,7 @@
                     </button>
                 </form> 
             </div>
-        </div>
+       </div>
         </section>
         <section class="fileter">
         <div class="leavetime">
@@ -76,4 +76,4 @@
      <script src= "{{asset('js/time.js')}}"></script>
     </body>
 </main>
-</html>
+</html> 

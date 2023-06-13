@@ -42,7 +42,7 @@
                     </li>
                     <li>
                         <span>時給</span>
-                        <input type="text" name="hourly_wage"  value="{{ old('hourly_wage') }}">
+                        <input type="text" name="hourly_wage"  value="{{ old('hourly_wage') }}"  placeholder="￥">
                         @if ($errors->has('hourly_wage'))
                             <span class="error">{{ $errors->first('hourly_wage') }}</span>
                         @endif
