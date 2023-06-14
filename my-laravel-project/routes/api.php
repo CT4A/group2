@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\keepbottleController;
+use App\Http\Controllers\syukkinController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -19,4 +20,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-// Route::get('/api/getLiquorType/{liquor_name}', [keepbottleController::class,'indexList']);
+//出勤退勤登録
+Route::post('/syukkin/start',   [syukkinController::class,'attend']);
+Route::post('/syukkin/end',     [syukkinController::class,'leave']);
+
+

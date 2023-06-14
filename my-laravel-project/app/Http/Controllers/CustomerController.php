@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\customer;
+use App\Models\employee;
 use Illuminate\Http\Request;
 
 class CustomerController extends Controller
@@ -40,15 +41,19 @@ class CustomerController extends Controller
             'staff_id' => $request->input('staff_id'),
             'remarks' => $request->input('remarks')
         ]);
-        // $customer = [
+        // $customer = [    
         //     'customer_name' => $request->input('customer_name'),
         //     'company_name' => $request->input('company_name'),
         //     'birthday' => $request->input('birthday'),
         //     'staff_id' => $request->input('staff_id'),
         //     'remarks' => $request->input('remarks')
         // ];
-        $customer=json_encode($customer);
-        return view('test',compact('customer'));
-        // return redirecr();
+        return redirect()->route('indexCusRegister')->with('message','登録完成しました。');
     } 
+    //顧客登録表示
+    public function indexRegister(){
+        $customers=customer::select('customer_id','customer_name')->get();
+        $staffs=employee::select('staff_id','staff_name')->get();
+        return view('customer-register',compact('customers','staffs'));
+    }
 }

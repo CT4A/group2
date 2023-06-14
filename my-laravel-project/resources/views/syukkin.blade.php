@@ -42,7 +42,7 @@
         </div>
             <div class="customer-number">
                 <h2>同伴者数</h2>
-                <ul class="customer-number-list">
+                <ul class="customer-number-list" id='customer-list'>
                 <li id="customer-select-number"><span>0</span></li>
                 @for ($i = 1; $i <= 50; $i++)
                     <li><span>{{$i}}</span></li>
@@ -51,7 +51,7 @@
             </div>
             <div class="emp-number">
                 <h2>担当人数</h2>
-            <ul class="emp-number-list">
+            <ul class="emp-number-list" id='employee-list'>
                 <li id ="emp-select-number"><span>0</span></li>
                 @for ($i = 1; $i <= 50; $i++)
                     <li><span>{{$i}}</span></li>
@@ -61,99 +61,11 @@
         </section>
      </div>
      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-     <script src= "{{asset('js/time.js')}}"></script>
+     
     </body>
 </main>
 </html> 
 <script>
-    //出勤ボタンの処理
-    $("#start").click(function(){
-        console.log("click start button"); 
-        var date = new Date();
-        var day = date.getDate();
-        var month = date.getMonth() + 1; 
-        var year = date.getFullYear();
-        //今日の日付
-        var today = year + '-' + month + '-' + day;
-
-        var hours = date.getHours();
-        var minutes = date.getMinutes();
-        var seconds = date.getSeconds();
-        //現在の時間
-        var now = hours + ':' + minutes + ':' + seconds;
-
-        //顧客人数
-        let cus_num = $('#cus-select-number').val();
-        //担当人数
-        let emp_num = $('#emp-select-number').val();
-        //同伴率　＝　　顧客人数/担当人数
-        let num_people;
-
-        if(emp_num==0){
-            num_people= 0;
-        }else{
-            num_people = cus_num/emp_num; 
-        }
-
-        let data={
-            'staff_id':1,
-            'work_date'  :today,
-            'attend_time':now,
-            'num_people' : num_people
-        }
-        $.ajaxSetup({
-            headers:{
-                'X-CSRF-TOKEN' : $('meta[name="csrf-token"]').attr('content')
-            }
-        });
-        $.ajax({
-            type: "post",
-            url: "/syukkin/start",
-            data: data,
-            dataType: "dataType",
-            success: function (response) {
-                
-            }
-        });
-
-    });
     
-    //退勤ボタンの処理
-    $("#end").click(function(){
-        console.log("click end button"); 
-        var date = new Date();
-        var day = date.getDate();
-        var month = date.getMonth() + 1; 
-        var year = date.getFullYear();
-        //今日の日付
-        var today = year + '-' + month + '-' + day;
-
-        var hours = date.getHours();
-        var minutes = date.getMinutes();
-        var seconds = date.getSeconds();
-        //現在の時間
-        var now = hours + ':' + minutes + ':' + seconds;
-
-        //送信データ。
-        let data={
-            'staff_id':1,
-            'work_date'  :today,
-            'leaving_work':now
-        }
-        
-
-        $.ajaxSetup({
-            headers:{
-                'X-CSRF-TOKEN' : $('meta[name="csrf-token"]').attr('content')
-            }
-        });
-
-        $.ajax({
-            type: "post",
-            url: "/syukkin/end",
-            data: data,
-            success: function (data) {
-            }
-          });
-    });
 </script>
+<script src= "{{asset('js/time.js')}}"></script>

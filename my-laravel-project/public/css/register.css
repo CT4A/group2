@@ -80,7 +80,7 @@
     width: 0%;
 }
 .register-area ul .kinds-aft input[type="text"] {
-    height: 100%;
+    height: auto;
     width: 100%;
 }
 

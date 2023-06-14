@@ -25,11 +25,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('login');
+Route::get('/test', function () {
+    return view('test');
 });
 
-Route::get('/test',[syukkinController::class,'index']);
+// Route::get('/test',[syukkinController::class,'index']);
 
 Route::get('/home', [homeController::class,'index']);
 
@@ -42,11 +42,6 @@ Route::post('/login',[AuthController::class,'login']);
 Route::get('/login',function(){
     return view('login');
 });
-// 顧客を登録する
-Route::get('/customer-register', function () {
-    return view('customer-register');
-});
-// Route::post('/customer-register','customer');
 
 Route::get('/header', function () {
     return view('header');
@@ -73,14 +68,15 @@ Route::post('/getInfoStaff/{id}', [EmployeeController::class,'GetListStaff']);
 //社員登録
 Route::get('/emp-register', function () {
     return view('emp-register');
-});
+})->name('indexEmpRegister');
 Route::post('/emp-register',[ EmployeeController::class,'register']);
 
 // 顧客一覧
 Route::get('/list-customer' ,[CustomerController::class,'index']);
 Route::post('/getInfoCustomer/{id}', [CustomerController::class,'GetListCustomer']);
 Route::post('/customer-register', [CustomerController::class,'register']);
-
+// 顧客を登録する
+Route::get('/customer-register', [CustomerController::class,'indexRegister'])->name('indexCusRegister');
 
 //出勤退勤履歴
 Route::get('/history', function () {
@@ -94,7 +90,7 @@ Route::get('/keepbottle-list', function () {
 });
 //キープボトル登録
 
-Route::get('/keepbottle-register', [keepbottleController::class,'indexRegister'])->name('indexRegister');
+Route::get('/keepbottle-register', [keepbottleController::class,'indexRegister'])->name('indexKeepRegister');
 Route::post('/keepbottle-register', [keepbottleController::class,'RegisterLiquorLink']);
 
 Route::get('/keepbottle-list', [keepbottleController::class,'indexList']);
@@ -102,7 +98,7 @@ Route::post('/getLiquorType/{liquor_name}', [keepbottleController::class,'GetLiq
 
 
 // ボトル登録
-Route::get('/bottle-register', [bottleController::class,'index']);
+Route::get('/bottle-register', [bottleController::class,'index'])->name('indexRegister');
 Route::post('/bottle-register', [bottleController::class,'RegisterBottle']);
 //予約
 Route::get ('/reserve-register',  [resrveController::class,'index']);

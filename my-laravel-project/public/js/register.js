@@ -82,6 +82,7 @@ $(document).ready(function(){
             });
             $(".liquorType ul").html(htmlString);
         }
+        //クリックイベントの処理
         $(".liquorType ul").click(function(event){
             const clickedElement = event.target;
             
@@ -140,7 +141,7 @@ $(document).ready(function(){
     $('#staffList li').click(function () {
         let staff_name = $(this).text();
         let staff_id = $(this).attr('data');
-        $('#staff_name').css({'height':'auto','width':'auto'}).val(staff_name);
+        $('#staff_name').css({'height':'auto','width':'100%'}).val(staff_name);
         $('#staff_id').val(staff_id);
     });
 

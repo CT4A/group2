@@ -34,10 +34,21 @@ class syukkinController extends Controller
     }
 
     function attend(Request $request){
-
+        $attendLeave= attend_leave::create([
+            'staff_id' => $request->input('staff_id'),
+            'work_date' => $request->input('work_date'),
+            'attend_time' => $request->input('attend_time'),
+            'num_people' => $request->input('num_people'),
+        ]);
+        $data=['message'=> 'success'];
+        return response()->json($request);
     }
-    
     function leave(Request $request){
 
-    }
+        $attendLeave = attend_leave::where('staff_id','=',$request->input('staff_id'))
+                                    ->where('work_date','=',$request->input('work_date'))
+                                    ->update(['leaving_work' => $request->input('leaving_work')]);
+        $data=['message'=> 'success'];
+        return response()->json($data);
+        }
 }

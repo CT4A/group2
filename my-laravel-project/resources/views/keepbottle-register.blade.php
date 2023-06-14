@@ -66,6 +66,8 @@ $today = Carbon::now()->format('Y/m/d');
                         <div class="kinds-selecter">
                             <span>選択してください</span>
                             <ul class="kind-list" id="">
+                                <li>chien</li>
+                                <li>chien</li>
                             </ul>
                         </div>
                         <input type="text" id="liquor_name" class="kinds-inp" name="liquor_name"

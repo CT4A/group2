@@ -6,10 +6,18 @@
 @endsection
 @section('content')
 <main>
+    <div class="message text-center">
+        <div class="alert alert-primary" role="alert">
+            <strong>{{session('message')}}</strong>
+        </div>
+    </div>
     <section class="register">
         <div class="register-area">
             <h1>社員新規作成</h1>
             <ul>
+                @if (isset($message))
+                    <script>alert({{$message}})</script>
+                @endif
                 <form action="/emp-register" method="POST">
                     @csrf
                     <li>
