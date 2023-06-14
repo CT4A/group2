@@ -50,20 +50,16 @@ $today = Carbon::now()->format('Y/m/d');
                             <span>選択してください</span>
                             <ul class="kind-list" id="">
                                 @foreach ($liquors as $liquor)
-                                <li>{{$liquor->liquor_type}}</li>
+                                    <li>{{$liquor->liquor_type}}</li>
                                 @endforeach
                                 {{-- <li>その他</li> --}}
                             </ul>
                         </div>
                         <input type="text" id="liquor_type" class="kinds-inp" name="liquor_type"
                             value="{{ old('liquor_type') }}" placeholder="種類を入力してください">
-                        <!-- test -->
-                        <input type="text" id="liquor_number" class="kinds-inp-hidden" name="liquor_number"
-                            value="{{ old('liquor_number') }}" hidden>
-                        @if ($errors->has('liquor_number'))
-                        <span class="error">{{ $errors->first('liquor_number') }}</span>
+                        @if ($errors->has('liquor_type'))
+                            <span class="error">{{ $errors->first('liquor_type') }}</span>
                         @endif
-
                     </li>
                     <li class="kinds  liquorType">
                         <span>酒名</span>

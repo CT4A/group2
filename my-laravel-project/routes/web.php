@@ -10,6 +10,7 @@ use App\Http\Controllers\keepbottleController;
 use App\Http\Controllers\resrveController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BillController;
+use App\Http\Controllers\syukkinController;
 use App\Http\Controllers\testController;
 use Illuminate\Support\Facades\Route;
 
@@ -28,7 +29,7 @@ Route::get('/', function () {
     return view('login');
 });
 
-Route::get('/test',[testController::class,'index']);
+Route::get('/test',[syukkinController::class,'index']);
 
 Route::get('/home', [homeController::class,'index']);
 
@@ -57,10 +58,9 @@ Route::get('/shift-register', function () {
 Route::post('/registerSchedule', [registerController::class,'register']);
 
 // 出勤退勤
-Route::get('/syukkin', function () {
-    return view('syukkin');
-});
-
+Route::get('/syukkin', [syukkinController::class,'index']);
+Route::post('/syukkin/start', [syukkinController::class,'attend']);
+Route::post('/syukkin/end', [syukkinController::class,'leave']);
 // // 一覧表示。
 Route::get('/itiran', function () {
     return view('itiran');
