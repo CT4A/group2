@@ -46,12 +46,12 @@ $today = Carbon::now()->format('Y/m/d');
                         </div>
                         <input type="text" id="staff_name" class="kinds-inp" name="staff_name" value="{{ old('staff_name') }}">
                         <input type="text" id="staff_id" class="kinds-inp-hidden" name="staff_id" value="{{ old('staff_id') }}"
-                            hidden>
+                        hidden>
                         @if ($errors->has('staff_id'))
                         <span class="error">{{ $errors->first('staff_id') }}</span>
                         @endif
                     </li>
-
+                        <button type="button" class="plus">追加</button>
                     <li>
                         <span>日付</span>
                         <input type="text" id="theDate" name="day" value="{{$today}}" placeholder="例：0000-00-00">

@@ -1,12 +1,21 @@
 $(document).ready(function(){
-    $(".filter-element").click(function(){
-        console.log("test");
-        var filterValue = $(this).data("filter");
-        if(filterValue === "all"){
-            $(".item").show();
-        }else{
-            $(".item").hide();
-            $(".item" + filterValue).show();
+console.log("適応されているよ")
+    const fillEle = $(".filter-element");
+    var filterValue ={
+        timeFilter  : 0,
+        moneyFilter  : "",
+        peopleFilter: ""
+    };
+    $(fillEle).click(function(){
+        $(fillEle).removeClass("fileter-element-aft");
+        if($(this).parent(".filter-element").has){
+            console.log("成功")
         }
+        if($(this).parent("#filter-people"))
+        filterValue.timeFilter = this.getAttribute('data-filter');
+        console.log(filterValue);
+        filterValue=this.getAttribute('data-filter');
+        console.log(filterValue);
+        $(this).addClass("fileter-element-aft")
     })
-})
+});
