@@ -41,13 +41,7 @@ class CustomerController extends Controller
             'staff_id' => $request->input('staff_id'),
             'remarks' => $request->input('remarks')
         ]);
-        // $customer = [    
-        //     'customer_name' => $request->input('customer_name'),
-        //     'company_name' => $request->input('company_name'),
-        //     'birthday' => $request->input('birthday'),
-        //     'staff_id' => $request->input('staff_id'),
-        //     'remarks' => $request->input('remarks')
-        // ];
+
         return redirect()->route('indexCusRegister')->with('message','登録完成しました。');
     } 
     //顧客登録表示

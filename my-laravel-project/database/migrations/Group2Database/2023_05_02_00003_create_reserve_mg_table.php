@@ -13,7 +13,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('reserve_mgs', function (Blueprint $table) {
-            $table->unsignedBigInteger('reserve_id')->primary();
+            $table->unsignedBigInteger('reserve_id')->autoIncrement();
             $table->string('customer_name');
             $table->unsignedBigInteger('staff_id');
             $table->date('reserve_date');

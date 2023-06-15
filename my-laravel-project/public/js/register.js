@@ -19,7 +19,6 @@ $(document).ready(function(){
         };
     });
     $(kindsSelecter).click(function(){
-        console.log("test");
         if(!$(this).hasClass("kinds-selecter-aft")){
             $(this).addClass("kinds-selecter-aft");
             $(this).find(kindList).addClass("kind-list-aft");

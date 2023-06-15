@@ -10,6 +10,7 @@ use App\Http\Controllers\keepbottleController;
 use App\Http\Controllers\resrveController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BillController;
+use App\Http\Controllers\shiftController;
 use App\Http\Controllers\syukkinController;
 use App\Http\Controllers\testController;
 use Illuminate\Support\Facades\Route;
@@ -24,6 +25,9 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+Route::get('/', function () {
+    return view('welcome');
+});
 
 Route::get('/test', function () {
     return view('test');
@@ -47,9 +51,9 @@ Route::get('/header', function () {
     return view('header');
 });
 // 登録
-Route::get('/shift-register', function () {
-    return view('shift-register');
-});
+Route::get('/shift-register', [shiftController::class,'index'])->name('indexShiftRegister');
+Route::post('/shift-register', [shiftController::class,'register']);
+
 Route::post('/registerSchedule', [registerController::class,'register']);
 
 // 出勤退勤
@@ -101,8 +105,8 @@ Route::post('/getLiquorType/{liquor_name}', [keepbottleController::class,'GetLiq
 Route::get('/bottle-register', [bottleController::class,'index'])->name('indexRegister');
 Route::post('/bottle-register', [bottleController::class,'RegisterBottle']);
 //予約
-Route::get ('/reserve-register',  [resrveController::class,'index']);
-Route::post('/reserve-register',  [resrveController::class,'reserveRegister']);
+Route::get ('/reserve-register',  [resrveController::class,'index'])->name('indexResRegister');
+Route::post('/reserve-register',  [resrveController::class,'register']);
 
 // 給料明細
 Route::get('/pay-statement', function () {
