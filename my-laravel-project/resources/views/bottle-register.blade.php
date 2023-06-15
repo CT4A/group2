@@ -13,7 +13,7 @@
             <strong>{{session('message')}}</strong>
         </div>
     </div>
-<section class="register">
+    <section class="register">
         <div class="register-area">
             <h1>ボトル登録</h1>
             <ul>
@@ -22,24 +22,25 @@
                     <li class="kinds">
                         <span>種類</span>
                         <div class="kinds-selecter">
-                        <span>選択してください</span>
-                        <ul class="kind-list" id ="">
-                            @foreach ($liquors as $liquor)
+                            <span>選択してください</span>
+                            <ul class="kind-list" id="">
+                                <!-- @foreach ($liquor as $liquor)
                             <li>{{$liquor->liquor_type}}</li>
-                            @endforeach
-                            <li>その他</li>
-                        </ul> 
+                            @endforeach -->
+                                <li>その他</li>
+                            </ul>
                         </div>
-                        <input type="text" id ="liquor_type" value="{{ old('liquor_type') }}" class="kinds-inp"  name="liquor_type" placeholder="種類を入力してください">
+                        <input type="text" id="liquor_type" value="{{ old('liquor_type') }}" class="kinds-inp"
+                            name="liquor_type" placeholder="種類を入力してください">
                         @if ($errors->has('liquor_type'))
-                            <span class="error">{{ $errors->first('liquor_type') }}</span>
+                        <span class="error">{{ $errors->first('liquor_type') }}</span>
                         @endif
                     </li>
                     <li>
                         <span>酒名</span>
                         <input type="text" name="liquor_name" value="{{ old('liquor_name') }}">
                         @if ($errors->has('liquor_name'))
-                            <span class="error">{{ $errors->first('liquor_name') }}</span>
+                        <span class="error">{{ $errors->first('liquor_name') }}</span>
                         @endif
                     </li>
                     <input type="submit" value="登録">
