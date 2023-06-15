@@ -76,9 +76,15 @@
   height: 0%;
   width: 0%;
 }
+<<<<<<< HEAD
 .register-area ul .kinds-aft input[type=text] {
   height: auto;
   width: 100%;
+=======
+.register-area ul .kinds-aft input[type="text"] {
+    height: auto;
+    width: 100%;
+>>>>>>> c7313aa5f44ea4380639268a8de2c611fdf2c0cb
 }
 
 .kinds-selecter {

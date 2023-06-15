@@ -23,6 +23,9 @@ class EmployeeController extends Controller
         }
     }
     public function register(Request $request){
+        // $hourly_wage=$request->hourly_wage;
+        // $hourly_wage = intval(str_replace(',','', $hourly_wage));//,消してintに変換
+
         $validatedData = $request->validate([
             'staff_name' => 'required|string',
             'tel' => 'required|numeric',
@@ -40,14 +43,14 @@ class EmployeeController extends Controller
         ]);
         $employee = employee::create([
             'staff_name' => $request->input('staff_name'),
-            'staff_password'=> bcrypt('password'),
+            'staff_pass'=> bcrypt('password'),
             'tel' => $request->input('tel'),
             'residence' => $request->input('residence'),
             'birthday' => $request->input('birthday'),
             'hourly_wage' => $request->input('hourly_wage'),
             'remarks' => $request->input('remarks')
         ]);
-        return view('test',['message'<='success']);
+        return redirect()->route('indexEmpRegister')->with('message','登録完成しました。');
     } 
 
     public function indexHistory(Request $request)

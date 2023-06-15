@@ -59,6 +59,6 @@ class keepbottleController extends Controller
         ]);
         $liquor->liquor_number = $NewLiquor_number;
         $liquor->save();
-        return redirect()->route('indexRegister')->with('message','登録完成しました。');
+        return redirect()->route('indexKeepRegister')->with('message','登録完成しました。');
     }
 }

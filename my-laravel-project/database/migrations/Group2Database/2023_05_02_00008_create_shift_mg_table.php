@@ -18,7 +18,7 @@ return new class extends Migration
             $table->date('request_date');
             $table->Time('start_time');
             $table->Time('end_time');
-            $table->Time('num_people');//同伴人数
+            $table->unsignedBigInteger('num_people');//同伴人数
             $table->timestamps();
             
             //制約

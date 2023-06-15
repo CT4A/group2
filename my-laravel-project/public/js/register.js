@@ -21,7 +21,10 @@ $(document).ready(function(){
     
     
     $(kindsSelecter).click(function(){
+<<<<<<< HEAD
 
+=======
+>>>>>>> c7313aa5f44ea4380639268a8de2c611fdf2c0cb
         if(!$(this).hasClass("kinds-selecter-aft")){
             $(this).addClass("kinds-selecter-aft");
             $(this).find(kindList).addClass("kind-list-aft");
@@ -82,6 +85,7 @@ $(document).ready(function(){
             });
             $(".liquorType ul").html(htmlString);
         }
+        //クリックイベントの処理
         $(".liquorType ul").click(function(event){
             const clickedElement = event.target;
             
@@ -140,7 +144,7 @@ $(document).ready(function(){
     $('#staffList li').click(function () {
         let staff_name = $(this).text();
         let staff_id = $(this).attr('data');
-        $('#staff_name').css({'height':'auto','width':'auto'}).val(staff_name);
+        $('#staff_name').css({'height':'auto','width':'100%'}).val(staff_name);
         $('#staff_id').val(staff_id);
     });
 

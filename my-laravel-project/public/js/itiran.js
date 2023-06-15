@@ -45,14 +45,15 @@ $(document).ready(function(){
       });
     });
     var flagSearch=0;
+
     //検索機能
     $('#search').keyup(function (e) { 
       let keySearch=$(this).val();
       let staffList = $(".emp-name ul li span");
-      staffList.fadeIn();
+      staffList.show();
       for (let i = 0; i < staffList.length; i++) {
         if (staffList[i].textContent.indexOf(keySearch) == -1) {
-          $(".emp-name ul li span").eq(i).fadeOut();
+          $(".emp-name ul li span").eq(i).hide();
         }
         
         

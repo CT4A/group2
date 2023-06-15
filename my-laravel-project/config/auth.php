@@ -41,6 +41,12 @@ return [
             'provider' => 'employees',
         ],
     ],
+    'guards' => [
+        'web' => [
+            'driver' => 'session',
+            'provider' => 'employees',
+        ],
+    ],
 
     /*
     |--------------------------------------------------------------------------
