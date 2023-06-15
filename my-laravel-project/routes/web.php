@@ -126,7 +126,18 @@ Route::get('/news', function () {
 // 伝票登録
 Route::get('/bill-register', [BillController::class,'index']);
 Route::post('/bill-register', [BillController::class,'register']);
+
 // 伝票一覧
 Route::get('/list-bill', function () {
     return view('list-bill');
+});
+
+// お知らせ
+Route::get('/news', function () {
+    return view('news');
+});
+
+// お知らせ登録
+Route::get('/news-register', function () {
+    return view('news-register');
 });
