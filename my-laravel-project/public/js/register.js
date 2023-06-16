@@ -18,7 +18,13 @@ $(document).ready(function(){
             $('ol').removeClass("open").addClass("close");
         };
     });
+    
+    
     $(kindsSelecter).click(function(){
+<<<<<<< HEAD
+
+=======
+>>>>>>> c7313aa5f44ea4380639268a8de2c611fdf2c0cb
         if(!$(this).hasClass("kinds-selecter-aft")){
             $(this).addClass("kinds-selecter-aft");
             $(this).find(kindList).addClass("kind-list-aft");
@@ -47,22 +53,9 @@ $(document).ready(function(){
         $(inptxt).click(function(event) {
             var test =$(inptxt).eq(event).parent();
         });
-        $(".liquorType ul").click(function(event){
-            const clickedElement = event.target;
-            if (clickedElement.tagName === "LI" ) {
-                let liquor_name=clickedElement.textContent;
-                let liquor_id = clickedElement.dataset.value;
-                console.log("id :"+liquor_id);
-                console.log("Clicked liquorType: " + liquor_name);
-                $(".liquorType").addClass("kinds-aft")
-                $("#liquor_name").val(liquor_name);
-                $("#liquor_id").attr("value",liquor_id); 
-            }
-        })
         $(plus).click(function(event) {
             plusCnt+=1;
-            var staffListHTML =$(".kinds").eq(0).html();
-            $(plus).before('<li class="kinds  kinds-aft">'+staffListHTML+'</li>');
+            $(plus).before('<li><span>出勤者名' + plusCnt + '</span><input type="text" name="time"></li>');
         });
 
     $(".alcohol li").click(function (e) { 
@@ -72,16 +65,16 @@ $(document).ready(function(){
                 'X-CSRF-TOKEN' : $('meta[name="csrf-token"]').attr('content')
             }
         });
-        $.ajax({
+          $.ajax({
             type: "post",
             url: "/getLiquorType/{liquor_name}",
             data: {"liquor_type":liquor_type
                 },
             datatype:"json",
             success: function (datas) {
-            showInfo(datas);
+              showInfo(datas);
             }
-        });
+          });
     });
 
         //酒の種類リストを作る。
@@ -95,6 +88,7 @@ $(document).ready(function(){
         //クリックイベントの処理
         $(".liquorType ul").click(function(event){
             const clickedElement = event.target;
+            
             if (clickedElement.tagName === "LI" ) {
                 let liquor_name=clickedElement.textContent;
                 let liquor_id = clickedElement.dataset.value;
