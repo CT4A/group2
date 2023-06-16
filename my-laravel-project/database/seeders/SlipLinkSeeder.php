@@ -5,13 +5,13 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class ShiftMgSeeder extends Seeder
+class SlipLinkSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
     public function run(): void
     {
-        \App\Models\shift_mg::factory(10)->create();
+        \App\Models\slip_link::factory(10)->create();
     }
 }

@@ -18,6 +18,7 @@ class shift_mgFactory extends Factory
     {   
         $start_time=fake()->time();
         $end_time=fake()->time();
+        
         while($start_time >= $end_time){
             $start_time=fake()->time();
             $end_time=fake()->time();

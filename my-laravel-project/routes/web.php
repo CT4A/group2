@@ -10,6 +10,7 @@ use App\Http\Controllers\keepbottleController;
 use App\Http\Controllers\resrveController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BillController;
+use App\Http\Controllers\newsController;
 use App\Http\Controllers\shiftController;
 use App\Http\Controllers\syukkinController;
 use App\Http\Controllers\testController;
@@ -119,9 +120,8 @@ Route::get('/pass-change', function () {
 });
 
 //お知らせ追加画面
-Route::get('/news', function () {
-    return view('news');
-});
+Route::get('/news', [newsController::class,'index'])->name('indexNewsRegister');
+Route::get('/news', [newsController::class,'register']);
 
 // 伝票登録
 Route::get('/bill-register', [BillController::class,'index']);

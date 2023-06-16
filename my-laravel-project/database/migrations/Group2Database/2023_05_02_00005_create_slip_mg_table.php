@@ -17,19 +17,17 @@ return new class extends Migration
         // 日時:(ap_day)主キー
         // 会計金額:(acc_am)
         Schema::create('slip_mgs', function (Blueprint $table) {
+            $table->unsignedBigInteger('slip_id')->autoIncrement();
             $table->unsignedBigInteger('customer_id');
-            $table->unsignedBigInteger('staff_id');
-            $table->timestamp('ap_day');
+            $table->dateTime('ap_day');
             $table->unsignedInteger('total');
-            $table->unsignedBigInteger('responsibility');
+            $table->unsignedBigInteger('responsibility');//入力担当者ID
             $table->rememberToken();
             $table->timestamps();
-            
             //制約
             $table->foreign('customer_id')->references('customer_id')->on('customers');
-            $table->foreign('staff_id')->references('staff_id')->on('employees');
             $table->foreign('responsibility')->references('staff_id')->on('employees');
-            $table->primary(['customer_id','staff_id','ap_day']);
+            $table->unique(['customer_id','responsibility','ap_day']);
         });
     }
 

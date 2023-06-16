@@ -16,11 +16,12 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('staff_id');
             $table->date('request_date');
-            $table->Time('start_time');
-            $table->Time('end_time');
-            $table->unsignedBigInteger('num_people');//同伴人数
+            $table->Time('start_time')->default('21:00');
+            $table->Time('end_time')->nullable()->default(null);
+            $table->unsignedBigInteger('num_people')->nullable()->default(null);//同伴人数
             $table->timestamps();
             
+            $table->unique(['staff_id','request_date']);
             //制約
             $table->foreign('staff_id')->references('staff_id')->on('employees');//外部キー
         });

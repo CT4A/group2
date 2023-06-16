@@ -5,9 +5,9 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\slip_mg>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\slip_link>
  */
-class slip_mgFactory extends Factory
+class SlipLinkFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -17,15 +17,12 @@ class slip_mgFactory extends Factory
     public function definition(): array
     {
         return [
-            'customer_id'=>function(){
-                return \App\Models\customer::inRandomOrder()->first()->customer_id;
+            'slip_id'=>function(){
+                return \App\Models\slip_mg::inRandomOrder()->first()->slip_id;
             },
-            'responsibility'=>function(){
+            'staff_id'=>function(){
                 return \App\Models\employee::inRandomOrder()->first()->staff_id;
             },
-            'ap_day'=>fake()->unique()->date(),
-            'total'=>random_int(1, 100)*10000
-            //
         ];
     }
 }

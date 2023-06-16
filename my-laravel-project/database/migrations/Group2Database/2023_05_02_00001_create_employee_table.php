@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('role')->default('staff');
             $table->string('tel');
             $table->string('residence');
-            $table->string('hourly_wage');
+            $table->unsignedBigInteger('hourly_wage');
             $table->string('birthday');
             $table->string('remarks')->nullable()->default(null);
             $table->rememberToken();
