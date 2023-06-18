@@ -3,6 +3,7 @@ console.log("適応されているよ")
     const fillEle = $(".filter-element");
     const billList = $(".bill-list-items ul li");
     const filterClear = $(".filter-clear");
+    const filtertest = $(".fileter-element-aft");
     var filterValue ={
         timeFilter   : "",
         moneyFilter  : "",
@@ -17,11 +18,13 @@ console.log("適応されているよ")
     $(fillEle).click(function(){
         $(billList).hide();
         var filselect = $(this).parent();
+        if(!$(this).hasClass("fileter-element-aft")){
+            console.log("test");
+            $(this).removeClass("fileter-element-aft");
         switch (filselect.attr("id")) {
             case "time-filter":
                 $(this).parent().find("button").removeClass("fileter-element-aft");
                 $(this).addClass("fileter-element-aft");
-                // console.log($(this).data("data-filter"));
                 console.log($(this).data("filter"));
                 filterValue.timeFilter = $(this).data('filter');
                 break;
@@ -30,28 +33,21 @@ console.log("適応されているよ")
                 $(this).addClass("fileter-element-aft")
                 filterValue.moneyFilter = $(this).data('filter');
                 break;
-            // case "people-filter":
-            //     $(this).parent().find("button").removeClass("fileter-element-aft");
-            //     $(this).addClass("fileter-element-aft")
-            //     filterValue.peopleFilter = $(this).data('filter');
-            //     break;
             default:
                 break;
             }
-
         $(billList).filter(function() {
-            console.log($(this).data('filter'));
             test = $(this).attr('data-filter').split(' ');
-            console.log(test[0])
-            if((filterValue.timeFilter == test[0] || filterValue.timeFilter=="") &&
-                (filterValue.moneyFilter == test[1]
-                ||filterValue.moneyFilter =="")){
+            if((filterValue.timeFilter == test[0] || filterValue.timeFilter =="") &&
+            (filterValue.moneyFilter == test[1] ||filterValue.moneyFilter =="")){
                 $(this).show();
-            }else{
-                
             }
-            console.log(filterValue);
         })
-
+    }else{
+        $(this).removeClass("fileter-element-aft")
+    }
+    })
+    $(filtertest).click(function(){
+        console.log("test");
     })
 });

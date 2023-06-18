@@ -25,25 +25,16 @@
                             <button type="button" class="filter-element" data-filter="week">今週</button>
                             <button type="button" class="filter-element" data-filter="month">今月</button>
                             <button type="button" class="filter-element" data-filter="year">今年</button>
-                            <button type="button" class="filter-element" data-filter="all">その他</button>
+                            <button type="button" class="filter-element" data-filter="all">1年より前</button>
                             <input type="text">
                         </div>
                         <div class="filter-items" id="money-filter">
                             <h2>金額</h2>
-                            <button type="button" class="filter-element" data-filter="money1">10,000~20,000</button>
-                            <button type="button" class="filter-element" data-filter="money2">20,001~50,000</button>
-                            <button type="button" class="filter-element" data-filter="money3">50001~100,000</button>
+                            <button type="button" class="filter-element" data-filter="money1">15,000~50,000</button>
+                            <button type="button" class="filter-element" data-filter="money2">50,001~100,000</button>
+                            <button type="button" class="filter-element" data-filter="money3">100,001~150,000</button>
+                            <button type="button" class="filter-element" data-filter="money3">150,000以上</button>
                         </div>
-                        <!-- <div class="filter-items" id="people-filter">
-                            <h2>人数</h2>
-                            <button type="button" class="filter-element" data-filter="one-person">１人</button>
-                            <button type="button" class="filter-element" data-filter="two-person">2人</button>
-                            <button type="button" class="filter-element" data-filter="three-person">3人</button>
-                            <button type="button" class="filter-element" data-filter="for-person">4人</button>
-                            <button type="button" class="filter-element" data-filter="five-person">5人</button>
-                            <button type="button" class="filter-element" data-filter="six">6人</button>
-                            <button type="button" class="filter-element">6人以上</button>
-                        </div> -->
                     </div>
                 </section>
             </form>
