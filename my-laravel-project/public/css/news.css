@@ -197,7 +197,7 @@
     border: 1px #cacaca;
     margin-top: 40px;
     margin-bottom: 40px;
-    padding: 40px 40px 20px;
+    padding: 40px 80px 20px;
     overflow: visible;
 }
 .collection-item {
@@ -218,10 +218,19 @@
     font-size: 19px;
     font-weight: 300;
     text-decoration: none;
-    margin-left: 43px;
+    margin-left: 50px;
 }
 
 .btn-text {
     font-size: 19px;
     text-align: center;
+}
+
+.newspage-people {
+    margin-left: 70px;
+    color: black;
+    font-size: 18px;
+    text-decoration: none;
+    width: 150px;
+    word-wrap: break-word;
 }
