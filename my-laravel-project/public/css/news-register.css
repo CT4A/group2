@@ -45,6 +45,7 @@
     resize: none;
     max-width: 500px;
     text-transform: capitalize;
+    height: 154px;
 }
 .register-area ul li input[type="checkbox"] {
     height: 50px;
