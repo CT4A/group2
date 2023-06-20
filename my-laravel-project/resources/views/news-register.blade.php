@@ -21,10 +21,11 @@
                     @csrf
                     <li>
                         <span>内容</span>
-                        <input type="text" name="" value="{{ old('') }}">
+                        <!-- <input type="text" name="" value="{{ old('') }}">
                         @if ($errors->has(''))
                         <span class="error">{{ $errors->first('') }}</span>
-                        @endif
+                        @endif -->
+                        <textarea name="remarks" value="{{ old('remarks') }}"></textarea>
                     </li>
                     <input type="submit" value="登録">
                 </form>

@@ -24,41 +24,129 @@ $today = Carbon::now()->format('Y/m/d');
                         <div role="listitem" class="collection-item w-dyn-item">
                             <div class="newspage-time">2023/05/17</div><a href="/news/20230517"
                                 class="link-block-3 w-inline-block">
-                                <p class="newspage-link">お知らせテスト </p>
-                            </a>
+                                <div class="newspage-people">松岡</div><a href="/news/2023-05-01"
+                                    class="link-block-3 w-inline-block">
+                                    <p class="newspage-link">お知らせテスト </p>
+                                </a>
                         </div>
                         <div role="listitem" class="collection-item w-dyn-item">
                             <div class="newspage-time">2023/05/16</div><a href="/news/2023-05-16"
                                 class="link-block-3 w-inline-block">
-                                <p class="newspage-link">お知らせテスト </p>
-                            </a>
+                                <div class="newspage-people">NGUYEN</div><a href="/news/2023-05-01"
+                                    class="link-block-3 w-inline-block">
+                                    <p class="newspage-link">お知らせテスト </p>
+                                </a>
                         </div>
                         <div role="listitem" class="collection-item w-dyn-item">
                             <div class="newspage-time">2023/05/09</div><a href="/news/20230509"
                                 class="link-block-3 w-inline-block">
-                                <p class="newspage-link">お知らせテスト </p>
-                            </a>
+                                <div class="newspage-people">NGUYEN</div><a href="/news/2023-05-01"
+                                    class="link-block-3 w-inline-block">
+                                    <p class="newspage-link">お知らせテスト </p>
+                                </a>
                         </div>
+
                         <div role="listitem" class="collection-item w-dyn-item">
                             <div class="newspage-time">2023/05/01</div><a href="/news/2023-05-01"
                                 class="link-block-3 w-inline-block">
-                                <p class="newspage-link">お知らせテスト </p>
-                            </a>
+                                <div class="newspage-people">NGUYEN</div><a href="/news/2023-05-01"
+                                    class="link-block-3 w-inline-block">
+                                    <p class="newspage-link">お知らせテスト </p>
+                                </a>
                         </div>
                         <div role="listitem" class="collection-item w-dyn-item">
-                            <div class="newspage-time">2023/04/28</div><a href="/news/20230428"
-                                class="link-block-3 w-inline-block">
-                                <p class="newspage-link">お知らせテスト </p>
-                            </a>
+                            <div class="newspage-time">2023/04/28</div><a href="" class="link-block-3 w-inline-block">
+                                <div class="newspage-people">NGUYEN</div><a href="" class="link-block-3 w-inline-block">
+                                    <p class="newspage-link">お知らせテスト </p>
+                                </a>
                         </div>
+
+                        <div role="listitem" class="collection-item w-dyn-item">
+                            <div class="newspage-time">2023/04/28</div><a href="" class="link-block-3 w-inline-block">
+                                <div class="newspage-people">NGUYEN</div><a href="" class="link-block-3 w-inline-block">
+                                    <p class="newspage-link">お知らせテスト </p>
+                                </a>
+                        </div>
+                        <div role="listitem" class="collection-item w-dyn-item">
+                            <div class="newspage-time">2023/04/28</div><a href="" class="link-block-3 w-inline-block">
+                                <div class="newspage-people">NGUYEN</div><a href="" class="link-block-3 w-inline-block">
+                                    <p class="newspage-link">お知らせテスト </p>
+                                </a>
+                        </div>
+                        <!-- test -->
+                        <div role="listitem" class="collection-item w-dyn-item">
+                            <div class="newspage-time">2023/05/16</div><a href="/news/2023-05-16"
+                                class="link-block-3 w-inline-block">
+                                <div class="newspage-people">NGUYEN</div><a href="/news/2023-05-01"
+                                    class="link-block-3 w-inline-block">
+                                    <p class="newspage-link">お知らせテスト </p>
+                                </a>
+                        </div>
+                        <div role="listitem" class="collection-item w-dyn-item">
+                            <div class="newspage-time">2023/05/16</div><a href="/news/2023-05-16"
+                                class="link-block-3 w-inline-block">
+                                <div class="newspage-people">NGUYEN</div><a href="/news/2023-05-01"
+                                    class="link-block-3 w-inline-block">
+                                    <p class="newspage-link">お知らせテスト </p>
+                                </a>
+                        </div>
+                        <div role="listitem" class="collection-item w-dyn-item">
+                            <div class="newspage-time">2023/05/16</div><a href="/news/2023-05-16"
+                                class="link-block-3 w-inline-block">
+                                <div class="newspage-people">NGUYEN</div><a href="/news/2023-05-01"
+                                    class="link-block-3 w-inline-block">
+                                    <p class="newspage-link">お知らせテスト </p>
+                                </a>
+                        </div>
+                        <div role="listitem" class="collection-item w-dyn-item">
+                            <div class="newspage-time">2023/05/16</div><a href="/news/2023-05-16"
+                                class="link-block-3 w-inline-block">
+                                <div class="newspage-people">NGUYEN</div><a href="/news/2023-05-01"
+                                    class="link-block-3 w-inline-block">
+                                    <p class="newspage-link">お知らせテスト </p>
+                                </a>
+                        </div>
+                        <div role="listitem" class="collection-item w-dyn-item">
+                            <div class="newspage-time">2023/05/16</div><a href="/news/2023-05-16"
+                                class="link-block-3 w-inline-block">
+                                <div class="newspage-people">NGUYEN</div><a href="/news/2023-05-01"
+                                    class="link-block-3 w-inline-block">
+                                    <p class="newspage-link">お知らせテスト </p>
+                                </a>
+                        </div>
+                        <div role="listitem" class="collection-item w-dyn-item">
+                            <div class="newspage-time">2023/05/16</div><a href="/news/2023-05-16"
+                                class="link-block-3 w-inline-block">
+                                <div class="newspage-people">NGUYEN</div><a href="/news/2023-05-01"
+                                    class="link-block-3 w-inline-block">
+                                    <p class="newspage-link">お知らせテスト </p>
+                                </a>
+                        </div>
+                        <div role="listitem" class="collection-item w-dyn-item">
+                            <div class="newspage-time">2023/05/16</div><a href="/news/2023-05-16"
+                                class="link-block-3 w-inline-block">
+                                <div class="newspage-people">NGUYEN</div><a href="/news/2023-05-01"
+                                    class="link-block-3 w-inline-block">
+                                    <p class="newspage-link">お知らせテスト </p>
+                                </a>
+                        </div>
+                        <div role="listitem" class="collection-item w-dyn-item">
+                            <div class="newspage-time">2023/05/16</div><a href="/news/2023-05-16"
+                                class="link-block-3 w-inline-block">
+                                <div class="newspage-people">NGUYEN</div><a href="/news/2023-05-01"
+                                    class="link-block-3 w-inline-block">
+                                    <p class="newspage-link">お知らせテスト </p>
+                                </a>
+                        </div>
+                        <!-- test -->
                     </div>
                 </div>
             </div>
         </div>
-        <div class="container-13 w-container"><a href="/service/news" target="_blank"
+        <!-- <div class="container-13 w-container"><a href="/service/news" target="_blank"
                 class="btn-secondary-center outline w-inline-block">
                 <div class="btn-text">もっと見る</div>
-            </a></div>
+            </a></div> -->
     </div>
 
 </main>
