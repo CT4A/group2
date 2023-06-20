@@ -1,5 +1,4 @@
 $(document).ready(function(){
-console.log("適応されているよ")
     const fillEle = $(".filter-element");
     const billList = $(".bill-list-items ul li");
     const filterClear = $(".filter-clear");
@@ -19,13 +18,11 @@ console.log("適応されているよ")
         $(billList).hide();
         var filselect = $(this).parent();
         if(!$(this).hasClass("fileter-element-aft")){
-            console.log("test");
             $(this).removeClass("fileter-element-aft");
         switch (filselect.attr("id")) {
             case "time-filter":
                 $(this).parent().find("button").removeClass("fileter-element-aft");
                 $(this).addClass("fileter-element-aft");
-                console.log($(this).data("filter"));
                 filterValue.timeFilter = $(this).data('filter');
                 break;
             case "money-filter":
@@ -46,8 +43,5 @@ console.log("適応されているよ")
     }else{
         $(this).removeClass("fileter-element-aft")
     }
-    })
-    $(filtertest).click(function(){
-        console.log("test");
     })
 });

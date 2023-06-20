@@ -21,10 +21,6 @@ $(document).ready(function(){
     
     
     $(kindsSelecter).click(function(){
-<<<<<<< HEAD
-
-=======
->>>>>>> c7313aa5f44ea4380639268a8de2c611fdf2c0cb
         if(!$(this).hasClass("kinds-selecter-aft")){
             $(this).addClass("kinds-selecter-aft");
             $(this).find(kindList).addClass("kind-list-aft");

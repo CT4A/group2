@@ -45,7 +45,32 @@ $(document).ready(function(){
       });
     });
     var flagSearch=0;
-
+    $("#billSearch").keyup(function(e){
+      let BillSearch = $(this).val();
+      let BillCustomername = $(".bill-list-items ul .customer_name");
+      let BillStaffname = $(".bill-list-items ul .staff_name");
+      BillCustomername.parent().show();
+      console.log(BillCustomername.length)
+      for (let i = 0 ; i < BillCustomername.length; i++){
+        if($(BillCustomername[i]).text().indexOf(BillSearch) == -1){
+          if($(BillStaffname[i]).text().indexOf(BillSearch) == -1 ){
+            // $(BillCustomername).parent().eq(i).hide();
+          $(BillCustomername).parent().eq(i).hide();
+        }
+        }
+      }
+      // for (let i = 0 ; i < BillStaffname.length; i++){
+      //   console.log(BillStaffname[i])
+      //   if($(BillStaffname[i]).text().indexOf(BillSearch) !== -1){
+      //     console.log($(BillStaffname[i]).text())
+      //     $(BillCustomername).parent().eq(i).show();
+      //   }
+      // }
+        // else if($(BillStaffname[i]).text().indexOf(BillSearch) == -1){
+        //   console.log("test2")
+        //   $(BillCustomername).parent().eq(i).hide();
+        // }
+    })
     //検索機能
     $('#search').keyup(function (e) { 
       let keySearch=$(this).val();

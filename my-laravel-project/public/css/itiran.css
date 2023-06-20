@@ -170,8 +170,16 @@ ul li span {
 .bill-list .bill-header {
   position: fixed;
   width: 100%;
+  top: 0;
   background-color: #F4F1EC;
   z-index: 500;
+}
+.bill-list .bill-header h1 {
+  margin-top: 100px;
+}
+.bill-list .bill-header input[type=text] {
+  width: 70%;
+  margin: 0 15%;
 }
 .bill-list .bill-header #filter-btn {
   position: absolute;
@@ -185,11 +193,16 @@ ul li span {
 .bill-list .bill-list-items ul {
   width: 100%;
 }
+.bill-list .bill-list-items ul:nth-child(1) {
+  margin-top: 170px;
+}
 .bill-list .bill-list-items ul li {
   width: 100%;
   border-bottom: solid 1px #000;
 }
 .bill-list .bill-list-items ul li span {
+  margin-left: 0;
+  margin-right: 0;
   width: 100%;
 }
 .bill-list .filter-area {
@@ -268,6 +281,11 @@ ul li span {
   font-size: 24px;
   border: none;
 }
+.bill-list .filter-area .filter-items input[type=text] {
+  width: 100%;
+  margin: 20px;
+  padding: 20px;
+}
 .bill-list .filter-area .filter-items .fileter-element-aft {
   background-color: aquamarine;
 }
@@ -275,4 +293,15 @@ ul li span {
   position: fixed;
   top: 0%;
   transition: top 0.5s;
+  overflow: hidden;
+}
+
+.bill-list-items-header {
+  display: flex;
+  width: 90%;
+  margin: auto;
+}
+.bill-list-items-header span {
+  text-align: left;
+  width: 100%;
 }/*# sourceMappingURL=itiran.css.map */
