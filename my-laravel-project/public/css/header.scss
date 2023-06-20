@@ -45,13 +45,16 @@ header {
     .menu {
         justify-content: center;
         width: 90%;
-        margin: 0 5%;
+        margin: 0 3%;
         display: flex;
         color: #c1ab05;
-            @media screen and (max-width:780px) {
-            font-size: 0;
-            }
+        @media screen and (max-width:1080px) {
+            font-size: 16px;
         }
+        @media screen and (max-width:780px) {
+            font-size: 0;
+        }
+    }
         .menu_list{
             text-align: center;
             display: grid;

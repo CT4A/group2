@@ -178,6 +178,7 @@ ul li span {
   margin-top: 100px;
 }
 .bill-list .bill-header input[type=text] {
+  padding: 10px;
   width: 70%;
   margin: 0 15%;
 }
@@ -194,13 +195,17 @@ ul li span {
   width: 100%;
 }
 .bill-list .bill-list-items ul:nth-child(1) {
-  margin-top: 170px;
+  padding-top: 180px;
 }
 .bill-list .bill-list-items ul li {
   width: 100%;
   border-bottom: solid 1px #000;
 }
 .bill-list .bill-list-items ul li span {
+  max-width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
   margin-left: 0;
   margin-right: 0;
   width: 100%;

@@ -48,7 +48,7 @@
             <div class="bill-list-items">
                 <ul>
                     <li data-filter="1hour money1">
-                        <span class="customer_name">グエン</span>
+                        <span class="customer_name">グエンnnnnnnnnnnnnnnn</span>
                         <span class="staff_name">片山</span>
                         <span class="date">1hour</span>
                         <span class="money">money1</span>
