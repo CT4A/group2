@@ -19,7 +19,7 @@ $(document).ready(function(){
         };
     });
     
-    
+    //プルトダウン(リストの表示)
     $(kindsSelecter).click(function(){
         if(!$(this).hasClass("kinds-selecter-aft")){
             $(this).addClass("kinds-selecter-aft");
@@ -30,6 +30,7 @@ $(document).ready(function(){
         }
     });
 
+    // プルトダウン(選択後の処理)
     $(kindsli).click(function () {
         var thisList = $(this).parent();
         var ListPush = thisList.parent().parent();
@@ -38,6 +39,7 @@ $(document).ready(function(){
             $(kinds).addClass("kinds-aft");
             ListPush.find(kindsInp).val("");
         }else{
+            console.log($(this).text())
             ListPush.addClass("kinds-aft");
             ListPush.find(kindsInp).val($(this).text());
             ListPush.find(kindsInpHidden).attr('value', $(this).attr('data'));
@@ -46,12 +48,36 @@ $(document).ready(function(){
         thisList.find(kindsSelecter).removeClass("kinds-selecter-aft");
         $(kindsSelecter).removeClass("kind-list-aft");
     });
+        // 入力項目の追加
         $(inptxt).click(function(event) {
             var test =$(inptxt).eq(event).parent();
         });
         $(plus).click(function(event) {
-            plusCnt+=1;
-            $(plus).before('<li><span>出勤者名' + plusCnt + '</span><input type="text" name="time"></li>');
+            plusCnt+=1; 
+                        // <li class="kinds">
+                        // <span>顧客名</span>
+                        // <div class="kinds-selecter">
+                        //     <span>選択してください</span>
+                        //     <ul class="kind-list" id="customerList">
+                        //         @foreach ($customers as $customer)
+                        //             <li data='{{$customer->customer_id}}'>{{$customer->customer_name}}</li>
+                        //         @endforeach
+                        //     </ul>
+                        // </div>
+                        // <input type="text" id="customer_name" class="kinds-inp" name="customer_name" value="{{ old('customer_name') }}">
+                        // <input type="text" id="customer_id" class="kinds-inp-hidden" name="customer_id" value="{{ old('customer_id') }}" hidden>
+                        // @if ($errors->has('customer_id'))
+                        // <span class="error">{{ $errors->first('customer_id') }}</span>
+            // $(plus).before('<li><span>出勤者名' + plusCnt + '</span><input type="text" name="time"></li>');
+            $(plus).before('<li class ="kinds">'+
+                            '<span>顧客名'+plusCnt+'</span>'+
+                            '<div class="kinds-selecter" ><span>選択してください</span>'+
+                            '<ul class ="kind-list ')+
+                            $each(customers,function(index,customer){
+                                var liElement = $("<li>").attr("data", customer.customer_id).text(customer.customer_name);
+                            });
+                            +'<input type="text" id="customer_name" class="kinds-inp" name="customer_name" value="{{ old("customer_name") }}">'+
+                            '<input type="text" id="customer_id" class="kinds-inp-hidden" name="customer_id" value="{{ old("customer_id") }}" hidden>'
         });
 
     $(".alcohol li").click(function (e) { 
@@ -84,7 +110,6 @@ $(document).ready(function(){
         //クリックイベントの処理
         $(".liquorType ul").click(function(event){
             const clickedElement = event.target;
-            
             if (clickedElement.tagName === "LI" ) {
                 let liquor_name=clickedElement.textContent;
                 let liquor_id = clickedElement.dataset.value;
@@ -151,7 +176,3 @@ $(document).ready(function(){
         $('#customer_id').val(staff_id);
     });
 });
-    
-
-
-}
