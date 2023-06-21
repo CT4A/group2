@@ -17,9 +17,10 @@ class EmployeeFactory extends Factory
     public function definition(): array
     {
         return [
-            'staff_pass'=>fake()->password(),
+            // 'staff_pass'=>fake()->password(),
             'staff_name'=>fake()->name(),
             'tel'=>fake()->phoneNumber(),
+            'staff_pass'=>bcrypt('password'),
             'hourly_wage'=>1000,
             'residence'=>'名古屋市熱田区',
             'birthday'=>fake()->date(),

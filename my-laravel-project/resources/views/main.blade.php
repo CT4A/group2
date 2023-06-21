@@ -4,10 +4,9 @@
     <meta name="csrf-token" content="{{ csrf_token() }}" />
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="社員一覧">
+    <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{asset('css/header.css')}}">
-    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
     <link rel="stylesheet" href="bootstrap-4.0.0-dist\css\bootstrap-reboot.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <title>@yield('title')</title>
     @yield('styles')
@@ -19,43 +18,43 @@
                 <li class="menu_list">
                   <span>社員</span>
                   <ol>
-                    <li><a href="#">社員一覧</a></li>
-                    <li><a href="#">社員登録</a></li>
+                    <li><a href="{{route('list-staff')}}">社員一覧</a></li>
+                    <li><a href="{{route('indexEmpRegister')}}">社員登録</a></li>
                   </ol>
                 </li>
                 <li class="menu_list">
                   <span>顧客</span>
                   <ol>
-                    <li><a href="#">顧客一覧</a></li>
-                    <li><a href="#">顧客登録</a></li>
+                    <li><a href="{{route('list-customer')}}">顧客一覧</a></li>
+                    <li><a href="{{route('indexCusRegister')}}">顧客登録</a></li>
                   </ol>
                 </li>
                 <li class="menu_list">
                   <span>キープボトル</span>
                   <ol>
-                    <li><a href="#">キープボトル一覧</a></li>
-                    <li><a href="#">キープボトル登録</a></li>
+                    <li><a href="{{route('keepbottle-list')}}">キープボトル一覧</a></li>
+                    <li><a href="{{route('indexKeepRegister')}}">キープボトル登録</a></li>
                   </ol>
                 </li>
                 <li class="menu_list">
                   <span>ボトル</span>
                   <ol>
                     <li><a href="#">ボトル一覧</a></li>
-                    <li><a href="#">ボトル登録</a></li>
+                    <li><a href="{{route('indexRegister')}}">ボトル登録</a></li>
                   </ol>
                 </li>
                 <li class="menu_list">
                   <span>出勤退勤履歴</span>
                   <ol>
-                    <li><a href="#">社員一覧</a></li>
+                    <li><a href="{{route('history')}}">社員一覧</a></li>
                     <li><a href="#">社員登録</a></li>
                   </ol>
                 </li>
                 <li class="menu_list">
                     <span>伝票</span>
                     <ol>
-                      <li><a href="#">伝票一覧</a></li>
-                      <li><a href="#">伝票登録</a></li>
+                      <li><a href="{{route('list-bill')}}">伝票一覧</a></li>
+                      <li><a href="{{route('indexBillRegister')}}">伝票登録</a></li>
                     </ol>
                   </li>
               </ul>

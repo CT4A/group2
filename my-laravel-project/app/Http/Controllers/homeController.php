@@ -22,6 +22,7 @@ class homeController extends Controller
         //今日から二週間には誕生日がある顧客を探す。
         $customerData = Customer::whereRaw("(MONTH(birthday) = ? AND DAY(birthday) >= ?) OR (MONTH(birthday) = ? AND DAY(birthday) <= ?)", [$todayMonth, $todayDay, $futureMonth, $futureDay])
         ->get();
+        
         return view('home',['customerDatas'=>$customerData]);
     }
 }

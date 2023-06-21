@@ -3,7 +3,7 @@
 use App\Http\Controllers\bottleController;
 use App\Http\Controllers\employeeController;
 use App\Http\Controllers\CustomerController;
-use App\Http\Controllers\GetListStaffController;
+use App\Http\Controllers\FullCalendarController;
 use App\Http\Controllers\homeController;
 use App\Http\Controllers\registerController;
 use App\Http\Controllers\keepbottleController;
@@ -67,38 +67,35 @@ Route::get('/itiran', function () {
 });
 
 //社員一覧
-Route::get('/list-staff' ,[EmployeeController::class,'index']);
+Route::get('list-staff' ,[EmployeeController::class,'index'])->name('list-staff');
 Route::post('/getInfoStaff/{id}', [EmployeeController::class,'GetListStaff']);
 
 //社員登録
-Route::get('/emp-register', function () {
+Route::get('emp-register', function () {
     return view('emp-register');
 })->name('indexEmpRegister');
 Route::post('/emp-register',[ EmployeeController::class,'register']);
 
 // 顧客一覧
-Route::get('/list-customer' ,[CustomerController::class,'index']);
+Route::get('list-customer' ,[CustomerController::class,'index'])->name('list-customer');
 Route::post('/getInfoCustomer/{id}', [CustomerController::class,'GetListCustomer']);
 Route::post('/customer-register', [CustomerController::class,'register']);
 // 顧客を登録する
 Route::get('/customer-register', [CustomerController::class,'indexRegister'])->name('indexCusRegister');
 
 //出勤退勤履歴
-Route::get('/history', function () {
-    return view('history');
-});
-Route::get('/history', [employeeController::class,'indexHistory']);
+Route::get('/history', [employeeController::class,'indexHistory'])->name('history');
 
 //キープボトル一覧
 Route::get('/keepbottle-list', function () {
     return view('keepbottle-list');
-});
+})->name('keepbottle-list');
 //キープボトル登録
 
 Route::get('/keepbottle-register', [keepbottleController::class,'indexRegister'])->name('indexKeepRegister');
 Route::post('/keepbottle-register', [keepbottleController::class,'RegisterLiquorLink']);
 
-Route::get('/keepbottle-list', [keepbottleController::class,'indexList']);
+Route::get('/keepbottle-list', [keepbottleController::class,'indexList'])->name('keepbottle-list');
 Route::post('/getLiquorType/{liquor_name}', [keepbottleController::class,'GetLiquorType']);
 
 
@@ -124,13 +121,13 @@ Route::get('/news', [newsController::class,'index'])->name('indexNewsRegister');
 Route::get('/news', [newsController::class,'register']);
 
 // 伝票登録
-Route::get('/bill-register', [BillController::class,'index']);
+Route::get('/bill-register', [BillController::class,'index'])->name('indexBillRegister');
 Route::post('/bill-register', [BillController::class,'register']);
 
 // 伝票一覧
-Route::get('/list-bill', function () {
+Route::get('list-bill', function () {
     return view('list-bill');
-});
+})->name('list-bill');
 
 // お知らせ
 Route::get('/news', function () {
@@ -141,3 +138,7 @@ Route::get('/news', function () {
 Route::get('/news-register', function () {
     return view('news-register');
 });
+
+//カレンダー仕事
+Route::get('full-calendar',[FullCalendarController::class,'index']);
+Route::get('get_events', [FullCalendarController::class, 'getEvents']);

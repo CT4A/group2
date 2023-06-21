@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="{{asset('bootstrap-4.0.0-dist\css\bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{asset('css\login.css')}}">
-    <title>Test Boostrap</title>
+    <title>ログイン</title>
 </head>
 <body>
     <div class="container-fluid main">
@@ -15,13 +15,15 @@
                 <div class="TextHeader text-center">
                     <h1><strong>ログイン</strong></h1>
                 </div>
+                @if (session('message'))
+                    {{session('message')}}               
+                @endif
                 <form action="/login" method="post">
                     @csrf
                     <div class="inputArea">
                         <div class="userIdArea">
                             <input type="text" name="tel" id="" placeholder="電話番号：080999999">
                             <img src="{{asset('img/t.webp')}}" alt="">
-                            
                         </div>
                         @if ($errors->has('tel'))
                             <span class="error">{{ $errors->first('tel') }}</span>
