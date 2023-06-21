@@ -6,7 +6,8 @@ $today = Carbon::now()->format('Y/m/d');
 @yield('title','顧客登録')
 @section('styles')
 <link rel="stylesheet" href="./css/bill-header.css">
-<link rel="stylesheet" href="./css/bill-register.css">
+<!-- <link rel="stylesheet" href="./css/bill-register.css"> -->
+<link rel="stylesheet" href="./css/register.css"> 
 <link rel="stylesheet" href="./css/information.css">
 <link rel="stylesheet" href="./css/bill-register.js">
 @endsection
@@ -18,23 +19,7 @@ $today = Carbon::now()->format('Y/m/d');
             <ul>
                 <form action="/bill-register" method="POST">
                     @csrf
-                    <li>
-                        <span>顧客名</span>
-                        <div class="kinds-selecter">
-                            <span>選択してください</span>
-                            <ul class="kind-list" id="customerList">
-                                @foreach ($customers as $customer)
-                                    <li data='{{$customer->customer_id}}'>{{$customer->customer_name}}</li>
-                                @endforeach
-                            </ul>
-                        </div>
-                        <input type="text" id="customer_name" class="kinds-inp" name="customer_name" value="{{ old('customer_name') }}">
-                        <input type="text" id="customer_id" class="kinds-inp-hidden" name="customer_id" value="{{ old('customer_id') }}" hidden>
-                        @if ($errors->has('customer_id'))
-                        <span class="error">{{ $errors->first('customer_id') }}</span>
-                        @endif
-                    </li>
-                    <li class="kinds  kinds-aft">
+                    <li class="kinds">
                         <span>社員名</span>
                         <div class="kinds-selecter">
                             <span>選択してください</span>
@@ -49,6 +34,22 @@ $today = Carbon::now()->format('Y/m/d');
                         hidden>
                         @if ($errors->has('staff_id'))
                         <span class="error">{{ $errors->first('staff_id') }}</span>
+                        @endif
+                    </li>
+                    <li class="kinds">
+                        <span>顧客名</span>
+                        <div class="kinds-selecter">
+                            <span>選択してください</span>
+                            <ul class="kind-list" id="customerList">
+                                @foreach ($customers as $customer)
+                                    <li data='{{$customer->customer_id}}'>{{$customer->customer_name}}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                        <input type="text" id="customer_name" class="kinds-inp" name="customer_name" value="{{ old('customer_name') }}">
+                        <input type="text" id="customer_id" class="kinds-inp-hidden" name="customer_id" value="{{ old('customer_id') }}" hidden>
+                        @if ($errors->has('customer_id'))
+                        <span class="error">{{ $errors->first('customer_id') }}</span>
                         @endif
                     </li>
                         <button type="button" class="plus">追加</button>

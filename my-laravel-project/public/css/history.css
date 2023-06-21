@@ -8,10 +8,15 @@
 }
 .history .history_item *:not(.calendar_item, img, figure) {
   font-size: 40px;
-  background-color: coral;
   margin: 30px;
-  padding: 20px;
-  border-radius: 50px;
+  border-bottom: solid 1px #333;
+}
+.history .history_item *:not(.calendar_item, img, figure)::after {
+  content: "";
+  display: block;
+  width: 50%;
+  height: 1px;
+  background-color: #666;
 }
 .history .history_item .calendar_item img {
   width: 80px;
@@ -35,27 +40,60 @@
   }
 }
 .history .history_info .history_info_item {
+  background: rgba(0, 0, 0, 0.1);
+  border: solid 1px;
   width: 60%;
+  position: relative;
   font-size: 44px;
-  border-radius: 30px;
-  background-color: antiquewhite;
+  color: #333;
   display: flex;
   padding: 25px;
   justify-content: center;
   align-items: center;
+}
+.history .history_info .history_info_item::before {
+  content: "";
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  border-top: solid 10px gray;
+  border-left: solid 10px gray;
+  width: 50px;
+  height: 50px;
+}
+.history .history_info .history_info_item::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  right: -5px;
+  border-bottom: solid 10px gray;
+  border-right: solid 10px gray;
+  width: 50px;
+  height: 50px;
 }
 @media screen and (max-width: 780px) {
   .history .history_info .history_info_item {
     width: 100%;
   }
 }
+.history .history_info .history_info_item time {
+  border-right: solid 1px #333;
+}
 .history .history_info .history_info_item div {
   margin: 20px;
   margin-left: 75px;
   display: grid;
 }
-.history .history_info .history_info_item div span {
-  margin: 15px 0;
+.history .history_info .history_info_item div span:nth-child(1) {
+  border-bottom: solid 1px #333;
+}
+.history .history_info .history_info_item div span:nth-child(1)::after {
+  content: "";
+  display: block;
+  width: 50%;
+  height: 1px;
+  background: #333;
+  margin-top: 10px;
 }
 .history .history_info .history_info_btn {
   display: grid;
@@ -70,7 +108,39 @@
 .history .history_info .history_info_btn button {
   border: none;
   width: 100px;
-  border-radius: 25px;
+  border-left: solid 1px #000;
+  border-right: solid 1px #000;
   font-size: 24px;
   margin: 10px;
+  position: relative;
+}
+.history .history_info .history_info_btn button::before {
+  content: "";
+  display: block;
+  width: 0%;
+  height: 1px;
+  background: #000;
+  left: 0;
+  position: absolute;
+  top: 0;
+  transform-origin: center;
+  transition: all 0.5s;
+}
+.history .history_info .history_info_btn button:hover::before {
+  transition: all 0.5s;
+}
+.history .history_info .history_info_btn button::after {
+  content: "";
+  display: block;
+  width: 95%;
+  height: 1px;
+  background: #000;
+  left: 0;
+  position: absolute;
+  bottom: 0;
+  transition: all 0.5s;
+}
+.history .history_info .history_info_btn button:hover::after {
+  transition: all 0.5s;
+  transform: scale(0);
 }/*# sourceMappingURL=history.css.map */

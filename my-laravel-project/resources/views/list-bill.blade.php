@@ -51,7 +51,7 @@
                         <span class="customer_name">グエンnnnnnnnnnnnnnnn</span>
                         <span class="staff_name">片山</span>
                         <span class="date">1hour</span>
-                        <span class="money">money1</span>
+                        <span class="money">1,500,00000</span>
                     </li>
                     <li data-filter="week money1">
                         <span class="customer_name">グエン</span>

@@ -28,6 +28,32 @@
                     <button name="delbtn">削除</button>
                 </div>
             </div>
+            <div class="history_info">
+                <div class="history_info_item">
+                    <time datetime="2023-01">{{$staff->work_date}}</time>
+                    <div>
+                        <span class="">{{$staff->attend_time}}出勤</span>
+                        <span class="">{{$staff->leaving_work}}退勤</span>
+                    </div>
+                </div>
+                <div class="history_info_btn">
+                    <button name="editbtn">編集</button>
+                    <button name="delbtn">削除</button>
+                </div>
+            </div>
+            <div class="history_info">
+                <div class="history_info_item">
+                    <time datetime="2023-01">{{$staff->work_date}}</time>
+                    <div>
+                        <span class="">{{$staff->attend_time}}出勤</span>
+                        <span class="">{{$staff->leaving_work}}退勤</span>
+                    </div>
+                </div>
+                <div class="history_info_btn">
+                    <button name="editbtn">編集</button>
+                    <button name="delbtn">削除</button>
+                </div>
+            </div>
             @endforeach
     </section>
 </main>
