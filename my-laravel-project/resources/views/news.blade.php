@@ -26,11 +26,61 @@ $today = Carbon::now()->format('Y/m/d');
                             <div class="newspage-people">NGUYEN</div>
                             <p class="newspage-link">お知らせテスト </p>
                         </div>
+<<<<<<< HEAD
                     </div>
                 </div>
             </div>
         </div>
     </div>
+=======
+                        <div role="list" class="w-dyn-items">
+                            <div role="listitem" class="collection-item w-dyn-item">
+                                <div class="newspage-time">2023/05/16</div>
+                                <div class="newspage-people">NGUYEN</div>
+                                <p class="newspage-link">お知らせテスト </p>
+                            </div>
+                            <div role="list" class="w-dyn-items">
+                                <div role="listitem" class="collection-item w-dyn-item">
+                                    <div class="newspage-time">2023/05/16</div>
+                                    <div class="newspage-people">NGUYEN</div>
+                                    <p class="newspage-link">お知らせテスト </p>
+                                </div>
+                                <div role="list" class="w-dyn-items">
+                                    <div role="listitem" class="collection-item w-dyn-item">
+                                        <div class="newspage-time">2023/05/16</div>
+                                        <div class="newspage-people">NGUYEN</div>
+                                        <p class="newspage-link">お知らせテスト </p>
+                                    </div>
+                                    <div role="list" class="w-dyn-items">
+                                        <div role="listitem" class="collection-item w-dyn-item">
+                                            <div class="newspage-time">2023/05/16</div>
+                                            <div class="newspage-people">NGUYEN</div>
+                                            <p class="newspage-link">お知らせテスト </p>
+                                        </div>
+                                        <div role="list" class="w-dyn-items">
+                                            <div role="listitem" class="collection-item w-dyn-item">
+                                                <div class="newspage-time">2023/05/16</div>
+                                                <div class="newspage-people">NGUYEN</div>
+                                                <p class="newspage-link">お知らせテスト </p>
+                                            </div>
+                                            <div role="list" class="w-dyn-items">
+                                                <div role="listitem" class="collection-item w-dyn-item">
+                                                    <div class="newspage-time">2023/05/16</div>
+                                                    <div class="newspage-people">NGUYEN</div>
+                                                    <p class="newspage-link">お知らせテスト </p>
+                                                </div>
+                                                <!-- test -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- <div class="container-13 w-container"><a href="/service/news" target="_blank"
+                class="btn-secondary-center outline w-inline-block">
+                <div class="btn-text">もっと見る</div>
+            </a></div> -->
+                            </div>
+
+>>>>>>> 95fc17d3ecce2622990a2759bcbe40719ec4831e
 </main>
 @endsection
 @section('scripts')
