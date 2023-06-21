@@ -41,11 +41,12 @@
 .register-area ul li textarea {
     font-size: 24px;
     width: 100%;
-    overflow-y: hidden;
+    overflow-y: auto;
     resize: none;
     max-width: 500px;
     text-transform: capitalize;
-    height: 154px;
+    height: 156px;
+    border-radius: 10px;
 }
 .register-area ul li input[type="checkbox"] {
     height: 50px;
