@@ -34,8 +34,6 @@ Route::get('/test', function () {
     return view('test');
 });
 
-// Route::get('/test',[syukkinController::class,'index']);
-
 Route::get('/home', [homeController::class,'index']);
 
 Route::get('/newemployee', function () {
@@ -117,9 +115,12 @@ Route::get('/pass-change', function () {
 });
 
 //お知らせ追加画面
-Route::get('/news', [newsController::class,'index'])->name('indexNewsRegister');
-Route::get('/news', [newsController::class,'register']);
-
+Route::get('/news', [newsController::class,'index']);
+Route::post('/news', [newsController::class,'register']);
+// お知らせ登録
+Route::get('/news-register', function () {
+    return view('news-register');
+})->name('indexNewsRegister');
 // 伝票登録
 Route::get('/bill-register', [BillController::class,'index'])->name('indexBillRegister');
 Route::post('/bill-register', [BillController::class,'register']);
@@ -128,16 +129,6 @@ Route::post('/bill-register', [BillController::class,'register']);
 Route::get('list-bill', function () {
     return view('list-bill');
 })->name('list-bill');
-
-// お知らせ
-Route::get('/news', function () {
-    return view('news');
-});
-
-// お知らせ登録
-Route::get('/news-register', function () {
-    return view('news-register');
-});
 
 //カレンダー仕事
 Route::get('full-calendar',[FullCalendarController::class,'index']);

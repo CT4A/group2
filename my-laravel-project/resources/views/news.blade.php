@@ -19,68 +19,24 @@ $today = Carbon::now()->format('Y/m/d');
         </div>
         <div class="w-container">
             <div class="div-block-29">
-                <div class="w-dyn-list">
-                    <div role="list" class="w-dyn-items">
-                        <div role="listitem" class="collection-item w-dyn-item">
-                            <div class="newspage-time">2023/05/16</div>
-                            <div class="newspage-people">NGUYEN</div>
-                            <p class="newspage-link">お知らせテスト </p>
+                @if ($notifications->isEmpty())
+                    <p>お知らせがありません。</p>
+                @else
+                    @foreach ($notifications as $notification)
+                    <div class="w-dyn-list">
+                        <div role="list" class="w-dyn-items">
+                            <div role="listitem" class="collection-item w-dyn-item">
+                                <div class="newspage-time">{{$notification->day}}</div>
+                                <div class="newspage-people">{{$notification->staff_name}}</div>
+                                <p class="newspage-link">{{$notification->message}} </p>
+                            </div>
                         </div>
-<<<<<<< HEAD
                     </div>
-                </div>
+                    @endforeach
+                @endif
             </div>
         </div>
     </div>
-=======
-                        <div role="list" class="w-dyn-items">
-                            <div role="listitem" class="collection-item w-dyn-item">
-                                <div class="newspage-time">2023/05/16</div>
-                                <div class="newspage-people">NGUYEN</div>
-                                <p class="newspage-link">お知らせテスト </p>
-                            </div>
-                            <div role="list" class="w-dyn-items">
-                                <div role="listitem" class="collection-item w-dyn-item">
-                                    <div class="newspage-time">2023/05/16</div>
-                                    <div class="newspage-people">NGUYEN</div>
-                                    <p class="newspage-link">お知らせテスト </p>
-                                </div>
-                                <div role="list" class="w-dyn-items">
-                                    <div role="listitem" class="collection-item w-dyn-item">
-                                        <div class="newspage-time">2023/05/16</div>
-                                        <div class="newspage-people">NGUYEN</div>
-                                        <p class="newspage-link">お知らせテスト </p>
-                                    </div>
-                                    <div role="list" class="w-dyn-items">
-                                        <div role="listitem" class="collection-item w-dyn-item">
-                                            <div class="newspage-time">2023/05/16</div>
-                                            <div class="newspage-people">NGUYEN</div>
-                                            <p class="newspage-link">お知らせテスト </p>
-                                        </div>
-                                        <div role="list" class="w-dyn-items">
-                                            <div role="listitem" class="collection-item w-dyn-item">
-                                                <div class="newspage-time">2023/05/16</div>
-                                                <div class="newspage-people">NGUYEN</div>
-                                                <p class="newspage-link">お知らせテスト </p>
-                                            </div>
-                                            <div role="list" class="w-dyn-items">
-                                                <div role="listitem" class="collection-item w-dyn-item">
-                                                    <div class="newspage-time">2023/05/16</div>
-                                                    <div class="newspage-people">NGUYEN</div>
-                                                    <p class="newspage-link">お知らせテスト </p>
-                                                </div>
-                                                <!-- test -->
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- <div class="container-13 w-container"><a href="/service/news" target="_blank"
-                class="btn-secondary-center outline w-inline-block">
-                <div class="btn-text">もっと見る</div>
-            </a></div> -->
-                            </div>
-
->>>>>>> 95fc17d3ecce2622990a2759bcbe40719ec4831e
 </main>
 @endsection
 @section('scripts')

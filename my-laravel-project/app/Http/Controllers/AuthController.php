@@ -21,7 +21,8 @@ class AuthController extends Controller
         if (Auth::attempt($credentials)) {
             // Đăng nhập thành công
             $request->session()->regenerate();
-            return redirect()->intended('/home')->with('message','login success');
+            $user = Auth::user();
+            return redirect()->intended('/test')->with(['message'=>'login success','user'=>$user]);
         } else {
             // Đăng nhập thất bại
             return redirect()->back()->withErrors(['tel' => '電話番号かパスワードか間違います。']);
