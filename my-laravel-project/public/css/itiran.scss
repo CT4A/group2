@@ -74,6 +74,13 @@ section{
     }
     .emp-name{
         ul{
+            div{
+                display: flex;
+                p{
+                    border-bottom: #000 solid 2px;
+                    line-height: 2;
+                }
+            }
             justify-content: center;
             align-items: center;
             display: grid;
@@ -97,7 +104,7 @@ section{
                     border-bottom: #000 solid 2px;
                     line-height: 2;
                     cursor: pointer;
-                }   
+                } 
             }
         }
     }
@@ -295,5 +302,27 @@ section{
     span{
         text-align: left;
         width: 100%;
+    }
+}
+
+@media screen and (max-width: 780px) {
+    .emp-list {
+        /* background-color: #f4f1ec; */
+        left: 500px;
+        width: 100%;
+        margin: 0;
+    }
+
+    input::placeholder {
+        width: 100%;
+        font-size: 20px;
+    }
+
+    .emp-list-area .emp-name ul li {
+        display: flex;
+    }
+    .emp-list-area .emp-name ul li span {
+        margin-left: 0;
+        margin-right: 0;
     }
 }

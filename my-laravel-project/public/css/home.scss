@@ -1,0 +1,75 @@
+body{
+    background-color: #FFFBE0;
+}
+* :not(header){
+    // border: solid 1px green;
+}
+.row{
+    display: flex;
+    :nth-child(1){
+        border-right: solid 5px #FFD83F;
+    }
+    div{
+        width: 100%;
+        text-align: center;
+        font-size: 21px;
+        // :nth-child(1) :not(.bgorgi .text-center) {
+        //     background: #fff;
+        // }
+    }
+    .event-eleent{
+        background-color: #666;
+    }
+}
+.headerTable{
+    // background-color: #FFD83F;
+    div{
+        margin: 10px;
+    }
+}
+.mainTable{
+    padding: 0 10%;
+}
+.card-body{
+    border:2px solid #000;
+}
+.eventHeaderColor{
+    background-color: #FFD83F;
+    border:2px solid #000;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.header{
+    justify-content: center;
+    align-items: center;
+    margin: 40px 0;
+    padding: 10px 10%;
+    height: 100px;
+    .ImgBtn{
+        width: 40%;
+        white-space: nowrap;
+    .calendarBtn{
+        width: 100%;
+        img{
+            margin-right: 10px;
+            height: 109px;
+        }
+    }
+}
+    .imgLetter{
+        width: 164px;
+        height: 113px;
+        margin-left: 40px;
+        img{
+            height: 109px;
+        }
+}
+}
+.eventHeaderColor{
+    justify-content: center;
+    width: 41%;
+    font-size: 40px;
+}

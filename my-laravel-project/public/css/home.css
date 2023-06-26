@@ -1,70 +1,73 @@
-.bgorgi{
-    background-color: #ff8e51;
-    font-weight: bold;
+body {
+  background-color: #FFFBE0;
 }
-.schedule{
-    background-color: #9c8bef;
+
+.row {
+  display: flex;
 }
-.event{
-    background-color: #ffbd59;
+.row :nth-child(1) {
+  border-right: solid 5px #FFD83F;
 }
-.content{
-    background-color: #FFFBE0;
+.row div {
+  width: 100%;
+  text-align: center;
+  font-size: 21px;
 }
-.row{
-    display: flex;
+.row .event-eleent {
+  background-color: #666;
 }
-.row div{
-    width: 73%;
-    text-align: center;
-    padding-left: 30px;
-    font-size: 21px;
-    margin-top: 20px;
+
+.headerTable div {
+  margin: 10px;
 }
-.eventheader div :nth-child(1) :not(.bgorgi .text-center) {
-    background: #fff;
+
+.mainTable {
+  padding: 0 10%;
 }
-.mainTable{
-    padding: 0 10%;
+
+.card-body {
+  border: 2px solid #000;
 }
-main{
-    background-color: #FFFBE0;
-    height: 100vh;
+
+.eventHeaderColor {
+  background-color: #FFD83F;
+  border: 2px solid #000;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.card-body{
-    border:2px solid #000;
+
+.header {
+  justify-content: center;
+  align-items: center;
+  margin: 40px 0;
+  padding: 10px 10%;
+  height: 100px;
 }
-.eventHeaderColor{
-    background-color: #FFD83F;
-    border:2px solid #000;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.header .ImgBtn {
+  width: 40%;
+  white-space: nowrap;
 }
-.header{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 40px 0;
-    padding: 10px 10%;
-    height: 100px;
+.header .ImgBtn .calendarBtn {
+  width: 100%;
 }
-.imgLetter img{
-    height: 109px;
-    margin-left: 48px;
-    margin-top: 44px;
+.header .ImgBtn .calendarBtn img {
+  margin-right: 10px;
+  height: 109px;
 }
-.eventHeaderColor{
-    justify-content: center;
-    width: 41%;
-    margin-left: 148px;
-    margin-top: 57px;
-    font-size: 40px;
+.header .imgLetter {
+  width: 164px;
+  height: 113px;
+  margin-left: 40px;
 }
-.imgLetter{
-    text-align: right;
-    width: 164px;
-    height: 113px;
-    margin-left: 40px
+.header .imgLetter img {
+  height: 109px;
 }
+
+.eventHeaderColor {
+  justify-content: center;
+  width: 41%;
+  font-size: 40px;
+}/*# sourceMappingURL=home.css.map */

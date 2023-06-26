@@ -14,9 +14,17 @@ $(document).ready(function(){
         $('body').removeClass("intell-aft");
       }
     });
+    // バツボタンがクリックされたときの処理
+    $(elem).click(function(e){
+      var target = $(e.target);
+      var beforeContent = window.getComputedStyle(target[0], '::before').getPropertyValue('content');
+      if (beforeContent !== "" && beforeContent !== "none") {
+        $('body').removeClass("intell-aft");
+      }
+    })
     $(filBtn).click(function(){
       console.log("test");
-      $(filArea).addClass("filter-area-aft")
+      $(filArea).addClass("filter-area-aft");
     });
     $(filterClose).click(function(){
       $(filArea).removeClass("filter-area-aft")
@@ -54,22 +62,10 @@ $(document).ready(function(){
       for (let i = 0 ; i < BillCustomername.length; i++){
         if($(BillCustomername[i]).text().indexOf(BillSearch) == -1){
           if($(BillStaffname[i]).text().indexOf(BillSearch) == -1 ){
-            // $(BillCustomername).parent().eq(i).hide();
           $(BillCustomername).parent().eq(i).hide();
         }
         }
       }
-      // for (let i = 0 ; i < BillStaffname.length; i++){
-      //   console.log(BillStaffname[i])
-      //   if($(BillStaffname[i]).text().indexOf(BillSearch) !== -1){
-      //     console.log($(BillStaffname[i]).text())
-      //     $(BillCustomername).parent().eq(i).show();
-      //   }
-      // }
-        // else if($(BillStaffname[i]).text().indexOf(BillSearch) == -1){
-        //   console.log("test2")
-        //   $(BillCustomername).parent().eq(i).hide();
-        // }
     })
     //検索機能
     $('#search').keyup(function (e) { 
@@ -80,14 +76,8 @@ $(document).ready(function(){
         if (staffList[i].textContent.indexOf(keySearch) == -1) {
           $(".emp-name ul li span").eq(i).hide();
         }
-        
-        
-        // let listPositonTop =  $(".emp-name ul").offset().top;
-        // let idPositionTop = $('#'+id).offset().top;
-        // $(".emp-name ul").scroll(listPositonTop-idPositionTop);
       }
     });
-  
     function showInfo(data){
       $("#TxtNameHeader").text(data["staff_name"]+"の情報");
       $("#staff_id").text(data["staff_id"]);

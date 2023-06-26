@@ -1,6 +1,6 @@
 @extends('main')
 @section('styles')
-<link rel="stylesheet" href="{{asset('css/pay-statement.css')}}">
+<link rel="stylesheet" href="{{asset('css/itiran.css')}}">
 @endsection
 @section('title', '社員一覧')
 
@@ -9,7 +9,7 @@
     <section class="emp-list">
         <div class="emp-list-area">
             <h1>給料明細</h1>
-            <form action="#">
+            <form action="#" class="search">
                 <button type="submit">
                     <img src="./img/oqCh3X9ndfQ__xOuxd5Oww==.png" alt="">
                 </button>
@@ -17,10 +17,10 @@
             </form>
             <div class="emp-name">
                 <ul>
-                    <li>
-                        <span id="span1">名前</span>
-                        <span id="span1">給料</span>
-                    </li>
+                    <div class="">
+                        <p id="p1">名前</p>
+                        <p id="p1">給料</p>
+                    </div>
                     <li>
                         <span id="1">NGUYEN</span>
                         <span id="1">19,0000円</span>
