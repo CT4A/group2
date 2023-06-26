@@ -6,3 +6,4 @@
 {{
     session('message')
 }}
+{{session('user')}}

@@ -18,6 +18,7 @@ $today = Carbon::now()->format('Y/m/d');
         </div>
         <div class="w-container">
             <div class="div-block-29">
+<<<<<<< HEAD
             <section class="news-radio">
             <input type="radio" name="radio" value="ALL" id="ALL-radio">ALL
             <input type="radio" name="radio" value="お知らせ" id="info-radio">お知らせ
@@ -150,16 +151,30 @@ $today = Carbon::now()->format('Y/m/d');
                                 </a>
                         </div> -->
 
+=======
+                @if ($notifications->isEmpty())
+                    <p>お知らせがありません。</p>
+                @else
+                    @foreach ($notifications as $notification)
+                    <div class="w-dyn-list">
+                        <div role="list" class="w-dyn-items">
+                            <div role="listitem" class="collection-item w-dyn-item">
+                                <div class="newspage-time">{{$notification->day}}</div>
+                                <div class="newspage-people">{{$notification->staff_name}}</div>
+                                <p class="newspage-link">{{$notification->message}} </p>
+                            </div>
+                        </div>
+>>>>>>> c2dd4546ae15a50f06664e998683ab7a021e82dc
                     </div>
-                </div>
+                    @endforeach
+                @endif
             </div>
         </div>
-        <!-- <div class="container-13 w-container"><a href="/service/news" target="_blank"
-                class="btn-secondary-center outline w-inline-block">
-                <div class="btn-text">もっと見る</div>
-            </a></div> -->
     </div>
+<<<<<<< HEAD
   
+=======
+>>>>>>> c2dd4546ae15a50f06664e998683ab7a021e82dc
 </main>
 @endsection
 @section('scripts')
