@@ -8,16 +8,16 @@
     <section class="emp-list">
         <div class="emp-list-area">
         <h1>ボトル一覧</h1>
-        <form action="#">
-                <button type="submit">
+        <form action="#" class="search">
+                <button type="submit" >
                     <img src="./img/oqCh3X9ndfQ__xOuxd5Oww==.png" alt="">
                 </button>
-                <input type="text" placeholder="ボトルの名前を入力してください">
+                <input id ="search" type="text" placeholder="ボトルの名前を入力してください">
         </form>
         <div class="emp-name">
         <ul>
             @foreach ($liquors as $liquor)
-                <li><span id={{$liquor->liquor_id}}>{{$liquor->liquor_name}}</span></li>
+                <li><span id="{{$liquor->liquor_id}}">{{$liquor->liquor_name}}</span></li>
             @endforeach
         </ul>
     </div>

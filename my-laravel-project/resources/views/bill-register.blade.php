@@ -36,18 +36,18 @@ $today = Carbon::now()->format('Y/m/d');
                         <span class="error">{{ $errors->first('staff_id') }}</span>
                         @endif
                     </li>
-                    <li class="kinds">
+                    <li class="kinds customerList" >
                         <span>顧客名</span>
                         <div class="kinds-selecter">
                             <span>選択してください</span>
-                            <ul class="kind-list" id="customerList">
+                            <ul class="kind-list" >
                                 @foreach ($customers as $customer)
                                     <li data='{{$customer->customer_id}}'>{{$customer->customer_name}}</li>
                                 @endforeach
                             </ul>
                         </div>
-                        <input type="text" id="customer_name" class="kinds-inp" name="customer_name" value="{{ old('customer_name') }}">
-                        <input type="text" id="customer_id" class="kinds-inp-hidden" name="customer_id" value="{{ old('customer_id') }}" hidden>
+                        <input type="text"  class="kinds-inp" name="customer_name" value="{{ old('customer_name') }}">
+                        <input type="text"  class="kinds-inp-hidden" name="customer_id" value="{{ old('customer_id') }}" hidden>
                         @if ($errors->has('customer_id'))
                         <span class="error">{{ $errors->first('customer_id') }}</span>
                         @endif

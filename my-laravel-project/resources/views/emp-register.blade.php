@@ -43,7 +43,7 @@
                     </li>
                     <li>
                         <span>誕生日</span>
-                        <input type="text" name="birthday"  value="{{ old('birthday') }}">
+                        <input type="date" name="birthday"  value="{{ old('birthday') }}">
                         @if ($errors->has('birthday'))
                             <span class="error">{{ $errors->first('birthday') }}</span>
                         @endif

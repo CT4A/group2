@@ -53,31 +53,17 @@ $(document).ready(function(){
             var test =$(inptxt).eq(event).parent();
         });
         $(plus).click(function(event) {
-            plusCnt+=1; 
-                        // <li class="kinds">
-                        // <span>顧客名</span>
-                        // <div class="kinds-selecter">
-                        //     <span>選択してください</span>
-                        //     <ul class="kind-list" id="customerList">
-                        //         @foreach ($customers as $customer)
-                        //             <li data='{{$customer->customer_id}}'>{{$customer->customer_name}}</li>
-                        //         @endforeach
-                        //     </ul>
-                        // </div>
-                        // <input type="text" id="customer_name" class="kinds-inp" name="customer_name" value="{{ old('customer_name') }}">
-                        // <input type="text" id="customer_id" class="kinds-inp-hidden" name="customer_id" value="{{ old('customer_id') }}" hidden>
-                        // @if ($errors->has('customer_id'))
-                        // <span class="error">{{ $errors->first('customer_id') }}</span>
-            // $(plus).before('<li><span>出勤者名' + plusCnt + '</span><input type="text" name="time"></li>');
-            $(plus).before('<li class ="kinds">'+
-                            '<span>顧客名'+plusCnt+'</span>'+
-                            '<div class="kinds-selecter" ><span>選択してください</span>'+
-                            '<ul class ="kind-list ')+
-                            $each(customers,function(index,customer){
-                                var liElement = $("<li>").attr("data", customer.customer_id).text(customer.customer_name);
-                            });
-                            +'<input type="text" id="customer_name" class="kinds-inp" name="customer_name" value="{{ old("customer_name") }}">'+
-                            '<input type="text" id="customer_id" class="kinds-inp-hidden" name="customer_id" value="{{ old("customer_id") }}" hidden>'
+            plusCnt += 1; 
+            console.log("test")
+            var previousElements = $('.customerList');
+            var test = "";
+            previousElements.each(function() {
+                console.log($(this))
+                test = $(this);
+                $(plus).before($(this))
+            });    
+            console.log(test);
+            $(plus).before($(test));
         });
 
     $(".alcohol li").click(function (e) { 

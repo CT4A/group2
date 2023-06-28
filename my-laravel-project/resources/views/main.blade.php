@@ -13,44 +13,43 @@
 </head>
 <body>
 <header>
-            <a href="#"><img src="./img/logaut.webp" alt=""></a>
+          <a href="#"><img src="./img/logaut.webp" alt=""></a>
             <ul class="menu">
-                <li class="menu_list">
+                <li class="menu_list menu_list_aft">
                   <span>社員</span>
                   <ol>
                     <li><a href="{{route('list-staff')}}">社員一覧</a></li>
                     <li><a href="{{route('indexEmpRegister')}}">社員登録</a></li>
                   </ol>
                 </li>
-                <li class="menu_list">
+                <li class="menu_list menu_list_aft">
                   <span>顧客</span>
                   <ol>
                     <li><a href="{{route('list-customer')}}">顧客一覧</a></li>
                     <li><a href="{{route('indexCusRegister')}}">顧客登録</a></li>
                   </ol>
                 </li>
-                <li class="menu_list">
+                <li class="menu_list menu_list_aft">
                   <span>キープボトル</span>
                   <ol>
                     <li><a href="{{route('keepbottle-list')}}">キープボトル一覧</a></li>
                     <li><a href="{{route('indexKeepRegister')}}">キープボトル登録</a></li>
                   </ol>
                 </li>
-                <li class="menu_list">
+                <li class="menu_list menu_list_aft">
                   <span>ボトル</span>
                   <ol>
                     <li><a href="#">ボトル一覧</a></li>
                     <li><a href="{{route('indexRegister')}}">ボトル登録</a></li>
                   </ol>
                 </li>
-                <li class="menu_list">
+                <li class="menu_list menu_list_aft">
                   <span>出勤退勤履歴</span>
                   <ol>
-                    <li><a href="{{route('history')}}">社員一覧</a></li>
-                    <li><a href="#">社員登録</a></li>
+                    <li><a href="{{route('history')}}">履歴編集画面</a></li>
                   </ol>
                 </li>
-                <li class="menu_list">
+                <li class="menu_list menu_list_aft">
                     <span>伝票</span>
                     <ol>
                       <li><a href="{{route('list-bill')}}">伝票一覧</a></li>

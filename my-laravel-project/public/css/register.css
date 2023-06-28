@@ -69,6 +69,14 @@
   background: none;
   border: none;
 }
+.register-area ul input[type=date] {
+  width: 100%;
+  outline: none;
+  background: none;
+  border: none;
+  height: 100%;
+  font-size: 24px;
+}
 .register-area ul .plus {
   background-color: snow;
   padding: 20px 20px;

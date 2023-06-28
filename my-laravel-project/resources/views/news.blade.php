@@ -18,7 +18,6 @@ $today = Carbon::now()->format('Y/m/d');
         </div>
         <div class="w-container">
             <div class="div-block-29">
-<<<<<<< HEAD
             <section class="news-radio">
             <input type="radio" name="radio" value="ALL" id="ALL-radio">ALL
             <input type="radio" name="radio" value="お知らせ" id="info-radio">お知らせ
@@ -150,8 +149,6 @@ $today = Carbon::now()->format('Y/m/d');
                                     <p class="newspage-link">お知らせテスト </p>
                                 </a>
                         </div> -->
-
-=======
                 @if ($notifications->isEmpty())
                     <p>お知らせがありません。</p>
                 @else
@@ -164,18 +161,12 @@ $today = Carbon::now()->format('Y/m/d');
                                 <p class="newspage-link">{{$notification->message}} </p>
                             </div>
                         </div>
->>>>>>> c2dd4546ae15a50f06664e998683ab7a021e82dc
                     </div>
                     @endforeach
                 @endif
             </div>
         </div>
     </div>
-<<<<<<< HEAD
-  
-=======
->>>>>>> c2dd4546ae15a50f06664e998683ab7a021e82dc
-</main>
 @endsection
 @section('scripts')
 <script src="{{asset('js/register.js')}}"></script>
