@@ -84,6 +84,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/news-register', function () {
         return view('news-register');
     })->name('indexNewsRegister');
+    
     // 伝票登録
     Route::get('/bill-register', [BillController::class,'index'])->name('indexBillRegister');
     Route::post('/bill-register', [BillController::class,'register']);

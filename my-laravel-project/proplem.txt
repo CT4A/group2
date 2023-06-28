@@ -1,0 +1,2 @@
+when register customer,will the person who is logged in be the one in charge?
+register shift form ?
