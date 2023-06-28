@@ -13,7 +13,7 @@
 </head>
 <body>
 <header>
-          <a href="#"><img src="./img/logaut.webp" alt=""></a>
+          <a href="logout"><img src="./img/logaut.webp" alt=""></a>
             <ul class="menu">
                 <li class="menu_list menu_list_aft">
                   <span>社員</span>

@@ -1,39 +1,52 @@
 <?php
 
 namespace App\Models;
-use Illuminate\Contracts\Auth;
+
+// use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
+use Laravel\Sanctum\HasApiTokens;
 
-
-class employee extends Authenticatable
+class Employee extends Authenticatable
 {
-    use HasFactory;
-    protected $primaryKey = 'staff_id';
-    protected $fillable=['staff_pass','staff_name','role','tel','residence','birthday','hourly_wage','remarks'];
-    public function customer()
-    {
-        return $this->hasMany(customer::class, 'staff_id');
-    }
-    
-    //オーナかどうか確認する
-    function isAdmin(){
-        return $this->role ==='admin';
-    }
-    
-    //スタッフかどうか確認する
-    function isStaff(){
-        return $this->role ==='user';
-    }
-    
-    public function getAuthIdentifierName(){
-        return $this->tel;
-    }
-    public function getAuthPassword(){
-        return $this->staff_pass;
-    }
-    public function getAuthIdentifier(){
-        return $this->staff_id;
-    }
+    use HasApiTokens, HasFactory, Notifiable;
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array<int, string>
+     */
+    protected $primaryKey='staff_id';
+    protected $table='employees';
+    protected $fillable = [
+        'password',
+        'staff_name',
+        'role',
+        'tel',
+        'residence',
+        'hourly_wage',
+        'birthday',
+        'remarks',
+    ];
+
+    /**
+     * The attributes that should be hidden for serialization.
+     *
+     * @var array<int, string>
+     */
+    protected $hidden = [
+        'password',
+        'remember_token',
+    ];
+
+    /**
+     * The attributes that should be cast.
+     *
+     * @var array<string, string>
+     */
+    protected $casts = [
+        'email_verified_at' => 'datetime',
+        'password' => 'hashed',
+    ];
 }
