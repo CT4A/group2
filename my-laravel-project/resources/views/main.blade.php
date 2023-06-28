@@ -15,13 +15,15 @@
 <header>
           <a href="logout"><img src="./img/logaut.webp" alt=""></a>
             <ul class="menu">
+              @if (Auth::user()->isAdmin())
                 <li class="menu_list menu_list_aft">
                   <span>社員</span>
                   <ol>
                     <li><a href="{{route('list-staff')}}">社員一覧</a></li>
                     <li><a href="{{route('indexEmpRegister')}}">社員登録</a></li>
                   </ol>
-                </li>
+                </li> 
+              @endif  
                 <li class="menu_list menu_list_aft">
                   <span>顧客</span>
                   <ol>
