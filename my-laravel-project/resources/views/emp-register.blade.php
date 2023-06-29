@@ -5,7 +5,6 @@
 <link rel="stylesheet" href="./css/information.css">
 @endsection
 @section('content')
-<main>
     <div class="message text-center">
         <div class="alert alert-primary" role="alert">
             <strong>{{session('message')}}</strong>
@@ -67,7 +66,7 @@
             </ul>
         </div>
     </section>
-</main>
+
 @endsection
 @section('scripts')
 <script src="js/register.js"></script>

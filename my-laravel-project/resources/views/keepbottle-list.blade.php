@@ -4,7 +4,6 @@
 <link rel="stylesheet" href="./css/itiran.css">
 @endsection
 @section('content')
-<main>
     <section class="emp-list">
         <div class="emp-list-area">
         <h1>ボトル一覧</h1>
@@ -57,7 +56,6 @@
             </ul>
         </div>
     </section>
-</main>
 @endsection
 @section('scripts')
 <script src="js/itiran.js"></script>

@@ -8,7 +8,6 @@
     <title>勤退登録画面</title>
     <link rel="stylesheet" href="{{asset('css/syukkin.css')}}">
 </head>
-<main>
 <body>
      <div class="containt">
         <section class="leawork">
@@ -63,7 +62,6 @@
      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
      
     </body>
-</main>
 </html> 
 <script>
     

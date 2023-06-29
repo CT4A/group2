@@ -10,7 +10,6 @@ $today = Carbon::now()->format('Y/m/d');
 @endsection
 @section('title', 'お知らせ')
 @section('content')
-<main>
     <div id="news" class="section-lightgray wf-section">
         <div class="container w-container">
             <h1 class="service-title-h1-large">お知らせ</h1>

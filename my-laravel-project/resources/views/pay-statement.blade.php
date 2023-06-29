@@ -5,7 +5,6 @@
 @section('title', '社員一覧')
 
 @section('content')
-<main>
     <section class="emp-list">
         <div class="emp-list-area">
             <h1>給料明細</h1>
@@ -111,7 +110,6 @@
         </div>
         @csrf
     </section>
-</main>
 @endsection
 @section('scripts')
 <script src="{{asset('js/itiran.js')}}"></script>

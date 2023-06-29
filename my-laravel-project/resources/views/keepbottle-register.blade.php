@@ -11,7 +11,6 @@ $today = Carbon::now()->format('Y/m/d');
 @section('title', 'キープボトル登録')
 
 @section('content')
-<main>
     <div class="message text-center">
         <div class="alert alert-primary" role="alert">
             <strong>{{session('message')}}</strong>
@@ -94,7 +93,7 @@ $today = Carbon::now()->format('Y/m/d');
             </ul>
         </div>
     </section>
-</main>
+
 @endsection
 @section('scripts')
 <script src="{{asset('js/register.js')}}"></script>

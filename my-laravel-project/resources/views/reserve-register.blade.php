@@ -10,7 +10,6 @@ $today = Carbon::now()->format('Y/m/d');
 <link rel="stylesheet" href="./css/information.css">
 @endsection
 @section('content')
-<main>
     <div class="message text-center">
         <div class="alert alert-primary" role="alert">
             <strong>{{session('message')}}</strong>
@@ -89,7 +88,6 @@ $today = Carbon::now()->format('Y/m/d');
             </ul>
         </div>
     </section>
-</main>
 @endsection
 @section('scripts')
 <script src="js/register.js"></script>

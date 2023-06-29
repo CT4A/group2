@@ -12,7 +12,6 @@ $today = Carbon::now()->format('Y/m/d');
 <link rel="stylesheet" href="./css/bill-register.js">
 @endsection
 @section('content')
-<main>
     <section class="register">
         <div class="register-area">
             <h1>伝票登録</h1>
@@ -80,7 +79,6 @@ $today = Carbon::now()->format('Y/m/d');
             </ul>
         </div>
     </section>
-</main>
 @endsection
 @section('scripts')
 <script src="js/register.js"></script>
