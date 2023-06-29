@@ -126,44 +126,11 @@
   }
 }
 .history .history_info .history_info_btn button {
+  background: white;
+  border: solid;
   border: none;
   width: 100px;
-  border-left: solid 1px #000;
-  border-right: solid 1px #000;
   font-size: 24px;
   margin: 10px;
   position: relative;
-}
-.history .history_info .history_info_btn button::before {
-  content: "";
-  width: 100%;
-  display: block;
-  transform: scale(0);
-  height: 1px;
-  background: #000;
-  left: 0;
-  position: absolute;
-  top: 0;
-  transform-origin: center;
-  transition: all 0.5s;
-}
-.history .history_info .history_info_btn button:hover::before {
-  transform: scale(1);
-  transition: all 0.5s;
-}
-.history .history_info .history_info_btn button::after {
-  content: "";
-  display: block;
-  width: 100%;
-  height: 1px;
-  background: #000;
-  left: 0;
-  position: absolute;
-  bottom: 0;
-  transform: scale(0);
-  transition: all 0.5s;
-}
-.history .history_info .history_info_btn button:hover::after {
-  transition: all 0.5s;
-  transform: scale(1);
 }/*# sourceMappingURL=history.css.map */

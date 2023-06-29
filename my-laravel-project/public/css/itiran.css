@@ -131,14 +131,14 @@ section span {
   }
 }
 
-ul {
+ul:not(.menu) {
   margin: 50px auto;
   font-size: 24px;
 }
-ul li {
+ul:not(.menu) li {
   display: flex;
 }
-ul li span {
+ul:not(.menu) li span {
   margin: 10px;
   word-wrap: break-word; /* 長い単語を途中で改行する */
   overflow-wrap: break-word; /* 上記のプロパティのエイリアス */

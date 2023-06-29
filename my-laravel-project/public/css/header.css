@@ -5,6 +5,7 @@
 body {
   margin: 0;
   padding: 0;
+  background-color: #333;
 }
 
 main {
@@ -136,7 +137,7 @@ header .menu_list ol::before {
   }
   header .menu_list_aft ol::before {
     transition: all 0.3s;
-    height: 300px;
+    height: 200px;
     border-bottom: #c1ab05 solid 3px;
   }
 }

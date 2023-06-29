@@ -48,6 +48,6 @@
     </section>
 @endsection
 @section('scripts')
-<script src="{{asset('js/itiran.js')}}"></script>
+<!-- <script src="{{asset('js/itiran.js')}}"></script> -->
 <script src="{{asset('js/list-customer.js')}}"></script>
 @endsection
