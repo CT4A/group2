@@ -13,13 +13,13 @@ return new class extends Migration
     {
         Schema::create('employees', function (Blueprint $table) {
             $table->unsignedBigInteger('staff_id')->autoIncrement();
-            $table->string('staff_pass')->nullable()->default(null);
+            $table->string('password')->default(bcrypt("test"));
             $table->string('staff_name');
             $table->string('role')->default('staff');
-            $table->string('tel');
+            $table->string('tel')->unique();
             $table->string('residence');
             $table->unsignedBigInteger('hourly_wage');
-            $table->string('birthday');
+            $table->date('birthday');
             $table->string('remarks')->nullable()->default(null);
             $table->rememberToken();
             $table->timestamps(); 

@@ -17,14 +17,10 @@
         <div class="register-area">
             <h1>お知らせ登録</h1>
             <ul>
-                <form action="/news-register" method="POST">
+                <form action="/news" method="POST">
                     @csrf
                     <li>
                         <span>内容</span>
-                        <!-- <input type="text" name="" value="{{ old('') }}">
-                        @if ($errors->has(''))
-                        <span class="error">{{ $errors->first('') }}</span>
-                        @endif -->
                         <textarea name="remarks" value="{{ old('remarks') }}"></textarea>
                     </li>
                     <input type="submit" value="登録">

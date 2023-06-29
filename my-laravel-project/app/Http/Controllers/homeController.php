@@ -14,7 +14,6 @@ class homeController extends Controller
         $today=now();
         $todayDay=$today->day;
         $todayMonth=$today->month;
-
         // あと2週間の日付
         $futureDate  = now()->addDays(14);
         $futureDay = $futureDate->day;
