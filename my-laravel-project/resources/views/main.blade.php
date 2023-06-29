@@ -12,95 +12,96 @@
     @yield('styles')
 </head>
 <body>
-<header>
-          <a href="logout"><img src="./img/logaut.webp" alt=""></a>
-            <ul class="menu">
-                <li class="menu_list ">
-              @if (Auth::user()->isAdmin())
-                <li class="menu_list menu_list_aft">
-                  <span>社員</span>
-                  <ol>
-                    <li><a href="{{route('list-staff')}}">社員一覧</a></li>
-                    <li><a href="{{route('indexEmpRegister')}}">社員登録</a></li>
-                  </ol>
-                </li>
-              @endif  
-              <li class="menu_list">
-                <li class="menu_list menu_list_aft">
-                  <span>顧客</span>
-                  <ol>
-                    <li><a href="{{route('list-customer')}}">顧客一覧</a></li>
-                    <li><a href="{{route('indexCusRegister')}}">顧客登録</a></li>
-                  </ol>
-                </li>
-                <li class="menu_list">
-                  <span>キープボトル</span>
-                  <ol>
-                    <li><a href="{{route('keepbottle-list')}}">キープボトル一覧</a></li>
-                    <li><a href="{{route('indexKeepRegister')}}">キープボトル登録</a></li>
-                  </ol>
-                </li>
-                <li class="menu_list">
-                  <span>ボトル</span>
-                  <ol>
-                    <li><a href="#">ボトル一覧</a></li>
-                    <li><a href="{{route('indexRegister')}}">ボトル登録</a></li>
-                  </ol>
-                </li>
-                <li class="menu_list">
-                  <span>出勤退勤履歴</span>
-                  <ol>
-                    <li><a href="{{route('history')}}">履歴編集画面</a></li>
-                  </ol>
-                </li>
-                <li class="menu_list">
-                    <span>伝票</span>
-                    <ol>
-                      <li><a href="{{route('list-bill')}}">伝票一覧</a></li>
-                      <li><a href="{{route('indexBillRegister')}}">伝票登録</a></li>
-                    </ol>
-                  </li>
-              </ul>
-            <div class="hamburger-area">
-            <div class="hamburger-icon">
-                    <span></span>
-                </div>
-            <div class="hamburgerContents">
-                <ul>
-                <li>
-                    <div class="accordion">
-                        <span>社員</span>
-                    <div class="accordion-content">
-                        <a href="">社員一覧</a>
-                        <a href="">社員登録</a>
-                        <a href="">社員編集</a>
-                    </div>
-                </div>
-                </li>
-                <li>
-                    <div class="accordion">
-                        <span>顧客</span> 
-                    <div class="accordion-content">
-                        <a href="">顧客一覧</a>
-                        <a href="">顧客登録</a>
-                        <a href="">顧客編集</a>
-                    </div>
-                </div>
-                </li>
-                <li><div class="accordion">
-                    <span>キープボトル</span>
-                <div class="accordion-content">
-                    <a href="">ボトル一覧</a>
-                    <a href="">ボトル登録</a>
-                    <a href="">ボトル編集</a>
-                </div>
+    <header>
+      <a href="logout"><img src="./img/logaut.webp" alt=""></a>
+        <ul class="menu">
+          <li class="menu_list ">
+          @if (Auth::user()->isAdmin())
+            <li class="menu_list ">
+              <span>社員</span>
+              <ol>
+                <li><a href="{{route('list-staff')}}">社員一覧</a></li>
+                <li><a href="{{route('indexEmpRegister')}}">社員登録</a></li>
+              </ol>
+            </li>
+          @endif  
+          <li class="menu_list">
+            <li class="menu_list ">
+              <span>顧客</span>
+              <ol>
+                <li><a href="{{route('list-customer')}}">顧客一覧</a></li>
+                <li><a href="{{route('indexCusRegister')}}">顧客登録</a></li>
+              </ol>
+          </li>
+          <li class="menu_list">
+            <span>キープボトル</span>
+            <ol>
+              <li><a href="{{route('keepbottle-list')}}">キープボトル一覧</a></li>
+              <li><a href="{{route('indexKeepRegister')}}">キープボトル登録</a></li>
+            </ol>
+          </li>
+          <li class="menu_list">
+            <span>ボトル</span>
+            <ol>
+              <li><a href="#">ボトル一覧</a></li>
+              <li><a href="{{route('indexRegister')}}">ボトル登録</a></li>
+            </ol>
+          </li>
+          <li class="menu_list">
+            <span>出勤退勤履歴</span>
+            <ol>
+              <li><a href="{{route('history')}}">履歴編集画面</a></li>
+            </ol>
+          </li>
+          <li class="menu_list">
+              <span>伝票</span>
+              <ol>
+                <li><a href="{{route('list-bill')}}">伝票一覧</a></li>
+                <li><a href="{{route('indexBillRegister')}}">伝票登録</a></li>
+              </ol>
+            </li>
+        </ul>
+      <div class="hamburger-area">
+      <div class="hamburger-icon">
+              <span></span>
+      </div>
+      <div class="hamburgerContents">
+        <ul>
+          <li>
+            <div class="accordion">
+              <span>社員</span>
+              <div class="accordion-content">
+                  <a href="">社員一覧</a>
+                  <a href="">社員登録</a>
+                  <a href="">社員編集</a>
+              </div>
             </div>
+          </li>
+          <li>
+          <div class="accordion">
+            <span>顧客</span> 
+            <div class="accordion-content">
+              <a href="">顧客一覧</a>
+              <a href="">顧客登録</a>
+              <a href="">顧客編集</a>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="accordion">
+            <span>キープボトル</span>
+            <div class="accordion-content">
+              <a href="">ボトル一覧</a>
+              <a href="">ボトル登録</a>
+              <a href="">ボトル編集</a>
+            </div>
+          </div>
         </li>
         <li><a href="">出勤退勤履歴</a></li>
         <li><a href="">伝票</a></li>
-                </ul>
-            </div>
-            </div>
+      </ul>
+      </div>
+      </div>
     </header>
     <main>
         @yield('content')

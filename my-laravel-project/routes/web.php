@@ -47,6 +47,10 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/syukkin', [syukkinController::class,'index']);
     Route::post('/syukkin/start', [syukkinController::class,'attend']);
     Route::post('/syukkin/end', [syukkinController::class,'leave']);
+    //出勤用社員一覧
+    Route::get('/list-attend', function () {
+        return view('list-attend');
+    });
     //社員登録
     Route::get('emp-register', function () {
         return view('emp-register');
@@ -66,6 +70,11 @@ Route::middleware(['auth'])->group(function () {
     // ボトル登録
     Route::get('/bottle-register', [bottleController::class,'index'])->name('indexRegister');
     Route::post('/bottle-register', [bottleController::class,'RegisterBottle']);
+    // ボトル一覧
+    Route::get('/list-bottle',function () {
+        return view('list-bottle');
+    });
+    Route::post('/list-bottle', [bottleController::class,'RegisterBottle']);
     //予約
     Route::get ('/reserve-register',  [resrveController::class,'index'])->name('indexResRegister');
     Route::post('/reserve-register',  [resrveController::class,'register']);
