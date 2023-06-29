@@ -7,7 +7,6 @@
 @section('title', 'お知らせ')
 
 @section('content')
-<main>
     <div class="message text-center">
         <div class="alert alert-primary" role="alert">
             <strong>{{session('message')}}</strong>
@@ -28,7 +27,6 @@
             </ul>
         </div>
     </section>
-</main>
 @endsection
 @section('scripts')
 <script src="{{asset('js/register.js')}}"></script>
