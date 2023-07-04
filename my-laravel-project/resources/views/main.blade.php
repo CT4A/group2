@@ -13,15 +13,21 @@
 </head>
 <body>
     <header>
-      <a href="logout"><img src="./img/logaut.webp" alt=""></a>
+      <!-- <a href="logout"><img src="./img/logaut.webp" alt=""></a> -->
         <ul class="menu">
           <li class="menu_list ">
           @if (Auth::user()->isAdmin())
+          </li>
             <li class="menu_list ">
               <span>社員</span>
               <ol>
+                <div class="menu_ele">
                 <li><a href="{{route('list-staff')}}">社員一覧</a></li>
                 <li><a href="{{route('indexEmpRegister')}}">社員登録</a></li>
+                <li><a href="{{route('indexEmpRegister')}}">パスワード変更</a></li>
+                <li><a href="{{route('indexEmpRegister')}}">給料</a></li>
+                <li><a href="{{route('indexEmpRegister')}}">シフト登録</a></li>
+                </div>
               </ol>
             </li>
           @endif  
@@ -29,35 +35,45 @@
             <li class="menu_list ">
               <span>顧客</span>
               <ol>
+                <div class="menu_ele">
                 <li><a href="{{route('list-customer')}}">顧客一覧</a></li>
                 <li><a href="{{route('indexCusRegister')}}">顧客登録</a></li>
+                </div>
               </ol>
           </li>
           <li class="menu_list">
             <span>キープボトル</span>
             <ol>
+              <div class="menu_ele">
               <li><a href="{{route('keepbottle-list')}}">キープボトル一覧</a></li>
               <li><a href="{{route('indexKeepRegister')}}">キープボトル登録</a></li>
+              </div>
             </ol>
           </li>
           <li class="menu_list">
             <span>ボトル</span>
             <ol>
+              <div class="menu_ele">
               <li><a href="#">ボトル一覧</a></li>
               <li><a href="{{route('indexRegister')}}">ボトル登録</a></li>
+              </div>
             </ol>
           </li>
           <li class="menu_list">
             <span>出勤退勤履歴</span>
             <ol>
+              <div class="menu_ele">
               <li><a href="{{route('history')}}">履歴編集画面</a></li>
+              </div>
             </ol>
           </li>
           <li class="menu_list">
               <span>伝票</span>
               <ol>
+                <div class="menu_ele">
                 <li><a href="{{route('list-bill')}}">伝票一覧</a></li>
                 <li><a href="{{route('indexBillRegister')}}">伝票登録</a></li>
+                </div>
               </ol>
             </li>
         </ul>

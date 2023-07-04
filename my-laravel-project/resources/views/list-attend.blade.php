@@ -7,7 +7,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>出勤用社員一覧</title>
         <link rel="stylesheet" href="{{asset('css/itiran.css')}}">
-        <link rel="stylesheet" href="{{asset('css/syukkin.css')}}">
+        <link rel="stylesheet" href="{{asset('css/header.css')}}">
     </head>
     <body>
         <section class="attend-list">
@@ -27,6 +27,14 @@
                 <li><span id="">4</span><span id="">chin君です</span></li>
                 <li><span id="">5</span><span id="">chin君です</span></li>
                 <li><span id="">6</span><span id="">chin君です</span></li>
+                <li><span id="">6</span><span id="">chin君です</span></li>
+                <li><span id="">6</span><span id="">chin君です</span></li>
+                <li><span id="">6</span><span id="">chin君です</span></li>
+                <li><span id="">6</span><span id="">chin君です</span></li>
+                <li><span id="">6</span><span id="">chin君です</span></li>
+                <li><span id="">6</span><span id="">chin君です</span></li>
+
+                                <li><span id="">6</span><span id="">chin君です</span></li>
         </ul>
     </div>
 </div>

@@ -49,6 +49,13 @@ section h1 {
   width: 70%;
   margin: 10px auto;
 }
+section h1:after {
+  content: "";
+  display: block;
+  width: 50%;
+  height: 3px;
+  background: #555;
+}
 section span {
   position: relative;
   font-size: 24px;
@@ -95,25 +102,35 @@ section span {
   display: flex;
 }
 .emp-list-area .emp-name ul div p {
-  border-bottom: #000 solid 2px;
   line-height: 2;
 }
 .emp-list-area .emp-name ul::-webkit-scrollbar {
   width: 5px;
 }
 .emp-list-area .emp-name ul::-webkit-scrollbar-track {
-  background-color: #ccc;
+  background-color: none;
 }
 .emp-list-area .emp-name ul::-webkit-scrollbar-thumb {
-  background: #38B6FF;
+  background: #666;
   border-radius: 25px;
 }
 .emp-list-area .emp-name ul li {
   margin: 10px 0;
   white-space: nowrap;
+  border-bottom: #000 solid 2px;
+  position: relative;
+}
+.emp-list-area .emp-name ul li::after {
+  content: "";
+  display: block;
+  height: 3px;
+  width: 50%;
+  background-color: #666;
+  position: absolute;
+  bottom: 0px;
+  left: 0;
 }
 .emp-list-area .emp-name ul li span {
-  border-bottom: #000 solid 2px;
   line-height: 2;
   cursor: pointer;
 }
@@ -318,6 +335,43 @@ ul:not(.menu) li span {
   width: 100%;
 }
 
+.attend-list {
+  width: 100%;
+}
+.attend-list ul {
+  height: 600px !important;
+  width: 80%;
+  margin: auto;
+  justify-content: inherit !important;
+}
+.attend-list ul li {
+  cursor: pointer;
+  pointer-events: painted;
+  border: solid 1px #555;
+  margin-right: 10px !important;
+}
+.attend-list ul li::before {
+  content: "";
+  display: block;
+  height: 100%;
+  width: 1%;
+  background: gold;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+.attend-list ul li:hover::before {
+  width: 100%;
+  background: rgba(255, 215, 0, 0.5);
+}
+.attend-list ul li::after {
+  height: 0;
+  width: 0;
+}
+.attend-list ul li span {
+  margin-left: 10px;
+}
+
 @media screen and (max-width: 780px) {
   .emp-list {
     /* background-color: #f4f1ec; */
@@ -335,9 +389,5 @@ ul:not(.menu) li span {
   }
   .emp-list-area .emp-name ul li {
     display: flex;
-  }
-  .emp-list-area .emp-name ul li span {
-    margin-left: 0;
-    margin-right: 0;
   }
 }/*# sourceMappingURL=itiran.css.map */
