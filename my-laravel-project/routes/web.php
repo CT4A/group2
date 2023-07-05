@@ -105,3 +105,6 @@ Route::middleware(['auth'])->group(function () {
     Route::get('full-calendar',[FullCalendarController::class,'index']);
     Route::get('get_events', [FullCalendarController::class, 'getEvents']);
 });
+Route::get('/pay-statement', function () {
+    return view('pay-statement');
+});
