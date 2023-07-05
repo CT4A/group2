@@ -15,9 +15,13 @@
         </form>
         <div class="emp-name">
         <ul>
-            @foreach ($liquors as $liquor)
-                <li><span id="{{$liquor->liquor_id}}">{{$liquor->liquor_name}}</span></li>
-            @endforeach
+            <li><span id="">あかばちゃんかわいい</span></li>        
+            <li><span id="">あかばちゃんかわいい</span></li>        
+            <li><span id="">あかばちゃんかわいい</span></li>        
+            <li><span id="">あかばちゃんかわいい</span></li>        
+            <li><span id="">あかばちゃんかわいい</span></li>        
+            <li><span id="">あかばちゃんかわいい</span></li>        
+            <li><span id="">あかばちゃんかわいい</span></li>        
         </ul>
     </div>
 </div>
@@ -31,27 +35,19 @@
             <ul>
                     <li itemprop="identifier">
                         <span>番号</span>
-                        <span>01</span>
+                        <span id = "liquor_id">01</span>
                     </li>
                     <li itemprop="name">
-                        <span>名前</span>
-                        <span>名古屋タロウ</span>
+                        <span>種類</span>
+                        <span  id ="liquor_type">ウイスキー</span>
                     </li>
                     <li itemprop="Liquorname">
                         <span>酒名</span>
-                        <span>山崎55年</span>
+                        <span id ="liquor_name">山崎55年</span>
                     </li>
                     <li itemprop="kinds">
-                        <span>種類</span>
-                        <span>ウイスキー</span>
-                    </li>
-                    <li itemprop="date">
-                        <span>日付</span>
-                        <span>2023年5月8日</span>
-                    </li>
-                    <li itemprop="description">
-                        <span>備考</span>
-                        <span>テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</span>
+                        <span>合計本数</span>
+                        <span id="liquor_number">10本</span>
                     </li>
             </ul>
         </div>

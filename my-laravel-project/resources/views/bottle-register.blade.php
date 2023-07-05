@@ -7,7 +7,6 @@
 @section('title', 'ボトル登録')
 
 @section('content')
-<main>
     <div class="message text-center">
         <div class="alert alert-primary" role="alert">
             <strong>{{session('message')}}</strong>
@@ -16,7 +15,7 @@
     <section class="register">
         <div class="register-area">
             <h1>ボトル登録</h1>
-            <ul>
+            <ul class="register-areaUL">
                 <form action="/bottle-register" method="POST">
                     @csrf
                     <li class="kinds">
@@ -48,7 +47,6 @@
             </ul>
         </div>
     </section>
-</main>
 @endsection
 @section('scripts')
 <script src="{{asset('js/register.js')}}"></script>

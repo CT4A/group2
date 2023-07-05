@@ -11,7 +11,6 @@ $today = Carbon::now()->format('Y/m/d');
 @section('title', 'キープボトル登録')
 
 @section('content')
-<main>
     <div class="message text-center">
         <div class="alert alert-primary" role="alert">
             <strong>{{session('message')}}</strong>
@@ -21,7 +20,7 @@ $today = Carbon::now()->format('Y/m/d');
     <section class="register">
         <div class="register-area">
             <h1>キープボトル登録</h1>
-            <ul>
+            <ul class="register-areaUL">
                 <form action="/keepbottle-register" method="POST">
                     @csrf
                     <li class="kinds">
@@ -94,7 +93,7 @@ $today = Carbon::now()->format('Y/m/d');
             </ul>
         </div>
     </section>
-</main>
+
 @endsection
 @section('scripts')
 <script src="{{asset('js/register.js')}}"></script>

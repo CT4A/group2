@@ -5,7 +5,6 @@
 <link rel="stylesheet" href="./css/information.css">
 @endsection
 @section('content')
-<main>
     <section class="register">
         <div class="register-area">
             <h1>パスワード変更</h1>
@@ -37,7 +36,6 @@
             </ul>
         </div>
     </section>
-</main>
 @endsection
 @section('scripts')
 <script src="js/register.js"></script>

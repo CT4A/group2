@@ -44,14 +44,24 @@ $(document).ready(function () {
         windowNow =$(window);
         console.log(windowNow);
     });
-    $(header).hover( 
+    // $(header).hover( 
+    //     function(){     
+    //         if($(windowNow).width() >= 767 && !$(hamburgerArea).hasClass("hamburger-area-aft")){
+    //             $(menuList).addClass("menu_list_aft");
+    //    }
+    // },
+    //     function(){
+    //         $(menuList).removeClass("menu_list_aft");
+    // }
+    // )
+    $(menuList).hover( 
         function(){     
             if($(windowNow).width() >= 767 && !$(hamburgerArea).hasClass("hamburger-area-aft")){
-                $(menuList).addClass("menu_list_aft");
+                $(this).addClass("menu_list_aft");
        }
     },
         function(){
-            $(menuList).removeClass("menu_list_aft");
+            $(this).removeClass("menu_list_aft");
     }
     )
 

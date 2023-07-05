@@ -17,9 +17,9 @@
             </form>
             <div class="emp-name">
                 <ul>
-                    <div class="">
-                        <p id="p1">名前</p>
-                        <p id="p1">給料</p>
+                    <div class="container">
+                        <div id="c1">名前</div>
+                        <div id="c2">給料</div>
                     </div>
                     @foreach ($staffs as $staff)
                     <li>
@@ -64,61 +64,60 @@
                         <span id="1">19,0000円</span>
                     </li>
 
-                </ul>
-            </div>
-        </div>
-    </section>
-    <section class="intell">
-        <div class="intell-aera" itemscope itemtype="http://schema.org/Person">
-            <h1 id="TxtNameHeader">さんの給料明細</h1>
-            <ul>
-                <li itemprop="identifier">
-                    <span>基本給</span>
-                    <span>1000円</span>
-                    <span id="staff_id"></span>
-                </li>
-                <li itemprop="name">
-                    <span>出勤日数</span>
-                    <span>24日</span>
-                    <span id="staff_name"></span>
-                </li>
-                <li itemprop="telephone">
-                    <span>実働時間</span>
-                    <span>170時間</span>
-                    <span id="tel"></span>
-                </li>
-                <li itemprop="address">
-                    <span>同伴</span>
-                    <span>5,0000円</span>
-                    <span id="residence"></span>
-                </li>
-                <li itemprop="address">
-                    <span>回数</span>
-                    <span>2回</span>
-                    <span id="residence"></span>
-                </li>
-                <li itemprop="birthDate">
-                    <span>控除金額</span>
-                    <span>6000円</span>
-                    <span id="birthday"></span>
-                </li>
-                <li itemprop="description">
-                    <span>基本給総合</span>
-                    <span>19,0000円</span>
-                    <span id="remarks"></span>
-                </li>
-                <li itemprop="description">
-                    <span>総支給額</span>
-                    <span>23,0000円</span>
-                    <span id="remarks"></span>
-                </li>
-
             </ul>
         </div>
-        @csrf
-    </section>
-</main>
+    </div>
+</section>
+<section class="intell">
+    <div class="intell-aera" itemscope itemtype="http://schema.org/Person">
+        <h1 id="TxtNameHeader">さんの給料明細</h1>
+        <ul>
+            <li itemprop="identifier">
+                <span >基本給</span>
+                <span >1000円</span>
+                <span ></span>
+            </li>
+            <li itemprop="name">
+                <span >出勤日数</span>
+                <span >24日</span>
+                <span ></span>
+            </li>
+            <li itemprop="telephone">
+                <span >実働時間</span>
+                <span >170時間</span>
+                <span ></span>
+            </li>
+            <li itemprop="address">
+                <span >同伴</span>
+                <span >5,0000円</span>
+                <span ></span>
+            </li>
+            <li itemprop="address">
+                <span >回数</span>
+                <span >2回</span>
+                <span ></span>
+            </li>
+            <li itemprop="birthDate">
+                <span >控除金額</span>
+                <span >6000円</span>
+                <span ></span>
+            </li>
+            <li itemprop="description">
+                <span >基本給総合</span>
+                <span >19,0000円</span>
+                <span ></span>
+            </li>
+            <li itemprop="description">
+                <span >総支給額</span>
+                <span >23,0000円</span>
+                <span ></span>
+            </li>
+
+        </ul>
+    </div>
+    @csrf
+</section>
 @endsection
 @section('scripts')
-<script src="{{asset('js/itiran.js')}}"></script>
+<script src="{{asset('js/payStatement.js')}}"></script>
 @endsection

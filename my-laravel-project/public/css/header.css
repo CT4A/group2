@@ -1,11 +1,22 @@
 * {
   font-family: serif;
 }
+*::-webkit-scrollbar {
+  width: 5px;
+}
+*::-webkit-scrollbar-track {
+  background-color: none;
+}
+*::-webkit-scrollbar-thumb {
+  background: #666;
+  border-radius: 25px;
+}
 
 body {
+  background: #333;
+  background: #F4F1EC;
   margin: 0;
   padding: 0;
-  background-color: #333;
 }
 
 main {
@@ -44,7 +55,7 @@ header {
   background: #333;
   border-bottom: #c1ab05 solid 3px;
   display: flex;
-  font-size: 24px;
+  font-size: 16px;
   z-index: 9999;
 }
 header img {
@@ -60,11 +71,6 @@ header .menu {
   display: flex;
   color: #c1ab05;
 }
-@media screen and (max-width: 1080px) {
-  header .menu {
-    font-size: 16px;
-  }
-}
 @media screen and (max-width: 780px) {
   header .menu {
     font-size: 0;
@@ -77,42 +83,60 @@ header .menu_list {
 header .menu_list span {
   cursor: default;
   white-space: nowrap;
-  overflow: hidden;
-  padding: 0 30px;
-  margin-top: 20px;
+  padding: 10px 30px;
+  position: relative;
 }
 @media screen and (max-width: 780px) {
   header .menu_list span {
     padding: 0;
   }
 }
+header .menu_list span::after {
+  transition: all 0.5s;
+  z-index: 50;
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: -9px;
+  opacity: 0;
+  border-style: solid;
+  border-right: 12px solid transparent;
+  border-left: 12px solid transparent;
+  border-top: 10px solid #333;
+  border-bottom: 0;
+}
 header .menu_list ol {
-  height: 0;
   transition: all 0.3s;
-  color: rgba(2, 0, 0, 0);
+  color: #020000;
   padding: 0;
+  opacity: 0;
+  width: 100%;
+  left: 0;
+  top: 45px;
+  position: absolute;
+}
+header .menu_list ol .menu_ele {
+  height: 0;
+  width: 60%;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
 }
 header .menu_list ol li {
+  left: 0;
+  width: 20%;
   font-size: 0px;
-  margin: 30px 0;
+  margin: 10px 0;
+  padding: 10px 0;
 }
 header .menu_list ol li a {
   opacity: 0;
   position: sticky;
   z-index: 10;
 }
-header .menu_list ol li a:hover::after {
-  width: 100%;
-}
-header .menu_list ol li a::after {
-  content: "";
-  display: block;
-  width: 0%;
-  height: 0.5px;
-  bottom: 0;
-  position: absolute;
-  background-color: #c1ab05;
-  transition: width 0.3s;
+header .menu_list ol li a:hover {
+  background: #007aff;
+  color: #F7F6F4;
 }
 header .menu_list ol::before {
   transition: all 0.3s;
@@ -120,10 +144,15 @@ header .menu_list ol::before {
   content: "";
   display: block;
   width: 100%;
-  height: 0px;
-  background-color: rgba(51, 51, 51, 0.6);
+  background-color: #F7F6F4;
   position: absolute;
   left: 0;
+}
+header .menu_list_aft span::after {
+  opacity: 1;
+}
+header .menu_list_aft ol {
+  opacity: 1;
 }
 @media screen and (min-width: 780px) {
   header .menu_list_aft ol li {
@@ -207,7 +236,6 @@ header .menu_list ol::before {
   font-weight: 800;
   position: absolute;
   margin: 0 5px;
-  margin-top: 20px;
   font-size: 10px;
 }
 .accordion span:active::after {
@@ -237,7 +265,6 @@ header .menu_list ol::before {
 
 @media screen and (max-width: 780px) {
   .menu__link {
-    font-size: 0;
     width: 0;
     height: 0;
     padding: 0;
@@ -262,28 +289,26 @@ header .menu_list ol::before {
     top: 0;
     display: block;
     height: 3px;
-    width: 20px;
+    width: 30px;
     transform: rotateZ(0deg);
     margin-bottom: 0;
     background-color: #c1ab05;
-    border-radius: 25px;
   }
   .hamburger-icon::after {
     content: "";
     display: block;
     position: absolute;
     height: 3px;
-    bottom: 0;
-    width: 20px;
+    bottom: 50%;
+    width: 30px;
     background-color: #c1ab05;
-    border-radius: 25px;
     transition: all 0.5s;
   }
   .hamburger-icon span {
     position: absolute;
     top: 40%;
     height: 3px;
-    width: 20px;
+    width: 50px;
     transition: all 0.5s;
     background-color: #c1ab05;
     border-radius: 25px;
@@ -291,7 +316,7 @@ header .menu_list ol::before {
   .hamburger-icon span::after {
     content: "";
     display: block;
-    width: 100%;
+    width: 50px;
     height: 1px;
     background-color: #c1ab05;
   }
@@ -305,13 +330,14 @@ header .menu_list ol::before {
   .hamburger-area-aft .hamburger-icon::before {
     width: 20px;
     top: 0;
-    transform: rotateZ(-315deg);
+    transform: rotateZ(-40deg);
     margin-top: 38.0952380952%;
   }
   .hamburger-area-aft .hamburger-icon::after {
     width: 20px;
-    transform: rotateZ(315deg);
-    margin-bottom: 38.0952380952%;
+    bottom: 0;
+    transform: rotateZ(40deg);
+    margin-bottom: 45.0952380952%;
   }
   .hamburger-area-aft .hamburger-icon span {
     opacity: 0;

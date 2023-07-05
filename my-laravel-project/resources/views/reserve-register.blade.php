@@ -10,7 +10,6 @@ $today = Carbon::now()->format('Y/m/d');
 <link rel="stylesheet" href="./css/information.css">
 @endsection
 @section('content')
-<main>
     <div class="message text-center">
         <div class="alert alert-primary" role="alert">
             <strong>{{session('message')}}</strong>
@@ -19,7 +18,7 @@ $today = Carbon::now()->format('Y/m/d');
     <section class="register">
         <div class="register-area">
             <h1>予約</h1>
-            <ul>
+            <ul class="register-areaUL">
                 <form action="/reserve-register" method="POST">
                     @csrf     
                     <li>
@@ -61,7 +60,7 @@ $today = Carbon::now()->format('Y/m/d');
                     </li>
                     <li>
                         <span>日付</span>
-                        <input type="text" id="reserve_date" name="reserve_date" value="{{$today}}">
+                        <input type="date" id="reserve_date" name="reserve_date" value="{{$today}}">
                         @if ($errors->has('reserve_date'))
                             <span class="error">{{ $errors->first('reserve_date') }}</span>
                         @endif
@@ -89,7 +88,6 @@ $today = Carbon::now()->format('Y/m/d');
             </ul>
         </div>
     </section>
-</main>
 @endsection
 @section('scripts')
 <script src="js/register.js"></script>

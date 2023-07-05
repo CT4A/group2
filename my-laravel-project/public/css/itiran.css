@@ -1,343 +1,450 @@
 @charset "UTF-8";
 .ContentCenter {
-  display: grid;
-  grid-template-columns: 1fr;
-  justify-content: center;
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-content: center;
 }
 
 body {
-  background: #F4F1EC;
-  transition: all 0.5s;
+    background: #f4f1ec;
+    transition: all 0.5s;
 }
 body::-webkit-scrollbar {
-  width: 10px;
+    width: 10px;
 }
 body::-webkit-scrollbar-track {
-  background-color: none;
+    background-color: none;
 }
 body::-webkit-scrollbar-thumb {
-  background: #ccc;
-  border-radius: 50px;
+    background: #ccc;
+    border-radius: 50px;
 }
 
 li {
-  list-style: none;
+    list-style: none;
 }
 
 main {
-  display: flex;
-  width: 100%;
+    display: flex;
+    width: 100%;
 }
 @media screen and (max-width: 780px) {
-  main {
-    display: block;
-  }
+    main {
+        display: block;
+    }
 }
 
 section {
-  width: 80%;
-  height: 100%;
+    width: 80%;
+    height: 100%;
 }
 @media screen and (max-width: 780px) {
-  section {
-    width: 100%;
-  }
+    section {
+        width: 100%;
+    }
 }
 section h1 {
-  font-size: 6em;
-  border-bottom: solid 1px #000;
-  width: 70%;
-  margin: 10px auto;
+    font-size: 4em;
+    border-bottom: solid 1px #000;
+    width: 70%;
+    margin: 10px auto;
+}
+section h1:after {
+    content: "";
+    display: block;
+    width: 50%;
+    height: 3px;
+    background: #555;
 }
 section span {
-  position: relative;
-  font-size: 24px;
+    position: relative;
+    font-size: 24px;
 }
 
 .emp-list-area .search {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 80%;
-  margin: 50px auto;
-  background-color: #F6F6F6;
-  border-radius: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    margin: 50px auto;
+    background-color: #f6f6f6;
+    border-radius: 25px;
 }
 .emp-list-area .search button {
-  background-color: #F6F6F6;
-  border: solid 1px #F6F6F6;
-  border-radius: 25px;
+    background-color: #f6f6f6;
+    border: solid 1px #f6f6f6;
+    border-radius: 25px;
 }
 .emp-list-area .search button img {
-  width: 20px;
+    width: 20px;
 }
-.emp-list-area .search input[type=text] {
-  background-color: #F6F6F6;
-  width: 100%;
-  font-size: 24px;
-  border: solid 0px;
-  outline: none;
-  border-radius: 50px;
+.emp-list-area .search input[type="text"] {
+    background-color: #f6f6f6;
+    width: 100%;
+    font-size: 24px;
+    border: solid 0px;
+    outline: none;
+    border-radius: 50px;
 }
-.emp-list-area .search input[type=date] {
-  width: 100%;
-  border: solid 0px;
-  outline: none;
+.emp-list-area .search input[type="date"] {
+    width: 100%;
+    border: solid 0px;
+    outline: none;
 }
 .emp-list-area .emp-name ul {
-  justify-content: center;
-  align-items: center;
-  display: grid;
-  height: 300px;
-  overflow-y: scroll;
+    justify-content: center;
+    align-items: center;
+    display: grid;
+    height: 411px;
+    overflow-y: scroll;
+}
+.container {
+    display: flex;
+    width: 528px;
 }
 .emp-list-area .emp-name ul div {
-  display: flex;
+    display: flex;
+    width: 528px;
+    margin-left: 0;
+}
+#c1 {
+    width: 50%;
+    font-size: 30px;
+    float: left;
+    margin-right: 50px;
+    font-weight: bolder;
+}
+#c2 {
+    width: 50%;
+    font-size: 30px;
+    float: left;
+    margin-left: 206px;
+    font-weight: bolder;
+}
+#c3 {
+    width: 70%;
+    float: left;
+    /* margin-left: 50px; */
+    word-wrap: break-word;
+    margin-top: 10px;
+}
+#c4 {
+    width: 30%;
+    float: left;
+    margin-left: 93px;
+    margin-top: 10px;
 }
 .emp-list-area .emp-name ul div p {
-  border-bottom: #000 solid 2px;
-  line-height: 2;
+    line-height: 2;
 }
-.emp-list-area .emp-name ul::-webkit-scrollbar {
-  width: 5px;
+<<<<<<< HEAD ======= .emp-list-area .emp-name ul::-webkit-scrollbar {
+    width: 5px;
 }
 .emp-list-area .emp-name ul::-webkit-scrollbar-track {
-  background-color: #ccc;
+    background-color: none;
 }
 .emp-list-area .emp-name ul::-webkit-scrollbar-thumb {
-  background: #38B6FF;
-  border-radius: 25px;
+    background: #666;
+    border-radius: 25px;
 }
-.emp-list-area .emp-name ul li {
-  margin: 10px 0;
-  white-space: nowrap;
+>>>>>>>581edf73665f4eba33b6689194d13eaa7080938f .emp-list-area .emp-name ul li {
+    margin: 10px 0;
+    white-space: nowrap;
+    border-bottom: #000 solid 2px;
+    position: relative;
+    width: 555px;
+}
+.emp-list-area .emp-name ul li::after {
+    content: "";
+    display: block;
+    height: 3px;
+    width: 50%;
+    /* background-color: #666; */
+    position: absolute;
+    bottom: 0px;
+    left: 0;
 }
 .emp-list-area .emp-name ul li span {
-  border-bottom: #000 solid 2px;
-  line-height: 2;
-  cursor: pointer;
+    line-height: 2;
+    cursor: pointer;
 }
 
 @media screen and (max-width: 780px) {
-  .intell {
-    background-color: #ccc;
-    transition: all 1s;
-    position: fixed;
-    left: 500px;
-    top: 0;
-    opacity: 0;
-    width: 80%;
-    margin: 150px 10%;
-  }
+    .intell {
+        background-color: #ccc;
+        transition: all 1s;
+        position: fixed;
+        left: 500px;
+        top: 0;
+        opacity: 0;
+        width: 80%;
+        margin: 150px 10%;
+    }
 }
 
 ul:not(.menu) {
-  margin: 50px auto;
-  font-size: 24px;
+    margin: 50px auto;
+    font-size: 24px;
 }
 ul:not(.menu) li {
-  display: flex;
+    display: flex;
+    padding: 0.4px;
+    margin-top: 12px;
+    margin-left: -5px;
+    width: 525px;
 }
 ul:not(.menu) li span {
-  margin: 10px;
-  word-wrap: break-word; /* 長い単語を途中で改行する */
-  overflow-wrap: break-word; /* 上記のプロパティのエイリアス */
+    margin: 10px;
+    word-wrap: break-word; /* 長い単語を途中で改行する */
+    overflow-wrap: break-word; /* 上記のプロパティのエイリアス */
 }
 
 @media screen and (max-width: 780px) {
-  .intell-aft {
-    display: block;
-    opacity: 1;
-    background-color: rgba(0, 0, 0, 0.5);
-  }
-  .intell-aft .intell {
-    opacity: 1;
-    position: absolute;
-    width: 80%;
-    height: 100vh;
-    margin: 150px 10%;
-    left: 0;
-    top: 0px;
-    background: #F4F1EC;
-    pointer-events: all;
-    transition: all 0.5s;
-  }
+    .intell-aft {
+        display: block;
+        opacity: 1;
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+    .intell-aft .intell {
+        opacity: 1;
+        position: absolute;
+        width: 80%;
+        height: 100vh;
+        margin: 150px 10%;
+        left: 0;
+        top: 0px;
+        background: #f4f1ec;
+        pointer-events: all;
+        transition: all 0.5s;
+    }
+}
+
+@media screen and (max-width: 780px) {
+    .emp-list {
+        /* background-color: #f4f1ec; */
+        left: 500px;
+        width: 100%;
+        margin: 0;
+        /* test */
+        width: 80%;
+    }
+    input::-moz-placeholder {
+        width: 100%;
+        font-size: 20px;
+    }
+    input::placeholder {
+        width: 100%;
+        font-size: 20px;
+    }
+    .emp-list-area .emp-name ul li {
+        display: flex;
+    }
+} /*# sourceMappingURL=itiran.css.map */
+
+@media screen and (min-width: 480px) {
+    .emp-list {
+        width: 80%;
+        margin-left: 13px;
+    }
 }
 
 .filter-header {
-  width: 100%;
+    width: 100%;
 }
 .filter-header #filter-btn {
-  border: none;
+    border: none;
 }
 
 .bill-list {
-  width: 100%;
+    width: 100%;
 }
 .bill-list .bill-header {
-  position: fixed;
-  width: 100%;
-  top: 0;
-  background-color: #F4F1EC;
-  z-index: 500;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    background-color: #f4f1ec;
+    z-index: 500;
 }
 .bill-list .bill-header h1 {
-  margin-top: 100px;
+    margin-top: 100px;
 }
-.bill-list .bill-header input[type=text] {
-  padding: 10px;
-  width: 70%;
-  margin: 0 15%;
+.bill-list .bill-header input[type="text"] {
+    padding: 10px;
+    width: 70%;
+    margin: 0 15%;
 }
 .bill-list .bill-header #filter-btn {
-  position: absolute;
-  top: 50%;
-  left: 3%;
+    position: absolute;
+    top: 50%;
+    left: 3%;
 }
 .bill-list .bill-list-items {
-  width: 90%;
-  margin: 100px auto;
+    width: 90%;
+    margin: 100px auto;
 }
 .bill-list .bill-list-items ul {
-  width: 100%;
+    width: 100%;
 }
 .bill-list .bill-list-items ul:nth-child(1) {
-  padding-top: 180px;
+    padding-top: 180px;
 }
 .bill-list .bill-list-items ul li {
-  width: 100%;
-  border-bottom: solid 1px #000;
+    width: 100%;
+    border-bottom: solid 1px #000;
 }
 .bill-list .bill-list-items ul li span {
-  max-width: 100%;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  margin-left: 0;
-  margin-right: 0;
-  width: 100%;
+    max-width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-left: 0;
+    margin-right: 0;
+    width: 100%;
 }
 .bill-list .filter-area {
-  background-color: #ccc;
-  width: 100%;
-  height: 100%;
-  z-index: 999;
-  position: fixed;
-  top: 300%;
-  left: 0;
-  padding-top: 50px;
-  transition: all 0.5s ease-in;
+    background-color: #ccc;
+    width: 100%;
+    height: 100%;
+    z-index: 999;
+    position: fixed;
+    top: 300%;
+    left: 0;
+    padding-top: 50px;
+    transition: all 0.5s ease-in;
 }
 .bill-list .filter-area .filter-header {
-  border-bottom: solid 3px #000;
-  display: flex;
+    border-bottom: solid 3px #000;
+    display: flex;
 }
 .bill-list .filter-area .filter-header .filter-close span {
-  position: relative;
-  left: 20px;
+    position: relative;
+    left: 20px;
 }
 .bill-list .filter-area .filter-header .filter-close span::before {
-  position: absolute;
-  content: "";
-  display: block;
-  width: 20px;
-  height: 2px;
-  background-color: #000;
-  top: 0;
-  transform: rotateZ(-315deg);
+    position: absolute;
+    content: "";
+    display: block;
+    width: 20px;
+    height: 2px;
+    background-color: #000;
+    top: 0;
+    transform: rotateZ(-315deg);
 }
 .bill-list .filter-area .filter-header .filter-close span::after {
-  position: absolute;
-  content: "";
-  background-color: #000;
-  display: block;
-  width: 20px;
-  height: 2px;
-  top: 0;
-  transform: rotateZ(315deg);
+    position: absolute;
+    content: "";
+    background-color: #000;
+    display: block;
+    width: 20px;
+    height: 2px;
+    top: 0;
+    transform: rotateZ(315deg);
 }
 .bill-list .filter-area .filter-header li {
-  width: 100%;
+    width: 100%;
 }
 .bill-list .filter-area .filter-header li :nth-child(1) {
-  width: 100%;
+    width: 100%;
 }
 .bill-list .filter-area .filter-header li .filter-clear {
-  text-align: right;
-  margin-right: 40px;
+    text-align: right;
+    margin-right: 40px;
 }
 .bill-list .filter-area .filter-header h2 {
-  text-align: center;
-  margin: 0;
+    text-align: center;
+    margin: 0;
 }
 .bill-list .filter-area .filter-items {
-  width: 95%;
-  margin: 20px auto;
-  position: relative;
-  display: flex;
-  flex-wrap: wrap;
+    width: 95%;
+    margin: 20px auto;
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
 }
 .bill-list .filter-area .filter-items h2 {
-  border-bottom: #000;
-  font-size: 18px;
-  position: absolute;
-  top: -30px;
-  left: 30px;
-  margin: 0;
+    border-bottom: #000;
+    font-size: 18px;
+    position: absolute;
+    top: -30px;
+    left: 30px;
+    margin: 0;
 }
 .bill-list .filter-area .filter-items button {
-  flex: 0 0 20%;
-  width: 100%;
-  margin: 20px;
-  padding: 15px;
-  font-size: 24px;
-  border: none;
+    flex: 0 0 20%;
+    width: 100%;
+    margin: 20px;
+    padding: 15px;
+    font-size: 24px;
+    border: none;
 }
-.bill-list .filter-area .filter-items input[type=text] {
-  width: 100%;
-  margin: 20px;
-  padding: 20px;
+.bill-list .filter-area .filter-items input[type="text"] {
+    width: 100%;
+    margin: 20px;
+    padding: 20px;
 }
 .bill-list .filter-area .filter-items .fileter-element-aft {
-  background-color: aquamarine;
+    background-color: aquamarine;
 }
 .bill-list .filter-area-aft {
-  position: fixed;
-  top: 0%;
-  transition: top 0.5s;
-  overflow: hidden;
+    position: fixed;
+    top: 0%;
+    transition: top 0.5s;
+    overflow: hidden;
 }
 
 .bill-list-items-header {
-  display: flex;
-  width: 90%;
-  margin: auto;
+    display: flex;
+    width: 90%;
+    margin: auto;
 }
 .bill-list-items-header span {
-  text-align: left;
-  width: 100%;
+    text-align: left;
+    width: 100%;
 }
 
-@media screen and (max-width: 780px) {
-  .emp-list {
-    /* background-color: #f4f1ec; */
-    left: 500px;
+.attend-list {
     width: 100%;
-    margin: 0;
-  }
-  input::-moz-placeholder {
+}
+.attend-list ul {
+    height: 600px !important;
+    width: 80%;
+    margin: auto;
+    justify-content: inherit !important;
+}
+.attend-list ul li {
+    cursor: pointer;
+    pointer-events: painted;
+    border: solid 1px #555;
+    margin-right: 10px !important;
+}
+.attend-list ul li::before {
+    content: "";
+    display: block;
+    height: 100%;
+    width: 1%;
+    background: gold;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+.attend-list ul li:hover::before {
     width: 100%;
-    font-size: 20px;
-  }
-  input::placeholder {
-    width: 100%;
-    font-size: 20px;
-  }
-  .emp-list-area .emp-name ul li {
-    display: flex;
-  }
-  .emp-list-area .emp-name ul li span {
-    margin-left: 0;
-    margin-right: 0;
-  }
-}/*# sourceMappingURL=itiran.css.map */
+    background: rgba(255, 215, 0, 0.5);
+}
+.attend-list ul li::after {
+    height: 0;
+    width: 0;
+}
+.attend-list ul li span {
+    margin-left: 10px;
+}
+
+#left {
+    float: left;
+    width: 30%;
+}
+#right {
+    margin-left: 100px;
+    float: right;
+    width: 35%;
+}

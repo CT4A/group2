@@ -5,7 +5,6 @@
 <link rel="stylesheet" href="./css/information.css">
 @endsection
 @section('content')
-<main>
     <section class="history">
         <div class="history_item">
             <figure class="history-date">
@@ -56,7 +55,6 @@
             </div>
             @endforeach
     </section>
-</main>
 @endsection
 @section('scripts')
 <script src ="js/infomation.js"></script>

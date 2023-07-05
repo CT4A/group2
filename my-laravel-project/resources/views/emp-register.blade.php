@@ -5,7 +5,6 @@
 <link rel="stylesheet" href="./css/information.css">
 @endsection
 @section('content')
-<main>
     <div class="message text-center">
         <div class="alert alert-primary" role="alert">
             <strong>{{session('message')}}</strong>
@@ -14,7 +13,7 @@
     <section class="register">
         <div class="register-area">
             <h1>社員新規作成</h1>
-            <ul>
+            <ul class="register-areaUL">
                 @if (isset($message))
                     <script>alert({{$message}})</script>
                 @endif
@@ -67,7 +66,7 @@
             </ul>
         </div>
     </section>
-</main>
+
 @endsection
 @section('scripts')
 <script src="js/register.js"></script>
