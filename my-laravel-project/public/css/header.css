@@ -1,8 +1,19 @@
 * {
   font-family: serif;
 }
+*::-webkit-scrollbar {
+  width: 5px;
+}
+*::-webkit-scrollbar-track {
+  background-color: none;
+}
+*::-webkit-scrollbar-thumb {
+  background: #666;
+  border-radius: 25px;
+}
 
 body {
+  background: #333;
   background: #F4F1EC;
   margin: 0;
   padding: 0;
@@ -278,28 +289,26 @@ header .menu_list_aft ol {
     top: 0;
     display: block;
     height: 3px;
-    width: 20px;
+    width: 30px;
     transform: rotateZ(0deg);
     margin-bottom: 0;
     background-color: #c1ab05;
-    border-radius: 25px;
   }
   .hamburger-icon::after {
     content: "";
     display: block;
     position: absolute;
     height: 3px;
-    bottom: 0;
-    width: 20px;
+    bottom: 50%;
+    width: 30px;
     background-color: #c1ab05;
-    border-radius: 25px;
     transition: all 0.5s;
   }
   .hamburger-icon span {
     position: absolute;
     top: 40%;
     height: 3px;
-    width: 20px;
+    width: 50px;
     transition: all 0.5s;
     background-color: #c1ab05;
     border-radius: 25px;
@@ -307,7 +316,7 @@ header .menu_list_aft ol {
   .hamburger-icon span::after {
     content: "";
     display: block;
-    width: 100%;
+    width: 50px;
     height: 1px;
     background-color: #c1ab05;
   }
@@ -321,13 +330,14 @@ header .menu_list_aft ol {
   .hamburger-area-aft .hamburger-icon::before {
     width: 20px;
     top: 0;
-    transform: rotateZ(-315deg);
+    transform: rotateZ(-40deg);
     margin-top: 38.0952380952%;
   }
   .hamburger-area-aft .hamburger-icon::after {
     width: 20px;
-    transform: rotateZ(315deg);
-    margin-bottom: 38.0952380952%;
+    bottom: 0;
+    transform: rotateZ(40deg);
+    margin-bottom: 45.0952380952%;
   }
   .hamburger-area-aft .hamburger-icon span {
     opacity: 0;

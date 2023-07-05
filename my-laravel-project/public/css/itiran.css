@@ -132,6 +132,8 @@ section span {
 .emp-list-area .emp-name ul div p {
     line-height: 2;
 }
+<<<<<<< HEAD
+=======
 
 .emp-list-area .emp-name ul::-webkit-scrollbar {
     width: 5px;
@@ -143,6 +145,7 @@ section span {
     background: #666;
     border-radius: 25px;
 }
+>>>>>>> 581edf73665f4eba33b6689194d13eaa7080938f
 .emp-list-area .emp-name ul li {
     margin: 10px 0;
     white-space: nowrap;
