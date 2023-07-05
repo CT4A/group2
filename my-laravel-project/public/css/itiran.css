@@ -104,16 +104,6 @@ section span {
 .emp-list-area .emp-name ul div p {
   line-height: 2;
 }
-.emp-list-area .emp-name ul::-webkit-scrollbar {
-  width: 5px;
-}
-.emp-list-area .emp-name ul::-webkit-scrollbar-track {
-  background-color: none;
-}
-.emp-list-area .emp-name ul::-webkit-scrollbar-thumb {
-  background: #666;
-  border-radius: 25px;
-}
 .emp-list-area .emp-name ul li {
   margin: 10px 0;
   white-space: nowrap;

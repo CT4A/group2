@@ -53,17 +53,14 @@ $(document).ready(function(){
             var test =$(inptxt).eq(event).parent();
         });
         $(plus).click(function(event) {
-            plusCnt += 1; 
+            // plusCnt += 1; 
             console.log("test")
             var previousElements = $('.customerList');
             var test = "";
-            previousElements.each(function() {
-                console.log($(this))
-                test = $(this);
-                $(plus).before($(this))
-            });    
-            console.log(test);
-            $(plus).before($(test));
+            console.log(test)
+            // $(this).before(previousElements);
+            var previousElements = $('.register-areaUL form:nth-child('+plusCnt+')');  
+            $(previousElements).insertBefore(".register-areaUL");
         });
 
     $(".alcohol li").click(function (e) { 
@@ -141,12 +138,8 @@ $(document).ready(function(){
     var minute = date.getMinutes();
     if (month < 10) month = "0" + month;
     if (day < 10) day = "0" + day;
-
     var today = year + "-" + month + "-" + day;
-
-
     document.getElementById('theDate').value = today;
-
     //bill-registerの社員名クリックの処理：
     $('#staffList li').click(function () {
         let staff_name = $(this).text();
@@ -154,11 +147,16 @@ $(document).ready(function(){
         $('#staff_name').css({'height':'auto','width':'100%'}).val(staff_name);
         $('#staff_id').val(staff_id);
     });
-
     $('#customerList li').click(function () {
         let staff_name = $(this).text();
         let staff_id = $(this).attr('data');
         $('#customer_name').val(staff_name);
         $('#customer_id').val(staff_id);
     });
+});
+$(window).on('load', function (){
+    var date = new Date();
+    console.log("window road")
+    $("input[type='date']").val(date.toISOString().split('T')[0]);
+    $("input[type='time']").val(date.toISOString().split('T')[0]);
 });

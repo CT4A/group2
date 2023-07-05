@@ -15,7 +15,7 @@
     <section class="register">
         <div class="register-area">
             <h1>ボトル登録</h1>
-            <ul>
+            <ul class="register-areaUL">
                 <form action="/bottle-register" method="POST">
                     @csrf
                     <li class="kinds">

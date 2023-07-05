@@ -13,7 +13,7 @@
     <section class="register">
         <div class="register-area">
             <h1>社員新規作成</h1>
-            <ul>
+            <ul class="register-areaUL">
                 @if (isset($message))
                     <script>alert({{$message}})</script>
                 @endif

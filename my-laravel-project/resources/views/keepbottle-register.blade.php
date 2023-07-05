@@ -20,7 +20,7 @@ $today = Carbon::now()->format('Y/m/d');
     <section class="register">
         <div class="register-area">
             <h1>キープボトル登録</h1>
-            <ul>
+            <ul class="register-areaUL">
                 <form action="/keepbottle-register" method="POST">
                     @csrf
                     <li class="kinds">

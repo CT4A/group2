@@ -5,8 +5,6 @@ $today = Carbon::now()->format('Y/m/d');
 @extends('main')
 @yield('title','顧客登録')
 @section('styles')
-<link rel="stylesheet" href="./css/bill-header.css">
-<!-- <link rel="stylesheet" href="./css/bill-register.css"> -->
 <link rel="stylesheet" href="./css/register.css"> 
 <link rel="stylesheet" href="./css/information.css">
 <link rel="stylesheet" href="./css/bill-register.js">
@@ -15,7 +13,7 @@ $today = Carbon::now()->format('Y/m/d');
     <section class="register">
         <div class="register-area">
             <h1>伝票登録</h1>
-            <ul>
+            <ul class="register-areaUL">
                 <form action="/bill-register" method="POST">
                     @csrf
                     <li class="kinds">
@@ -51,17 +49,19 @@ $today = Carbon::now()->format('Y/m/d');
                         <span class="error">{{ $errors->first('customer_id') }}</span>
                         @endif
                     </li>
+                    <div class="plus-btn">
                         <button type="button" class="plus">追加</button>
+                    </div>
                     <li>
                         <span>日付</span>
-                        <input type="text" id="theDate" name="day" value="{{$today}}" placeholder="例：0000-00-00">
+                        <input type="date" id="theDate" name="day" value="{{$today}}" placeholder="例：0000-00-00">
                         @if ($errors->has('ap_day'))
                             <span class="error">{{ $errors->first('day') }}</span>
                         @endif
                     </li>
                     <li>
                         <span>時間</span>
-                        <input type="text" id="time" name="time" value="{{ old('time') }}" placeholder="例：00-00">
+                        <input type="time" id="time" name="time" value="{{ old('time') }}" placeholder="例：00-00">
                         @if ($errors->has('time'))
                             <span class="error">{{ $errors->first('time') }}</span>
                         @endif

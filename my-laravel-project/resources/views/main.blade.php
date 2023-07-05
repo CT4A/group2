@@ -79,7 +79,6 @@
         </ul>
       <div class="hamburger-area">
       <div class="hamburger-icon">
-              <span></span>
       </div>
       <div class="hamburgerContents">
         <ul>

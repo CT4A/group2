@@ -14,7 +14,7 @@
     <section class="register">
         <div class="register-area">
             <h1>顧客新規作成</h1>
-            <ul>
+            <ul class="register-areaUL">
                 <form action="/customer-register" method="POST">
                     @csrf
                     <li>
