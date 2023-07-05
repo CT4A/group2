@@ -44,7 +44,7 @@ section {
     }
 }
 section h1 {
-    font-size: 4.5em;
+    font-size: 4em;
     border-bottom: solid 1px #000;
     width: 70%;
     margin: 10px auto;
@@ -189,6 +189,7 @@ ul:not(.menu) li {
     display: flex;
     padding: 0.4px;
     margin-left: 20px;
+    width: 425px;
 }
 ul:not(.menu) li span {
     margin: 10px;
@@ -213,6 +214,35 @@ ul:not(.menu) li span {
         background: #f4f1ec;
         pointer-events: all;
         transition: all 0.5s;
+    }
+}
+
+@media screen and (max-width: 780px) {
+    .emp-list {
+        /* background-color: #f4f1ec; */
+        left: 500px;
+        width: 100%;
+        margin: 0;
+        /* test */
+        width: 80%;
+    }
+    input::-moz-placeholder {
+        width: 100%;
+        font-size: 20px;
+    }
+    input::placeholder {
+        width: 100%;
+        font-size: 20px;
+    }
+    .emp-list-area .emp-name ul li {
+        display: flex;
+    }
+} /*# sourceMappingURL=itiran.css.map */
+
+@media screen and (min-width: 480px) {
+    .emp-list {
+        width: 80%;
+        margin-left: 13px;
     }
 }
 
@@ -407,22 +437,12 @@ ul:not(.menu) li span {
     margin-left: 10px;
 }
 
-@media screen and (max-width: 780px) {
-    .emp-list {
-        /* background-color: #f4f1ec; */
-        left: 500px;
-        width: 100%;
-        margin: 0;
-    }
-    input::-moz-placeholder {
-        width: 100%;
-        font-size: 20px;
-    }
-    input::placeholder {
-        width: 100%;
-        font-size: 20px;
-    }
-    .emp-list-area .emp-name ul li {
-        display: flex;
-    }
-} /*# sourceMappingURL=itiran.css.map */
+#left {
+    float: left;
+    width: 30%;
+}
+#right {
+    margin-left: 100px;
+    float: right;
+    width: 35%;
+}

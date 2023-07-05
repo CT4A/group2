@@ -69,43 +69,43 @@
         <h1 id="TxtNameHeader">さんの給料明細</h1>
         <ul>
             <li itemprop="identifier">
-                <span>基本給</span>
-                <span>1000円</span>
+                <span id="left">基本給</span>
+                <span id="right">1000円</span>
                 <span id="staff_id"></span>
             </li>
             <li itemprop="name">
-                <span>出勤日数</span>
-                <span>24日</span>
+                <span id="left">出勤日数</span>
+                <span id="right">24日</span>
                 <span id="staff_name"></span>
             </li>
             <li itemprop="telephone">
-                <span>実働時間</span>
-                <span>170時間</span>
+                <span id="left">実働時間</span>
+                <span id="right">170時間</span>
                 <span id="tel"></span>
             </li>
             <li itemprop="address">
-                <span>同伴</span>
-                <span>5,0000円</span>
+                <span id="left">同伴</span>
+                <span id="right">5,0000円</span>
                 <span id="residence"></span>
             </li>
             <li itemprop="address">
-                <span>回数</span>
-                <span>2回</span>
+                <span id="left">回数</span>
+                <span id="right">2回</span>
                 <span id="residence"></span>
             </li>
             <li itemprop="birthDate">
-                <span>控除金額</span>
-                <span>6000円</span>
+                <span id="left">控除金額</span>
+                <span id="right">6000円</span>
                 <span id="birthday"></span>
             </li>
             <li itemprop="description">
-                <span>基本給総合</span>
-                <span>19,0000円</span>
+                <span id="left">基本給総合</span>
+                <span id="right">19,0000円</span>
                 <span id="remarks"></span>
             </li>
             <li itemprop="description">
-                <span>総支給額</span>
-                <span>23,0000円</span>
+                <span id="left">総支給額</span>
+                <span id="right">23,0000円</span>
                 <span id="remarks"></span>
             </li>
 
