@@ -95,7 +95,7 @@ section span {
     justify-content: center;
     align-items: center;
     display: grid;
-    height: 400px;
+    height: 411px;
     overflow-y: scroll;
 }
 .container {
@@ -105,17 +105,20 @@ section span {
 .emp-list-area .emp-name ul div {
     display: flex;
     width: 528px;
+    margin-left: 0;
 }
 #c1 {
     width: 50%;
+    font-size: 30px;
     float: left;
     margin-right: 50px;
     font-weight: bolder;
 }
 #c2 {
     width: 50%;
+    font-size: 30px;
     float: left;
-    margin-left: 260px;
+    margin-left: 206px;
     font-weight: bolder;
 }
 #c3 {
@@ -123,19 +126,18 @@ section span {
     float: left;
     /* margin-left: 50px; */
     word-wrap: break-word;
+    margin-top: 10px;
 }
 #c4 {
     width: 30%;
     float: left;
     margin-left: 93px;
+    margin-top: 10px;
 }
 .emp-list-area .emp-name ul div p {
     line-height: 2;
 }
-<<<<<<< HEAD
-=======
-
-.emp-list-area .emp-name ul::-webkit-scrollbar {
+<<<<<<< HEAD ======= .emp-list-area .emp-name ul::-webkit-scrollbar {
     width: 5px;
 }
 .emp-list-area .emp-name ul::-webkit-scrollbar-track {
@@ -145,8 +147,7 @@ section span {
     background: #666;
     border-radius: 25px;
 }
->>>>>>> 581edf73665f4eba33b6689194d13eaa7080938f
-.emp-list-area .emp-name ul li {
+>>>>>>>581edf73665f4eba33b6689194d13eaa7080938f .emp-list-area .emp-name ul li {
     margin: 10px 0;
     white-space: nowrap;
     border-bottom: #000 solid 2px;
@@ -188,8 +189,9 @@ ul:not(.menu) {
 ul:not(.menu) li {
     display: flex;
     padding: 0.4px;
-    margin-left: 20px;
-    width: 425px;
+    margin-top: 12px;
+    margin-left: -5px;
+    width: 525px;
 }
 ul:not(.menu) li span {
     margin: 10px;
