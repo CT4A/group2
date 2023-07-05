@@ -58,9 +58,8 @@ $(document).ready(function(){
             var previousElements = $('.customerList');
             var test = "";
             console.log(test)
-            // $(this).before(previousElements);
-            var previousElements = $('.register-areaUL form:nth-child('+plusCnt+')');  
-            $(previousElements).insertBefore(".register-areaUL");
+            // $(this).before(previousElements);  
+            $(previousElements).insertBefore('.register-areaUL form:nth-child('+plusCnt+')');
         });
 
     $(".alcohol li").click(function (e) { 
