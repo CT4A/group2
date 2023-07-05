@@ -26,22 +26,30 @@
         <div class="intell-aera" itemscope itemtype="http://schema.org/Person">
         <h1 id="TxtNameHeader">情報</h1>
             <ul>
-                    <li>
-                        <span>顧客名</span>
-                        <span id="customer_name"></span>
-                    </li>
-                    <li>
-                        <span>会社名</span>
-                        <span id="company_name"></span>
-                    </li>
-                    <li>
-                        <span>誕生日</span>
-                        <span id="birthday"></span>
-                    </li>
-                    <li>
-                        <span>担当社員</span>
-                        <span id="staff_name"></span>
-                    </li>
+                <li>
+                    <span>顧客名</span>
+                    <span id="customer_name"></span>
+                </li>
+                <li>
+                    <span>会社名</span>
+                    <span id="company_name"></span>
+                </li>
+                <li>
+                    <span>誕生日</span>
+                    <span id="birthday"></span>
+                </li>
+                <li>
+                    <span>担当社員</span>
+                    <span id="staff_name"></span>
+                </li>
+                <li>
+                    <span>今月の総合金額</span>
+                    <span id="this_month_money"></span>
+                </li>
+                <li>
+                    <span>先月の総合金額</span>
+                    <span id="that_month_money"></span>
+                </li>
             </ul>
         </div>
         @csrf

@@ -2,7 +2,7 @@
 @section('styles')
 <link rel="stylesheet" href="{{asset('css/itiran.css')}}">
 @endsection
-@section('title', '社員一覧')
+@section('title', '給料明細')
 
 @section('content')
 <main>
@@ -21,6 +21,12 @@
                         <p id="p1">名前</p>
                         <p id="p1">給料</p>
                     </div>
+                    @foreach ($staffs as $staff)
+                    <li>
+                        <span>{{$staff->staff_name}}</span>
+                        <span id="{{$staff->staff_id}}">{{$staff->total_salary}}円</span>
+                    </li>
+                    @endforeach
                     <li>
                         <span id="1">NGUYEN</span>
                         <span id="1">19,0000円</span>

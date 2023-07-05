@@ -10,22 +10,27 @@
         <div class="register-area">
             <h1>パスワード変更</h1>
             <ul>
+                <div class="message text-center">
+                    <div class="alert alert-primary" role="alert">
+                        <strong>{{session('message')}}</strong>
+                    </div>
+                </div>
                 <form action="/emp-register" method="POST">
-                    @csrf
+                @csrf
                 <li class="passList">
                     <span>現在のパスワード</span>
                     <input type="text" name="now_password" required>
-                    <span></span>
+              
                 </li>
                 <li class="passList">
                     <span>新規パスワード</span>
                     <input type="text" name="new_password" required>
-                    <span></span>
+                   
                 </li>
                 <li class="passList">
                     <span>新規パスワード[確認]</span>
                     <input type="text" name="new_passwordConf" required>
-                    <span></span>
+                  
                 </li>
                 <input type="submit" value="登録">
                 </form>
