@@ -2,63 +2,67 @@
 @section('styles')
 <link rel="stylesheet" href="{{asset('css/itiran.css')}}">
 @endsection
-@section('title', '社員一覧')
+@section('title', '給料明細')
 
 @section('content')
-<section class="emp-list">
-    <div class="emp-list-area">
-        <h1>給料明細</h1>
-        <form action="#" class="search">
-            <button type="submit">
-                <img src="./img/oqCh3X9ndfQ__xOuxd5Oww==.png" alt="">
-            </button>
-            <input type="text" placeholder="社員の名前を入力してください">
-        </form>
-        <div class="emp-name">
-            <ul>
-                <div class="container">
-                    <!-- <p id="p1" class="p1">名前</p>
-                    <p id="p2" class="p2">給料</p> -->
-                    <div id="c1">名前</div>
-                    <div id="c2">給料</div>
-                </div>
-
-                <li>
-                    <div id="c3">NGUYEN</div>
-                    <div id="c4">19,0000円</div>
-                </li>
-                <li>
-                    <div id="c3">勘解由小路</div>
-                    <div id="c4">19,0000円</div>
-                </li>
-                <li>
-                    <div id="c3">松岡チン</div>
-                    <div id="c4">19,0000円</div>
-                </li>
-                <li>
-                    <div id="c3">NGUYEN</div>
-                    <div id="c4">19,0000円</div>
-                </li>
-                <li>
-                    <div id="c3">NGUYEN</div>
-                    <div id="c4">19,0000円</div>
-                </li>
-                <li>
-                    <div id="c3">NGUYEN</div>
-                    <div id="c4">19,0000円</div>
-                </li>
-                <li>
-                    <div id="c3">NGUYEN</div>
-                    <div id="c4">19,0000円</div>
-                </li>
-                <li>
-                    <div id="c3">NGUYEN</div>
-                    <div id="c4">19,0000円</div>
-                </li>
-                <!-- <li>
-                    <div id="c1">勘解由小路</div>
-                    <div id="c2">19,0000円</div>
-                </li> -->
+<main>
+    <section class="emp-list">
+        <div class="emp-list-area">
+            <h1>給料明細</h1>
+            <form action="#" class="search">
+                <button type="submit">
+                    <img src="./img/oqCh3X9ndfQ__xOuxd5Oww==.png" alt="">
+                </button>
+                <input type="text" placeholder="社員の名前を入力してください">
+            </form>
+            <div class="emp-name">
+                <ul>
+                    <div class="container">
+                        <div id="c1">名前</div>
+                        <div id="c2">給料</div>
+                    </div>
+                    @foreach ($staffs as $staff)
+                    <li>
+                        <span>{{$staff->staff_name}}</span>
+                        <span id="{{$staff->staff_id}}">{{$staff->total_salary}}円</span>
+                    </li>
+                    @endforeach
+                    <li>
+                        <span id="1">NGUYEN</span>
+                        <span id="1">19,0000円</span>
+                    </li>
+                    <li>
+                        <span id="1">CHIEN</span>
+                        <span id="1">19,0000円</span>
+                    </li>
+                    <li>
+                        <span id="1">CHIEN</span>
+                        <span id="1">19,0000円</span>
+                    </li>
+                    <li>
+                        <span id="1">CHIEN</span>
+                        <span id="1">19,0000円</span>
+                    </li>
+                    <li>
+                        <span id="1">CHIEN</span>
+                        <span id="1">19,0000円</span>
+                    </li>
+                    <li>
+                        <span id="1">CHIEN</span>
+                        <span id="1">19,0000円</span>
+                    </li>
+                    <li>
+                        <span id="1">CHIEN</span>
+                        <span id="1">19,0000円</span>
+                    </li>
+                    <li>
+                        <span id="1">CHIEN</span>
+                        <span id="1">19,0000円</span>
+                    </li>
+                    <li>
+                        <span id="1">CHIEN</span>
+                        <span id="1">19,0000円</span>
+                    </li>
 
             </ul>
         </div>
@@ -69,44 +73,44 @@
         <h1 id="TxtNameHeader">さんの給料明細</h1>
         <ul>
             <li itemprop="identifier">
-                <span id="left">基本給</span>
-                <span id="right">1000円</span>
-                <span id="staff_id"></span>
+                <span >基本給</span>
+                <span >1000円</span>
+                <span ></span>
             </li>
             <li itemprop="name">
-                <span id="left">出勤日数</span>
-                <span id="right">24日</span>
-                <span id="staff_name"></span>
+                <span >出勤日数</span>
+                <span >24日</span>
+                <span ></span>
             </li>
             <li itemprop="telephone">
-                <span id="left">実働時間</span>
-                <span id="right">170時間</span>
-                <span id="tel"></span>
+                <span >実働時間</span>
+                <span >170時間</span>
+                <span ></span>
             </li>
             <li itemprop="address">
-                <span id="left">同伴</span>
-                <span id="right">5,0000円</span>
-                <span id="residence"></span>
+                <span >同伴</span>
+                <span >5,0000円</span>
+                <span ></span>
             </li>
             <li itemprop="address">
-                <span id="left">回数</span>
-                <span id="right">2回</span>
-                <span id="residence"></span>
+                <span >回数</span>
+                <span >2回</span>
+                <span ></span>
             </li>
             <li itemprop="birthDate">
-                <span id="left">控除金額</span>
-                <span id="right">6000円</span>
-                <span id="birthday"></span>
+                <span >控除金額</span>
+                <span >6000円</span>
+                <span ></span>
             </li>
             <li itemprop="description">
-                <span id="left">基本給総合</span>
-                <span id="right">19,0000円</span>
-                <span id="remarks"></span>
+                <span >基本給総合</span>
+                <span >19,0000円</span>
+                <span ></span>
             </li>
             <li itemprop="description">
-                <span id="left">総支給額</span>
-                <span id="right">23,0000円</span>
-                <span id="remarks"></span>
+                <span >総支給額</span>
+                <span >23,0000円</span>
+                <span ></span>
             </li>
 
         </ul>
@@ -115,5 +119,5 @@
 </section>
 @endsection
 @section('scripts')
-<script src="{{asset('js/itiran.js')}}"></script>
+<script src="{{asset('js/payStatement.js')}}"></script>
 @endsection

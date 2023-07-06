@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('residence');
             $table->unsignedBigInteger('hourly_wage');
             $table->date('birthday');
+            $table->boolean('first_login')->default(true);
             $table->string('remarks')->nullable()->default(null);
             $table->rememberToken();
             $table->timestamps(); 

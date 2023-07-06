@@ -30,14 +30,11 @@ $(document).ready(function(){
     $(filterClose).click(function(){
       $(filArea).removeClass("filter-area-aft")
     });
-    
-    //スタッフのリストの名前をクリックの処理
-    $(empName).on('click', function(event) {
+    //給料明細を取得する
+    $(empNamePay).on('click', function(event) {
       event.stopPropagation();
-      var id = $(this).attr("id");
-      if($(event.target).closest("span").length) {
-        $('body').addClass("intell-aft");
-      }
+      console.log($(this));
+      
       $.ajaxSetup({
         headers:{
             'X-CSRF-TOKEN' : $('meta[name="csrf-token"]').attr('content')
@@ -45,11 +42,10 @@ $(document).ready(function(){
     });
       $.ajax({
         type: "post",
-        url: "/getInfoStaff/{id}",
+        url: "/getPayStaff/{id}",
         data: {"id":id
             },
         success: function (data) {
-          showInfo(data[0]);
         }
       });
     });

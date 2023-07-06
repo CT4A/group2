@@ -28,6 +28,7 @@ class Employee extends Authenticatable
         'hourly_wage',
         'birthday',
         'remarks',
+        'first_login',
     ];
 
     /**
