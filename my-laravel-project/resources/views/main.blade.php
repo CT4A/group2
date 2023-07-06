@@ -80,7 +80,6 @@
                 </ol>
             </li>
         </ul>
-<<<<<<< HEAD
       <div class="hamburger-area">
       <div class="hamburger-icon">
       </div>
@@ -94,11 +93,9 @@
                   <a href="">社員登録</a>
                   <a href="">社員編集</a>
               </div>
-=======
         <div class="hamburger-area">
             <div class="hamburger-icon">
                 <span></span>
->>>>>>> 581edf73665f4eba33b6689194d13eaa7080938f
             </div>
             <div class="hamburgerContents">
                 <ul>

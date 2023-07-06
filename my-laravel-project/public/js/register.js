@@ -2,9 +2,9 @@ $(document).ready(function(){
     const chkbox = $("#checkbox");
     const inptxt = $("input[type='text']");
     const plus = $(".plus");
-    const kindList = $(".kind-list");
-    const kinds = $(".kinds");
     const kindsli = $(".kinds li");
+    const kinds = $(".kinds");
+    const kindList = $(".kind-list");
     const kindsSelecter = $(".kinds-selecter");
     const kindsInp =$(".kinds-inp");
     const kindsInpHidden =$(".kinds-inp-hidden");
@@ -18,17 +18,20 @@ $(document).ready(function(){
             $('ol').removeClass("open").addClass("close");
         };
     });
-    
-    //プルトダウン(リストの表示)
-    $(kindsSelecter).click(function(){
-        if(!$(this).hasClass("kinds-selecter-aft")){
-            $(this).addClass("kinds-selecter-aft");
-            $(this).find(kindList).addClass("kind-list-aft");
+
+    $(kinds).click(function(){
+        var ksSelecterPush = $(this).find(".kinds-selecter");
+        console.log(ksSelecterPush);
+        if(!$(ksSelecterPush).hasClass("kinds-selecter-aft")){
+            $(kindsSelecter).removeClass("kinds-selecter-aft");
+            $(kindsSelecter).find(kindList).removeClass("kind-list-aft");
+            $(ksSelecterPush).addClass("kinds-selecter-aft");
+            $(ksSelecterPush).find(kindList).addClass("kind-list-aft");
         }else{
-            $(this).removeClass("kinds-selecter-aft");
-            $(this).find(kindList).removeClass("kind-list-aft");
+            $(ksSelecterPush).removeClass("kinds-selecter-aft");
+            $(ksSelecterPush).find(kindList).removeClass("kind-list-aft");
         }
-    });
+    })
 
     // プルトダウン(選択後の処理)
     $(kindsli).click(function () {
@@ -52,16 +55,23 @@ $(document).ready(function(){
         $(inptxt).click(function(event) {
             var test =$(inptxt).eq(event).parent();
         });
-        $(plus).click(function(event) {
-            // plusCnt += 1; 
-            console.log("test")
-            var previousElements = $('.customerList');
-            var test = "";
-            console.log(test)
-            // $(this).before(previousElements);  
-            $(previousElements).insertBefore('.register-areaUL form:nth-child('+plusCnt+')');
-        });
 
+        plusCnt += 1; 
+        console.log("test")
+        console.log()
+        var previousElements = $('.customerList').eq(0);
+        var ListClone = previousElements.clone();
+        $($(this)).parent().before(ListClone);
+        $(plus).click( function(event) {
+            clone();
+        });
+        function clone(){
+            plusCnt += 1; 
+            console.log()
+            var previousElements = $('.customerList').eq(0);
+            var ListClone = previousElements.clone();
+            $(plus).parent().before(ListClone);
+        }
     $(".alcohol li").click(function (e) { 
         let liquor_type = $(this).text();
         $.ajaxSetup({
@@ -152,6 +162,51 @@ $(document).ready(function(){
         $('#customer_name').val(staff_name);
         $('#customer_id').val(staff_id);
     });
+    var callback = function(mutationsList, observer) {
+        const kinds = $(".kinds");
+        const kindList = $(".kind-list");
+        const kindsSelecter = $(".kinds-selecter");
+        const kindsli = $(".kinds li");
+        const kindsInp =$(".kinds-inp");
+        const kindsInpHidden =$(".kinds-inp-hidden");
+
+        // リストを表示する
+        $(".customerList").off('click').on('click', function() {
+            const ThisFind = $(this).find(".kinds-selecter");
+            if(!$(ThisFind).hasClass("kinds-selecter-aft")){
+                $(kindsSelecter).removeClass("kinds-selecter-aft");
+                $(kindsSelecter).find(kindList).removeClass("kind-list-aft");
+                $(ThisFind).addClass("kinds-selecter-aft");
+                $(ThisFind).find(".kind-list").addClass("kind-list-aft");
+            }else{
+                $(ThisFind).removeClass("kinds-selecter-aft");
+                $(ThisFind).find(".kind-list").removeClass("kind-list-aft");
+            }
+          });
+
+        //   リストを選択する
+          $(kindsli).click(function () {
+            var thisList = $(this).parent();
+            var ListPush = thisList.parent().parent();
+            thisList.find(kindsInp).addClass("kind-Click");
+            if($(this).text() == "その他"){
+                $(kinds).addClass("kinds-aft");
+                ListPush.find(kindsInp).val("");
+            }else{
+                console.log($(this).text())
+                ListPush.addClass("kinds-aft");
+                ListPush.find(kindsInp).val($(this).text());
+                ListPush.find(kindsInpHidden).attr('value', $(this).attr('data'));
+            }
+            thisList.find(kindList).removeClass("kind-list-aft");
+            thisList.find(kindsSelecter).removeClass("kinds-selecter-aft");
+            $(kindsSelecter).removeClass("kind-list-aft");
+        });
+        };
+      var observer = new MutationObserver(callback);
+      var targetNode = $('.register-areaUL')[0];
+      var options = { childList: true, subtree: true };
+      observer.observe(targetNode, options);
 });
 $(window).on('load', function (){
     var date = new Date();

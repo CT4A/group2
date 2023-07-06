@@ -13,8 +13,8 @@ $today = Carbon::now()->format('Y/m/d');
     <section class="register">
         <div class="register-area">
             <h1>伝票登録</h1>
+            <form action="/bill-register" method="POST">
             <ul class="register-areaUL">
-                <form action="/bill-register" method="POST">
                     @csrf
                     <li class="kinds">
                         <span>社員名</span>
@@ -48,7 +48,9 @@ $today = Carbon::now()->format('Y/m/d');
                         @if ($errors->has('customer_id'))
                         <span class="error">{{ $errors->first('customer_id') }}</span>
                         @endif
+                        
                     </li>
+                    
                     <div class="plus-btn">
                         <button type="button" class="plus">追加</button>
                     </div>
