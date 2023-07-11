@@ -59,7 +59,6 @@ $(document).ready(function(){
       let BillCustomername = $(".bill-list-items ul .customer_name");
       let BillStaffname = $(".bill-list-items ul .staff_name");
       BillCustomername.parent().show();
-      console.log(BillCustomername.length)
       for (let i = 0 ; i < BillCustomername.length; i++){
         if($(BillCustomername[i]).text().indexOf(BillSearch) == -1){
           if($(BillStaffname[i]).text().indexOf(BillSearch) == -1 ){
@@ -88,5 +87,4 @@ $(document).ready(function(){
       $("#birthday").text(data["birthday"]);
       $("#remarks").text(data["remarks"]);
     }
-
 });
