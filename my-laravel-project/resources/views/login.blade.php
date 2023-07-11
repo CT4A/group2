@@ -12,12 +12,9 @@
     <div class="container-fluid main">
         <div class="loginBox p-4">
             <div class="loginBox-main">
-                <div class="TextHeader text-center">
+                <div class="TextHeader t    ext-center">
                     <h1><strong>ログイン</strong></h1>
                 </div>
-                @if (session('message'))
-                    {{session('message')}}               
-                @endif
                 <form action="/login" method="post">
                     @csrf
                     <div class="inputArea">

@@ -2,4 +2,5 @@
 {{-- @foreach ($results as $result)
     <p>{{$result}}</p>
 @endforeach --}}
-{{$result}}
+{{$results}}
+{{-- {{json_encode($staffs)}} --}}

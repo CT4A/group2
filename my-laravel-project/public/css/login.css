@@ -8,9 +8,9 @@
 }
 
 .loginBox{
-    position: relative;
     height: 500px;
-    width: 500px;
+    max-width: 500px;
+    width: 100%;
     position: absolute;
 }
 
@@ -18,7 +18,7 @@
     border-radius: 30px;
     border: 1px solid rgba(0, 0, 0, 0.2);
     content: "";
-    position: absolute; /* Đặt vị trí tuyệt đối cho màn phủ */
+    position: absolute; 
     top: 0;
     left: 0;
     right: 0;
@@ -76,3 +76,4 @@ img{
     position: relative;
     bottom: -40px;
 }
+
