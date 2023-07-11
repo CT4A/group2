@@ -1,20 +1,20 @@
-.main{
+.main {
     background: linear-gradient(90deg, #cdffd8, #94b9ff);
-    height:100vh;
+    height: 100vh;
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.loginBox{
+.loginBox {
     position: relative;
     height: 500px;
     width: 500px;
     position: absolute;
 }
 
-.loginBox::before{
+.loginBox::before {
     border-radius: 30px;
     border: 1px solid rgba(0, 0, 0, 0.2);
     content: "";
@@ -27,13 +27,13 @@
     z-index: 1; /* Đảm bảo màn phủ hiển thị trên nền */
 }
 
-.loginBox-main{
+.loginBox-main {
     position: relative;
     z-index: 2;
     color: #000;
 }
 
-.inputArea{
+.inputArea {
     margin: 0 auto;
     position: relative;
     width: 70%;
@@ -41,38 +41,56 @@
     font-size: 20px;
 }
 
-input{
+input {
     width: 100%;
     height: 100%;
     margin-bottom: 10px;
-    background-color: rgba(0, 0, 0, 0.0);
+    background-color: rgba(0, 0, 0, 0);
     border: none;
 }
-.userIdArea , .passArea {
-    border-bottom:1px solid #000;
+.userIdArea,
+.passArea {
+    border-bottom: 1px solid #000;
     height: 3em;
     margin-bottom: 10px;
     display: flex;
 }
 
-img{
+img {
     height: 100%;
     padding-bottom: 2px;
 }
-.userIdArea img{
+.userIdArea img {
     padding-right: 5px;
 }
-.TextHeader{
+.TextHeader {
     margin-top: 40px;
 }
-.btnlogin{
+.btnlogin {
     width: 35%;
     border-radius: 20px;
     border: 2px solid black;
     background: linear-gradient(90deg, #8c52ff, #5ce1e6);
 }
-.button{
+.button {
     text-align: center;
     position: relative;
     bottom: -40px;
+}
+
+/* スマホ画面 */
+@media only screen and (min-width: 220px) and (max-width: 860px) {
+    body {
+        background: linear-gradient(90deg, #cdffd8, #94b9ff);
+    }
+    .main {
+        width: 100%;
+        display: flex;
+        position: fixed;
+        height: 100%;
+    }
+    .loginBox::before {
+        width: 100%;
+        height: 500px;
+    }
 }
