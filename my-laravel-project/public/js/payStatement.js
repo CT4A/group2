@@ -3,7 +3,6 @@ $(document).ready(function(){
     const ele = $(".intell-aft");
     const intellmain = $('main');
     const empName =$(".emp-name span");
-    const empNamePay =$(".emp-name li");
     var modal = $("#modalBox");
     var btn = $("#boxBtn");
     var span = $(".close")[0];
@@ -31,10 +30,9 @@ $(document).ready(function(){
       $(filArea).removeClass("filter-area-aft")
     });
     //給料明細を取得する
-    $(empNamePay).on('click', function(event) {
+    $(empName).on('click', function(event) {
       event.stopPropagation();
-      console.log($(this));
-      
+      var id =$(this).data('id');
       $.ajaxSetup({
         headers:{
             'X-CSRF-TOKEN' : $('meta[name="csrf-token"]').attr('content')
@@ -46,6 +44,7 @@ $(document).ready(function(){
         data: {"id":id
             },
         success: function (data) {
+            console.log(data);
         }
       });
     });

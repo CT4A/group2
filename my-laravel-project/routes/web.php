@@ -80,7 +80,7 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/reserve-register',  [resrveController::class,'register']);
     // 給料明細
     Route::get('/pay-statement', [EmployeeController::class,'indexPay']);
-    Route::post('/pay-statement', [EmployeeController::class,'personPay']);
+    Route::post('/getPayStaff/{id}', [EmployeeController::class,'personPay']);
     
     // パスワード変更
     Route::get('/pass-change', function () {
