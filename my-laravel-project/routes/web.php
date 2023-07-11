@@ -15,6 +15,7 @@ use App\Http\Controllers\BillController;
 use App\Http\Controllers\newsController;
 use App\Http\Controllers\shiftController;
 use App\Http\Controllers\syukkinController;
+use App\Http\Controllers\EditorCustomer;
 Route::get('/', function () {
     return view('welcome');
 })->middleware('auth');
@@ -70,6 +71,11 @@ Route::middleware(['auth'])->group(function () {
     // ボトル登録
     Route::get('/bottle-register', [bottleController::class,'index'])->name('indexRegister');
     Route::post('/bottle-register', [bottleController::class,'RegisterBottle']);
+        // 編集
+        Route::get('/editor',function(){
+            return view('editor');
+        });
+        // Route::post('/editor', [bottleController::class,'RegisterBottle']);
     // ボトル一覧
     Route::get('/list-bottle',function () {
         return view('list-bottle');

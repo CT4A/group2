@@ -21,8 +21,8 @@ $(document).ready(function(){
 
     $(kinds).click(function(){
         var ksSelecterPush = $(this).find(".kinds-selecter");
-        console.log(ksSelecterPush);
-        if(!$(ksSelecterPush).hasClass("kinds-selecter-aft")){
+
+        if(!$(ksSelecterPush).hasClass("kinds-selecter-aft") && $(this).hasClass("kinds-inp")){
             $(kindsSelecter).removeClass("kinds-selecter-aft");
             $(kindsSelecter).find(kindList).removeClass("kind-list-aft");
             $(ksSelecterPush).addClass("kinds-selecter-aft");
@@ -173,6 +173,8 @@ $(document).ready(function(){
         // リストを表示する
         $(".customerList").off('click').on('click', function() {
             const ThisFind = $(this).find(".kinds-selecter");
+            if($(this).tagName("input")){
+                console.log(this);
             if(!$(ThisFind).hasClass("kinds-selecter-aft")){
                 $(kindsSelecter).removeClass("kinds-selecter-aft");
                 $(kindsSelecter).find(kindList).removeClass("kind-list-aft");
@@ -182,10 +184,11 @@ $(document).ready(function(){
                 $(ThisFind).removeClass("kinds-selecter-aft");
                 $(ThisFind).find(".kind-list").removeClass("kind-list-aft");
             }
-          });
+        }
+        });
 
         //   リストを選択する
-          $(kindsli).click(function () {
+        $(kindsli).click(function () {
             var thisList = $(this).parent();
             var ListPush = thisList.parent().parent();
             thisList.find(kindsInp).addClass("kind-Click");

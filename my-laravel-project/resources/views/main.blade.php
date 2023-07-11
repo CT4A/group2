@@ -86,7 +86,7 @@
       <div class="hamburgerContents">
         <ul>
           <li>
-            <div class="accordion">
+            <div >
               <span>社員</span>
               <div class="accordion-content">
                   <a href="">社員一覧</a>

@@ -32,10 +32,10 @@ $(document).ready(function () {
         }
     });
     $(accordion).click(function(){
-        $(accordion).removeClass('.accordion');
         if($(this).hasClass('accordion-aft')){
             $(this).removeClass('accordion-aft');
         }else{
+            $(accordion).removeClass('accordion-aft');
             $(this).addClass('accordion-aft');
             var numChildren = $(this).find('a').length;
         }
@@ -44,16 +44,6 @@ $(document).ready(function () {
         windowNow =$(window);
         console.log(windowNow);
     });
-    // $(header).hover( 
-    //     function(){     
-    //         if($(windowNow).width() >= 767 && !$(hamburgerArea).hasClass("hamburger-area-aft")){
-    //             $(menuList).addClass("menu_list_aft");
-    //    }
-    // },
-    //     function(){
-    //         $(menuList).removeClass("menu_list_aft");
-    // }
-    // )
     $(menuList).hover( 
         function(){     
             if($(windowNow).width() >= 767 && !$(hamburgerArea).hasClass("hamburger-area-aft")){
