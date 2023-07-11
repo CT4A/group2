@@ -8,8 +8,8 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{asset('css/header.css')}}">
-    <link rel="stylesheet" href="bootstrap-4.0.0-dist\css\bootstrap-reboot.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="bootstrap-4.0.0-dist\css\bootstrap-reboot.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
     <title>@yield('title')</title>
     @yield('styles')
 </head>
@@ -27,8 +27,8 @@
                     <div class="menu_ele">
                         <li><a href="{{route('list-staff')}}">社員一覧</a></li>
                         <li><a href="{{route('indexEmpRegister')}}">社員登録</a></li>
-                        <li><a href="{{route('indexEmpRegister')}}">パスワード変更</a></li>
-                        <li><a href="{{route('indexEmpRegister')}}">給料</a></li>
+                        <li><a href="{{route('passChange')}}">パスワード変更</a></li>
+                        <li><a href="{{route('payStatement')}}">給料</a></li>
                         <li><a href="{{route('indexEmpRegister')}}">シフト登録</a></li>
                     </div>
                 </ol>

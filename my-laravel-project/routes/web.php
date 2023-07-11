@@ -85,13 +85,13 @@ Route::middleware(['auth'])->group(function () {
     Route::get ('/reserve-register',  [resrveController::class,'index'])->name('indexResRegister');
     Route::post('/reserve-register',  [resrveController::class,'register']);
     // 給料明細
-    Route::get('/pay-statement', [EmployeeController::class,'indexPay']);
+    Route::get('/pay-statement', [EmployeeController::class,'indexPay'])->name('payStatement');
     Route::post('/pay-statement', [EmployeeController::class,'personPay']);
     
     // パスワード変更
     Route::get('/pass-change', function () {
         return view('pass-change');
-    });
+    })->name('passChange');;
     //お知らせ追加画面
     Route::get('/news', [newsController::class,'index']);
     Route::post('/news', [newsController::class,'register']);

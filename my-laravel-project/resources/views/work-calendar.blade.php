@@ -1,7 +1,7 @@
 @extends('main')
 @yield('title','シフト')
 @section('styles')
-    
+<link rel="stylesheet" href="./css/calendar.css">
 @endsection
 @section('content')
 <div id='calendar'></div>

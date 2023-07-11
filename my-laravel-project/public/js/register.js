@@ -1,4 +1,5 @@
 $(document).ready(function(){
+    console.log("console-run")
     const chkbox = $("#checkbox");
     const inptxt = $("input[type='text']");
     const plus = $(".plus");
@@ -21,8 +22,7 @@ $(document).ready(function(){
 
     $(kinds).click(function(){
         var ksSelecterPush = $(this).find(".kinds-selecter");
-
-        if(!$(ksSelecterPush).hasClass("kinds-selecter-aft") && $(this).hasClass("kinds-inp")){
+        if(!$(ksSelecterPush).hasClass("kinds-selecter-aft") ){
             $(kindsSelecter).removeClass("kinds-selecter-aft");
             $(kindsSelecter).find(kindList).removeClass("kind-list-aft");
             $(ksSelecterPush).addClass("kinds-selecter-aft");
@@ -88,7 +88,7 @@ $(document).ready(function(){
             success: function (datas) {
               showInfo(datas);
             }
-          });
+            });
     });
 
         //酒の種類リストを作る。
@@ -148,7 +148,8 @@ $(document).ready(function(){
     if (month < 10) month = "0" + month;
     if (day < 10) day = "0" + day;
     var today = year + "-" + month + "-" + day;
-    document.getElementById('theDate').value = today;
+    $("#theDate").value = today;
+    // document.getElementById('theDate').value = today;
     //bill-registerの社員名クリックの処理：
     $('#staffList li').click(function () {
         let staff_name = $(this).text();
