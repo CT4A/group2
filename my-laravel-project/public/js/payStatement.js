@@ -3,7 +3,6 @@ $(document).ready(function(){
     const ele = $(".intell-aft");
     const intellmain = $('main');
     const empName =$(".emp-name span");
-    const empNamePay =$(".emp-name li");
     var modal = $("#modalBox");
     var btn = $("#boxBtn");
     var span = $(".close")[0];
@@ -30,14 +29,10 @@ $(document).ready(function(){
     $(filterClose).click(function(){
       $(filArea).removeClass("filter-area-aft")
     });
-    
-    //スタッフのリストの名前をクリックの処理
+    //給料明細を取得する
     $(empName).on('click', function(event) {
       event.stopPropagation();
-      var id = $(this).attr("id");
-      if($(event.target).closest("span").length) {
-        $('body').addClass("intell-aft");
-      }
+      var id =$(this).data('id');
       $.ajaxSetup({
         headers:{
             'X-CSRF-TOKEN' : $('meta[name="csrf-token"]').attr('content')
@@ -45,11 +40,11 @@ $(document).ready(function(){
     });
       $.ajax({
         type: "post",
-        url: "/getInfoStaff/{id}",
+        url: "/getPayStaff/{id}",
         data: {"id":id
             },
         success: function (data) {
-          showInfo(data[0]);
+            console.log(data);
         }
       });
     });
@@ -59,6 +54,7 @@ $(document).ready(function(){
       let BillCustomername = $(".bill-list-items ul .customer_name");
       let BillStaffname = $(".bill-list-items ul .staff_name");
       BillCustomername.parent().show();
+      console.log(BillCustomername.length)
       for (let i = 0 ; i < BillCustomername.length; i++){
         if($(BillCustomername[i]).text().indexOf(BillSearch) == -1){
           if($(BillStaffname[i]).text().indexOf(BillSearch) == -1 ){
@@ -87,4 +83,5 @@ $(document).ready(function(){
       $("#birthday").text(data["birthday"]);
       $("#remarks").text(data["remarks"]);
     }
+
 });

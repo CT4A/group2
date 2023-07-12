@@ -16,6 +16,9 @@ class LoginController extends Controller
             'password'=>$request->password,
         ];
         if (Auth::attempt($keys)) {
+            if(auth()->user()->first_login){
+                return redirect()->intended('/pass-change');
+            }
             // Đăng nhập thành công
             $request->session()->regenerate();
             return redirect()->intended('/test')->with(['message'=>'login success']);

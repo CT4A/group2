@@ -2,7 +2,6 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
@@ -18,7 +17,6 @@ return new class extends Migration
             $table->string('liquor_name');
             $table->string('liquor_type');
             $table->integer('liquor_number')->default(0);            
-            $table->string('remarks')->nullable()->default(null);
             $table->rememberToken();
             $table->timestamps();
             

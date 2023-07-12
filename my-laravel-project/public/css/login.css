@@ -77,7 +77,6 @@ img {
     position: relative;
     bottom: -40px;
 }
-
 /* スマホ画面 */
 @media only screen and (min-width: 220px) and (max-width: 860px) {
     body {
