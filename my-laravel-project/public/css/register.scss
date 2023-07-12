@@ -6,24 +6,52 @@
     color: #333;
 }
 .register-area{
+    display: flex;
+    @media screen and (max-width:1080px) {
+    display: block;
+    }
     h1{
-        box-shadow: 2px 2px 2px 0px rgba($color: #000000, $alpha: 0.3);
-        border-top: solid 3px ;
-        // border-bottom: solid 1px #333;
-        padding: 10px;
-        text-align: center;
+        width: auto;
+        margin-left: 30px;
+        justify-content: center;
+        align-items: center;
+        @media screen and (max-width:1080px) {
+            display: block;
+            margin-left: 0px;
+            box-shadow: 2px 2px 2px 0px rgba($color: #000000, $alpha: 0.3);
+            border-top: solid 3px ;
+            // border-bottom: solid 1px #333;
+            padding: 10px;
+            text-align: center;
+        }
+    }
+    form{
+        width: 80%;
+        margin: 0 10%;
+        input[type="submit"]{
+            border-radius: 25px;
+            border: none;
+            width: 60%;
+            margin: 0 20%;
+            padding:  25px;
+            font-size: 24px;
+        }
     }
     .register-areaUL{
+        @media screen and (min-width:1080px) {
+            height: 600px;
+            overflow-y: scroll;
+            overflow-x: hidden;
+        }
         .close{
             opacity: 0;
             height: 0;
         }
-        width: 80%;
-        margin: 0 10%;
         ol{
             padding: 0;
         }
         li{
+            display: grid;
             font-size: 24px;
             border-bottom: #000 3px solid;
             margin: 10px 0;
@@ -39,24 +67,20 @@
                 color:gold;
             }
             textarea{
+                border: none;
+                background: none;
                 font-size: 24px;
                 width: 100%;
                 overflow-y: hidden;
                 resize: none;
-                max-width: 500px;
+                width: 100%;
+                outline: none;
+                // max-width: 500px;
             }
             input[type="checkbox"]{
                 height: 50px;
                 width: 50px;
             }
-        }
-        input[type="submit"]{
-            border-radius: 25px;
-            border: none;
-            width: 60%;
-            margin: 20%;
-            padding:  30px;
-            font-size: 24px;
         }
         input[type="time"]{
             font-size: 24px;
@@ -107,6 +131,7 @@
     }
     }
     .kinds-selecter{
+        cursor: pointer;
         position: relative;
         width: 80%;
         margin: auto;

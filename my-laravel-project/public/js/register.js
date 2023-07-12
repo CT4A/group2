@@ -20,9 +20,10 @@ $(document).ready(function(){
         };
     });
 
-    $(kinds).click(function(){
-        var ksSelecterPush = $(this).find(".kinds-selecter");
-        if(!$(ksSelecterPush).hasClass("kinds-selecter-aft") ){
+    $(kindsSelecter).click(function(){
+        var ksSelecterPush = $(this)
+        // var ksSelecterPush = $(this).find(".kinds-selecter");
+        if(!$(ksSelecterPush).hasClass("kinds-selecter-aft" )){
             $(kindsSelecter).removeClass("kinds-selecter-aft");
             $(kindsSelecter).find(kindList).removeClass("kind-list-aft");
             $(ksSelecterPush).addClass("kinds-selecter-aft");

@@ -85,14 +85,10 @@ Route::middleware(['auth'])->group(function () {
     Route::get ('/reserve-register',  [resrveController::class,'index'])->name('indexResRegister');
     Route::post('/reserve-register',  [resrveController::class,'register']);
     // 給料明細
-<<<<<<< HEAD
     Route::get('/pay-statement', [EmployeeController::class,'indexPay'])->name('payStatement');
     Route::post('/pay-statement', [EmployeeController::class,'personPay']);
-=======
-    Route::get('/pay-statement', [EmployeeController::class,'indexPay']);
-    Route::post('/getPayStaff/{id}', [EmployeeController::class,'personPay']);
->>>>>>> d921bfcbe78155aa70b2d23fab5e1f70a6caf70b
-    
+    // Route::get('/pay-statement', [EmployeeController::class,'indexPay']);
+    // Route::post('/getPayStaff/{id}', [EmployeeController::class,'personPay']);
     // パスワード変更
     Route::get('/pass-change', function () {
         return view('pass-change');

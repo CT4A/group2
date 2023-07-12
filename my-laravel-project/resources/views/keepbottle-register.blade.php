@@ -20,8 +20,8 @@ $today = Carbon::now()->format('Y/m/d');
     <section class="register">
         <div class="register-area">
             <h1>キープボトル登録</h1>
+            <form action="/keepbottle-register" method="POST">
             <ul class="register-areaUL">
-                <form action="/keepbottle-register" method="POST">
                     @csrf
                     <li class="kinds">
                         <span>所有者</span>
@@ -88,9 +88,9 @@ $today = Carbon::now()->format('Y/m/d');
                         <span>備考</span>
                         <textarea name="remarks" value="{{ old('remarks') }}"></textarea>
                     </li>
-                    <input type="submit" value="登録">
-                </form>
             </ul>
+            <input type="submit" value="登録">
+                </form>
         </div>
     </section>
 
