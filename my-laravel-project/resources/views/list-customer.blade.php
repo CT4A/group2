@@ -50,6 +50,11 @@
                     <span>先月の総合金額</span>
                     <span id="that_month_money"></span>
                 </li>
+                <li>
+                        <form action="#">
+                            <button type="submit">編集</button>
+                        </form>
+                    </li>
             </ul>
         </div>
         @csrf
