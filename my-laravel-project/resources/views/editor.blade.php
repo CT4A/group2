@@ -31,7 +31,6 @@
                         <input type="text" id="customer_id" class="kinds-inp-hidden" name="customer_id"
                             value="" hidden>
                     </li>
-
                     <li class="kinds kinds-aft alcohol">
                         <span>種類</span>
                         <div class="kinds-selecter">
