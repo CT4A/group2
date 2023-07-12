@@ -14,7 +14,7 @@ body::-webkit-scrollbar {
 }
 body::-webkit-scrollbar-track {
   background-color: none;
-}
+} ^
 body::-webkit-scrollbar-thumb {
   background: #ccc;
   border-radius: 50px;
