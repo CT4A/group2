@@ -6,14 +6,12 @@ $(document).ready(function(){
     var modal =$("#modalBox");
     var btn =$("boxBtn");
     var span =$(".boxBtn")[0];
+    // 表示したリストを消す処理(スマホサイズ)
     $(intellmain).on('click', function(event) {
-      if ($(event.target).closest('.intell').length == 0 && $("body").hasClass("intell-aft")) 
-      {
-        console.log("test");
-        // $('body').removeClass("intell-aft");
+      if ($(event.target).closest('.intell').length == 0) {
+        $('body').removeClass("intell-aft");
       }
     });
-
     //スタッフのリストの名前をクリックの処理
     $(empName).on('click', function(event) {
       var id = $(this).attr("id");
@@ -35,7 +33,6 @@ $(document).ready(function(){
         }
       });
     });
-
     //顧客の情報を表示する
     function showInfo(data){
       $("#TxtNameHeader").text(data["customer_name"]+"様の情報");
@@ -44,7 +41,6 @@ $(document).ready(function(){
       $("#company_name").text(data["company_name"]);
       $("#staff_name").text(data["staff_name"]);
     }
-
     var flagSearch=0;
     //検索機能
     $('#search').keyup(function (e) { 
@@ -54,18 +50,10 @@ $(document).ready(function(){
       console.log(keySearch);
       let staffList = $(".emp-name ul li span");
       staffList.fadeIn();
-      // staffList.fadeIn(0, function () {
-        
-      // });
       for (let i = 0; i < staffList.length; i++) {
         if (staffList[i].textContent.indexOf(keySearch) == -1) {
           $(".emp-name ul li span").eq(i).fadeOut();
         }
-        
-        
-        // let listPositonTop =  $(".emp-name ul").offset().top;
-        // let idPositionTop = $('#'+id).offset().top;
-        // $(".emp-name ul").scroll(listPositonTop-idPositionTop);
       }
     });
   });

@@ -24,7 +24,7 @@ class CustomerFactory extends Factory
             'customer_type'=>fake()->randomElement($customerTypes),
             'birthday'=>fake()->date(),
             'staff_id'=>function () {
-                return \App\Models\employee::inRandomOrder()->first()->staff_id;
+                return \App\Models\Employee::inRandomOrder()->first()->staff_id;
             },
             'remarks'=>'なし'
         ];

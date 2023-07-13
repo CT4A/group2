@@ -19,7 +19,6 @@
         <!-- <a href="logout"><img src="./img/logaut.webp" alt=""></a> -->
         <ul class="menu">
             <li class="menu_list ">
-
             </li>
             <li class="menu_list ">
                 <span>社員</span>
@@ -85,27 +84,26 @@
       </div>
       <div class="hamburgerContents">
         <ul>
-          <li>
-            <div >
-              <span>社員</span>
-              <div class="accordion-content">
-                  <a href="">社員一覧</a>
-                  <a href="">社員登録</a>
-                  <a href="">社員編集</a>
-              </div>
-        <div class="hamburger-area">
-            <div class="hamburger-icon">
-                <span></span>
-            </div>
-            <div class="hamburgerContents">
+            <li>
+                <div>
+                    <span>社員</span>
+                    <div class="accordion-content">
+                        <a href="">社員一覧</a>
+                        <a href="">社員登録</a>
+                        <a href="">社員編集</a>
+                    </div>
+                    <div class="hamburger-area">
+                <div class="hamburgerContents">
                 <ul>
                     <li>
                         <div class="accordion">
                             <span>社員</span>
                             <div class="accordion-content">
-                                <a href="">社員一覧</a>
-                                <a href="">社員登録</a>
-                                <a href="">社員編集</a>
+                                <a href="{{route('list-staff')}}">社員一覧</a>
+                                <a href="{{route('indexEmpRegister')}}">社員登録</a>
+                                <a href="{{route('passChange')}}">パスワード変更</a>
+                                <a href="{{route('payStatement')}}">給料</a>
+                                <a href="{{route('indexEmpRegister')}}">シフト登録</a>
                             </div>
                         </div>
                     </li>
@@ -113,9 +111,8 @@
                         <div class="accordion">
                             <span>顧客</span>
                             <div class="accordion-content">
-                                <a href="">顧客一覧</a>
-                                <a href="">顧客登録</a>
-                                <a href="">顧客編集</a>
+                                <a href="{{route('list-customer')}}">顧客一覧</a>
+                                <a href="{{route('indexCusRegister')}}">顧客登録</a>
                             </div>
                         </div>
                     </li>
@@ -123,14 +120,21 @@
                         <div class="accordion">
                             <span>キープボトル</span>
                             <div class="accordion-content">
-                                <a href="">ボトル一覧</a>
-                                <a href="">ボトル登録</a>
-                                <a href="">ボトル編集</a>
+                                <a href="{{route('keepbottle-list')}}">ボトル一覧</a>
+                                <a href="{{route('indexKeepRegister')}}">ボトル登録</a>
                             </div>
                         </div>
                     </li>
-                    <li><a href="">出勤退勤履歴</a></li>
-                    <li><a href="">伝票</a></li>
+                    <li>
+                        <div class="accordion">
+                            <span>伝票</span>
+                            <div class="accordion-content">
+                                <a href="{{route('list-bill')}}">伝票一覧</a>
+                                <a href="{{route('indexBillRegister')}}">伝票登録</a>
+                            </div>
+                        </div>
+                    </li>
+                        <li><a href="{{route('history')}}">出勤退勤履歴</a></li>
                 </ul>
             </div>
         </div>

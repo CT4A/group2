@@ -8,13 +8,13 @@
     <section class="register">
         <div class="register-area">
             <h1>パスワード変更</h1>
-            <ul>
+            <form action="/emp-register" method="POST">
+            <ul class="register-areaUL">
                 <div class="message text-center">
                     <div class="alert alert-primary" role="alert">
                         <strong>{{session('message')}}</strong>
                     </div>
                 </div>
-                <form action="/emp-register" method="POST">
                 @csrf
                 <li class="passList">
                     <span>現在のパスワード</span>

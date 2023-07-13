@@ -5,9 +5,9 @@ $today = Carbon::now()->format('Y/m/d');
 @extends('main')
 @yield('title','顧客登録')
 @section('styles')
-<link rel="stylesheet" href="./css/register.css"> 
 <link rel="stylesheet" href="./css/information.css">
-<link rel="stylesheet" href="./css/bill-register.js">
+<link rel="stylesheet" href="./css/register.css"> 
+<!-- <link rel="stylesheet" href="./css/bill-register.js"> -->
 @endsection
 @section('content')
     <section class="register">
@@ -76,14 +76,13 @@ $today = Carbon::now()->format('Y/m/d');
                         @endif
                     </li>
                     <div></div>
-                    <input type="submit" value="登録">
-                </form>
             </ul>
+            <input type="submit" value="登録">
+            </form>
         </div>
     </section>
 @endsection
 @section('scripts')
 <script src="js/register.js"></script>
-<script src="js/index.js"></script>
 <script src="js/bill-register.js"></script>
 @endsection

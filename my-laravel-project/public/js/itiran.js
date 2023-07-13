@@ -12,6 +12,7 @@ $(document).ready(function(){
     filterClose=$(".filter-close");
     $(intellmain).on('click', function(event) {
       if ($(event.target).closest('.intell').length == 0) {
+        console.log("click")
         $('body').removeClass("intell-aft");
       }
     });
