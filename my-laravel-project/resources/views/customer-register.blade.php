@@ -14,8 +14,8 @@
     <section class="register">
         <div class="register-area">
             <h1>顧客新規作成</h1>
+            <form action="/customer-register" method="POST">
             <ul class="register-areaUL">
-                <form action="/customer-register" method="POST">
                     @csrf
                     <li>
                         <span>顧客名</span>
@@ -63,9 +63,9 @@
                             <span class="error">{{ $errors->first('remarks') }}</span>
                         @endif
                     </li>
-                    <input type="submit" value="登録">
-                </form>
             </ul>
+            <input type="submit" value="登録">
+            </form>
         </div>
     </section>
 @endsection

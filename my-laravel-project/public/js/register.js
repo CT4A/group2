@@ -175,8 +175,6 @@ $(document).ready(function(){
         // リストを表示する
         $(".customerList").off('click').on('click', function() {
             const ThisFind = $(this).find(".kinds-selecter");
-            if($(this).tagName("input")){
-                console.log(this);
             if(!$(ThisFind).hasClass("kinds-selecter-aft")){
                 $(kindsSelecter).removeClass("kinds-selecter-aft");
                 $(kindsSelecter).find(kindList).removeClass("kind-list-aft");
@@ -186,7 +184,7 @@ $(document).ready(function(){
                 $(ThisFind).removeClass("kinds-selecter-aft");
                 $(ThisFind).find(".kind-list").removeClass("kind-list-aft");
             }
-        }
+
         });
 
         //   リストを選択する

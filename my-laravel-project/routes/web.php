@@ -40,6 +40,11 @@ Route::middleware(['auth'])->group(function () {
     //社員一覧
     Route::get('list-staff' ,[EmployeeController::class,'index'])->name('list-staff');
     Route::post('/getInfoStaff/{id}', [EmployeeController::class,'GetListStaff']);
+    
+    //社員profile
+    Route::get('staffProfile' ,[EmployeeController::class,'indexstaffProfile'])->name('staffProfile');
+    // Route::post('/getInfoStaff/{id}', [EmployeeController::class,'GetListStaff']);
+    
     // 登録
     Route::get('/shift-register', [shiftController::class,'index'])->name('indexShiftRegister');
     Route::post('/shift-register', [shiftController::class,'register']);

@@ -46,7 +46,7 @@ section{
     }
     span{
         position: relative;
-        font-size: 24px;
+        // font-size: 24px;
     }
 }
 .emp-list-area{
@@ -118,6 +118,7 @@ section{
     }
 }
 .intell{
+    height: auto;
     @media screen and (max-width:780px) {   
     background-color: #ccc;
     transition: all 1s;
@@ -129,9 +130,19 @@ section{
     margin: 150px 10%;
     }
     form{
+        padding: 5px 15px ;
+        display: flex;
+        border: solid #000 3px;
+        border-radius: 25px;
+        img{
+            width: 50px;
+            object-fit: cover;
+        }
         button{
-            padding: 20px 30px;
-
+            font-weight: 800;
+            background: none;
+            outline: none;
+            border: none;
         }
     }
     }
@@ -156,7 +167,6 @@ section{
             opacity: 1;
             position: absolute;
             width: 80%;
-            height: 100vh;
             margin: 150px 10%;
             left: 0;
             top: 0px;

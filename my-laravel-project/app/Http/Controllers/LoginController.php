@@ -19,17 +19,17 @@ class LoginController extends Controller
             if(auth()->user()->first_login){
                 return redirect()->intended('/pass-change');
             }
-            // Đăng nhập thành công
+            // ログイン成功
             $request->session()->regenerate();
-            return redirect()->intended('/test')->with(['message'=>'login success']);
+            return redirect()->intended('/news');
         } else {
-            // Đăng nhập thất bại
+            // ログイン失敗
             return redirect()->back()->withErrors(['tel' => '電話番号かパスワードか間違います。']);
         }
     }
     public function logout()
     {
         Auth::logout();
-        return redirect('/login'); // Điều hướng về trang chủ hoặc trang nào bạn mong muốn sau khi đăng xuất
+        return redirect('/login'); //ログアウト時に転送。
     }
 }

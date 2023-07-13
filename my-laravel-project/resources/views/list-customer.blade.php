@@ -52,6 +52,7 @@
                 </li>
                 <li>
                         <form action="#">
+                            <img src="img\edit.png" alt="">
                             <button type="submit">編集</button>
                         </form>
                     </li>

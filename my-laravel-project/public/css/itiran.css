@@ -58,7 +58,6 @@ section h1:after {
 }
 section span {
   position: relative;
-  font-size: 24px;
 }
 
 .emp-list-area .search {
@@ -126,6 +125,9 @@ section span {
   cursor: pointer;
 }
 
+.intell {
+  height: auto;
+}
 @media screen and (max-width: 780px) {
   .intell {
     background-color: #ccc;
@@ -138,8 +140,22 @@ section span {
     margin: 150px 10%;
   }
 }
+.intell form {
+  padding: 5px 15px;
+  display: flex;
+  border: solid #000 3px;
+  border-radius: 25px;
+}
+.intell form img {
+  width: 50px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
 .intell form button {
-  padding: 20px 30px;
+  font-weight: 800;
+  background: none;
+  outline: none;
+  border: none;
 }
 
 ul:not(.menu) {
@@ -165,7 +181,6 @@ ul:not(.menu) li span {
     opacity: 1;
     position: absolute;
     width: 80%;
-    height: 100vh;
     margin: 150px 10%;
     left: 0;
     top: 0px;

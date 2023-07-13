@@ -19,6 +19,10 @@ class EmployeeController extends Controller
         return view('list-staff',compact('staffs'));        
     }
 
+    public function indexstaffProfile(){
+        return view('staffprofile');        
+    }
+
     public function GetListStaff(Request $request){
         if($request->ajax()){
             $id = $request->id;

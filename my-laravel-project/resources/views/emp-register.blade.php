@@ -13,11 +13,11 @@
     <section class="register">
         <div class="register-area">
             <h1>社員新規作成</h1>
+            <form action="/emp-register" method="POST">
             <ul class="register-areaUL">
                 @if (isset($message))
-                    <script>alert({{$message}})</script>
+                <p>{{$message}}</p>
                 @endif
-                <form action="/emp-register" method="POST">
                     @csrf
                     <li>
                         <span>社員名</span>
@@ -61,14 +61,14 @@
                             <span class="error">{{ $errors->first('remarks') }}</span>
                         @endif
                     </li>
-                    <input type="submit" value="登録">
-                </form>
             </ul>
+            <input type="submit" value="登録">
+            </form>
         </div>
     </section>
 
 @endsection
 @section('scripts')
-<script src="js/register.js"></script>
+<script src="js/register.js"></>
 <script src="js/index.js"></script>
 @endsection
