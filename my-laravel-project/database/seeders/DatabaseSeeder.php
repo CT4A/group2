@@ -20,7 +20,7 @@ class DatabaseSeeder extends Seeder
             LiquorLinkSeeder::class,
             ReserveMgSeeder::class,
             ShiftMgSeeder::class,
-            SlipMgSeeder::class
-            ]);
+            SlipMgSeeder::class,
+        ]);
     }
 }

@@ -83,5 +83,26 @@ $(document).ready(function(){
       $("#birthday").text(data["birthday"]);
       $("#remarks").text(data["remarks"]);
     }
+    
+    var currentDate = $("#currentDate").text();
+    var dateObject = new Date(currentDate);
 
+    //nextbtnの処理
+    $(".btn-next").click(function (e) { 
+      e.preventDefault();
+      let currentDate = $("#currentDate").text();
+      let dateObject = new Date(currentDate);
+      //次の月をまとめる。string型
+      currentDate = dateObject.getFullYear()+"-"+(dateObject.getMonth() + 2).toString().padStart(2, '0');
+      $("#currentDate").text(currentDate);
+    });
+    //previousbtnの処理
+    $(".btn-previous").click(function (e) { 
+      e.preventDefault();
+      let currentDate = $("#currentDate").text();
+      let dateObject = new Date(currentDate);
+      //次の月をまとめる。string型
+      currentDate = dateObject.getFullYear()+"-"+dateObject.getMonth().toString().padStart(2, '0');
+      $("#currentDate").text(currentDate);
+    });
 });

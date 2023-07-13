@@ -11,7 +11,6 @@
             <strong>{{session('message')}}</strong>
         </div>
     </div>
-
     <section class="register">
         <div class="register-area">
             <h1>キープボトル編集</h1>
