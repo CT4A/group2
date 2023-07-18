@@ -16,12 +16,12 @@ use App\Http\Controllers\newsController;
 use App\Http\Controllers\shiftController;
 use App\Http\Controllers\syukkinController;
 use App\Http\Controllers\EditorCustomer;
+use App\Http\Controllers\testController;
+
 Route::get('/', function () {
     return view('welcome');
 })->middleware('auth');
-Route::get('test', function () {
-    return view('test');
-})->middleware('auth');
+Route::get('test',[testController::class,'index']);
 
 //login
 Route::get('login',[LoginController::class,'index'])->name('login');
@@ -90,7 +90,11 @@ Route::middleware(['auth'])->group(function () {
     Route::get ('/reserve-register',  [resrveController::class,'index'])->name('indexResRegister');
     Route::post('/reserve-register',  [resrveController::class,'register']);
     // 給料明細
-    Route::get('/pay-statement', [EmployeeController::class,'indexPay'])->name('payStatement');
+    // Route::get('/pay-statement', [EmployeeController::class,'indexPay'])->name('payStatement');
+    Route::get('/pay-statement', function(){
+        return view('pay-statement');
+    })->name('payStatement');
+
     Route::post('/pay-statement', [EmployeeController::class,'personPay']);
     // Route::get('/pay-statement', [EmployeeController::class,'indexPay']);
     // Route::post('/getPayStaff/{id}', [EmployeeController::class,'personPay']);

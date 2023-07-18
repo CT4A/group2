@@ -1,6 +1,5 @@
 <h1>Test Page</h1>
-{{-- @foreach ($results as $result)
-    <p>{{$result}}</p>
-@endforeach --}}
-{{$results}}
-{{-- {{json_encode($staffs)}} --}}
+
+@foreach ($results as $s)
+    <p>{{json_encode($s)}}</p>
+@endforeach

@@ -79,27 +79,60 @@ class EmployeeController extends Controller
     //給料計算
     public function indexPay(Request $request)
     {
-        $results = DB::table('employees')
-        ->join('attend_leaves', 'employees.staff_id', '=', 'attend_leaves.staff_id')
-        ->leftJoin(DB::raw('(SELECT slip_links.staff_id, SUM(slip_mgs.total / slip.cnt) AS u
-                            FROM (
-                                SELECT slip_links.slip_id, COUNT(slip_links.staff_id) AS cnt
-                                FROM slip_links
-                                JOIN slip_mgs ON slip_links.slip_id = slip_mgs.slip_id
-                                GROUP BY slip_links.slip_id
-                            ) AS slip
-                            JOIN slip_mgs ON slip.slip_id = slip_mgs.slip_id
-                            JOIN slip_links ON slip_links.slip_id = slip.slip_id
-                            GROUP BY slip_links.staff_id) AS slip'), 'slip.staff_id', '=', 'staff.staff_id')
-        ->select('staff.staff_id', 'staff.staff_name', DB::raw('COALESCE(slip.u, 0) AS earnings'))
-        ->selectRaw('total_salary + ((slip.u - total_salary + total_money_people) * 0.1) AS total_salary')
-        ->select('total_time', 'total_working_days', 'total_money_people', 'total_salary AS basic_salary')
-        ->whereMonth('attend_leaves.work_date', '=', date('m'))
-        ->whereYear('attend_leaves.work_date', '=', date('Y'))
-        ->groupBy('employees.staff_id', 'employees.staff_name')
-        ->orderBy('employees.staff_id')
-        ->get();
-        return view('test',compact('results'));
+        $subQuery = DB::table('slip_links')
+    ->select('slip_links.slip_id', DB::raw('COUNT(slip_links.staff_id) as cnt'))
+    ->join('slip_mgs', 'slip_links.slip_id', '=', 'slip_mgs.slip_id')
+    ->groupBy('slip_links.slip_id');
+
+$slip = DB::table($subQuery, 'slip')
+    ->select('slip_links.staff_id', DB::raw('SUM(slip_mgs.total / slip.cnt) as total'))
+    ->join('slip_mgs', 'slip.slip_id', '=', 'slip_mgs.slip_id')
+    ->join('slip_links', 'slip_links.slip_id', '=', 'slip.slip_id')
+    ->groupBy('slip_links.staff_id');
+
+$staff = DB::table('employees')
+    ->select(
+        'employees.staff_name',
+        'employees.staff_id',
+        DB::raw('SUM(FLOOR(TIMESTAMPDIFF(MINUTE, attend_leaves.attend_time, attend_leaves.leaving_work) / 30)) as total_time'),
+        DB::raw('SUM(FLOOR(TIMESTAMPDIFF(MINUTE, attend_leaves.attend_time, attend_leaves.leaving_work) / 30) * employees.hourly_wage) as total_salary'),
+        DB::raw('COUNT(attend_leaves.work_date) AS total_working_days'),
+        DB::raw('SUM(CASE
+                WHEN attend_leaves.num_people > 0 THEN
+                    CASE
+                        WHEN attend_leaves.attend_time < "20:10:00" THEN attend_leaves.num_people * 2000
+                        WHEN attend_leaves.attend_time < "20:30:00" THEN attend_leaves.num_people * 1000
+                        ELSE 0
+                    END
+                ELSE 0
+            END) AS total_money_people')
+    )
+    ->join('attend_leaves', 'employees.staff_id', '=', 'attend_leaves.staff_id')
+    ->whereMonth('attend_leaves.work_date', '=', date('m'))
+    ->whereYear('attend_leaves.work_date', '=', date('Y'))
+    ->groupBy('employees.staff_id', 'employees.staff_name')
+    ->orderBy('employees.staff_id');
+
+$result = DB::table($slip, 'slip')
+    ->rightJoinSub($staff, 'staff', function ($join) {
+        $join->on('slip.staff_id', '=', 'staff.staff_id');
+    })
+    ->select(
+        'staff.staff_id',
+        'staff.staff_name',
+        DB::raw('COALESCE(u, 0) as Earnings'),
+        DB::raw('total_salary + ((u - total_salary + total_money_people) * 0.1) as total_salary'),
+        'total_time',
+        'total_working_days',
+        'total_money_people',
+        'total_salary as basic_salary'
+    )
+    ->get();
+
+
+    
+        
+        return view('test',compact('result'));
         // return view('pay-statement',compact('staffs'));
         // return view('test',compact('staff'));
     

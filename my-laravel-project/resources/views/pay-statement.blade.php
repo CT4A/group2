@@ -1,4 +1,8 @@
+@php
+    use Carbon\Carbon;
 
+    $current = Carbon::now()->format('Y-m');
+@endphp
 @extends('main')
 @section('styles')
 <link rel="stylesheet" href="{{asset('css/itiran.css')}}">
@@ -10,24 +14,23 @@
     <section class="emp-list">
         <div class="emp-list-area">
             <h1>給料明細</h1>
-            <form action="#" class="search">
-                <button type="submit">
-                    <img src="./img/oqCh3X9ndfQ__xOuxd5Oww==.png" alt="">
-                </button>
-                <input type="text" placeholder="社員の名前を入力してください">
-            </form>
+            <div class="date-button-area">
+                <div class="btn btn-previous">←</div>
+                <div class="btn YearMonth" id="currentDate">{{$current}}</div>
+                <div class="btn btn-next">→</div>
+            </div>
             <div class="emp-name">
                 <ul>
                     <div class="container">
                         <div id="c1">名前</div>
                         <div id="c2">給料</div>
                     </div>
-                    @foreach ($staffs as $staff)
+                    {{-- @foreach ($staffs as $staff) --}}
                         <li>
-                            <span data-id="{{$staff->staff_id}}">{{$staff->staff_name}}</span>
-                            <span data-id="{{$staff->staff_id}}">{{$staff->total_salary}}円</span>
+                            {{-- <span data-id="{{$staff->staff_id}}">{{$staff->staff_name}}</span>
+                            <span data-id="{{$staff->staff_id}}">{{$staff->total_salary}}円</span> --}}
                         </li>
-                    @endforeach
+                    {{-- @endforeach --}}
             </ul>
         </div>
     </div>
@@ -63,6 +66,12 @@
             </li>
             <li itemprop="description">
                 <span >基本給総合</span>
+                <span id="basic_salary">19,0000円</span>
+                <span ></span>
+            </li>
+            {{-- まだ引かれない --}}
+            <li itemprop="description">
+                <span >総合金額</span>
                 <span id="basic_salary">19,0000円</span>
                 <span ></span>
             </li>

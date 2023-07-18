@@ -445,3 +445,22 @@ ul:not(.menu) li span {
     display: flex;
   }
 }/*# sourceMappingURL=itiran.css.map */
+
+.date-button-area{
+  display: flex;
+  width: 70%;
+  margin: auto;
+  justify-content: center;
+  border: #555 1px solid;
+}
+.btn{
+  width: 30%;
+  text-align: center;
+}
+.YearMonth{
+  border-left: #555 1px solid;
+  border-right: #555 1px solid;
+}
+.btn-next,.btn-previous{
+  cursor: pointer;
+}
