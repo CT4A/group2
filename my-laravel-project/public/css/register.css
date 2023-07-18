@@ -207,6 +207,27 @@
   border-radius: 25px;
 }
 
+.passList input[type=password] {
+  border: none;
+  background: none;
+  outline: none;
+  font-size: 24px;
+}
+.passList input[type=password]:valid + span::after {
+  position: absolute;
+  content: "";
+  display: block;
+  color: #fff;
+  font-size: 24px;
+  width: 100%;
+}
+.passList input[type=password]:invalid + span::after {
+  content: "パスワードを入力してください";
+  display: block;
+  color: #fff;
+  font-size: 24px;
+  width: 100%;
+}
 .passList input[type=text]:valid + span::after {
   position: absolute;
   content: "";

@@ -129,6 +129,11 @@ header .menu_list ol li {
   margin: 10px 0;
   padding: 10px 0;
 }
+@media screen and (max-width: 780px) {
+  header .menu_list ol li {
+    width: 0%;
+  }
+}
 header .menu_list ol li a {
   opacity: 0;
   position: sticky;

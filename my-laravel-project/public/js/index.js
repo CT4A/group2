@@ -13,15 +13,30 @@ $(document).ready(function () {
     var hamburgerCnt =0;
     var windowNow = $(window);
     let prevScrollpos = window.pageYOffset;
-    $(window).scroll(function(){
-        let currentScrollPos = window.pageYOffset;
-        if (prevScrollpos > currentScrollPos) {
-            $(header).removeClass('scroll-down').addClass('scroll-up');
-        } else {
+    var scrollTime = 0;
+    // $(window).scroll(function(){
+    //     let currentScrollPos = window.pageYOffset;
+    //     if (prevScrollpos > currentScrollPos) {
+    //         $(header).removeClass('scroll-down').addClass('scroll-up');
+    //     } else {
+    //         $(header).removeClass('scroll-up').addClass('scroll-down');
+    //     }
+    //     prevScrollpos = currentScrollPos;
+    // });
+    $("main").on("touchstart",function(){
             $(header).removeClass('scroll-up').addClass('scroll-down');
-        }
-        prevScrollpos = currentScrollPos;
     });
+    $("main").on("touchend",function(){
+        clearTimeout = setTimeout(function(){
+            $(header).removeClass('scroll-down').addClass('scroll-up');
+        },1000);
+    });
+    // $(window).scroll(function(){
+    //     clearTimeout = setTimeout(function(){
+    //         $(header).removeClass('scroll-down').addClass('scroll-up');
+    //     },1000);
+    //         $(header).removeClass('scroll-up').addClass('scroll-down');
+    // });
     $(hamburgerIcon).click(function() {
         if(hamburgerCnt ==0){
             $(hamburgerArea).addClass('hamburger-area-aft');

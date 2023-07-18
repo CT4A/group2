@@ -7,14 +7,6 @@
     justify-content: center;
     align-items: center;
 }
-body{
-    .border{
-        width: 100%;
-        height: 15px;
-        background: linear-gradient(90deg, #cdffd8, #94b9ff);
-        position: fixed;
-    }
-}
 .loginBox {
     position: relative;
     height: 500px;
@@ -26,14 +18,26 @@ body{
         left: 0;
         right: 0;
         bottom: 0;
+        border: solid 1px rgba($color: #000000, $alpha: 0.1);
+        border-top: none;
         // background-color: rgba(0, 0, 0, 0.2); 
         background: rgba($color: #fff, $alpha: 0.7);
         z-index: 1; 
     }
+    &::after{
+        content: "";
+        top: 0;
+        left: 0;
+        display: block;
+        width: 100%;
+        height: 15px;
+        background: linear-gradient(90deg, #ddff00, hsl(41, 94%, 54%));
+        position: absolute;
+    }
     .loginBox-main {
         position: relative;
         z-index: 2;
-        color: #000;
+        color: #666;
     }
     input{
         outline: none;
@@ -44,6 +48,19 @@ body{
         width: 70%;
         margin-top: 20%;
         font-size: 20px;
+        div{
+            position: relative;
+            &::before{
+                content: "";
+                display: block;
+                position: absolute;
+                width: 40%;
+                height: 3px;
+                bottom: 0;
+                background: #666;
+
+            }
+        }
     }
     input[type="text"] {
         width: 100%;
@@ -67,7 +84,21 @@ body{
         display: flex;
     }
 }
-
+.btn-primary{
+    background: none;
+    color: #666;
+    font-size: 14px;
+}
+.btn-primary:hover{
+    border-color: #666;
+    background: #666;
+    color: none;
+}
+.btn-primary:active{
+    border-color: #666;
+    background: #666;
+    color: none;
+}
 img {
     height: 100%;
     padding-bottom: 2px;
@@ -82,7 +113,6 @@ img {
     width: 35%;
     border-radius: 20px;
     border: solid 2px #666;
-    // background: linear-gradient(90deg, #8c52ff, #5ce1e6);
 }
 .button {
     text-align: center;

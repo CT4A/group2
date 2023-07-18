@@ -11,7 +11,6 @@
 </head>
 
 <body>
-    <div class="border"></div>
     <div class="container-fluid main">
         <div class="loginBox p-4">
             <div class="loginBox-main">
@@ -25,7 +24,7 @@
                     @csrf
                     <div class="inputArea">
                         <div class="userIdArea">
-                            <input type="text" name="tel" id="" placeholder="電話番号：080-999-999">
+                            <input type="text" name="tel" id="" placeholder="電話番号:080-999-999">
                             <img src="{{asset('img/t.webp')}}" alt="">
                         </div>
                         @if ($errors->has('tel'))
