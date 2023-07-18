@@ -24,6 +24,7 @@
                 <span>社員</span>
                 <ol>
                     <div class="menu_ele">
+                        <li><a href="{{route('staffProfile')}}">個人情報</a></li>
                         <li><a href="{{route('list-staff')}}">社員一覧</a></li>
                         <li><a href="{{route('indexEmpRegister')}}">社員登録</a></li>
                         <li><a href="{{route('passChange')}}">パスワード変更</a></li>
@@ -88,9 +89,10 @@
                 <div>
                     <span>社員</span>
                     <div class="accordion-content">
-                        <a href="">社員一覧</a>
-                        <a href="">社員登録</a>
-                        <a href="">社員編集</a>
+                        <a href="{{route('staffProfile')}}">個人情報</a>
+                        <a href="{{route('indexEmpRegister')}}">社員一覧</a>
+                        <a href="{{route('payStatement')}}">社員登録</a>
+                        <a href="{{route('indexEmpRegister')}}">社員編集</a>
                     </div>
                     <div class="hamburger-area">
                 <div class="hamburgerContents">
@@ -99,6 +101,7 @@
                         <div class="accordion">
                             <span>社員</span>
                             <div class="accordion-content">
+                                <a href="{{route('staffProfile')}}">個人情報</a>
                                 <a href="{{route('list-staff')}}">社員一覧</a>
                                 <a href="{{route('indexEmpRegister')}}">社員登録</a>
                                 <a href="{{route('passChange')}}">パスワード変更</a>

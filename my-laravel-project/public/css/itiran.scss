@@ -1,6 +1,7 @@
 @import "./color.scss";
 body{
     // overflow: hidden;
+    color: #000;
     &::-webkit-scrollbar{
         width: 10px;
     }
@@ -31,7 +32,7 @@ section{
         width: 100%;
         }
     h1{
-        font-size: 6em;
+        font-size: 50px;
         border-bottom: solid 1px #000;
         width: 70%;
         margin:10px auto;
@@ -41,7 +42,6 @@ section{
             width: 50%;
             height: 3px;
             background:#555;
-            
         }
     }
     span{
@@ -117,9 +117,40 @@ section{
         }
     }
 }
+.staff-profile{
+    width: 80%;
+    margin: auto;
+    height: auto;
+    form{
+        padding: 5px 15px ;
+        display: flex;
+        border: solid #000 3px;
+        border-radius: 25px;
+        img{
+            width: 50px;
+            object-fit: cover;
+        }
+        button{
+            width: 0px;
+            padding: 0px;
+            font-weight: 800;
+            background: none;
+            outline: none;
+            border: none;
+            opacity: 0;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+        &:hover button{
+            opacity: 1;
+            transition: width 0.5s;
+            width: 50px;
+        }
+    }
+}
 .intell{
     height: auto;
-    @media screen and (max-width:780px) {   
+    @media screen and (max-width:780px){   
     background-color: #ccc;
     transition: all 1s;
     position: fixed;
@@ -139,10 +170,20 @@ section{
             object-fit: cover;
         }
         button{
+            width: 0px;
+            padding: 0px;
             font-weight: 800;
             background: none;
             outline: none;
             border: none;
+            opacity: 0;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+        &:hover button{
+            opacity: 1;
+            transition: width 0.5s;
+            width: 50px;
         }
     }
     }
@@ -324,6 +365,7 @@ section{
     width: 90%;
     margin:auto;
     span{
+        font-size: 24px;
         text-align: left;
         width: 100%;
     }

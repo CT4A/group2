@@ -6,6 +6,7 @@
 }
 
 body {
+  color: #000;
   background: #F4F1EC;
   transition: all 0.5s;
 }
@@ -44,7 +45,7 @@ section {
   }
 }
 section h1 {
-  font-size: 6em;
+  font-size: 50px;
   border-bottom: solid 1px #000;
   width: 70%;
   margin: 10px auto;
@@ -125,6 +126,39 @@ section span {
   cursor: pointer;
 }
 
+.staff-profile {
+  width: 80%;
+  margin: auto;
+  height: auto;
+}
+.staff-profile form {
+  padding: 5px 15px;
+  display: flex;
+  border: solid #000 3px;
+  border-radius: 25px;
+}
+.staff-profile form img {
+  width: 50px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.staff-profile form button {
+  width: 0px;
+  padding: 0px;
+  font-weight: 800;
+  background: none;
+  outline: none;
+  border: none;
+  opacity: 0;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.staff-profile form:hover button {
+  opacity: 1;
+  transition: width 0.5s;
+  width: 50px;
+}
+
 .intell {
   height: auto;
 }
@@ -152,10 +186,20 @@ section span {
      object-fit: cover;
 }
 .intell form button {
+  width: 0px;
+  padding: 0px;
   font-weight: 800;
   background: none;
   outline: none;
   border: none;
+  opacity: 0;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.intell form:hover button {
+  opacity: 1;
+  transition: width 0.5s;
+  width: 50px;
 }
 
 ul:not(.menu) {
@@ -340,6 +384,7 @@ ul:not(.menu) li span {
   margin: auto;
 }
 .bill-list-items-header span {
+  font-size: 24px;
   text-align: left;
   width: 100%;
 }

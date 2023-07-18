@@ -52,6 +52,12 @@
                     <span>備考</span>
                     <span id="remarks"></span>
                 </li>
+                <li>
+                        <form action="#">
+                            <img src="img\edit.png" alt="">
+                            <button type="submit">編集</button>
+                        </form>
+                    </li>
             </ul>
         </div>
         @csrf

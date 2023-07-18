@@ -34,12 +34,25 @@
   margin: 0 10%;
 }
 .register-area form input[type=submit] {
+  transition: all 0.3s;
+  font-weight: 900;
   border-radius: 25px;
-  border: none;
+  color: #666;
+  border: solid 4px #666;
   width: 60%;
   margin: 0 20%;
   padding: 25px;
   font-size: 24px;
+  background: none;
+}
+.register-area form input[type=submit]::before {
+  content: "";
+  display: block;
+  width: 0%;
+}
+.register-area form input[type=submit]:active {
+  background: #666;
+  color: #F4F1EC;
 }
 @media screen and (min-width: 1080px) {
   .register-area .register-areaUL {
@@ -109,6 +122,8 @@
   padding: 20px 20px;
   cursor: pointer;
   border-radius: 25px;
+  color: #333;
+  border: solid 2px #333;
 }
 .register-area .register-areaUL .plus-btn ::before {
   content: "";
