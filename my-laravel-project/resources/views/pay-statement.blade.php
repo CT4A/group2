@@ -10,7 +10,6 @@
 @section('title', '給料明細')
 
 @section('content')
-<main>
     <section class="emp-list">
         <div class="emp-list-area">
             <h1>給料明細</h1>

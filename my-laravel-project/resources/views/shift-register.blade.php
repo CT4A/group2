@@ -17,9 +17,9 @@ $today = Carbon::now()->format('Y/m/d');
     <section class="register">
         <div class="register-area">
             <h1>シフト登録</h1>
-            <ul>
-                <form action="/shift-register" method="POST">
-                    @csrf
+            <form action="/shift-register" method="POST">
+            @csrf
+            <ul class="register-areaUL">
                 <li>
                     <span>日付</span>
                     <input type="text" name="request_date" value="{{$today}}">
@@ -64,8 +64,8 @@ $today = Carbon::now()->format('Y/m/d');
                     </li>
                 </ol>
                 <input type="submit" value="登録">
-                </form>
             </ul>
+            </form>
         </div>
     </section>
 @endsection

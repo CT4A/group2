@@ -48,11 +48,11 @@ $(document).ready(function(){
       console.log("tesa");
       let keySearch=$(this).val();
       console.log(keySearch);
-      let staffList = $(".emp-name ul li span");
+      let staffList = $(".emp-name ul li");
       staffList.fadeIn();
       for (let i = 0; i < staffList.length; i++) {
         if (staffList[i].textContent.indexOf(keySearch) == -1) {
-          $(".emp-name ul li span").eq(i).fadeOut();
+          $(staffList).eq(i).fadeOut();
         }
       }
     });

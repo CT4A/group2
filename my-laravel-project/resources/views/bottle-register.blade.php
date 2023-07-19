@@ -15,9 +15,9 @@
     <section class="register">
         <div class="register-area">
             <h1>ボトル登録</h1>
-            <ul class="register-areaUL">
-                <form action="/bottle-register" method="POST">
+            <form action="/bottle-register" method="POST">
                     @csrf
+            <ul class="register-areaUL">
                     <li class="kinds">
                         <span>種類</span>
                         <div class="kinds-selecter">
@@ -39,10 +39,10 @@
                         <span class="error">{{ $errors->first('liquor_name') }}</span>
                         @endif
                     </li>
-                    <input type="submit" value="登録">
-                </form>
-            </ul>
+                    <input type="submit" value="登録">            </ul>
         </div>
+        </form>
+
     </section>
 @endsection
 @section('scripts')

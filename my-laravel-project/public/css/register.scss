@@ -2,7 +2,6 @@
 .register{
     height: auto;
     border-radius: 50px;
-    // background-color: #333;
     color: #333;
 }
 .register-area{
@@ -44,10 +43,6 @@
                 width: 0%;
                 
             }
-            &:hover{
-                // background: #666;
-                // color: #F4F1EC;
-            }
             &:active{
                 background: #666;
                 color: #F4F1EC;
@@ -55,6 +50,9 @@
         }
     }
     .register-areaUL{
+        .error{
+            color: red;
+        }
         @media screen and (min-width:1080px) {
             height: 600px;
             overflow-y: scroll;
@@ -92,7 +90,6 @@
                 resize: none;
                 width: 100%;
                 outline: none;
-                // max-width: 500px;
             }
             input[type="checkbox"]{
                 height: 50px;
