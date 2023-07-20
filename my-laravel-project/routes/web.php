@@ -85,7 +85,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/list-bottle',function () {
         return view('list-bottle');
     });
-    Route::post('/list-bottle', [bottleController::class,'RegisterBottle']);
+    // Route::post('/list-bottle', [bottleController::class,'RegisterBottle']);
     //予約
     Route::get ('/reserve-register',  [resrveController::class,'index'])->name('indexResRegister');
     Route::post('/reserve-register',  [resrveController::class,'register']);

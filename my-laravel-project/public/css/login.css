@@ -1,95 +1,145 @@
+@charset "UTF-8";
 .main {
-    background: linear-gradient(90deg, #cdffd8, #94b9ff);
-    height: 100vh;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  background: #F4F1EC;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .loginBox {
-    position: relative;
-    height: 500px;
-    width: 500px;
-    position: absolute;
+  position: relative;
+  height: 500px;
+  width: 500px;
 }
-
 .loginBox::before {
-    border-radius: 30px;
-    border: 1px solid rgba(0, 0, 0, 0.2);
-    content: "";
-    position: absolute; /* Đặt vị trí tuyệt đối cho màn phủ */
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.2); /* Đặt màu nền cho màn phủ */
-    z-index: 1; /* Đảm bảo màn phủ hiển thị trên nền */
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border: solid 1px rgba(0, 0, 0, 0.1);
+  border-top: none;
+  background: rgba(255, 255, 255, 0.7);
+  z-index: 1;
+}
+.loginBox::after {
+  content: "";
+  top: 0;
+  left: 0;
+  display: block;
+  width: 100%;
+  height: 15px;
+  background: linear-gradient(90deg, #ddff00, hsl(41, 94%, 54%));
+  position: absolute;
+}
+.loginBox .loginBox-main {
+  position: relative;
+  z-index: 2;
+  color: #666;
+}
+.loginBox input {
+  outline: none;
+}
+.loginBox .inputArea {
+  margin: 0 auto;
+  position: relative;
+  width: 70%;
+  margin-top: 20%;
+  font-size: 20px;
+}
+.loginBox .inputArea div {
+  position: relative;
+}
+.loginBox .inputArea div::before {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 40%;
+  height: 3px;
+  bottom: 0;
+  background: #666;
+}
+.loginBox input[type=text] {
+  width: 100%;
+  height: 100%;
+  margin-bottom: 10px;
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+}
+.loginBox input[type=password] {
+  width: 100%;
+  height: 100%;
+  margin-bottom: 10px;
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+}
+.loginBox .userIdArea,
+.loginBox .passArea {
+  border-bottom: 1px solid #000;
+  height: 3em;
+  margin-bottom: 10px;
+  display: flex;
 }
 
-.loginBox-main {
-    position: relative;
-    z-index: 2;
-    color: #000;
+.btn-primary {
+  background: none;
+  color: #666;
+  font-size: 14px;
 }
 
-.inputArea {
-    margin: 0 auto;
-    position: relative;
-    width: 70%;
-    margin-top: 20%;
-    font-size: 20px;
+.btn-primary:hover {
+  border-color: #666;
+  background: #666;
+  color: none;
 }
 
-input {
-    width: 100%;
-    height: 100%;
-    margin-bottom: 10px;
-    background-color: rgba(0, 0, 0, 0);
-    border: none;
-}
-.userIdArea,
-.passArea {
-    border-bottom: 1px solid #000;
-    height: 3em;
-    margin-bottom: 10px;
-    display: flex;
+.btn-primary:active {
+  border-color: #666;
+  background: #666;
+  color: none;
 }
 
 img {
-    height: 100%;
-    padding-bottom: 2px;
+  height: 100%;
+  padding-bottom: 2px;
 }
+
 .userIdArea img {
-    padding-right: 5px;
+  padding-right: 5px;
 }
+
 .TextHeader {
-    margin-top: 40px;
+  margin-top: 40px;
 }
+
 .btnlogin {
-    width: 35%;
-    border-radius: 20px;
-    border: 2px solid black;
-    background: linear-gradient(90deg, #8c52ff, #5ce1e6);
+  width: 35%;
+  border-radius: 20px;
+  border: solid 2px #666;
 }
+
 .button {
-    text-align: center;
-    position: relative;
-    bottom: -40px;
+  text-align: center;
+  position: relative;
+  bottom: -40px;
 }
+
 /* スマホ画面 */
 @media only screen and (min-width: 220px) and (max-width: 860px) {
-    body {
-        background: linear-gradient(90deg, #cdffd8, #94b9ff);
-    }
-    .main {
-        width: 100%;
-        display: flex;
-        position: fixed;
-        height: 100%;
-    }
-    .loginBox::before {
-        width: 100%;
-        height: 500px;
-    }
-}
+  body {
+    background: linear-gradient(90deg, #cdffd8, #94b9ff);
+  }
+  .main {
+    width: 100%;
+    display: flex;
+    position: fixed;
+    height: 100%;
+  }
+  .loginBox::before {
+    width: 100%;
+    height: 500px;
+  }
+}/*# sourceMappingURL=login.css.map */

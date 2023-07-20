@@ -22,45 +22,45 @@
                     <li>
                         <span>社員名</span>
                         <input type="text" name="staff_name" value="{{ old('staff_name') }}">
-                        @if ($errors->has('staff_name'))
-                            <span class="error">{{ $errors->first('staff_name') }}</span>
-                        @endif
                     </li>
+                    @if ($errors->has('staff_name'))
+                            <span class="error">※{{ $errors->first('staff_name') }}</span>
+                        @endif
                     <li>
                         <span>電話番号</span>
                         <input type="text" name="tel" value="{{ old('tel') }}">
-                        @if ($errors->has('tel'))
-                            <span class="error">{{ $errors->first('tel') }}</span>
-                        @endif
                     </li>
+                    @if ($errors->has('tel'))
+                            <span class="error">※{{ $errors->first('tel') }}</span>
+                        @endif
                     <li>
                         <span>住所</span>
                         <input type="text" name="residence"  value="{{ old('residence') }}">
-                        @if ($errors->has('residence'))
-                            <span class="error">{{ $errors->first('residence') }}</span>
-                        @endif
                     </li>
+                    @if ($errors->has('residence'))
+                            <span class="error">※{{ $errors->first('residence') }}</span>
+                        @endif
                     <li>
                         <span>誕生日</span>
                         <input type="date" name="birthday"  value="{{ old('birthday') }}">
                         @if ($errors->has('birthday'))
-                            <span class="error">{{ $errors->first('birthday') }}</span>
+                            <span class="error">※{{ $errors->first('birthday') }}</span>
                         @endif
                     </li>
                     <li>
                         <span>時給</span>
                         <input type="text" name="hourly_wage"  value="{{ old('hourly_wage') }}"  placeholder="￥">
-                        @if ($errors->has('hourly_wage'))
-                            <span class="error">{{ $errors->first('hourly_wage') }}</span>
-                        @endif
                     </li>
+                    @if ($errors->has('hourly_wage'))
+                            <span class="error">※{{ $errors->first('hourly_wage') }}</span>
+                        @endif
                     <li>
                         <span>備考</span>
                         <textarea name="remarks"  value="{{ old('remarks') }}"></textarea>
-                        @if ($errors->has('remarks'))
-                            <span class="error">{{ $errors->first('remarks') }}</span>
-                        @endif
                     </li>
+                    @if ($errors->has('remarks'))
+                            <span class="error">※{{ $errors->first('remarks') }}</span>
+                        @endif
             </ul>
             <input type="submit" value="登録">
             </form>

@@ -24,10 +24,10 @@ $today = Carbon::now()->format('Y/m/d');
                     <li>
                         <span>顧客名</span>
                         <input type="text" name="customer_name">
-                        @if ($errors->has('customer_name'))
+                    </li> 
+                    @if ($errors->has('customer_name'))
                             <span class="error">{{ $errors->first('customer_name') }}</span>
                         @endif
-                    </li> 
                     <li>
                         <span>人数</span>
                         <input type="text" name="reserve_people">
@@ -38,10 +38,10 @@ $today = Carbon::now()->format('Y/m/d');
                     <li>
                         <span>テーブル番号</span>
                         <input type="text" name="table_number">
-                        @if ($errors->has('table_number'))
-                            <span class="error">{{ $errors->first('table_number') }}</span>
-                        @endif
                     </li>
+                    @if ($errors->has('table_number'))
+                            <span class="error">{{ $errors->first('table_number') }}</span>
+                        @endif                             
                     <li class="kinds">
                         <span>担当者</span>
                         <div class="kinds-selecter">
@@ -61,24 +61,24 @@ $today = Carbon::now()->format('Y/m/d');
                     <li>
                         <span>日付</span>
                         <input type="date" id="reserve_date" name="reserve_date" value="{{$today}}">
-                        @if ($errors->has('reserve_date'))
+                    </li>
+                    @if ($errors->has('reserve_date'))
                             <span class="error">{{ $errors->first('reserve_date') }}</span>
                         @endif
-                    </li>
                     <li>
                         <span>予約時間</span>
                         <input type="text" name="reserve_time">
-                        @if ($errors->has('reserve_time'))
+                    </li>
+                    @if ($errors->has('reserve_time'))
                             <span class="error">{{ $errors->first('reserve_time') }}</span>
                         @endif
-                    </li>
                     <li>
                         <span>制限</span>
                         <input type="text" name="upper_limit" placeholder="￥">
-                        @if ($errors->has('upper_limit'))
+                    </li>
+                    @if ($errors->has('upper_limit'))
                             <span class="error">{{ $errors->first('customupper_limiter_id') }}</span>
                         @endif
-                    </li>
                     <li>
                         <span>備考</span>
                         <textarea name="remarks" ></textarea>

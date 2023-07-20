@@ -24,7 +24,7 @@
                     @csrf
                     <div class="inputArea">
                         <div class="userIdArea">
-                            <input type="text" name="tel" id="" placeholder="電話番号：080999999">
+                            <input type="text" name="tel" id="" placeholder="電話番号:080-999-999">
                             <img src="{{asset('img/t.webp')}}" alt="">
                         </div>
                         @if ($errors->has('tel'))

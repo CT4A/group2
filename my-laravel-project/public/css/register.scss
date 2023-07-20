@@ -2,7 +2,6 @@
 .register{
     height: auto;
     border-radius: 50px;
-    // background-color: #333;
     color: #333;
 }
 .register-area{
@@ -28,15 +27,32 @@
         width: 80%;
         margin: 0 10%;
         input[type="submit"]{
+            transition: all 0.3s;
+            font-weight: 900;
             border-radius: 25px;
-            border: none;
+            color: #666;
+            border: solid 4px #666;
             width: 60%;
             margin: 0 20%;
             padding:  25px;
             font-size: 24px;
+            background: none;
+            &::before{
+                content:"";
+                display: block;
+                width: 0%;
+                
+            }
+            &:active{
+                background: #666;
+                color: #F4F1EC;
+            }
         }
     }
     .register-areaUL{
+        .error{
+            color: red;
+        }
         @media screen and (min-width:1080px) {
             height: 600px;
             overflow-y: scroll;
@@ -74,7 +90,6 @@
                 resize: none;
                 width: 100%;
                 outline: none;
-                // max-width: 500px;
             }
             input[type="checkbox"]{
                 height: 50px;
@@ -102,6 +117,8 @@
                 padding: 20px 20px; 
                 cursor: pointer;
                 border-radius: 25px;
+                color: #333;
+                border: solid 2px #333;
             }
             ::before{
                 content: "";
@@ -186,6 +203,27 @@
         }
     }
     .passList{
+        input[type="password"]{
+            border: none;
+            background: none;
+            outline: none;
+            font-size: 24px;
+        }
+        input[type="password"]:valid + span::after{
+            position: absolute;
+            content: "";
+            display: block;
+            color: #fff;
+            font-size: 24px;
+            width: 100%;
+        }
+        input[type="password"]:invalid + span::after{
+            content: "パスワードを入力してください";
+            display: block;
+            color: #fff;
+            font-size: 24px;
+            width: 100%;
+        }
         input[type="text"]:valid + span::after{
                 position: absolute;
                 content: "";
@@ -201,4 +239,5 @@
                 font-size: 24px;
                 width: 100%;
             }
+
         }

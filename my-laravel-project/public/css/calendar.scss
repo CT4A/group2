@@ -1,4 +1,27 @@
 #calendar{
     width: 90%;
     margin: auto;
+    @media screen and (max-width: 780px) {
+        width: 100%;
+    }
+    .fc-header-toolbar{
+        @media screen and (max-width: 780px) {
+            width: 90%;
+            margin: auto;
+        }
+    }
+    .fc-daygrid-day-number{
+        font-weight: 900;
+    }
+    .fc-button-group{
+        @media screen and (max-width: 780px) {
+            width: 100px;
+            }
+    }
+    .fc-scrollgrid-sync-table{
+        width: 100% !important;
+        @media screen and (max-width: 780px) {
+        height: 100vh;
+        }
+    }
 }

@@ -71,11 +71,11 @@ $(document).ready(function(){
     //検索機能
     $('#search').keyup(function (e) { 
       let keySearch=$(this).val();
-      let staffList = $(".emp-name ul li span");
+      let staffList = $(".emp-name ul li");
       staffList.show();
       for (let i = 0; i < staffList.length; i++) {
         if (staffList[i].textContent.indexOf(keySearch) == -1) {
-          $(".emp-name ul li span").eq(i).hide();
+          $(staffList).eq(i).hide();
         }
       }
     });

@@ -1,4 +1,31 @@
 #calendar {
   width: 90%;
   margin: auto;
+}
+@media screen and (max-width: 780px) {
+  #calendar {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 780px) {
+  #calendar .fc-header-toolbar {
+    width: 90%;
+    margin: auto;
+  }
+}
+#calendar .fc-daygrid-day-number {
+  font-weight: 900;
+}
+@media screen and (max-width: 780px) {
+  #calendar .fc-button-group {
+    width: 100px;
+  }
+}
+#calendar .fc-scrollgrid-sync-table {
+  width: 100% !important;
+}
+@media screen and (max-width: 780px) {
+  #calendar .fc-scrollgrid-sync-table {
+    height: 100vh;
+  }
 }/*# sourceMappingURL=calendar.css.map */

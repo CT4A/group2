@@ -18,17 +18,17 @@
                 @csrf
                 <li class="passList">
                     <span>現在のパスワード</span>
-                    <input type="text" name="now_password" required>
+                    <input type="password" name="now_password" required>
               
                 </li>
                 <li class="passList">
                     <span>新規パスワード</span>
-                    <input type="text" name="new_password" required>
+                    <input type="password" name="new_password" required>
                    
                 </li>
                 <li class="passList">
                     <span>新規パスワード[確認]</span>
-                    <input type="text" name="new_passwordConf" required>
+                    <input type="password" name="new_passwordConf" required>
                   
                 </li>
                 <input type="submit" value="登録">
@@ -39,5 +39,4 @@
 @endsection
 @section('scripts')
 <script src="js/register.js"></script>
-<script src="js/index.js"></script>
 @endsection

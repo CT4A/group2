@@ -10,7 +10,6 @@
 @section('title', '給料明細')
 
 @section('content')
-<main>
     <section class="emp-list">
         <div class="emp-list-area">
             <h1>給料明細</h1>
@@ -22,13 +21,15 @@
             <div class="emp-name">
                 <ul>
                     <div class="container">
-                        <div id="c1">名前</div>
-                        <div id="c2">給料</div>
+                        <span id="c1">名前</span>
+                        <span id="c2">給料</span>
                     </div>
                     {{-- @foreach ($staffs as $staff) --}}
                         <li>
-                            {{-- <span data-id="{{$staff->staff_id}}">{{$staff->staff_name}}</span>
-                            <span data-id="{{$staff->staff_id}}">{{$staff->total_salary}}円</span> --}}
+                            {{-- 
+                            <span data-id="{{$staff->staff_id}}">{{$staff->staff_name}}</span>
+                            <span data-id="{{$staff->staff_id}}">{{$staff->total_salary}}円</span> 
+                            --}}
                         </li>
                     {{-- @endforeach --}}
             </ul>

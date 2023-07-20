@@ -15,13 +15,11 @@
         </form>
         <div class="emp-name">
         <ul>
-            <li><span id="">あかばちゃんかわいい</span></li>        
-            <li><span id="">あかばちゃんかわいい</span></li>        
-            <li><span id="">あかばちゃんかわいい</span></li>        
-            <li><span id="">あかばちゃんかわいい</span></li>        
-            <li><span id="">あかばちゃんかわいい</span></li>        
-            <li><span id="">あかばちゃんかわいい</span></li>        
-            <li><span id="">あかばちゃんかわいい</span></li>        
+            <li><span id="">山崎55年</span></li>
+            <li><span id="">山崎55年</span></li> 
+            <li><span id="">山崎55年</span></li> 
+            <li><span id="">山崎55年</span></li> 
+            <li><span id="">山崎55年</span></li> 
         </ul>
     </div>
 </div>

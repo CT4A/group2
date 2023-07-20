@@ -63,9 +63,6 @@ header {
         margin: 0 3%;
         display: flex;
         color: #c1ab05;
-        // @media screen and (max-width:1080px) {
-        //     font-size: 16px;
-        // }
         @media screen and (max-width:780px) {
             font-size: 0;
         }
@@ -76,7 +73,6 @@ header {
             span{
                 cursor: default;
                 white-space: nowrap;
-                // overflow: hidden;
                 padding: 10px 30px;
                 position: relative;
                 @media screen and (max-width:780px) {
@@ -98,7 +94,7 @@ header {
                 }
             }
             ol{
-                // height: 0;
+
                 transition: all 0.3s;
                 color: #020000;
                 padding: 0;
@@ -115,6 +111,9 @@ header {
                     flex-wrap: wrap;
                 }
                 li{
+                    @media screen and (max-width:780px) {
+                    width: 0%;
+                    }
                     left: 0;
                     width: 20%;
                     font-size: 0px;
@@ -125,7 +124,6 @@ header {
                         position: sticky;
                         z-index: 10;
                         &:hover{
-                            // width: 100%;
                             background: #007aff;
                             color: #F7F6F4;
                             }
@@ -283,7 +281,6 @@ header {
 }
 @media screen and (max-width:780px) {
     .menu__link {
-        // font-size:0;
         width: 0;
         height: 0;
         padding: 0;
@@ -336,7 +333,6 @@ header {
         &::after{
             content: "";
             display: block;
-            // position: absolute;
             width: 50px;
             height: 1px;
             background-color: #c1ab05;
