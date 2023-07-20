@@ -80,10 +80,10 @@
                 </ol>
             </li>
         </ul>
-      <div class="hamburger-area">
-      <div class="hamburger-icon">
-      </div>
-      <div class="hamburgerContents">
+    <div class="hamburger-area">
+    <div class="hamburger-icon">
+    </div>
+    <div class="hamburgerContents">
         <ul>
             <li>
                 <div>

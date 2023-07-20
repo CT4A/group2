@@ -93,8 +93,11 @@ $(document).ready(function(){
       let currentDate = $("#currentDate").text();
       let dateObject = new Date(currentDate);
       //次の月をまとめる。string型
+      console.log(dateObject)
+      if(dateObject.getMonth() <= 11){
       currentDate = dateObject.getFullYear()+"-"+(dateObject.getMonth() + 2).toString().padStart(2, '0');
       $("#currentDate").text(currentDate);
+      }
     });
     //previousbtnの処理
     $(".btn-previous").click(function (e) { 
@@ -102,7 +105,9 @@ $(document).ready(function(){
       let currentDate = $("#currentDate").text();
       let dateObject = new Date(currentDate);
       //次の月をまとめる。string型
+      if(dateObject.getMonth() >= 1){
       currentDate = dateObject.getFullYear()+"-"+dateObject.getMonth().toString().padStart(2, '0');
       $("#currentDate").text(currentDate);
+      }
     });
 });

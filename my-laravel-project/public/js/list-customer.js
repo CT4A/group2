@@ -44,15 +44,12 @@ $(document).ready(function(){
     var flagSearch=0;
     //検索機能
     $('#search').keyup(function (e) { 
-      console.log(e.key);
-      console.log("tesa");
       let keySearch=$(this).val();
-      console.log(keySearch);
       let staffList = $(".emp-name ul li");
-      staffList.fadeIn();
+      staffList.show();
       for (let i = 0; i < staffList.length; i++) {
         if (staffList[i].textContent.indexOf(keySearch) == -1) {
-          $(staffList).eq(i).fadeOut();
+          $(staffList).eq(i).hide();
         }
       }
     });
