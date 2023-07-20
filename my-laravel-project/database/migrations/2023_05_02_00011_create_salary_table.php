@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('salarys', function (Blueprint $table) {
             $table->unsignedBigInteger('staff_id')->primary();
-            $table->date('salary_date');
+            $table->timestamp('salary_date')->useCurrent();
             $table->unsignedBigInteger('basic_salary');
             $table->unsignedBigInteger('total_working_days');
             $table->unsignedBigInteger('total_time');

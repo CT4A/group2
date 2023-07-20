@@ -15,6 +15,10 @@ document.addEventListener('DOMContentLoaded', function() {
             month: '月',
             list: 'リスト'
         },
+        dayCellDidMount : function(e) {
+            var el = e.el.querySelector('.fc-daygrid-day-number');
+            el.textContent = el.textContent.replace("日","");
+          },
         noEventsContent: 'スケジュールはありません',
         events:'/get_events',
     });
