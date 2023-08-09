@@ -204,8 +204,8 @@ section{
                 display: flex;
                 span{
                     margin: 10px;
-                    word-wrap: break-word; /* 長い単語を途中で改行する */
-                    overflow-wrap: break-word; /* 上記のプロパティのエイリアス */
+                    word-wrap: break-word;
+                    overflow-wrap: break-word; 
                 }
         }
     }
@@ -262,7 +262,10 @@ section{
         ul{
             width: 100%;
             &:nth-child(1){
-                padding-top: 180px;
+                @media screen and (max-width:780px) {
+                    padding-top: 180px;
+                    }
+                padding-top: 90px;
             }
             li{
                 width: 100%;

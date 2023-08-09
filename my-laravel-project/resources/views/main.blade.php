@@ -146,6 +146,7 @@
         @yield('content')
     </main>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- <script src="../../jquery-3.7.0.min.js"></script> -->
     <script src="{{asset('js/index.js')}}"></script>
     @yield('scripts')
 </body>

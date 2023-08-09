@@ -1,4 +1,3 @@
-@charset "UTF-8";
 .ContentCenter {
   display: grid;
   grid-template-columns: 1fr;
@@ -222,8 +221,8 @@ ul:not(.menu) li {
 }
 ul:not(.menu) li span {
   margin: 10px;
-  word-wrap: break-word; /* 長い単語を途中で改行する */
-  overflow-wrap: break-word; /* 上記のプロパティのエイリアス */
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 @media screen and (max-width: 780px) {
@@ -284,7 +283,12 @@ ul:not(.menu) li span {
   width: 100%;
 }
 .bill-list .bill-list-items ul:nth-child(1) {
-  padding-top: 180px;
+  padding-top: 90px;
+}
+@media screen and (max-width: 780px) {
+  .bill-list .bill-list-items ul:nth-child(1) {
+    padding-top: 180px;
+  }
 }
 .bill-list .bill-list-items ul li {
   width: 100%;

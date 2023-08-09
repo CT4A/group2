@@ -12,7 +12,6 @@ $(document).ready(function(){
     filterClose=$(".filter-close");
     $(intellmain).on('click', function(event) {
       if ($(event.target).closest('.intell').length == 0) {
-        console.log("click")
         $('body').removeClass("intell-aft");
       }
     });
@@ -25,7 +24,6 @@ $(document).ready(function(){
       }
     })
     $(filBtn).click(function(){
-      console.log("test");
       $(filArea).addClass("filter-area-aft");
     });
     $(filterClose).click(function(){
@@ -55,19 +53,19 @@ $(document).ready(function(){
       });
     });
     var flagSearch=0;
-    $("#billSearch").keyup(function(e){
-      let BillSearch = $(this).val();
-      let BillCustomername = $(".bill-list-items ul .customer_name");
-      let BillStaffname = $(".bill-list-items ul .staff_name");
-      BillCustomername.parent().show();
-      for (let i = 0 ; i < BillCustomername.length; i++){
-        if($(BillCustomername[i]).text().indexOf(BillSearch) == -1){
-          if($(BillStaffname[i]).text().indexOf(BillSearch) == -1 ){
-          $(BillCustomername).parent().eq(i).hide();
-        }
-        }
-      }
-    })
+    // $("#billSearch").keyup(function(e){
+    //   let BillSearch = $(this).val();
+    //   let BillCustomername = $(".bill-list-items ul .customer_name");
+    //   let BillStaffname = $(".bill-list-items ul .staff_name");
+    //   BillCustomername.parent().show();
+    //   for (let i = 0 ; i < BillCustomername.length; i++){
+    //     if($(BillCustomername[i]).text().indexOf(BillSearch) == -1){
+    //       if($(BillStaffname[i]).text().indexOf(BillSearch) == -1 ){
+    //       $(BillCustomername).parent().eq(i).hide();
+    //     }
+    //     }
+    //   }
+    // })
     //検索機能
     $('#search').keyup(function (e) { 
       let keySearch=$(this).val();
