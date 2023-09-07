@@ -23,7 +23,13 @@
   background-color: #666;
 }
 @media screen and (max-width: 780px) {
-  .history .history_item {
+  .history .history_item *:not(.calendar_item, img, figure) {
+    font-size: 22px;
+    margin: 10px;
+  }
+}
+@media screen and (max-width: 780px) {
+  .history .history_item figcaption {
     display: grid;
   }
 }
@@ -49,15 +55,10 @@
 }
 .history .history_info {
   margin: 20px;
-  font-size: 24px;
+  font-size: 18px !important;
   display: flex;
   justify-content: center;
   align-items: center;
-}
-@media screen and (max-width: 780px) {
-  .history .history_info {
-    display: grid;
-  }
 }
 .history .history_info .history_info_item {
   background: rgba(0, 0, 0, 0.1);
@@ -67,36 +68,17 @@
   font-size: 44px;
   color: #333;
   display: flex;
-  padding: 25px;
   justify-content: center;
   align-items: center;
-}
-.history .history_info .history_info_item::before {
-  content: "";
-  position: absolute;
-  top: -5px;
-  left: -5px;
-  border-top: solid 10px gray;
-  border-left: solid 10px gray;
-  width: 50px;
-  height: 50px;
-}
-.history .history_info .history_info_item::after {
-  content: "";
-  position: absolute;
-  bottom: -5px;
-  right: -5px;
-  border-bottom: solid 10px gray;
-  border-right: solid 10px gray;
-  width: 50px;
-  height: 50px;
 }
 @media screen and (max-width: 780px) {
   .history .history_info .history_info_item {
     width: 100%;
+    font-size: 18px;
   }
 }
 .history .history_info .history_info_item time {
+  margin: 5px;
   border-right: solid 1px #333;
 }
 .history .history_info .history_info_item div {
@@ -116,6 +98,8 @@
   margin-top: 10px;
 }
 .history .history_info .history_info_btn {
+  position: fixed;
+  left: 1500px;
   display: grid;
   margin: 30px;
 }
@@ -123,14 +107,34 @@
   .history .history_info .history_info_btn {
     display: flex;
     justify-content: center;
+    opacity: 0;
   }
 }
 .history .history_info .history_info_btn button {
   background: white;
   border: solid;
   border: none;
-  width: 100px;
-  font-size: 24px;
-  margin: 10px;
+  font-size: 18px;
+  margin: 5px;
   position: relative;
+}
+@media screen and (max-width: 780px) {
+  .history .history_info_aft {
+    position: relative;
+  }
+  .history .history_info_aft .history_info_btn {
+    display: initial;
+    position: absolute;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    -webkit-backdrop-filter: contrast(0.5);
+            backdrop-filter: contrast(0.5);
+    opacity: 1;
+  }
+  .history .history_info_aft .history_info_btn .history_info_btn-field {
+    position: inherit;
+    bottom: 0;
+  }
 }/*# sourceMappingURL=history.css.map */

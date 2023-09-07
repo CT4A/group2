@@ -41,7 +41,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('list-staff' ,[EmployeeController::class,'index'])->name('list-staff');
     Route::post('/getInfoStaff/{id}', [EmployeeController::class,'GetListStaff']);
     
-    //社員profile
+    //社員プロフィール
     Route::get('staffProfile' ,[EmployeeController::class,'indexstaffProfile'])->name('staffProfile');
     // Route::post('/getInfoStaff/{id}', [EmployeeController::class,'GetListStaff']);
     
@@ -77,8 +77,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/bottle-register', [bottleController::class,'index'])->name('indexRegister');
     Route::post('/bottle-register', [bottleController::class,'RegisterBottle']);
         // 編集
-        Route::get('/editor',function(){
-            return view('editor');
+        Route::get('/KeepBottle-editor',function(){
+            return view('KeepBottle-editor');
         });
         // Route::post('/editor', [bottleController::class,'RegisterBottle']);
     // ボトル一覧

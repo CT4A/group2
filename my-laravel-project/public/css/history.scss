@@ -20,9 +20,15 @@
                 height: 1px;
                 background-color: #666;
             }
+            @media screen and (max-width:780px) {
+                font-size:22px;
+                margin: 10px;
+            }   
         }
         @media screen and (max-width:780px) {
-            display: grid;
+            figcaption{
+                display: grid;
+            }
         }   
         .calendar_item{
             border-radius: 50px;
@@ -50,53 +56,27 @@
     }
     .history_info{
         margin: 20px;
-        font-size: 24px;
+        font-size: 18px !important;
         display: flex;
         justify-content: center;
         align-items: center;
-        // background-color:blueviolet;
-        @media screen and (max-width:780px) {
-            display: grid;
-        }   
         .history_info_item{
             background: rgba(0,0,0,0.1);
             border: solid 1px;
             width: 40%;
             position: relative;
             font-size: 44px;
-            // border-radius: 30px;
-            // background-color:#333;
             color: #333;
             display: flex;
-            padding: 25px;
             justify-content: center;
             align-items: center;
-            &::before{
-                content: "";
-                position: absolute;
-                top: -5px;
-                left: -5px;
-                border-top:solid 10px gray;
-                border-left:solid 10px gray;
-                width: 50px;
-                height: 50px;
-            }
-            &::after{
-                content: "";
-                position: absolute;
-                bottom: -5px;
-                right: -5px;
-                border-bottom:solid 10px gray;
-                border-right:solid 10px gray;
-                width: 50px;
-                height: 50px;
-            }
             @media screen and (max-width:780px) {
                 width: 100%;
+                font-size: 18px;
             }   
             time{
+                margin: 5px;
                 border-right: solid 1px #333;
-                
             }
             div{
                 margin: 20px;
@@ -118,22 +98,44 @@
             };
         }
         .history_info_btn{
+            position: fixed;
+            left: 1500px;
             display: grid;
             margin: 30px;
             @media screen and (max-width:780px) {
             display: flex;
             justify-content: center;
+            opacity: 0;
             }   
             button{
                 background: white;
                 border:solid ;
                 border: none;
-                width:100px;
-                font-size: 24px;
-                margin: 10px;
+                // width:100px;
+                font-size: 18px;
+                margin: 5px;
                 position: relative;
             }
         }
     }
+    @media screen and (max-width:780px) {
+    .history_info_aft{
+        position: relative;
+        .history_info_btn{
+            display:initial;
+            position:absolute;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            margin: 0;
+            backdrop-filter: contrast(0.5);
+            opacity: 1 ;
+            .history_info_btn-field{
+                position: inherit;
+                bottom: 0; 
+            }
+        }
+    }
+}
 }
 

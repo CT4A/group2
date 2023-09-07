@@ -53,19 +53,6 @@ $(document).ready(function(){
       });
     });
     var flagSearch=0;
-    // $("#billSearch").keyup(function(e){
-    //   let BillSearch = $(this).val();
-    //   let BillCustomername = $(".bill-list-items ul .customer_name");
-    //   let BillStaffname = $(".bill-list-items ul .staff_name");
-    //   BillCustomername.parent().show();
-    //   for (let i = 0 ; i < BillCustomername.length; i++){
-    //     if($(BillCustomername[i]).text().indexOf(BillSearch) == -1){
-    //       if($(BillStaffname[i]).text().indexOf(BillSearch) == -1 ){
-    //       $(BillCustomername).parent().eq(i).hide();
-    //     }
-    //     }
-    //   }
-    // })
     //検索機能
     $('#search').keyup(function (e) { 
       let keySearch=$(this).val();

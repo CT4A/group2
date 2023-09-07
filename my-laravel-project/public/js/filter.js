@@ -6,7 +6,7 @@ $(document).ready(function(){
     let BillSearch =""
     let BilStafName =""
     let BilCusName =""
-    let test
+    let test = ".bill-list-items ul li"
     let BillCustomername = $(".bill-list-items ul .customer_name");
     let BillStafname = $(".bill-list-items ul .staff_name");
     var filterValue ={
@@ -35,6 +35,11 @@ $(document).ready(function(){
             }
         });
     });
+    $(test).click(function(){
+        console.log("test");
+        $(test).removeClass("select");
+        $(this).addClass("select");
+    })
     $(fillEle).click(function(){
         var filselect = $(this).parent();
         if(!$(this).hasClass("fileter-element-aft")){
@@ -64,7 +69,7 @@ $(document).ready(function(){
                     BilCusName = $(this).find(".customer_name").text().toLowerCase();
                     console.log(BilStafName);
                     if ((filterValue.timeFilter == test[0] || filterValue.timeFilter =="") &&
-                        (filterValue.moneyFilter == test[1] ||filterValue.moneyFilter =="")&&
+                        (filterValue.moneyFilter == test[1] ||filterValue.moneyFilter =="") &&
                         (BilCusName.indexOf(BillSearch) !== -1 || BillSearch =="") &&
                         (BilStafName.indexOf(BillSearch) !== -1 || BillSearch == "" )) {
                             $(this).show();

@@ -14,23 +14,23 @@ $(document).ready(function () {
     var windowNow = $(window);
     let prevScrollpos = window.pageYOffset;
     var scrollTime = 0;
-    // $(window).scroll(function(){
-    //     let currentScrollPos = window.pageYOffset;
-    //     if (prevScrollpos > currentScrollPos) {
-    //         $(header).removeClass('scroll-down').addClass('scroll-up');
-    //     } else {
-    //         $(header).removeClass('scroll-up').addClass('scroll-down');
-    //     }
-    //     prevScrollpos = currentScrollPos;
-    // });
-    $("main").on("touchstart",function(){
-            $(header).removeClass('scroll-up').addClass('scroll-down');
-    });
-    $("main").on("touchend",function(){
-        clearTimeout = setTimeout(function(){
+    $(window).scroll(function(){
+        let currentScrollPos = window.pageYOffset;
+        if (prevScrollpos > currentScrollPos) {
             $(header).removeClass('scroll-down').addClass('scroll-up');
-        },1000);
+        } else {
+            $(header).removeClass('scroll-up').addClass('scroll-down');
+        }
+        prevScrollpos = currentScrollPos;
     });
+    // $("main").on("touchstart",function(){
+    //         $(header).removeClass('scroll-up').addClass('scroll-down');
+    // });
+    // $("main").on("touchend",function(){
+    //     clearTimeout = setTimeout(function(){
+    //         $(header).removeClass('scroll-down').addClass('scroll-up');
+    //     },1000);
+    // });
     // $(window).scroll(function(){
     //     clearTimeout = setTimeout(function(){
     //         $(header).removeClass('scroll-down').addClass('scroll-up');
