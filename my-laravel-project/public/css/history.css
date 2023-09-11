@@ -62,8 +62,9 @@
 }
 .history .history_info .history_info_item {
   background: rgba(0, 0, 0, 0.1);
-  border: solid 1px;
-  width: 40%;
+  box-shadow: 1px 1px 10px 1px rgba(0, 0, 0, 0.5);
+  width: 100%;
+  min-width: 60%;
   position: relative;
   font-size: 44px;
   color: #333;
