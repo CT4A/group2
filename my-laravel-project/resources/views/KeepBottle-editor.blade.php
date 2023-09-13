@@ -13,7 +13,7 @@
     </div>
     <section class="register">
         <div class="register-area">
-            <h1>キープボトル編集</h1>
+            <h1>キープボトル情報編集</h1>
             <ul class="register-areaUL">
                 <form action="/keepbottle-register" method="POST">
                     @csrf

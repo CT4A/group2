@@ -29,7 +29,7 @@
                         <li><a href="{{route('indexEmpRegister')}}">社員登録</a></li>
                         <li><a href="{{route('passChange')}}">パスワード変更</a></li>
                         <li><a href="{{route('payStatement')}}">給料</a></li>
-                        <li><a href="{{route('indexEmpRegister')}}">シフト登録</a></li>
+                        <li><a href="{{route('indexEmpRegister')}}">社員新規作成</a></li>
                     </div>
                 </ol>
             </li>
@@ -106,7 +106,7 @@
                                 <a href="{{route('indexEmpRegister')}}">社員登録</a>
                                 <a href="{{route('passChange')}}">パスワード変更</a>
                                 <a href="{{route('payStatement')}}">給料</a>
-                                <a href="{{route('indexEmpRegister')}}">シフト登録</a>
+                                <a href="{{route('indexEmpRegister')}}">社員新規作成</a>
                             </div>
                         </div>
                     </li>
@@ -146,6 +146,7 @@
         @yield('content')
     </main>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- <script src="../../jquery-3.7.0.min.js"></script> -->
     <script src="{{asset('js/index.js')}}"></script>
     @yield('scripts')
 </body>

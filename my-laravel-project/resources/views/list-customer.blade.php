@@ -7,7 +7,7 @@
     <section class="emp-list">
         <div class="emp-list-area">
         <h1>顧客一覧</h1>
-        <form action="#" class="search">
+        <form class="search">
                 <button type="submit">
                     <img src="./img/oqCh3X9ndfQ__xOuxd5Oww==.png" alt="">
                 </button>
@@ -23,6 +23,12 @@
 </div>
     </section>
     <section class="intell">
+        <div class="intell-close">
+            <button>
+                <img src="../img/close.png" alt="">
+                <span>閉じる</span>
+            </button>
+        </div>
         <div class="intell-aera" itemscope itemtype="http://schema.org/Person">
         <h1 id="TxtNameHeader">情報</h1>
             <ul>

@@ -9,7 +9,7 @@ $(document).ready(function(){
     // 表示したリストを消す処理(スマホサイズ)
     $(intellmain).on('click', function(event) {
       if ($(event.target).closest('.intell').length == 0) {
-        $('body').removeClass("intell-aft");
+        // $('body').removeClass("intell-aft");
       }
     });
     //スタッフのリストの名前をクリックの処理

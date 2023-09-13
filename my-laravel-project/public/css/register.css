@@ -6,32 +6,28 @@
 }
 
 .register-area {
-  display: flex;
+  width: 70%;
+  margin: auto;
 }
-@media screen and (max-width: 1080px) {
+@media screen and (max-width: 780px) {
   .register-area {
-    display: block;
+    width: 100%;
   }
 }
 .register-area h1 {
+  text-align: center;
   width: auto;
-  margin-left: 30px;
   justify-content: center;
   align-items: center;
 }
-@media screen and (max-width: 1080px) {
+@media screen and (max-width: 780px) {
   .register-area h1 {
-    display: block;
-    margin-left: 0px;
-    box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.3);
-    border-top: solid 3px;
-    padding: 10px;
-    text-align: center;
+    font-size: 24px;
   }
 }
 .register-area form {
   width: 80%;
-  margin: 0 10%;
+  margin: 10%;
 }
 .register-area form input[type=submit] {
   transition: all 0.3s;
@@ -54,10 +50,16 @@
   background: #666;
   color: #F4F1EC;
 }
+.register-area .register-areaUL {
+  margin: 10px;
+}
 .register-area .register-areaUL .error {
+  display: block;
+  width: 90%;
+  margin: auto;
   color: red;
 }
-@media screen and (min-width: 1080px) {
+@media screen and (min-width: 780px) {
   .register-area .register-areaUL {
     height: 600px;
     overflow-y: scroll;
@@ -72,10 +74,11 @@
   padding: 0;
 }
 .register-area .register-areaUL li {
+  width: 90%;
   display: grid;
   font-size: 24px;
   border-bottom: #000 3px solid;
-  margin: 10px 0;
+  margin: 10px auto;
 }
 .register-area .register-areaUL li input[type=text] {
   font-size: 24px;
@@ -181,6 +184,7 @@
 }
 .kind-list li {
   padding: 5px 0;
+  width: 100% !important;
   margin: 0px !important;
 }
 
