@@ -64,15 +64,14 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/emp-register',[ EmployeeController::class,'register']);
     //出勤退勤履歴
     Route::get('/history', [employeeController::class,'indexHistory'])->name('history');
-    //キープボトル一覧
-    Route::get('/keepbottle-list', function () {
-        return view('keepbottle-list');
-    })->name('keepbottle-list');
-    //キープボトル登録
+
+    //キープボトル
     Route::get('/keepbottle-register', [keepbottleController::class,'indexRegister'])->name('indexKeepRegister');
     Route::post('/keepbottle-register', [keepbottleController::class,'RegisterLiquorLink']);
     Route::get('/keepbottle-list', [keepbottleController::class,'indexList'])->name('keepbottle-list');
     Route::post('/getLiquorType/{liquor_name}', [keepbottleController::class,'GetLiquorType']);
+    Route::post('/getInfoKeepBottle/{id}', [keepbottleController::class,'GetInfoKeepBottle']);
+
     // ボトル登録
     Route::get('/bottle-register', [bottleController::class,'index'])->name('indexRegister');
     Route::post('/bottle-register', [bottleController::class,'RegisterBottle']);

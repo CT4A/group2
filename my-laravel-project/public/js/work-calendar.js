@@ -17,6 +17,7 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         dayCellDidMount : function(e) {
             var el = e.el.querySelector('.fc-daygrid-day-number');
+
             el.textContent = el.textContent.replace("日","");
           },
         noEventsContent: 'スケジュールはありません',
@@ -24,18 +25,18 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     calendar.render();
 });
-$(document).ready(function () {
-  // FullCalendarを初期化する
-  var calendar = new FullCalendar.Calendar(document.getElementById('calendar'), {
-    // FullCalendarのオプション設定...
-  });
+// $(document).ready(function () {
+//   // FullCalendarを初期化する
+//   var calendar = new FullCalendar.Calendar(document.getElementById('calendar'), {
+//     // FullCalendarのオプション設定...
+//   });
 
-  // FullCalendarのイベントリスナーを削除する関数
-  function disableFullCalendarWidthAdjustment() {
-    calendar.off('windowResize', calendar.updateSize);
-  }
+//   // FullCalendarのイベントリスナーを削除する関数
+//   function disableFullCalendarWidthAdjustment() {
+//     calendar.off('windowResize', calendar.updateSize);
+//   }
 
-  // 別のスクリプトやイベントによって、FullCalendarの横幅変更を無効化する必要がある場合にこの関数を呼び出す
-  disableFullCalendarWidthAdjustment();
+//   // 別のスクリプトやイベントによって、FullCalendarの横幅変更を無効化する必要がある場合にこの関数を呼び出す
+//   disableFullCalendarWidthAdjustment();
 
-});
+// });

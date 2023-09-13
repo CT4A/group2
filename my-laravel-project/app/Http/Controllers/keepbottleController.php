@@ -10,7 +10,7 @@ class keepbottleController extends Controller
 {
     //キープボトル一覧。
     public function indexList(){
-        $liquors=liquor_mg::select('liquor_id','liquor_name')->get();
+        $liquors=liquor_mg::select('liquor_id','liquor_name')->orderBy('liquor_id')->get();
         return view('keepbottle-list',compact('liquors'));
     }
     
@@ -18,7 +18,6 @@ class keepbottleController extends Controller
     public function indexRegister(){
         $customers= customer::select('customer_id','customer_name')->get();
         $liquors=liquor_mg::select('liquor_type')->groupBy('liquor_type')->get();
-
         return view('keepbottle-register',compact('liquors','customers'));
     }
 
@@ -60,5 +59,17 @@ class keepbottleController extends Controller
         $liquor->liquor_number = $NewLiquor_number;
         $liquor->save();
         return redirect()->route('indexKeepRegister')->with('message','登録完成しました。');
+    }
+
+    public function GetInfoKeepBottle(Request $request){
+        if($request->ajax()){
+            $id = $request->id;
+            
+            $KeepbotleInfo = customer::leftJoin('employees','employees.staff_id','=','customers.staff_id')
+                                    ->select('customers.customer_id','customers.customer_name','customers.birthday','customers.company_name','customers.staff_id','employees.staff_name')
+                                    ->where('customer_id',$id)
+                                    ->get();
+            return response()->json($KeepbotleInfo);
+        }
     }
 }

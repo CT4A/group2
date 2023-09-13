@@ -28,7 +28,7 @@
             <ul>
                 <li>
                     <span>顧客名</span>
-                    <span id="customer_name"></span>
+                    <span id="customer_name" data-id=""></span>
                 </li>
                 <li>
                     <span>会社名</span>
@@ -51,17 +51,16 @@
                     <span id="that_month_money"></span>
                 </li>
                 <li>
-                        <form action="#">
-                            <img src="img\edit.png" alt="">
-                            <button type="submit">編集</button>
-                        </form>
-                    </li>
+                    <form>
+                        <img src="img\edit.png" alt="">
+                        <button id="editBtn">編集</button>
+                    </form>
+                </li>
             </ul>
         </div>
         @csrf
     </section>
 @endsection
 @section('scripts')
-<!-- <script src="{{asset('js/itiran.js')}}"></script> -->
 <script src="{{asset('js/list-customer.js')}}"></script>
 @endsection

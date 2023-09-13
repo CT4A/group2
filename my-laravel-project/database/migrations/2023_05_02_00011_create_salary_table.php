@@ -21,7 +21,6 @@ return new class extends Migration
             $table->unsignedBigInteger('deduction');//控除金額
             $table->unsignedBigInteger('total');//総合金額
             $table->unsignedBigInteger('total_branch');//総支給額（手取り額）
-        
             $table->rememberToken();
             $table->timestamps(); 
             //外部キー

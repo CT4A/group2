@@ -22,25 +22,36 @@ $(document).ready(function(){
         headers:{
             'X-CSRF-TOKEN' : $('meta[name="csrf-token"]').attr('content')
         }
-    });
+      });
       $.ajax({
         type: "post",
         url: "/getInfoCustomer/{id}",
         data: {"id":id
             },
         success: function (data) {
-          showInfo(data[0]);
+          showInfo(data["customerInfo"][0]);
+          showMoney(data["slipMgsTotal"][0]);
         }
       });
     });
+
     //顧客の情報を表示する
     function showInfo(data){
+      console.log(data)
       $("#TxtNameHeader").text(data["customer_name"]+"様の情報");
       $("#customer_name").text(data["customer_name"]);
+      $("#customer_name").attr("data-id",data["customer_id"]);
       $("#birthday").text(data["birthday"]);
       $("#company_name").text(data["company_name"]);
       $("#staff_name").text(data["staff_name"]);
     }
+
+    //顧客の総合金額を表示する
+    function showMoney(data){
+      $("#this_month_money").text(data["total_this_month"]);
+      $("#that_month_money").text(data["total_last_month"]);
+    }
+
     var flagSearch=0;
     //検索機能
     $('#search').keyup(function (e) { 
@@ -52,5 +63,13 @@ $(document).ready(function(){
           $(staffList).eq(i).hide();
         }
       }
+    });
+    
+    // 編集ボタン
+    $("#editBtn").click(function (e) { 
+      e.preventDefault();
+      var customer_id = $("#customer_name").attr("data-id");
+      console.log(customer_id)
+      window.location.href = "/editor?id=" + customer_id;
     });
   });
