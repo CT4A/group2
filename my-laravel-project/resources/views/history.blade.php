@@ -6,6 +6,9 @@
 @endsection
 @section('content')
     <section class="history">
+    <div id="History-Graph">
+    <canvas id = "graph"></canvas>
+    </div>
         <div class="history_item">
             <figure class="history-date">
                 <a href="" class="calendar_item"><img src="/img/calendar.webp" alt=""></a>
@@ -35,7 +38,9 @@
     </section>
 @endsection
 @section('scripts')
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
 <script src ="js/infomation.js"></script>
 <script src ="js/History.js"></script>
+<script src ="js/Historygraph.js"></script>
 </body>
 @endsection

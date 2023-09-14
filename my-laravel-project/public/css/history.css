@@ -1,6 +1,12 @@
 .history {
   display: grid;
 }
+.history #History-Graph #graph {
+  display: flex;
+  background-color: #fff;
+  width: 80%;
+  margin: auto;
+}
 .history .history_item {
   display: flex;
   justify-content: center;

@@ -17,7 +17,6 @@ use App\Http\Controllers\shiftController;
 use App\Http\Controllers\syukkinController;
 use App\Http\Controllers\EditorCustomer;
 use App\Http\Controllers\testController;
-
 Route::get('/', function () {
     return view('welcome');
 })->middleware('auth');

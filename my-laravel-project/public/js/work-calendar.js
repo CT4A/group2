@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
         firstDay: 1,
         headerToolbar: {
             left: "today prev,next",
+            // center: "title",
             center: "title",
             right: "dayGridMonth,listDay"
         },
@@ -39,3 +40,13 @@ $(document).ready(function () {
   disableFullCalendarWidthAdjustment();
 
 });
+function updatecalendarTitle(){
+  console,log("test");
+  var updateTitlecalendar = document.getElementById('calendar');
+  var calendarTitle = document.getElementById("#calendar-month");
+  var currentTitle = updateTitlecalendar.FullCalendar('getView').title;
+  calendarTitle.text(currentTitle);
+}
+$('#calendar').fullCalendar('option','viewRender',updatecalendarTitle);
+
+updatecalendarTitle();

@@ -1,27 +1,78 @@
-#calendar{
-    width: 90%;
-    margin: auto;
-    @media screen and (max-width: 780px) {
-        width: 100%;
+*{
+    font-weight: 800;
+}
+.fc{ 
+    .fc-daygrid-day-frame{
+        background: rgb(32, 32, 32);
     }
-    .fc-header-toolbar{
-        @media screen and (max-width: 780px) {
-            width: 90%;
-            margin: auto;
+    th{
+        background:darkcyan ;
+        .fc-scrollgrid-sync-inner{
+            a{
+            font-weight: 800;
+            }
         }
     }
-    .fc-daygrid-day-number{
-        font-weight: 900;
-    }
-    .fc-button-group{
-        @media screen and (max-width: 780px) {
-            width: 100px;
+}
+.calendar-field{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    #calendarTitle{
+        border-right: solid 1px gold;
+        background-color: darkcyan;
+        width: 10%;
+        margin-top: -10% ;
+        margin-bottom: -5%;
+        text-align: center;
+        align-items: center;
+        .calendar-title-field{
+            margin-top: 100px;
+            line-height: 1.3;
+            h1{
+
+                margin: 0;
+            }
+            span{
+                font-size: 16px;
+            }
+            :nth-child(3){
+                text-align: right;
             }
     }
-    .fc-scrollgrid-sync-table{
-        width: 100% !important;
+    }
+    #calendar{
+        width: 90%;
+        margin-left: auto;
+        // margin: auto;
+        display: flex;
+
         @media screen and (max-width: 780px) {
-        height: 100vh;
+            width: 100%;
+        }
+        .fc-header-toolbar{
+            @media screen and (max-width: 780px) {
+                width: 90%;
+                margin: 10px auto;
+            }
+        }
+        .fc-daygrid-day-number{
+            font-weight: 900;
+        }
+        .fc-button-group{
+            @media screen and (max-width: 780px) {
+                width: 100px;
+                }
+        }
+        .fc-scrollgrid-sync-table{
+            width: 100% !important;
+            height: 80vh;
+            @media screen and (max-width: 780px) {
+            height: 100vh;
+            }
+        }
+        .fc-theme-standard td{
+            border: 1px solid gold !important;
         }
     }
 }
