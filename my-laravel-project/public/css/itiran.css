@@ -172,6 +172,9 @@ section span {
 .intell {
   height: auto;
 }
+.intell .intell-close {
+  display: none;
+}
 @media screen and (max-width: 780px) {
   .intell {
     background-color: #ccc;
@@ -232,6 +235,7 @@ ul:not(.menu) li span {
     background-color: rgba(0, 0, 0, 0.5);
   }
   .intell-aft .intell-close {
+    display: block;
     position: absolute;
     top: -65px;
     width: 100%;
@@ -256,6 +260,10 @@ ul:not(.menu) li span {
     font-size: 14px;
   }
   .intell-aft .intell {
+    border-radius: 25px;
+    box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.1);
+    padding: 25px 10px;
+    border-radius: 25px;
     opacity: 1;
     position: absolute;
     width: 80%;

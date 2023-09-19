@@ -14,8 +14,8 @@
                 <a href="" class="calendar_item"><img src="/img/calendar.webp" alt=""></a>
             </figure>
             <figcaption>
-            <time datetime="2023-01">2023年1月</time>
-            <h1 id="staff_name">{{$staff_name->staff_name}}</h1>
+            <h1 datetime="2023-01">2023年1月</h1>
+            <h2 id="staff_name">{{$staff_name->staff_name}}</h2>
             </figcaption>
         </div>
             @foreach ($staffs as $staff)

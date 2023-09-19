@@ -122,6 +122,9 @@ header .menu_list ol .menu_ele {
   display: flex;
   flex-wrap: wrap;
 }
+header .menu_list ol .menu_ele li {
+  display: none;
+}
 header .menu_list ol li {
   left: 0;
   width: 20%;
@@ -158,6 +161,9 @@ header .menu_list_aft span::after {
 }
 header .menu_list_aft ol {
   opacity: 1;
+}
+header .menu_list_aft ol .menu_ele li {
+  display: block;
 }
 @media screen and (min-width: 780px) {
   header .menu_list_aft ol li {

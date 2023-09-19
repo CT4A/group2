@@ -109,6 +109,9 @@ header {
                     margin: auto;
                     display: flex;
                     flex-wrap: wrap;
+                    li{
+                        display: none;
+                    }
                 }
                 li{
                     @media screen and (max-width:780px) {
@@ -149,6 +152,11 @@ header {
             }
             ol{
                 opacity: 1;
+                .menu_ele{
+                    li{
+                        display: block;
+                    }
+                }
             }
             @media screen and (min-width:780px) {
             ol{

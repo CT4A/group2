@@ -87,6 +87,7 @@ class EmployeeController extends Controller
             'attend_time' => $G_attend_time , 
             'leaving_work'=> $G_leaving_work
     ]);
+        header('Content-Type: application/json');
     }
     //給料計算
     public function indexPay(Request $request)

@@ -7,9 +7,14 @@ $(document).ready(function(){
     var modal = $("#modalBox");
     var btn = $("#boxBtn");
     var span = $(".close")[0];
+    var intellClose = $(".intell-close")[0];
     filBtn =$("#filter-btn");
     filArea =$(".filter-area");
     filterClose=$(".filter-close");
+        // 表示したリストを消す処理(スマホサイズ)
+        $(intellClose).on('click', function(event) {
+          $('body').removeClass("intell-aft");
+      });
     $(intellmain).on('click', function(event) {
       if ($(event.target).closest('.intell').length == 0) {
         $('body').removeClass("intell-aft");

@@ -29,12 +29,19 @@
   width: 80%;
   margin: 10%;
 }
+@media screen and (max-width: 780px) {
+  .register-area form {
+    width: 90%;
+    margin: 10% auto;
+  }
+}
 .register-area form input[type=submit] {
   transition: all 0.3s;
   font-weight: 900;
   border-radius: 25px;
-  color: #666;
-  border: solid 4px #666;
+  color: #000;
+  border: solid 2px #000;
+  box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.1);
   width: 60%;
   margin: 0 20%;
   padding: 25px;

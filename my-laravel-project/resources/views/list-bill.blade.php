@@ -51,87 +51,6 @@
             </form>
             </div>
             <div class="bill-list-items">
-                <!-- <ul>
-                    <li data-filter="1hour money1">
-                        <span class="customer_name">グエンnnnnnnnnnnnnnnn</span>
-                        <span class="staff_name">片山</span>
-                        <span class="date">1hour</span>
-                        <span class="money">1,500,00000</span>
-                    </li>
-                    <li data-filter="week money1">
-                        <span class="customer_name">グエン</span>
-                        <span class="staff_name">松岡chin</span>
-                        <span>week</span>
-                        <span>￥</span>
-                    </li>
-                    <li data-filter="week money2">
-                        <span class ="customer_name">野々川</span>
-                        <span class="staff_name">松岡chin</span>
-                        <span>week</span>
-                        <span>money2</span>
-                    </li>
-                    <li data-filter="week money2">
-                        <span class ="customer_name">杉山</span>
-                        <span class="staff_name">松岡chin</span>
-                        <span>week</span>
-                        <span>money2</span>
-                    </li>
-                                        <li data-filter="1hour money1">
-                        <span class="customer_name">赤羽竜也</span>
-                        <span class="staff_name">松岡chin</span>
-                        <span class="date">1hour</span>
-                        <span class="money">money1</span>
-                    </li>
-                    <li data-filter="week money1">
-                        <span class ="customer_name">赤羽竜也</span>
-                        <span class="staff_name">松岡chin</span>
-                        <span>week</span>
-                        <span>￥</span>
-                    </li>
-                    <li data-filter="week money2">
-                        <span class ="customer_name">赤羽竜也</span>
-                        <span class="staff_name">松岡chin</span>
-                        <span>week</span>
-                        <span>money2</span>
-                    </li>
-                    <li data-filter="week money2">
-                        <span class ="customer_name">赤羽竜也</span>
-                        <span class="staff_name">松岡chin</span>
-                        <span>week</span>
-                        <span>money2</span>
-                    </li>
-                    <li data-filter="1hour money1">
-                        <span class="customer_name">赤羽竜也</span>
-                        <span class="staff_name">松岡chin</span>
-                        <span class="date">1hour</span>
-                        <span class="money">money1</span>
-                    </li>
-                    <li data-filter="week money1">
-                        <span class ="customer_name">赤羽竜也</span>
-                        <span class="staff_name">松岡chin</span>
-                        <span>week</span>
-                        <span>￥</span>
-                    </li>
-                    <li data-filter="week money2">
-                        <span class ="customer_name">赤羽竜也</span>
-                        <span class="staff_name">松岡chin</span>
-                        <span>week</span>
-                        <span>money2</span>
-                    </li>
-                    <li data-filter="week money2">
-                        <span class ="customer_name">赤羽竜也</span>
-                        <span class="staff_name">松岡chin</span>
-                        <span>week</span>
-                        <span>money2</span>
-                    </li>
-                    <li data-filter="1hour money1">
-                        <span class="customer_name">赤羽竜也</span>
-                        <span class="staff_name">松岡chin</span>
-                        <span class="date">1hour</span>
-                        <span class="money">money1</span>
-                    </li>
-                </ul> -->
-
                 <ul>
                     <span class="timer">2023-09-05</span>
                     <li data-filter="1hour money1">
@@ -161,12 +80,7 @@
                     </li>
                 </ul>
                 <ul>
-                    <span class="timer">2023-09-06</span>
-                    <li data-filter="1hour money1">
-                        <span class="customer_name">グエンnnnnnnnnnnnnnnn</span>
-                        <span class="staff_name">片山</span>
-                        <span class="money">1,500,00000</span>
-                    </li>
+                <span class="timer">2023-09-05</span>
                     <li data-filter="week money1">
                         <span class="customer_name">グエン</span>
                         <span class="staff_name">松岡chin</span>

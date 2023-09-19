@@ -57,7 +57,7 @@
                 <span>ボトル</span>
                 <ol>
                     <div class="menu_ele">
-                        <li><a href="#">ボトル一覧</a></li>
+                        <li><a href="{{route('list-bottle')}}">ボトル一覧</a></li>
                         <li><a href="{{route('indexRegister')}}">ボトル登録</a></li>
                     </div>
                 </ol>

@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 use App\Models\customer;
 use App\Models\employee;
+use App\Models\slip_mg;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class CustomerController extends Controller
 {
@@ -17,11 +19,23 @@ class CustomerController extends Controller
         if($request->ajax()){
             $id = $request->id;
             
-            $customers = customer::leftJoin('employees','employees.staff_id','=','customers.staff_id')
-                                    ->select('customers.customer_name','customers.birthday','customers.company_name','customers.staff_id','employees.staff_name')
+            $customerInfo = customer::leftJoin('employees','employees.staff_id','=','customers.staff_id')
+                                    ->select('customers.customer_id','customers.customer_name','customers.birthday','customers.company_name','customers.staff_id','employees.staff_name')
                                     ->where('customer_id',$id)
                                     ->get();
-            return response()->json($customers);
+
+            $slipMgsTotal = slip_mg::select(
+                DB::raw('COALESCE(SUM(CASE WHEN MONTH(ap_day) = MONTH(CURRENT_DATE()) AND YEAR(ap_day) = YEAR(CURRENT_DATE()) THEN total ELSE 0 END), 0) AS total_this_month'),
+                DB::raw('COALESCE(SUM(CASE WHEN MONTH(ap_day) = MONTH(CURRENT_DATE() - INTERVAL 1 MONTH) AND YEAR(ap_day) = YEAR(CURRENT_DATE() - INTERVAL 1 MONTH) THEN total ELSE 0 END), 0) AS total_last_month')
+            )
+            ->where('customer_id', $id)
+            ->groupBy('customer_id')
+            ->get();
+            $data = [
+                'customerInfo' => $customerInfo,
+                'slipMgsTotal' => $slipMgsTotal,
+            ];
+            return response()->json($data);
         }
     }
     public function register(Request $request){

@@ -159,6 +159,9 @@ section{
     }
 }
 .intell{
+    .intell-close{
+        display: none;
+        }
     height: auto;
     @media screen and (max-width:780px){   
     background-color: #ccc;
@@ -212,6 +215,7 @@ section{
 .intell-aft{
     @media screen and (max-width:780px) {
         .intell-close{
+            display: block;
             position: absolute;
             top: -65px;
             width: 100%;
@@ -239,6 +243,10 @@ section{
         opacity: 1;
         background-color:rgba(0, 0, 0,0.5);
         .intell{
+            border-radius: 25px;
+            box-shadow: 3px 3px 3px 3px rgba($color: #000000, $alpha: 0.1);
+            padding: 25px 10px;
+            border-radius: 25px;
             opacity: 1;
             position: absolute;
             width: 80%;

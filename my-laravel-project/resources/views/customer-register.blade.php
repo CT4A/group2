@@ -20,26 +20,24 @@
                     <li>
                         <span>顧客名</span>
                         <input type="text" name="customer_name" value="{{ old('customer_name') }}">
-                        @if ($errors->has('customer_name'))
+                    </li> 
+                    @if ($errors->has('customer_name'))
                             <span class="error">{{ $errors->first('customer_name') }}</span>
                         @endif
-                    </li> 
-                    
                     <li>
                         <span>会社名</span>
                         <input type="text" name="company_name" value="{{ old('company_name') }}">
-                        @if ($errors->has('company_name'))
+                                            @if ($errors->has('company_name'))
                             <span class="error">{{ $errors->first('company_name') }}</span>
-                        @endif
+                    @endif
                     </li>
                     <li>
                         <span>誕生日</span>
                         <input type="text" name="birthday" value="{{ old('birthday') }}">
-                        @if ($errors->has('birthday'))
+                    </li>
+                    @if ($errors->has('birthday'))
                             <span class="error">{{ $errors->first('birthday') }}</span>
                         @endif
-                    </li>
-                   
                     <li class="kinds">
                         <span>担当者</span>
                         <div class="kinds-selecter">
@@ -48,7 +46,6 @@
                             @foreach ($staffs as $staff)
                                 <li data="{{$staff->staff_id}}">{{$staff->staff_name}}</li>
                             @endforeach
-
                         </ul> 
                         </div>
                         <input type="text" id="staff_name" class="kinds-inp" name="staff_name"

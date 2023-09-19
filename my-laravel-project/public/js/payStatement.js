@@ -94,7 +94,7 @@ $(document).ready(function(){
       let dateObject = new Date(currentDate);
       //次の月をまとめる。string型
       console.log(dateObject)
-      if(dateObject.getMonth() <= 11){
+      if(dateObject.getMonth() <= 10){
       currentDate = dateObject.getFullYear()+"-"+(dateObject.getMonth() + 2).toString().padStart(2, '0');
       $("#currentDate").text(currentDate);
       }
