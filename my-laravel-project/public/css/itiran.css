@@ -215,14 +215,14 @@ section span {
   width: 50px;
 }
 
-ul:not(.menu) {
+ul:not(.menu, .hamburgerContents ul) {
   margin: 50px auto;
   font-size: 24px;
 }
-ul:not(.menu) li {
+ul:not(.menu, .hamburgerContents ul) li {
   display: flex;
 }
-ul:not(.menu) li span {
+ul:not(.menu, .hamburgerContents ul) li span {
   margin: 10px;
   word-wrap: break-word;
   overflow-wrap: break-word;

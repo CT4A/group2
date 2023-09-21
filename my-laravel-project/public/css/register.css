@@ -35,6 +35,29 @@
     margin: 10% auto;
   }
 }
+.register-area form .news-resist {
+  margin: auto;
+  display: flex;
+  margin-bottom: 5%;
+  justify-content: center;
+}
+.register-area form .news-resist span {
+  margin: 5px;
+  font-size: 18px;
+}
+.register-area form .news-resist textarea {
+  background: rgba(255, 255, 255, 0.5);
+  box-shadow: 1 1 1 1, rgba(0, 0, 0, 0.5);
+  outline: none;
+  border: none;
+  font-size: 18px;
+  width: 80%;
+  overflow-y: hidden;
+  resize: none;
+  max-width: 500px;
+  height: 300px;
+  text-transform: capitalize;
+}
 .register-area form input[type=submit] {
   transition: all 0.3s;
   font-weight: 900;

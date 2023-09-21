@@ -1,5 +1,6 @@
 @extends('main')
-@yield('title','パスワード変更')
+<!-- @yield('title','パスワード変更') -->
+@section('title','パスワード変更')
 @section('styles')
 <link rel="stylesheet" href="./css/register.css">
 <link rel="stylesheet" href="./css/information.css">
@@ -18,8 +19,7 @@
                 @csrf
                 <li class="passList">
                     <span>現在のパスワード</span>
-                    <input type="password" name="now_password" required>
-              
+                    <input type="password" name="now_password" >
                 </li>
                 <li class="passList">
                     <span>新規パスワード</span>
@@ -29,8 +29,8 @@
                 <li class="passList">
                     <span>新規パスワード[確認]</span>
                     <input type="password" name="new_passwordConf" required>
-                  
                 </li>
+                
                 <input type="submit" value="登録">
                 </form>
             </ul>

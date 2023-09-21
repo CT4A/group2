@@ -41,6 +41,7 @@ $(document).ready(function(){
       var id = $(this).attr("id");
       if($(event.target).closest("span").length) {
         $('body').addClass("intell-aft");
+        console.log("test");
       }
       $.ajaxSetup({
         headers:{
@@ -54,6 +55,7 @@ $(document).ready(function(){
             },
         success: function (data) {
           showInfo(data[0]);
+
         }
       });
     });
@@ -78,4 +80,11 @@ $(document).ready(function(){
       $("#birthday").text(data["birthday"]);
       $("#remarks").text(data["remarks"]);
     }
+        // 編集ボタン
+        $("#editBtn").click(function (e) { 
+          e.preventDefault();
+          var customer_id = $("#customer_name").attr("data-id");
+          console.log(customer_id)
+          window.location.href = "/editor?id=" + customer_id;
+        });
 });

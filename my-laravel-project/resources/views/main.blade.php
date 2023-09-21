@@ -19,8 +19,6 @@
         <!-- <a href="logout"><img src="./img/logaut.webp" alt=""></a> -->
         <ul class="menu">
             <li class="menu_list ">
-            </li>
-            <li class="menu_list ">
                 <span>社員</span>
                 <ol>
                     <div class="menu_ele">
@@ -33,8 +31,6 @@
                     </div>
                 </ol>
             </li>
-
-            <li class="menu_list">
             <li class="menu_list ">
                 <span>顧客</span>
                 <ol>
@@ -57,7 +53,7 @@
                 <span>ボトル</span>
                 <ol>
                     <div class="menu_ele">
-                        <li><a href="">ボトル一覧</a></li>
+                        <li><a href="{{route('list-bottle')}}">ボトル一覧</a></li>
                         <li><a href="{{route('indexRegister')}}">ボトル登録</a></li>
                     </div>
                 </ol>
@@ -125,6 +121,15 @@
                             <div class="accordion-content">
                                 <a href="{{route('keepbottle-list')}}">ボトル一覧</a>
                                 <a href="{{route('indexKeepRegister')}}">ボトル登録</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="accordion">
+                            <span>ボトル</span>
+                            <div class="accordion-content">
+                                <a href="{{route('list-bottle')}}">ボトル一覧</a>
+                                <a href="{{route('indexRegister')}}">ボトル登録</a>
                             </div>
                         </div>
                     </li>

@@ -1,7 +1,7 @@
 @extends('main')
 @section('styles')
 <link rel="stylesheet" href="{{asset('css/header.css')}}">
-<link rel="stylesheet" href="{{asset('/css/news-register.css')}}">
+<link rel="stylesheet" href="./css/register.css">
 <link rel="stylesheet" href="./css/information.css">
 @endsection
 @section('title', 'お知らせ')
@@ -18,7 +18,7 @@
             <ul>
                 <form action="/news" method="POST">
                     @csrf
-                    <li>
+                    <li class="news-resist">
                         <span>内容</span>
                         <textarea name="remarks" value="{{ old('remarks') }}"></textarea>
                     </li>

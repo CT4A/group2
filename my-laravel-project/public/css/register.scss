@@ -29,6 +29,29 @@
             width: 90%;
             margin:10% auto;
         }
+        .news-resist{
+            margin: auto;
+            display: flex;
+            margin-bottom: 5%;
+            justify-content: center;
+            span{
+                margin: 5px;
+                font-size: 18px;
+            }
+            textarea{
+            background: rgba($color: #fff, $alpha: 0.5);
+            box-shadow: 1 1 1 1 ,rgba(0,0,0,0.5);
+            outline: none;
+            border: none;
+            font-size: 18px;
+            width: 80%;
+            overflow-y: hidden;
+            resize: none;
+            max-width: 500px;
+            height: 300px;
+            text-transform: capitalize;
+            }
+        }
         input[type="submit"]{
             transition: all 0.3s;
             font-weight: 900;

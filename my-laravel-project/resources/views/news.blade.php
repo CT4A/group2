@@ -30,8 +30,11 @@ $today = Carbon::now()->format('Y/m/d');
                     <div class="w-dyn-list">
                         <div role="list" class="w-dyn-items">
                             <div role="listitem" class="collection-item w-dyn-item">
-                                <div class="newspage-time">{{$notification->day}}</div>
-                                <div class="newspage-people">{{$notification->staff_name}}</div>
+                                <div class="newspage-area">
+                                    <span class="newspage-time">{{$notification->day}}</span>
+                                    <span class="newspage-info info-radio">お知らせ</span>
+                                </div>
+                                <div class="newspage-people ">{{$notification->staff_name}}</div>
                                 <p class="newspage-link">{{$notification->message}} </p>
                             </div>
                         </div>
@@ -40,8 +43,10 @@ $today = Carbon::now()->format('Y/m/d');
                     @foreach ($customerDatas as $customerData)
                         <div role="list" class="w-dyn-items">
                             <div class="link-block-3 w-inline-block">
-                                <span class="newspage-time">{{$customerDatas[0]->birthday}}</span>
-                                <span class="newspage-info birth-radio">誕生日</span>
+                                <div class="newspage-area">
+                                    <span class="newspage-time">{{$customerDatas[0]->birthday}}</span>
+                                    <span class="newspage-info birth-radio">誕生日</span>
+                                </div>
                                 <span class="newspage-people">{{$customerDatas[0]->customer_name}}</span>
                                 {{-- <p class="newspage-link">お知らせテスト </p> --}}
                             </div>

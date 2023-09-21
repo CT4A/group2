@@ -23,20 +23,6 @@ $(document).ready(function () {
         }
         prevScrollpos = currentScrollPos;
     });
-    // $("main").on("touchstart",function(){
-    //         $(header).removeClass('scroll-up').addClass('scroll-down');
-    // });
-    // $("main").on("touchend",function(){
-    //     clearTimeout = setTimeout(function(){
-    //         $(header).removeClass('scroll-down').addClass('scroll-up');
-    //     },1000);
-    // });
-    // $(window).scroll(function(){
-    //     clearTimeout = setTimeout(function(){
-    //         $(header).removeClass('scroll-down').addClass('scroll-up');
-    //     },1000);
-    //         $(header).removeClass('scroll-up').addClass('scroll-down');
-    // });
     $(hamburgerIcon).click(function() {
         if(hamburgerCnt ==0){
             $(hamburgerArea).addClass('hamburger-area-aft');
@@ -48,8 +34,10 @@ $(document).ready(function () {
     });
     $(accordion).click(function(){
         if($(this).hasClass('accordion-aft')){
+            console.log("test1");
             $(this).removeClass('accordion-aft');
         }else{
+            console.log("test2");
             $(accordion).removeClass('accordion-aft');
             $(this).addClass('accordion-aft');
             var numChildren = $(this).find('a').length;

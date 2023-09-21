@@ -118,7 +118,6 @@ $(document).ready(function(){
         var year = date.getFullYear();
         //今日の日付
         var today = year + '-' + month + '-' + day;
-
         var hours = date.getHours();
         var minutes = date.getMinutes();
         var seconds = date.getSeconds();

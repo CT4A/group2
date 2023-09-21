@@ -3,11 +3,11 @@ use Carbon\Carbon;
 $today = Carbon::now()->format('Y/m/d');
 @endphp
 @extends('main')
-@yield('title','顧客登録')
+@section('title','顧客登録')
 @section('styles')
 <link rel="stylesheet" href="./css/information.css">
 <link rel="stylesheet" href="./css/register.css"> 
-<!-- <link rel="stylesheet" href="./css/bill-register.js"> -->
+<link rel="stylesheet" href="./css/bill-register.js">
 @endsection
 @section('content')
     <section class="register">

@@ -38,7 +38,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/customer-register', [CustomerController::class,'indexRegister'])->name('indexCusRegister');
     //社員一覧
     Route::get('list-staff' ,[EmployeeController::class,'index'])->name('list-staff');
-    Route::post('/getInfoStaff/{id}', [EmployeeController::class,'GetListStaff']);
+    Route::get('/getInfoStaff/{id}', [EmployeeController::class,'GetListStaff']);
     
     //社員プロフィール
     Route::get('staffProfile' ,[EmployeeController::class,'indexstaffProfile'])->name('staffProfile');
@@ -63,6 +63,7 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/emp-register',[ EmployeeController::class,'register']);
     //出勤退勤履歴
     Route::get('/history', [employeeController::class,'indexHistory'])->name('history');
+    Route::post('/history',[employeeController::class,'graphHistory']);
 
     //キープボトル
     Route::get('/keepbottle-register', [keepbottleController::class,'indexRegister'])->name('indexKeepRegister');
@@ -78,11 +79,12 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/KeepBottle-editor',function(){
             return view('KeepBottle-editor');
         });
+
         // Route::post('/editor', [bottleController::class,'RegisterBottle']);
     // ボトル一覧
-    Route::get('/Bottle-list',function () {
+    Route::get('/list-bottle', function () {
         return view('list-bottle');
-    });
+    })->name('list-bottle'); 
     // Route::post('/list-bottle', [bottleController::class,'RegisterBottle']);
     //予約
     Route::get ('/reserve-register',  [resrveController::class,'index'])->name('indexResRegister');
@@ -99,7 +101,7 @@ Route::middleware(['auth'])->group(function () {
     // パスワード変更
     Route::get('/pass-change', function () {
         return view('pass-change');
-    })->name('passChange');;
+    })->name('passChange');
     //お知らせ追加画面
     Route::get('/news', [newsController::class,'index']);
     Route::post('/news', [newsController::class,'register']);

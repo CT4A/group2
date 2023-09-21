@@ -1,5 +1,6 @@
 @extends('main')
 @yield('title','')
+@section('title','キープボトル一覧')
 @section('styles')
 <link rel="stylesheet" href="./css/itiran.css">
 @endsection

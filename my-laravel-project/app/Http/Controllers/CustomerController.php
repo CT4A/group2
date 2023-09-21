@@ -6,7 +6,6 @@ use App\Models\employee;
 use App\Models\slip_mg;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-
 class CustomerController extends Controller
 {
     public function index(){

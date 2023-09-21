@@ -1,5 +1,5 @@
 @extends('main')
-@yield('title','顧客登録')
+@section('title','顧客登録')
 @section('styles')
 <link rel="stylesheet" href="./css/header.css">
 <link rel="stylesheet" href="./css/register.css">
@@ -27,10 +27,10 @@
                     <li>
                         <span>会社名</span>
                         <input type="text" name="company_name" value="{{ old('company_name') }}">
-                                            @if ($errors->has('company_name'))
-                            <span class="error">{{ $errors->first('company_name') }}</span>
-                    @endif
                     </li>
+                    @if ($errors->has('company_name'))
+                            <span class="error">{{ $errors->first('company_name') }}</span>
+                        @endif
                     <li>
                         <span>誕生日</span>
                         <input type="text" name="birthday" value="{{ old('birthday') }}">
@@ -49,17 +49,17 @@
                         </ul> 
                         </div>
                         <input type="text" id="staff_name" class="kinds-inp" name="staff_name"
-                           value="{{ old('staff_name') }}">
+                            value="{{ old('staff_name') }}">
                         <input type="text" id="staff_id" class="kinds-inp-hidden" name="staff_id"
                             value="{{ old('staff_id') }}" hidden>
                     </li>
                     <li>
                         <span>備考</span>
                         <input type="text" name="remarks" value="{{ old('remarks') }}">
-                        @if ($errors->has('remarks'))
+                    </li>
+                    @if ($errors->has('remarks'))
                             <span class="error">{{ $errors->first('remarks') }}</span>
                         @endif
-                    </li>
             </ul>
             <input type="submit" value="登録">
             </form>
@@ -68,5 +68,4 @@
 @endsection
 @section('scripts')
 <script src="js/register.js"></script>
-<script src="js/index.js"></script>
 @endsection

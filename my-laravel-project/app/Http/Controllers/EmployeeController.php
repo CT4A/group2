@@ -67,11 +67,6 @@ class EmployeeController extends Controller
     public function indexHistory(Request $request)
     {
         // $id = $request->id;
-        $G_work_data = 0;
-        $G_staffs = 0;
-        $G_staff_name = 0;
-        $G_attend_time = 0;
-        $G_leaving_work =0;
         $id = 1;
         $staff_name = employee::select('staff_name')
                                     ->where('staff_id',$id)
@@ -80,13 +75,6 @@ class EmployeeController extends Controller
                                 ->where('staff_id',$id)
                                 ->get();
         return view('history',compact('staffs','staff_name'));
-        return response() -> json([
-            'work_date'   => $G_work_data,
-            'staffs'      => $G_staffs ,
-            'staff_name'  => $G_staff_name,
-            'attend_time' => $G_attend_time , 
-            'leaving_work'=> $G_leaving_work
-    ]);
         header('Content-Type: application/json');
     }
     //給料計算

@@ -1,5 +1,6 @@
 @extends('main')
-@yield('title','出勤退勤履歴')
+<!-- @yield('title','出勤退勤履歴') -->
+@section('title','出勤退勤履歴')
 @section('styles')
 <link rel="stylesheet" href="./css/history.css">
 <link rel="stylesheet" href="./css/information.css">

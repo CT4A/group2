@@ -38,10 +38,10 @@ $today = Carbon::now()->format('Y/m/d');
                             placeholder="種類を入力してください" value="{{ old('customer_name') }}">
                         <input type="text" id="customer_id" class="kinds-inp-hidden" name="customer_id"
                             value="{{ old('customer_id') }}" hidden>
+                    </li>     
                         @if ($errors->has('customer_id'))
-                        <span class="error">{{ $errors->first('customer_id') }}</span>
+                            <span class="error">{{ $errors->first('customer_id') }}</span>
                         @endif
-                    </li>
 
                     <li class="kinds alcohol">
                         <span>種類</span>
@@ -56,10 +56,10 @@ $today = Carbon::now()->format('Y/m/d');
                         </div>
                         <input type="text" id="liquor_type" class="kinds-inp" name="liquor_type"
                             value="{{ old('liquor_type') }}" placeholder="種類を入力してください">
-                        @if ($errors->has('liquor_type'))
+                    </li>
+                    @if ($errors->has('liquor_type'))
                             <span class="error">{{ $errors->first('liquor_type') }}</span>
                         @endif
-                    </li>
                     <li class="kinds  liquorType">
                         <span>酒名</span>
                         <div class="kinds-selecter">
@@ -73,17 +73,18 @@ $today = Carbon::now()->format('Y/m/d');
                             value="{{ old('liquor_name') }}" placeholder="種類を入力してください">
                         <input type="text" id="liquor_id" class="kinds-inp" name="liquor_id"
                             value="{{ old('liquor_id') }}" hidden>
-                        @if ($errors->has('liquor_id'))
+
+                    </li>
+                    @if ($errors->has('liquor_id'))
                         <span class="error">{{ $errors->first('liquor_id') }}</span>
                         @endif
-                    </li>
                     <li>
                         <span>日付</span>
                         <input type="text" name="liquor_day" value="{{$today}}">
-                        @if ($errors->has('liquor_day'))
+                    </li>
+                    @if ($errors->has('liquor_day'))
                         <span class="error">{{ $errors->first('liquor_day') }}</span>
                         @endif
-                    </li>
                     <li>
                         <span>備考</span>
                         <textarea name="remarks" value="{{ old('remarks') }}"></textarea>

@@ -200,7 +200,7 @@ section{
         }
     }
     }
-    ul:not(.menu){
+    ul:not(.menu, .hamburgerContents ul){
         margin: 50px auto;
         font-size: 24px;
             li{

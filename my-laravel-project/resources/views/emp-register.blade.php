@@ -1,5 +1,6 @@
 @extends('main')
 {{-- @yield('title','社員登録') --}}
+@section('title','社員登録')
 @section('styles')
 <link rel="stylesheet" href="./css/register.css">
 <link rel="stylesheet" href="./css/information.css">
@@ -70,5 +71,4 @@
 @endsection
 @section('scripts')
 <script src="js/register.js"></script>
-<script src="js/index.js"></script>
 @endsection

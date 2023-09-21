@@ -58,8 +58,6 @@ $(document).ready(function(){
         });
 
         plusCnt += 1; 
-        console.log("test")
-        console.log()
         var previousElements = $('.customerList').eq(0);
         var ListClone = previousElements.clone();
         $($(this)).parent().before(ListClone);
@@ -68,8 +66,7 @@ $(document).ready(function(){
         });
         function clone(){
             plusCnt += 1; 
-            console.log()
-            var previousElements = $('.customerList').eq(0);
+            var previousElements = $('.customerList');
             var ListClone = previousElements.clone();
             $(plus).parent().before(ListClone);
         }

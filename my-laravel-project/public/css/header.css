@@ -208,6 +208,9 @@ header .menu_list_aft ol .menu_ele li {
   grid-template-columns: auto;
   display: grid;
 }
+.hamburger-area .hamburgerContents ul li {
+  font-size: 24px;
+}
 
 .hamburger-area-aft .hamburgerContents {
   transition: all 1s, opacity 0.1s;
