@@ -213,6 +213,9 @@
 }
 
 .newspage-link {
+  word-wrap: break-word;
+  max-width: 200px;
+  width: 100%;
   color: #333;
   flex: 0 auto;
   margin-bottom: 0;
@@ -224,7 +227,7 @@
 }
 
 .btn-text {
-  font-size: 19px;
+  font-size: 18px;
   text-align: center;
 }
 

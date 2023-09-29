@@ -5,13 +5,13 @@
 @endsection
 @section('content')
 <section class="calendar-field">
-    <div id = "calendarTitle"> 
+    <!-- <div id = "calendarTitle"> 
         <div class="calendar-title-field">
-            <span id="calendar-year">2023</span>
-            <h1 id="calendar-month"></h1>
+            <h1 id="calendar-year">2023</h1>
+            <h2 id="calendar-month"></h2>
             <span id="calendar-day">September</span>
         </div>
-    </div>
+    </div> -->
     <div id='calendar'>
 
     </div>

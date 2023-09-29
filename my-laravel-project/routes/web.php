@@ -103,7 +103,7 @@ Route::middleware(['auth'])->group(function () {
         return view('pass-change');
     })->name('passChange');
     //お知らせ追加画面
-    Route::get('/news', [newsController::class,'index']);
+    Route::get('/news', [newsController::class,'index'])->name("news");
     Route::post('/news', [newsController::class,'register']);
     // お知らせ登録
     Route::get('/news-register', function () {

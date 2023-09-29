@@ -160,10 +160,16 @@ section{
 }
 .intell{
     .intell-close{
-        display: none;
+        button{
+            display: none;
         }
+    }
     height: auto;
-    @media screen and (max-width:780px){   
+    @media screen and (max-width:780px){
+    border-radius: 25px;
+    box-shadow: 3px 3px 3px 3px rgba($color: #000000, $alpha: 0.1);
+    padding: 25px 10px;
+    border-radius: 25px;   
     background-color: #ccc;
     transition: all 1s;
     position: fixed;
@@ -172,6 +178,34 @@ section{
     opacity: 0;
     width: 80%;
     margin: 150px 10%;
+    .intell-close{
+        display: none;
+        position: absolute;
+        top: -65px;
+        width: 100%;
+        button{
+            display: flex;
+            margin: auto;
+            justify-content: center;
+            align-items: center;
+            width: 80%;
+            padding: 10px;
+            width: 80%;
+            :nth-child(1){
+                margin: 0 10px;
+            }
+            img{
+                width: 30px;
+            }
+            span{
+                font-weight: 800;
+                // font-size: 14px;
+            }
+        }
+    }
+    #TxtNameHeader{
+        font-size: 24px;
+    }
     }
     form{
         padding: 5px 15px ;
@@ -192,6 +226,11 @@ section{
             opacity: 0;
             overflow: hidden;
             white-space: nowrap;
+            transition: width 0.5s;
+            @media screen and (max-width:780px){
+            width: 50px;
+            opacity: 1;
+            }
         }
         &:hover button{
             opacity: 1;
@@ -199,7 +238,7 @@ section{
             width: 50px;
         }
     }
-    }
+}
     ul:not(.menu, .hamburgerContents ul){
         margin: 50px auto;
         font-size: 24px;
@@ -216,9 +255,6 @@ section{
     @media screen and (max-width:780px) {
         .intell-close{
             display: block;
-            position: absolute;
-            top: -65px;
-            width: 100%;
             button{
                 display: flex;
                 margin: auto;
@@ -235,7 +271,7 @@ section{
                 }
                 span{
                     font-weight: 800;
-                    font-size: 14px;
+                    // font-size: 14px;
                 }
             }
         }
@@ -243,10 +279,6 @@ section{
         opacity: 1;
         background-color:rgba(0, 0, 0,0.5);
         .intell{
-            border-radius: 25px;
-            box-shadow: 3px 3px 3px 3px rgba($color: #000000, $alpha: 0.1);
-            padding: 25px 10px;
-            border-radius: 25px;
             opacity: 1;
             position: absolute;
             width: 80%;
@@ -257,9 +289,7 @@ section{
             pointer-events: all;
             transition: all 0.5s;
         }
-        #TxtNameHeader{
-            font-size: 24px;
-        }
+
     }
 }
 .filter-header{

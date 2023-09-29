@@ -75,6 +75,15 @@
                     </div>
                 </ol>
             </li>
+            <li class="menu_list">
+                <span>ニュース</span>
+                <ol>
+                    <div class="menu_ele">
+                        <li><a href="{{route('news')}}">お知らせ</a></li>
+                        <li><a href="{{route('indexNewsRegister')}}">お知らせ登録</a></li>
+                    </div>
+                </ol>
+            </li>
         </ul>
     <div class="hamburger-area">
     <div class="hamburger-icon">
@@ -142,6 +151,12 @@
                             </div>
                         </div>
                     </li>
+                    <div class="accordion">
+                            <span>ニュース</span>
+                            <div class="accordion-content">
+                                <a href="{{route('news')}}">お知らせ</a>
+                                <a href="{{route('indexNewsRegister')}}">お知らせ登録</a>
+                            </div>
                         <li><a href="{{route('history')}}">出勤退勤履歴</a></li>
                 </ul>
             </div>

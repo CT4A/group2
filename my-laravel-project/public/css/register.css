@@ -116,13 +116,12 @@
   outline: none;
   background: none;
   border: none;
-  color: gold;
 }
 .register-area .register-areaUL li input::-moz-placeholder {
-  color: gold;
+  color: rgba(255, 215, 0, 0.8);
 }
 .register-area .register-areaUL li input::placeholder {
-  color: gold;
+  color: rgba(255, 215, 0, 0.8);
 }
 .register-area .register-areaUL li textarea {
   border: none;

@@ -22,21 +22,21 @@
                     @csrf
                     <li>
                         <span>社員名</span>
-                        <input type="text" name="staff_name" value="{{ old('staff_name') }}">
+                        <input type="text" name="staff_name" value="{{ old('staff_name') }}" placeholder="名前">
                     </li>
                     @if ($errors->has('staff_name'))
                             <span class="error">※{{ $errors->first('staff_name') }}</span>
                         @endif
                     <li>
                         <span>電話番号</span>
-                        <input type="text" name="tel" value="{{ old('tel') }}">
+                        <input type="text" name="tel" value="{{ old('tel') }}" placeholder="080-xxxx-xxxx">
                     </li>
                     @if ($errors->has('tel'))
                             <span class="error">※{{ $errors->first('tel') }}</span>
                         @endif
                     <li>
                         <span>住所</span>
-                        <input type="text" name="residence"  value="{{ old('residence') }}">
+                        <input type="text" name="residence"  value="{{ old('residence') }}" placeholder="住所">
                     </li>
                     @if ($errors->has('residence'))
                             <span class="error">※{{ $errors->first('residence') }}</span>

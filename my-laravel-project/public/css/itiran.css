@@ -172,11 +172,15 @@ section span {
 .intell {
   height: auto;
 }
-.intell .intell-close {
+.intell .intell-close button {
   display: none;
 }
 @media screen and (max-width: 780px) {
   .intell {
+    border-radius: 25px;
+    box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.1);
+    padding: 25px 10px;
+    border-radius: 25px;
     background-color: #ccc;
     transition: all 1s;
     position: fixed;
@@ -185,6 +189,33 @@ section span {
     opacity: 0;
     width: 80%;
     margin: 150px 10%;
+  }
+  .intell .intell-close {
+    display: none;
+    position: absolute;
+    top: -65px;
+    width: 100%;
+  }
+  .intell .intell-close button {
+    display: flex;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    padding: 10px;
+    width: 80%;
+  }
+  .intell .intell-close button :nth-child(1) {
+    margin: 0 10px;
+  }
+  .intell .intell-close button img {
+    width: 30px;
+  }
+  .intell .intell-close button span {
+    font-weight: 800;
+  }
+  .intell #TxtNameHeader {
+    font-size: 24px;
   }
 }
 .intell form {
@@ -208,6 +239,13 @@ section span {
   opacity: 0;
   overflow: hidden;
   white-space: nowrap;
+  transition: width 0.5s;
+}
+@media screen and (max-width: 780px) {
+  .intell form button {
+    width: 50px;
+    opacity: 1;
+  }
 }
 .intell form:hover button {
   opacity: 1;
@@ -236,9 +274,6 @@ ul:not(.menu, .hamburgerContents ul) li span {
   }
   .intell-aft .intell-close {
     display: block;
-    position: absolute;
-    top: -65px;
-    width: 100%;
   }
   .intell-aft .intell-close button {
     display: flex;
@@ -257,13 +292,8 @@ ul:not(.menu, .hamburgerContents ul) li span {
   }
   .intell-aft .intell-close button span {
     font-weight: 800;
-    font-size: 14px;
   }
   .intell-aft .intell {
-    border-radius: 25px;
-    box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.1);
-    padding: 25px 10px;
-    border-radius: 25px;
     opacity: 1;
     position: absolute;
     width: 80%;
@@ -273,9 +303,6 @@ ul:not(.menu, .hamburgerContents ul) li span {
     background: #F4F1EC;
     pointer-events: all;
     transition: all 0.5s;
-  }
-  .intell-aft #TxtNameHeader {
-    font-size: 24px;
   }
 }
 

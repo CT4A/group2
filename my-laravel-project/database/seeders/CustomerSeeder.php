@@ -14,6 +14,5 @@ class CustomerSeeder extends Seeder
     {
         \App\Models\customer::factory(10)->create();
         
-        //
     }
 }

@@ -207,6 +207,9 @@
     display: flex;
 }
 .newspage-link {
+    word-wrap: break-word;
+    max-width: 200px;
+    width: 100%;
     color: #333;
     flex: 0 auto;
     margin-bottom: 0;
@@ -216,9 +219,8 @@
     text-decoration: none;
     margin-left: 50px;
 }
-
 .btn-text {
-    font-size: 19px;
+    font-size: 18px;
     text-align: center;
 }
 

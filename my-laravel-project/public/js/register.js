@@ -40,7 +40,7 @@ $(document).ready(function(){
         var ListPush = thisList.parent().parent();
         thisList.find(kindsInp).addClass("kind-Click");
         if($(this).text() == "その他"){
-            $(kinds).addClass("kinds-aft");
+            ListPush.addClass("kinds-aft");
             ListPush.find(kindsInp).val("");
         }else{
             console.log($(this).text())
