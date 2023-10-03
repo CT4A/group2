@@ -41,7 +41,6 @@ $(document).ready(function(){
       var id = $(this).attr("id");
       if($(event.target).closest("span").length) {
         $('body').addClass("intell-aft");
-        console.log("test");
       }
       $.ajaxSetup({
         headers:{
@@ -55,7 +54,6 @@ $(document).ready(function(){
             },
         success: function (data) {
           showInfo(data[0]);
-
         }
       });
     });

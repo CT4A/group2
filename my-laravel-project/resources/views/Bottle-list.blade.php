@@ -58,6 +58,5 @@
     </section>
 @endsection
 @section('scripts')
-<script src="js/itiran.js"></script>
-<script src="js/keepbottle.js"></script>
+<script src="js/bottle.js"></script>
 @endsection

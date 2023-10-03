@@ -11,9 +11,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
-
-class EmployeeController extends Controller
-{
+class EmployeeController extends Controller{
     public function index(){
         $staffs=employee::select('staff_id','staff_name')->get();
         return view('list-staff',compact('staffs'));        

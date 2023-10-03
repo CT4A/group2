@@ -1,5 +1,21 @@
 $(document).ready(function () {
-    //検索機能
+  const elem = $('.intell');
+  const ele = $(".intell-aft");
+  const intellmain = $('main');
+  const empName =$(".emp-name span");
+  const empNamePay =$(".emp-name li");
+  var modal = $("#modalBox");
+  var btn = $("#boxBtn");
+  var span = $(".close")[0];
+  var intellClose = $(".intell-close")[0];
+  filBtn =$("#filter-btn");
+  filArea =$(".filter-area");
+  filterClose=$(".filter-close");
+
+  $(intellClose).on('click', function(event) {
+      $('body').removeClass("intell-aft");
+  });
+  //検索機能
     $('#search').keyup(function (e) { 
         let keySearch=$(this).val();
         let staffList = $(".emp-name ul li span");
@@ -19,6 +35,7 @@ $(document).ready(function () {
     //各キープボトルをクリックする処理
     $(empName).on('click', function(event) {
       var id = $(this).attr("data-id");
+      console.log("test");
       if($(event.target).closest("span").length) {
         $('body').addClass("intell-aft");
       }
@@ -33,8 +50,7 @@ $(document).ready(function () {
         data: {"id":id
             },
         success: function (data) {
-console.log(data)
-          // showInfo(data);
+          showInfo(data[0]);
         }
       });
     });
@@ -42,12 +58,12 @@ console.log(data)
     //キープボトルの情報を表示する
     function showInfo(data){
       console.log(data)
-      $("#TxtNameHeader").text(data["customer_name"]+"様の情報");
-      $("#customer_name").text(data["customer_name"]);
-      $("#customer_name").attr("data-id",data["customer_id"]);
-      $("#birthday").text(data["birthday"]);
-      $("#company_name").text(data["company_name"]);
-      $("#staff_name").text(data["staff_name"]);
+      $("#TxtNameHeader").text(data["liquor_name"]+"の情報");
+      $("#liquor_id").text(data["liquor_id"]);
+      $("#name").attr("data-id",data["customer_id"]);
+      $("#liquor_name").text(data["liquor_name"]);
+      $("#liquor_type").text(data["liquor_type"]);
+      $("remarks").text(data["remarks"]);
     }
     // 編集ボタン
     $("#editBtn").click(function (e) { 

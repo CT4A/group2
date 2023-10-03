@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\liquor_mg;
+use App\Models\liquor_link;
+use App\Models\Customer;
 use Illuminate\Http\Request;
 
 class bottleController extends Controller
@@ -28,4 +30,21 @@ class bottleController extends Controller
         ]);
         return redirect()->route('indexRegister')->with('message','登録完成しました。');
     }
+    public function indexList(){
+        $liquors=liquor_mg::select('liquor_name','liquor_type')
+                        ->orderBy('liquor_id')
+                        ->get();
+        return view('list-bottle',compact('liquors'));
+    }
+    public function GetInfoBottle(Request $request){
+        if($request->ajax()){
+            // $id = $request->id;
+            $id = 1;
+            $bottleInfo = liquor_mg::select('liquor_id','liquor_name')
+                        ->where('liquor_id',$id)
+                        ->get();
+        return response()->json($bottleInfo);
+        }
+    }
 }
+

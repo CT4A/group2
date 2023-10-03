@@ -25,34 +25,37 @@
     </section>
     <section class="intell">
         <div class="intell-aera" itemscope itemtype="http://schema.org/Person">
-        <div class="intell-button">
-            <div></div>
+        <div class="intell-close">
+            <button>
+                <img src="../img/close.png" alt="">
+                <span>閉じる</span>
+            </button>
         </div>
-            <h1>キープボトルの情報</h1>
+            <h1 id ="TxtNameHeader">キープボトルの情報</h1>
             <ul>
                     <li itemprop="identifier">
                         <span>番号</span>
-                        <span></span>
+                        <span id="liquor_id"></span>
                     </li>
                     <li itemprop="name">
                         <span>名前</span>
-                        <span></span>
+                        <span id ="name">1</span>
                     </li>
                     <li itemprop="Liquorname">
                         <span>酒名</span>
-                        <span></span>
+                        <span id ="liquor_name">1</span>
                     </li>
                     <li itemprop="kinds">
                         <span>種類</span>
-                        <span></span>
+                        <span id="liquor_type">1</span>
                     </li>
                     <li itemprop="date">
                         <span>日付</span>
-                        <span></span>
+                        <span id ="data">1</span>
                     </li>
                     <li itemprop="description">
                         <span>備考</span>
-                        <span></span>
+                        <span id = "remarks">1</span>
                     </li>
                     <li>
                         <form>
