@@ -278,4 +278,11 @@
   color: #fff;
   font-size: 24px;
   width: 100%;
+}
+
+#NewsHidden {
+  color: red;
+  margin: 10px auto;
+  font-size: 8px;
+  width: 80%;
 }/*# sourceMappingURL=register.css.map */

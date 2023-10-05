@@ -16,12 +16,13 @@
         <div class="register-area">
             <h1>お知らせ登録</h1>
             <ul>
-                <form action="/news" method="POST">
+                <form action="{{route('news')}}" method="POST" id ="newsForm">
                     @csrf
                     <li class="news-resist">
                         <span>内容</span>
-                        <textarea name="remarks" value="{{ old('remarks') }}"></textarea>
+                        <textarea id="newsTextarea" name="remarks" value="{{ old('remarks') }}"></textarea>
                     </li>
+                    <p id = "NewsHidden"></p>
                     <input type="submit" value="登録">
                 </form>
             </ul>

@@ -102,7 +102,6 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/pay-statement', function(){
         return view('pay-statement');
     })->name('payStatement');
-
     Route::post('/pay-statement', [EmployeeController::class,'personPay']);
     // Route::get('/pay-statement', [EmployeeController::class,'indexPay']);
     // Route::post('/getPayStaff/{id}', [EmployeeController::class,'personPay']);
@@ -110,6 +109,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/pass-change', function () {
         return view('pass-change');
     })->name('passChange');
+    Route::post("/passChange",[EmployeeController::class,'changePass']);
     //お知らせ追加画面
     Route::get('/news', [newsController::class,'index'])->name("news");
     Route::post('/news', [newsController::class,'register']);
@@ -117,7 +117,6 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/news-register', function () {
         return view('news-register');
     })->name('indexNewsRegister');
-    
     // 伝票登録
     Route::get('/bill-register', [BillController::class,'index'])->name('indexBillRegister');
     Route::post('/bill-register', [BillController::class,'register']);

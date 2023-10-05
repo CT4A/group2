@@ -6,8 +6,8 @@ use App\Models\customer;
 use App\Models\liquor_link;
 use Illuminate\Http\Request;
 use App\Models\liquor_mg;
-class keepbottleController extends Controller
-{
+use Illuminate\Support\Facades\DB;
+class keepbottleController extends Controller{
     //キープボトル一覧。
     public function indexList(){
         $liquors=liquor_mg::select('liquor_id','liquor_name')
@@ -18,9 +18,12 @@ class keepbottleController extends Controller
     public function GetInfoKeepBottle(Request $request){
         if($request->ajax()){
             $id = $request->id;
-            $KeepbotleInfo =liquor_mg::select('liquor_id','liquor_name','liquor_type')
-                                    ->where('liquor_id',$id)
-                                    ->get();
+            $KeepbotleInfo = DB::table("liquor_mgs")
+            ->join('liquor_links','liquor_mgs.liquor_id','=','liquor_links.liquor_id')
+            ->join('customers','liquor_links.customer_id','=','customers.customer_id')
+            ->select('liquor_mgs.liquor_name','liquor_mgs.liquor_id','liquor_mgs.liquor_type','liquor_links.liquor_day','liquor_links.remarks','customers.customer_name')
+            // ->where('liquor_mgs.liquor_id',$id)
+            ->get();
                 return response()->json($KeepbotleInfo);
         }
     }

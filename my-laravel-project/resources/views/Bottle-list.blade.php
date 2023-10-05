@@ -24,8 +24,11 @@
     </section>
     <section class="intell">
         <div class="intell-aera" itemscope itemtype="http://schema.org/Person">
-        <div class="intell-button">
-            <div></div>
+        <div class="intell-close">
+            <button>
+                <img src="../img/close.png" alt="">
+                <span>閉じる</span>
+            </button>
         </div>
             <h1>〇〇の情報</h1>
             <ul>

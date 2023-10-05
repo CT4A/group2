@@ -24,7 +24,6 @@
                 <li class="passList">
                     <span>新規パスワード</span>
                     <input type="password" name="new_password" required>
-                   
                 </li>
                 <li class="passList">
                     <span>新規パスワード[確認]</span>
@@ -38,5 +37,6 @@
     </section>
 @endsection
 @section('scripts')
+<script src = "js/pass-change.js"></script>
 <script src="js/register.js"></script>
 @endsection

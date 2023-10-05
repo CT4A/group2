@@ -39,23 +39,23 @@
                     </li>
                     <li itemprop="name">
                         <span>名前</span>
-                        <span id ="name">1</span>
+                        <span id ="customer_name"></span>
                     </li>
                     <li itemprop="Liquorname">
                         <span>酒名</span>
-                        <span id ="liquor_name">1</span>
+                        <span id ="liquor_name"></span>
                     </li>
                     <li itemprop="kinds">
                         <span>種類</span>
-                        <span id="liquor_type">1</span>
+                        <span id="liquor_type"></span>
                     </li>
                     <li itemprop="date">
                         <span>日付</span>
-                        <span id ="data">1</span>
+                        <span id ="date"></span>
                     </li>
                     <li itemprop="description">
                         <span>備考</span>
-                        <span id = "remarks">1</span>
+                        <span id = "remarks"></span>
                     </li>
                     <li>
                         <form>
@@ -68,6 +68,6 @@
     </section>
 @endsection
 @section('scripts')
-{{-- <script src="js/itiran.js"></script> --}}
+<!-- {{-- <script src="js/itiran.js"></script> --}} -->
 <script src="js/keepbottle.js"></script>
 @endsection

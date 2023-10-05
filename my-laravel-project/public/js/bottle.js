@@ -33,8 +33,8 @@ $(document).ready(function () {
             });
     //各キープボトルをクリックする処理
     $(empName).on('click', function(event) {
-        var id = $(this).attr("data-id");
-        console.log("test");
+        var id = Number($(this).attr("data-id"));
+        console.log(id);
         if($(event.target).closest("span").length) {
             $('body').addClass("intell-aft");
         }
@@ -57,11 +57,15 @@ $(document).ready(function () {
     function showInfo(data){
         console.log(data)
         $("#TxtNameHeader").text(data["liquor_name"]+"の情報");
-        $("#liquor_id").text(data["liquor_type"]);
-        // $("#name").attr("data-id",data["customer_id"]);
-        // $("#liquor_name").text(data["liquor_name"]);
-        // $("#liquor_type").text(data["liquor_type"]);
+        $("#liquor_id").text(data["liquor_id"]);
+        $("#liquor_name").text(data["liquor_name"]);
+        $("#liquor_type").text(data["liquor_type"]);
+        $("#date").text(data["liquor_day"]);
+        if(data["remarks"]){
         $("remarks").text(data["remarks"]);
+        }else{
+            $("remarks").text("");
+        }
     }
       // 編集ボタン
     $("#editBtn").click(function (e) { 
