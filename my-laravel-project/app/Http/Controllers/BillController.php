@@ -6,7 +6,7 @@ use App\Models\customer;
 use App\Models\employee;
 use App\Models\slip_mg;
 use Illuminate\Http\Request;
-
+use Carbon\Carbon;
 class BillController extends Controller
 {
     function index(){
@@ -16,10 +16,11 @@ class BillController extends Controller
     }
     function register(Request $request){
         $validatedData = $request->validate([
-            'customer_id' => 'required',
-            'staff_id' => 'required',
+            'customer_id' => 'required|numeric',
+            'staff_id' => 'required|numeric',
             'day' => 'required|date',
-            'time'=>'required|time',
+            'time'=>'required|custom_time',
+            
             'total'=>'required|numeric',
         ],[
             'customer_id.required'=>'顧客を選択してください。',
@@ -32,15 +33,16 @@ class BillController extends Controller
             'total.required'=>'金額をを入力してください。',
             'total.numeric'=>'数字を入力してください。',
         ]);
-        $ap_day = $request->input('day') + " " + $request->input('time');
+        $ap_day = $request->input('day') . " " . $request->input('time');
+        $request->string('customer_id')->nullable();
+        $request->string('customer_id')->default('default_value_here');
         $customer = slip_mg::create([
-            'customer_id' => $request->input('customer_id'),
-            'staff_id' => $request->input('staff_id'),
+            'customer_id' => $request->input('customer_id',0),
+            'slip_id' => $request->input('slip_id',0),
             'ap_day' => $request->input('ap_day'),
-            'total' => $request->input('total')
+            'total' => $request->input('total',0)
         ]);
-        
-        
-        return;
+        $date = \Carbon\Carbon::parse($customer['ap_day']);
+        return  redirect()->route('indexEmpRegister')->with('message','登録完成しました。');
     }
 }

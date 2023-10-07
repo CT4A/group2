@@ -30,7 +30,7 @@
                     <input type="password" name="new_passwordConf" required>
                 </li>
                 
-                <input type="submit" value="登録">
+                <input type="submit" value="登録" id ="passSubmit">
                 </form>
             </ul>
         </div>

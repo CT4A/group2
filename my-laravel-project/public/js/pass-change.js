@@ -1,7 +1,7 @@
 $(document).ready(function(){
     passSubmit = document.getElementById("passSubmit");
     passSubmit.addEventListener("submit", function(event) {
-        alert("test");
+alert("te...................st");
         $(empName).on('click', function(event) {
             event.stopPropagation();
             var id = $(this).attr("id");
