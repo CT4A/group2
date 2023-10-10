@@ -42,6 +42,7 @@ class BillController extends Controller
             'ap_day' => $request->input('ap_day'),
             'total' => $request->input('total',0)
         ]);
+        
         $date = \Carbon\Carbon::parse($customer['ap_day']);
         return  redirect()->route('indexEmpRegister')->with('message','登録完成しました。');
     }

@@ -49,13 +49,14 @@ $(document).ready(function () {
             data: {"id":id
             },
             success: function (data) {
+                console.log(data[0])
+
             showInfo(data[0]);
             }
         });
     });
       //ボトルの情報を表示する
     function showInfo(data){
-        console.log(data)
         $("#TxtNameHeader").text(data["liquor_name"]+"の情報");
         $("#liquor_id").text(data["liquor_id"]);
         $("#liquor_name").text(data["liquor_name"]);

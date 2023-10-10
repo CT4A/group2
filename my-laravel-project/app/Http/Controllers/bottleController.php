@@ -37,17 +37,17 @@ class bottleController extends Controller
         return view('list-bottle',compact('liquors'));
     }
     public function GetInfoBottle(Request $request){
-        if($request->ajax()){
-            $id = $request->id;
+       
+            $id = $request->input("id");
             // $id = 2;
             $bottleInfo = DB::table("liquor_mgs")
+            ->select('liquor_mgs.*','liquor_links.*','customers.*')
             ->join('liquor_links','liquor_mgs.liquor_id','=','liquor_links.liquor_id')
             ->join('customers','liquor_links.customer_id','=','customers.customer_id')
-            ->select('liquor_mgs.liquor_name','liquor_mgs.liquor_id','liquor_mgs.liquor_type','liquor_links.liquor_day','liquor_links.remarks','customers.customer_name')
             ->where('liquor_mgs.liquor_id',$id)
             ->get();
         return response()->json($bottleInfo);
-        }
+        
     }
 }
 
