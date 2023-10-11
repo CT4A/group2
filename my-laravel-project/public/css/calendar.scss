@@ -1,23 +1,45 @@
-*{
-    font-weight: 800;
+
+thead{
+    tr{
+        th{
+            border-bottom:none  !important;
+        }
+    }
+}
+.fc-theme-standard td, .fc-theme-standard th {
+    border: 0.5px solid #666;
+}
+.fc-header-toolbar{
+    margin:0 1%;
+    font-size: 14px;
+    button{
+        color: #000 !important;
+        background: none !important;
+    }
+    .fc-toolbar-chunk{
+        :nth-child(0){
+            background-color: #333 !important;
+        }
+        .fc-button-group{
+            button{
+                font-size: 18px;
+                border: none !important;
+            }
+        }
+
+    }
 }
 .fc{ 
-    .fc-daygrid-day-frame{
-        background: rgb(32, 32, 32);
-    }
     th{
         background:darkcyan ;
         .fc-scrollgrid-sync-inner{
-            a{
-            font-weight: 800;
-            }
+            background: #333;
         }
     }
 }
 .calendar-field{
     height: 100%;
     width: 100%;
-    display: flex;
     #calendarTitle{
         border-right: solid 1px gold;
         background-color: darkcyan;
@@ -30,8 +52,7 @@
             margin-top: 100px;
             line-height: 1.3;
             h1{
-
-                margin: 0;
+                margin-top: 250px;
             }
             span{
                 font-size: 16px;
@@ -42,11 +63,10 @@
     }
     }
     #calendar{
-        width: 90%;
-        margin-left: auto;
-        // margin: auto;
+        font-weight: bold;
+        width: 100%;
+        margin: auto;
         display: flex;
-
         @media screen and (max-width: 780px) {
             width: 100%;
         }
@@ -55,9 +75,6 @@
                 width: 90%;
                 margin: 10px auto;
             }
-        }
-        .fc-daygrid-day-number{
-            font-weight: 900;
         }
         .fc-button-group{
             @media screen and (max-width: 780px) {
@@ -72,7 +89,14 @@
             }
         }
         .fc-theme-standard td{
+            background-color: #333 !important;
             border: 1px solid gold !important;
         }
     }
+    .fc-daygrid-day-number{
+        color: #000;
+    }
+}
+*{
+    font-weight: bold;
 }

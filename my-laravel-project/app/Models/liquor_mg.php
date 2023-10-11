@@ -9,5 +9,5 @@ class liquor_mg extends Model
 {
     use HasFactory;
     protected $primaryKey = 'liquor_id';
-    protected $fillable=['liquor_name','liquor_type'];
+    protected $fillable=['liquor_name','liquor_type','liquor_id'];
 }

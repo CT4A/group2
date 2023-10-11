@@ -24,7 +24,7 @@ class LoginController extends Controller
             return redirect()->intended('/news');
         } else {
             // ログイン失敗
-            return redirect()->back()->withErrors(['tel' => '電話番号かパスワードか間違います。']);
+            return redirect()->back()->withErrors(['password' => '電話番号かパスワードか間違います。']);
         }
     }
     public function logout()

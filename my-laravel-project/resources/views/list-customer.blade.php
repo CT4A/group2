@@ -57,7 +57,7 @@
                     <span id="that_month_money"></span>
                 </li>
                 <li>
-                    <form>
+                    <form action="">
                         <img src="img\edit.png" alt="">
                         <button id="editBtn">編集</button>
                     </form>

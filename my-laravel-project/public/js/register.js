@@ -40,7 +40,7 @@ $(document).ready(function(){
         var ListPush = thisList.parent().parent();
         thisList.find(kindsInp).addClass("kind-Click");
         if($(this).text() == "その他"){
-            $(kinds).addClass("kinds-aft");
+            ListPush.addClass("kinds-aft");
             ListPush.find(kindsInp).val("");
         }else{
             console.log($(this).text())
@@ -131,9 +131,9 @@ $(document).ready(function(){
 
     }
 
-    $('input[placeholder=￥]').on('keyup',function(){
-    updateTextView($(this));
-    });
+    // $('input[placeholder=￥]').on('keyup',function(){
+    // updateTextView($(this));
+    // });
 
 
     //   time
@@ -213,4 +213,17 @@ $(window).on('load', function (){
     console.log("window road")
     $("input[type='date']").val(date.toISOString().split('T')[0]);
     $("input[type='time']").val(date.toISOString().split('T')[0]);
+});
+// newsform　送信禁止
+var newsForm = document.getElementById("newsForm");
+var NewsHidden = document.getElementById("NewsHidden");
+newsForm.addEventListener("submit", function(event) {
+    var textareaValue = document.getElementById("newsTextarea").value;
+    if (textareaValue.trim() === "") {
+        event.preventDefault(); // フォーム送信を阻止
+        NewsHidden.textContent ="テキストを入力してください";
+    }else if(textareaValue.length >= 255){
+        event.preventDefault(); // フォーム送信を阻止
+        NewsHidden.textContent ="文字を255文字以内にしてください";
+    }
 });

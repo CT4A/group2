@@ -34,7 +34,7 @@
                     </li>
                     <li>
                         <span>酒名</span>
-                        <input type="text" name="liquor_name" value="{{ old('liquor_name') }}">
+                        <input type="text" name="liquor_name" value="{{ old('liquor_name') }}" placeholder="名前">
                         @if ($errors->has('liquor_name'))
                         <span class="error">{{ $errors->first('liquor_name') }}</span>
                         @endif

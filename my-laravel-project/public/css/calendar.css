@@ -1,21 +1,37 @@
-* {
-  font-weight: 800;
+thead tr th {
+  border-bottom: none !important;
 }
 
-.fc .fc-daygrid-day-frame {
-  background: rgb(32, 32, 32);
+.fc-theme-standard td, .fc-theme-standard th {
+  border: 0.5px solid #666;
 }
+
+.fc-header-toolbar {
+  margin: 0 1%;
+  font-size: 14px;
+}
+.fc-header-toolbar button {
+  color: #000 !important;
+  background: none !important;
+}
+.fc-header-toolbar .fc-toolbar-chunk :nth-child(0) {
+  background-color: #333 !important;
+}
+.fc-header-toolbar .fc-toolbar-chunk .fc-button-group button {
+  font-size: 18px;
+  border: none !important;
+}
+
 .fc th {
   background: darkcyan;
 }
-.fc th .fc-scrollgrid-sync-inner a {
-  font-weight: 800;
+.fc th .fc-scrollgrid-sync-inner {
+  background: #333;
 }
 
 .calendar-field {
   height: 100%;
   width: 100%;
-  display: flex;
 }
 .calendar-field #calendarTitle {
   border-right: solid 1px gold;
@@ -31,7 +47,7 @@
   line-height: 1.3;
 }
 .calendar-field #calendarTitle .calendar-title-field h1 {
-  margin: 0;
+  margin-top: 250px;
 }
 .calendar-field #calendarTitle .calendar-title-field span {
   font-size: 16px;
@@ -40,8 +56,9 @@
   text-align: right;
 }
 .calendar-field #calendar {
-  width: 90%;
-  margin-left: auto;
+  font-weight: bold;
+  width: 100%;
+  margin: auto;
   display: flex;
 }
 @media screen and (max-width: 780px) {
@@ -54,9 +71,6 @@
     width: 90%;
     margin: 10px auto;
   }
-}
-.calendar-field #calendar .fc-daygrid-day-number {
-  font-weight: 900;
 }
 @media screen and (max-width: 780px) {
   .calendar-field #calendar .fc-button-group {
@@ -73,5 +87,13 @@
   }
 }
 .calendar-field #calendar .fc-theme-standard td {
+  background-color: #333 !important;
   border: 1px solid gold !important;
+}
+.calendar-field .fc-daygrid-day-number {
+  color: #000;
+}
+
+* {
+  font-weight: bold;
 }/*# sourceMappingURL=calendar.css.map */

@@ -245,7 +245,6 @@ header .menu_list_aft ol .menu_ele li {
 }
 .accordion .accordion-content {
   transition: height 0.5s, max-height 0.5s;
-  height: 100%;
   opacity: 0;
   font-size: 0;
   max-height: 0;

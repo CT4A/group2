@@ -24,8 +24,11 @@
     </section>
     <section class="intell">
         <div class="intell-aera" itemscope itemtype="http://schema.org/Person">
-        <div class="intell-button">
-            <div></div>
+        <div class="intell-close">
+            <button>
+                <img src="../img/close.png" alt="">
+                <span>閉じる</span>
+            </button>
         </div>
             <h1>情報</h1>
             <ul>
@@ -58,6 +61,5 @@
     </section>
 @endsection
 @section('scripts')
-<script src="js/itiran.js"></script>
-<script src="js/keepbottle.js"></script>
+<script src="js/bottle.js"></script>
 @endsection

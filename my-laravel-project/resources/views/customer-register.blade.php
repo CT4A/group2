@@ -19,21 +19,21 @@
                     @csrf
                     <li>
                         <span>顧客名</span>
-                        <input type="text" name="customer_name" value="{{ old('customer_name') }}">
+                        <input type="text" name="customer_name" value="{{ old('customer_name') }}" placeholder="名前">
                     </li> 
                     @if ($errors->has('customer_name'))
                             <span class="error">{{ $errors->first('customer_name') }}</span>
                         @endif
                     <li>
                         <span>会社名</span>
-                        <input type="text" name="company_name" value="{{ old('company_name') }}">
+                        <input type="text" name="company_name" value="{{ old('company_name') }}" placeholder="会社">
                     </li>
                     @if ($errors->has('company_name'))
                             <span class="error">{{ $errors->first('company_name') }}</span>
                         @endif
                     <li>
                         <span>誕生日</span>
-                        <input type="text" name="birthday" value="{{ old('birthday') }}">
+                        <input type="date" name="birthday" value="{{ old('birthday') }}">
                     </li>
                     @if ($errors->has('birthday'))
                             <span class="error">{{ $errors->first('birthday') }}</span>
@@ -49,7 +49,7 @@
                         </ul> 
                         </div>
                         <input type="text" id="staff_name" class="kinds-inp" name="staff_name"
-                            value="{{ old('staff_name') }}">
+                            value="{{ old('staff_name') }}" placeholder="名前">
                         <input type="text" id="staff_id" class="kinds-inp-hidden" name="staff_id"
                             value="{{ old('staff_id') }}" hidden>
                     </li>

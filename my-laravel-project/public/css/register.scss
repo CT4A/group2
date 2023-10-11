@@ -108,10 +108,9 @@
             outline: none;
             background: none;
             border: none;
-            color: gold;
             }
             input::placeholder{
-                color:gold;
+                color:rgba(255, 215, 0 ,0.8);
             }
             textarea{
                 border: none;
@@ -273,4 +272,10 @@
                 width: 100%;
             }
 
+        }
+        #NewsHidden{  
+            color: red;
+            margin: 10px auto;
+            font-size: 8px;
+            width: 80%;
         }

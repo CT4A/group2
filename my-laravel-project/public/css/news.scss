@@ -169,7 +169,16 @@
     padding-bottom: 100px;
     position: relative;
 }
-
+.news-radio{
+    width: 90%;
+    margin: auto;
+    padding: 30px;
+}
+.newspage-time {
+    @media screen and (max-width:780px) {
+        text-align: center;
+        }
+}
 .service-title-h1-large {
     color: #333;
     text-align: center;
@@ -193,20 +202,20 @@
     border: 1px #cacaca;
     margin-top: 40px;
     margin-bottom: 40px;
-    padding: 40px 80px 20px;
     overflow: visible;
 }
 .collection-item {
     color: #000;
-    border-bottom: 1px solid #e7e7e7;
     justify-content: flex-start;
     align-items: center;
-    margin-bottom: 30px;
     padding: 10px 20px 20px;
     font-size: 16px;
     display: flex;
 }
 .newspage-link {
+    word-wrap: break-word;
+    max-width: 200px;
+    width: 100%;
     color: #333;
     flex: 0 auto;
     margin-bottom: 0;
@@ -214,21 +223,22 @@
     font-size: 19px;
     font-weight: 300;
     text-decoration: none;
-    margin-left: 50px;
+    // margin-left: 50px;
 }
-
 .btn-text {
-    font-size: 19px;
+    font-size: 18px;
     text-align: center;
 }
 
 .newspage-people {
-    margin-left: 70px;
     color: black;
     font-size: 18px;
     text-decoration: none;
     width: 150px;
     word-wrap: break-word;
+    @media screen and (max-width:780px) {
+        text-align: center;
+        }
 }
 .newspage-area{
     display: flex;

@@ -24,19 +24,19 @@
                 <li class="passList">
                     <span>新規パスワード</span>
                     <input type="password" name="new_password" required>
-                   
                 </li>
                 <li class="passList">
                     <span>新規パスワード[確認]</span>
                     <input type="password" name="new_passwordConf" required>
                 </li>
                 
-                <input type="submit" value="登録">
+                <input type="submit" value="登録" id ="passSubmit">
                 </form>
             </ul>
         </div>
     </section>
 @endsection
 @section('scripts')
+<script src = "js/pass-change.js"></script>
 <script src="js/register.js"></script>
 @endsection
