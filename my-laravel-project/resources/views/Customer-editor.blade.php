@@ -14,27 +14,28 @@
     <section class="register">
         <div class="register-area">
             <h1>顧客情報編集</h1>
-            <form action="/customer-register" method="POST">
+            <form action="/customer-editor" method="POST">
             <ul class="register-areaUL">
                     @csrf
                     <li>
                         <span>顧客名</span>
-                        <input type="text" name="customer_name" value="{{ old('customer_name') }}">
+                        <input type="text" name="customer_name" value="{{ old('customer_name') ?? $customer->customer_name }}">
                         @if ($errors->has('customer_name'))
                             <span class="error">{{ $errors->first('customer_name') }}</span>
                         @endif
+                        <input type="text" name="customer_id" value="{{ old('customer_id') ?? $customer->customer_id }}" hidden>
                     </li> 
                     
                     <li>
                         <span>会社名</span>
-                        <input type="text" name="company_name" value="{{ old('company_name') }}">
+                        <input type="text" name="company_name" value="{{ old('company_name') ?? $customer->company_name }}">
                         @if ($errors->has('company_name'))
                             <span class="error">{{ $errors->first('company_name') }}</span>
                         @endif
                     </li>
                     <li>
                         <span>誕生日</span>
-                        <input type="text" name="birthday" value="{{ old('birthday') }}">
+                        <input type="text" name="birthday" value="{{ old('birthday') ?? $customer->birthday }}">
                         @if ($errors->has('birthday'))
                             <span class="error">{{ $errors->first('birthday') }}</span>
                         @endif
@@ -48,23 +49,22 @@
                             @foreach ($staffs as $staff)
                                 <li data="{{$staff->staff_id}}">{{$staff->staff_name}}</li>
                             @endforeach
-
                         </ul> 
                         </div>
                         <input type="text" id="staff_name" class="kinds-inp" name="staff_name"
-                           value="{{ old('staff_name') }}">
+                           value="{{ old('staff_name') ?? $customer->staff_name }}" style="height: auto; width:100%;">
                         <input type="text" id="staff_id" class="kinds-inp-hidden" name="staff_id"
-                            value="{{ old('staff_id') }}" hidden>
+                            value="{{ old('staff_id') ?? $customer->staff_id }}" hidden>
                     </li>
                     <li>
                         <span>備考</span>
-                        <input type="text" name="remarks" value="{{ old('remarks') }}">
+                        <input type="text" name="remarks" value="{{ old('remarks') ?? $customer->remarks }}">
                         @if ($errors->has('remarks'))
                             <span class="error">{{ $errors->first('remarks') }}</span>
                         @endif
                     </li>
             </ul>
-            <input type="submit" value="登録">
+            <input type="submit" value="編集">
             </form>
         </div>
     </section>

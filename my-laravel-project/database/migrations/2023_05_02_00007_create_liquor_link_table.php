@@ -27,7 +27,7 @@ return new class extends Migration
             $table->foreign('customer_id')->references('customer_id')->on('customers');
 
             //主キー
-            $table->primary(['customer_id','liquor_number']);
+            $table->primary(['customer_id','liquor_number','liquor_id']);
         });
     }
 

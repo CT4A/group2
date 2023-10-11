@@ -29,7 +29,7 @@ $today = Carbon::now()->format('Y/m/d');
                             <span>選択してください</span>
                             <ul class="kind-list" id="">
                                 @foreach ($customers as $customer)
-                                <li data="{{$customer->customer_id}}">{{$customer->customer_name}}</li>
+                                    <li data="{{$customer->customer_id}}">{{$customer->customer_name}}</li>
                                 @endforeach
                                 <li>その他</li>
                             </ul>
@@ -65,8 +65,9 @@ $today = Carbon::now()->format('Y/m/d');
                         <div class="kinds-selecter">
                             <span>選択してください</span>
                             <ul class="kind-list" id="">
-                                <li>chien</li>
-                                <li>chien</li>
+                                @foreach ($liquors as $liquor)
+                                    <li>{{$liquor->liquor_name}}</li>
+                                @endforeach
                             </ul>
                         </div>
                         <input type="text" id="liquor_name" class="kinds-inp" name="liquor_name"

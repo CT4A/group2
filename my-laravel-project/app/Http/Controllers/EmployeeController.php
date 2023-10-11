@@ -11,7 +11,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
-
+use Illuminate\Support\Facades\Validator;
 class EmployeeController extends Controller
 {
     public function index(){
@@ -31,18 +31,19 @@ class EmployeeController extends Controller
                                         ->get();
             return response()->json($staffs); 
         }
+        return response();
     }
-
-    public function register(Request $request){
-        // $hourly_wage=$request->hourly_wage;
-        // $hourly_wage = intval(str_replace(',','', $hourly_wage));//,消してintに変換
-
+    //編集処理
+    public function editor(Request $request){
+        $id = $request->id;
+        $hourlyWage = str_replace(',', '', $request->input('hourly_wage'));
+        $request->merge(['hourly_wage' => $hourlyWage]);
         $validatedData = $request->validate([
             'staff_name' => 'required|string',
-            'tel' => 'required|numeric',
+            'tel' => 'required',
             'residence' => 'required|string',
             'birthday' => 'required|date',
-            'hourly_wage' => 'numeric'
+            'hourly_wage' => 'required|numeric'
         ],[
             'staff_name.required'=>'スタッフの名前を入力してください。',
             'tel.required'=>'電話番号を入力してください。',
@@ -52,7 +53,38 @@ class EmployeeController extends Controller
             'birthday.date'=>'年-月-日の形を入力してください。',
             'hourly_wage.numeric'=>'数字をを入力してください。'
         ]);
-        $employee = employee::create([
+
+        $test = employee::where('staff_id', 1)->update($validatedData);
+        //アップデート成功のチェック
+        if ($test > 0) {
+            return redirect()->route('list-staff')->with('message','登録完成しました。');
+
+        } else {
+            return back();
+        }
+    } 
+    public function register(Request $request){
+        // $hourly_wage=$request->hourly_wage;
+        // $hourly_wage = intval(str_replace(',','', $hourly_wage));//,消してintに変換
+        $hourly_wage = (float) str_replace(',', '', $request->input('hourly_wage'));
+        
+        $validatedData = $request->validate([
+            'staff_name' => 'required|string',
+            'tel' => 'required',
+            'residence' => 'required|string',
+            'birthday' => 'required|date',
+        ],[
+            'staff_name.required'=>'スタッフの名前を入力してください。',
+            'tel.required'=>'電話番号を入力してください。',
+            'tel.numeric'=>'数字をを入力してください。',
+            'residence.required'=>'住所を入力してください。',
+            'birthday.required'=>'誕生日を入力してください。',
+            'birthday.date'=>'年-月-日の形を入力してください。',
+        ]);
+        $validator = Validator::make(['hourly_wage' => $hourly_wage], [
+            'hourly_wage' => 'required|numeric',
+        ],['hourly_wage.numeric'=>'数字をを入力してください。']);
+        employee::create([
             'staff_name' => $request->input('staff_name'),
             'staff_pass'=> bcrypt('password'),
             'tel' => $request->input('tel'),
@@ -61,8 +93,19 @@ class EmployeeController extends Controller
             'hourly_wage' => $request->input('hourly_wage'),
             'remarks' => $request->input('remarks')
         ]);
-        return redirect()->route('indexEmpRegister')->with('message','登録完成しました。');
-    } 
+        return redirect()->route('list-staff')->with('message','登録完成しました。');
+    }
+    //編集画面のindex
+    public function indexEmpEditor(Request $request){
+        if($request->id){
+            $staff_id = $request->id;
+            $staff = employee::select('staff_id','staff_name','tel','residence','birthday','remarks','hourly_wage')
+                                        ->where('staff_id',$staff_id)
+                                        ->first();
+            return view("emp-editor",compact("staff"));
+        }
+        return redirect()->route('list-staff');
+    }
     //出勤の履歴
     public function indexHistory(Request $request)
     {
@@ -190,8 +233,8 @@ $result = DB::table($slip, 'slip')
         }
         // Cập nhật mật khẩu mới
         $staff->password = Hash::make($request->input('new_password'));
-        $staff->fist_login = false;
-        $staff->save();
+        $staff->first_login = 2;
+        $staff->save(); 
         return redirect()->back()->with('message','パスワードを変更しました');
     }
     function payStatementIndex(){

@@ -14,6 +14,7 @@ class BillController extends Controller
         $customers=customer::select('customer_id','customer_name')->get();
         return view('bill-register',compact('staffs','customers'));
     }
+    //伝票登録
     function register(Request $request){
         $validatedData = $request->validate([
             'customer_id' => 'required',

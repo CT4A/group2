@@ -69,6 +69,6 @@ $(document).ready(function(){
       e.preventDefault();
       var customer_id = $("#customer_name").attr("data-id");
       console.log(customer_id)
-      window.location.href = "/editor?id=" + customer_id;
+      window.location.href = "/customer-editor?id=" + customer_id;
     });
   });

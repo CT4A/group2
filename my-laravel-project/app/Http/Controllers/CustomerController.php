@@ -14,6 +14,50 @@ class CustomerController extends Controller
         // return view('test');
         
     }
+    //編集表示
+    public function indexCusEditor(Request $request){
+        //顧客を選択したかどうか（urlを直接に入力する）
+        if($request->has('id')){
+            $id=$request->id;
+            $existsCustomer = DB::table('customers')->where('customer_id', $id)->exists();
+            //urlから受けたのIDは存在のチェック（urlに直接入力する防止）
+            if ($existsCustomer) {
+                $customer = Customer::where('customer_id', $id)
+                                ->select('customers.staff_id','customers.customer_id', 'customers.customer_name', 'customers.company_name', 'customers.birthday', 'customers.staff_id', 'customers.remarks', 'employees.staff_name')
+                                ->join('employees', 'customers.staff_id', '=', 'employees.staff_id')
+                                ->first();
+            $staffs=employee::select('staff_id','staff_name')->get();  
+            return view('customer-editor',compact('staffs','customer'));
+            } else {
+                //存在してない場合顧客リストページに転送します。
+                return redirect()->route('list-customer');
+            }            
+        }else{
+            return back();
+        }
+    }
+    // 編集処理
+    public function editor(Request $request){
+        
+        $validatedData = $request->validate([
+            'customer_id'=>'required|exists:customers,customer_id',
+            'customer_name' => 'required|string',
+            'staff_id' => 'required',
+            'birthday' => 'date',
+        ],[
+            'customer_name.required'=>'スタッフの名前を入力してください。',
+            'birthday.date'=>'年-月-日の形を入力してください。',
+            'staff_id.required'=>'担当スタッフをを入力してください。'
+        ]);
+        $customer_id = $request->customer_id;
+        $test = customer::where('customer_id', $customer_id)->update($validatedData);
+        //アップデート成功のチェック
+        if ($test > 0) {
+            return redirect()->route('list-customer')->with('message','登録完成しました。');
+        } else {
+            return back();
+        }
+    } 
     public function GetListCustomer(Request $request){
         if($request->ajax()){
             $id = $request->id;
@@ -37,6 +81,7 @@ class CustomerController extends Controller
             return response()->json($data);
         }
     }
+    //顧客新規登録
     public function register(Request $request){
         $validatedData = $request->validate([
             'customer_name' => 'required|string',

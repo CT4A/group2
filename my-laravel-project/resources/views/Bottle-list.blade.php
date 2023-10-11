@@ -27,31 +27,31 @@
         <div class="intell-button">
             <div></div>
         </div>
-            <h1>〇〇の情報</h1>
+            <h1>情報</h1>
             <ul>
                     <li itemprop="identifier">
                         <span>番号</span>
-                        <span>01</span>
+                        <span></span>
                     </li>
                     <li itemprop="name">
                         <span>名前</span>
-                        <span>名古屋タロウ</span>
+                        <span></span>
                     </li>
                     <li itemprop="Liquorname">
                         <span>酒名</span>
-                        <span>山崎55年</span>
+                        <span></span>
                     </li>
                     <li itemprop="kinds">
                         <span>種類</span>
-                        <span>ウイスキー</span>
+                        <span></span>
                     </li>
                     <li itemprop="date">
                         <span>日付</span>
-                        <span>2023年5月8日</span>
+                        <span></span>
                     </li>
                     <li itemprop="description">
                         <span>備考</span>
-                        <span>テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</span>
+                        <span></span>
                     </li>
             </ul>
         </div>

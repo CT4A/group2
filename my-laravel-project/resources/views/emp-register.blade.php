@@ -1,5 +1,4 @@
 @extends('main')
-{{-- @yield('title','社員登録') --}}
 @section('title','社員登録')
 @section('styles')
 <link rel="stylesheet" href="./css/register.css">

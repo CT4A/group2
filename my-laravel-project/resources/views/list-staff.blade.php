@@ -60,7 +60,7 @@
                 <li>
                         <form action="list-edit">
                             <img src="img\edit.png" alt="">
-                            <button type="submit">編集</button>
+                            <button id="editBtn">編集</button>
                         </form>
                     </li>
             </ul>

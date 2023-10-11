@@ -7,7 +7,7 @@
 @section('content')
     <section class="emp-list">
         <div class="emp-list-area">
-        <h1>ボトル一覧</h1>
+        <h1>キープボトル一覧</h1>
         <form action="#" class="search">
                 <button type="submit" >
                     <img src="./img/oqCh3X9ndfQ__xOuxd5Oww==.png" alt="">
@@ -17,7 +17,7 @@
         <div class="emp-name">
         <ul>
             @foreach ($liquors as $liquor)
-                <li><span data-id="{{$liquor->liquor_id}}">{{$liquor->liquor_name}}</span></li>
+                <li><span data-liquorId="{{$liquor->liquor_id}}" data-customerId="{{$liquor->customer_id}}" data-liquorNumber="{{$liquor->liquor_number}}">{{$liquor->liquor_number}}. {{$liquor->liquor_type}}</span></li>
             @endforeach
         </ul>
     </div>
@@ -28,31 +28,31 @@
         <div class="intell-button">
             <div></div>
         </div>
-            <h1>キープボトルの情報</h1>
+            <h1 id="TxtNameHeader">キープボトルの情報</h1>
             <ul>
                     <li itemprop="identifier">
                         <span>番号</span>
-                        <span></span>
+                        <span id="liquor_number" data-liquorId="" data-liquorNumber=""></span>
                     </li>
                     <li itemprop="name">
-                        <span>名前</span>
-                        <span></span>
+                        <span>所有者</span>
+                        <span id="customer_name" data-id=""></span>
                     </li>
                     <li itemprop="Liquorname">
                         <span>酒名</span>
-                        <span></span>
+                        <span id="liquor_name"></span>
                     </li>
                     <li itemprop="kinds">
                         <span>種類</span>
-                        <span></span>
+                        <span id="liquor_type"></span>
                     </li>
                     <li itemprop="date">
                         <span>日付</span>
-                        <span></span>
+                        <span id="liquor_day"></span>
                     </li>
                     <li itemprop="description">
                         <span>備考</span>
-                        <span></span>
+                        <span id="remarks"></span>
                     </li>
                     <li>
                         <form>
@@ -65,6 +65,5 @@
     </section>
 @endsection
 @section('scripts')
-{{-- <script src="js/itiran.js"></script> --}}
 <script src="js/keepbottle.js"></script>
 @endsection

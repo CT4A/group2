@@ -39,10 +39,10 @@
                         <span class="error">{{ $errors->first('liquor_name') }}</span>
                         @endif
                     </li>
-                    <input type="submit" value="登録">            </ul>
+                    <input type="submit" value="登録">            
+                </ul>
         </div>
         </form>
-
     </section>
 @endsection
 @section('scripts')

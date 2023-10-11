@@ -28,4 +28,5 @@ class bottleController extends Controller
         ]);
         return redirect()->route('indexRegister')->with('message','登録完成しました。');
     }
+    
 }

@@ -41,13 +41,12 @@ $(document).ready(function(){
       var id = $(this).attr("id");
       if($(event.target).closest("span").length) {
         $('body').addClass("intell-aft");
-        console.log("test");
       }
       $.ajaxSetup({
         headers:{
             'X-CSRF-TOKEN' : $('meta[name="csrf-token"]').attr('content')
         }
-    });
+      });
       $.ajax({
         type: "post",
         url: "/getInfoStaff/{id}",
@@ -55,7 +54,6 @@ $(document).ready(function(){
             },
         success: function (data) {
           showInfo(data[0]);
-
         }
       });
     });
@@ -83,8 +81,10 @@ $(document).ready(function(){
         // 編集ボタン
         $("#editBtn").click(function (e) { 
           e.preventDefault();
-          var customer_id = $("#customer_name").attr("data-id");
-          console.log(customer_id)
-          window.location.href = "/editor?id=" + customer_id;
-        });
+          var staff_id = $("#staff_id").text();
+          if(staff_id!=0){
+            window.location.href = "/emp-editor?id=" + staff_id;
+          }else{
+            alert("スタッフを選択してください。");
+          }});
 });
