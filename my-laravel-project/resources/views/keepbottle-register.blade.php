@@ -43,28 +43,12 @@ $today = Carbon::now()->format('Y/m/d');
                             <span class="error">{{ $errors->first('customer_id') }}</span>
                         @endif
 
-                    <li class="kinds alcohol">
-                        <span>種類</span>
-                        <div class="kinds-selecter">
-                            <span>選択してください</span>
-                            <ul class="kind-list" id="">
-                                @foreach ($liquors as $liquor)
-                                    <li>{{$liquor->liquor_type}}</li>
-                                @endforeach
-                                {{-- <li>その他</li> --}}
-                            </ul>
-                        </div>
-                        <input type="text" id="liquor_type" class="kinds-inp" name="liquor_type"
-                            value="{{ old('liquor_type') }}" placeholder="種類を入力してください">
-                    </li>
-                    @if ($errors->has('liquor_type'))
-                            <span class="error">{{ $errors->first('liquor_type') }}</span>
-                        @endif
-                    <li class="kinds  liquorType">
+                    
+                    <li class="kinds  liquorName">
                         <span>酒名</span>
                         <div class="kinds-selecter">
                             <span>選択してください</span>
-                            <ul class="kind-list" id="">
+                            <ul class="kind-list">
                                 @foreach ($liquors as $liquor)
                                     <li>{{$liquor->liquor_name}}</li>
                                 @endforeach
@@ -72,10 +56,21 @@ $today = Carbon::now()->format('Y/m/d');
                         </div>
                         <input type="text" id="liquor_name" class="kinds-inp" name="liquor_name"
                             value="{{ old('liquor_name') }}" placeholder="種類を入力してください">
-                        <input type="text" id="liquor_id" class="kinds-inp" name="liquor_id"
-                            value="{{ old('liquor_id') }}" hidden>
-
                     </li>
+                    <li class="kinds alcohol">
+                        <span>種類</span>
+                        <div class="kinds-selecter">
+                            <span>選択してください</span>
+                            <ul class="kind-list" id=""></ul>
+                        </div>
+                        <input type="text" id="liquor_type" class="kinds-inp" name="liquor_type"
+                        value="{{ old('liquor_type') }}" placeholder="種類を入力してください">
+                        <input type="text" id="liquor_id" class="kinds-inp-hidden" name="liquor_id"
+                        value="{{ old('liquor_id') }}" hidden>
+                    </li>
+                    @if ($errors->has('liquor_type'))
+                        <span class="error">{{ $errors->first('liquor_type') }}</span>
+                    @endif
                     @if ($errors->has('liquor_id'))
                         <span class="error">{{ $errors->first('liquor_id') }}</span>
                         @endif

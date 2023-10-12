@@ -28,48 +28,43 @@
                             </ul>
                         </div>
                         <input type="text" id="customer_name" class="kinds-inp" name="customer_name"
-                            placeholder="種類を入力してください" value="{{ old('customer_name')}}">
+                            placeholder="種類を入力してください" value="{{ old('customer_name')?? $liquor->customer_name}}">
                         <input type="text" id="customer_id" class="kinds-inp-hidden" name="customer_id"
-                            value="" hidden>
+                            value="{{ old('customer_id')?? $liquor->customer_id}}" hidden>
                     </li>
-                    <li class="kinds kinds-aft liquorType">
+                    <li class="kinds kinds-aft liquorName">
                         <span>酒名</span>
                         <div class="kinds-selecter">
                             <span>選択してください</span>
-                            <ul class="kind-list" id="">
-                                @foreach ($liquors as $liquor)
-                                    <li><span id="{{$liquor->liquor_id}}">{{$liquor->liquor_name}}</span></li>
+                            <ul class="kind-list">
+                                @foreach ($liquorLists as $liquorList)
+                                    <li>{{$liquorList->liquor_name}}</li>
                                 @endforeach
                             </ul>
                         </div>
                         <input type="text" id="liquor_name" class="kinds-inp" name="liquor_name"
-                            value="" placeholder="種類を入力してください">
-                        <input type="text" id="liquor_id" class="kinds-inp" name="liquor_id"
-                            value="" hidden>
+                            value="{{ old('liquor_name')?? $liquor->liquor_name}}" placeholder="種類を入力してください">
                     </li>
                     <li class="kinds kinds-aft alcohol">
                         <span>種類</span>
                         <div class="kinds-selecter">
                             <span>選択してください</span>
-                            <ul class="kind-list" id="">
-                                @foreach ($liquors as $liquor)
-                                    <li>{{$liquor->liquor_type}}</li>
-                                @endforeach
-                                {{-- <li>その他</li> --}}
-                            </ul>
+                            <ul class="kind-list" ></ul>
                         </div>
                         <input type="text" id="liquor_type" class="kinds-inp" name="liquor_type"
-                            value="" placeholder="種類を入力してください">
+                            value="{{ old('liquor_type')?? $liquor->liquor_type }}" placeholder="種類を入力してください">
+                        <input type="text" id="liquor_id" class="kinds-inp-hidden" name="liquor_id"
+                            value="{{ $liquor->liquor_id}}" hidden>
                     </li>
                     <li>
                         <span>日付</span>
-                        <input type="text" name="liquor_day" value="">
+                        <input type="text" name="liquor_day" value="{{ old('liquor_day')?? $liquor->name}}">
                     </li>
                     <li>
                         <span>備考</span>
-                        <textarea name="remarks" value=""></textarea>
+                        <textarea name="remarks" value="{{ old('remarks') ?? $liquor->remarks }}"></textarea>
                     </li>
-                    <input type="submit" value="登録">
+                    <input type="submit" value="編集">
                 </form>
             </ul>
         </div>

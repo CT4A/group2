@@ -30,49 +30,48 @@ class keepbottleController extends Controller
             
             $existsliquor = DB::table('liquor_links')->where([
                 ['liquor_id', '=', $liquor_id],
-                ['liquor_number', '=',$customer_id],   
-                ['customer_id', '=', $liquor_number],
+                ['liquor_number', '=',$liquor_number],   
+                ['customer_id', '=', $customer_id],
                 ])->exists();
                 
             //urlから受けたのIDは存在のチェック（urlに直接入力する防止）
-            // if ($existsliquor) {
+            if ($existsliquor) {
                 $liquor = liquor_link::leftJoin('customers', 'customers.customer_id', '=', 'liquor_links.customer_id')
                                     ->leftJoin('liquor_mgs', 'liquor_mgs.liquor_id', '=', 'liquor_links.liquor_id')
                                     ->select('customers.customer_id','customers.customer_name','liquor_links.liquor_day','liquor_links.remarks','liquor_mgs.liquor_name','liquor_mgs.liquor_type')
-                                    // ->where([
-                                    //     ['liquor_links.liquor_id', '=', $liquor_id],
-                                    //     ['liquor_links.liquor_number', '=',$customer_id],   
-                                    //     ['customers.customer_id', '=', $liquor_number],
-                                    //     ])
-                                        ->where('liquor_links.liquor_id', '=', $liquor_id)
+                                    ->where([
+                                        ['liquor_links.liquor_id', '=', $liquor_id],
+                                        ['liquor_links.liquor_number', '=',$liquor_number],   
+                                        ['customers.customer_id', '=', $customer_id],
+                                        ])
                                     ->first();
-                $liquors=liquor_mg::select('liquor_name')->groupBy('liquor_name')->get();
+                $liquorLists =liquor_mg::select('liquor_name')->groupBy('liquor_name')->get();
                 $customers = customer::select('customer_id','customer_name')->get();  
-                return view('keepbottle-editor',compact('customers','liquors'));
-            // } else {
-            //     //存在してない場合顧客リストページに転送します。
-            //     return redirect()->route('keepbottle-list');
-            // }            
-            // return view('keepbottle-editor',compact('customers'));
+                // return view('test',compact('customers','liquors','liquor'));
+
+                return view('keepbottle-editor',compact('customers','liquorLists','liquor'));
+            } else {
+                //存在してない場合顧客リストページに転送します。
+                return redirect()->route('keepbottle-list');
+            }            
+            return view('keepbottle-list');
         }else{
             return back();
         }
     }
-    //キープボトル登録。
+    //キープボトル登録画面の表示。
     public function indexRegister(){
         $customers= customer::select('customer_id','customer_name')->get();
-        $liquors=liquor_mg::select('liquor_type')->groupBy('liquor_type')->get();
+        $liquors=liquor_mg::distinct()->select('liquor_name')->orderBy('liquor_name')->get();
         return view('keepbottle-register',compact('liquors','customers'));
     }
 
     //キープボトルタイプをゲットする
     public function GetLiquorType(Request $request){
         if($request->ajax()){
-            $liquor_type = $request->liquor_type;
-            
-            $liquorNames=liquor_mg::select('liquor_id','liquor_name')->where('liquor_type',$liquor_type)->get();
-
-        return response()->json($liquorNames);
+            $liquor_name = $request->liquor_name;
+            $liquorTypes=liquor_mg::select('liquor_id','liquor_type')->where('liquor_name',$liquor_name)->get();
+            return response()->json($liquorTypes);
         }
     }
 
@@ -106,9 +105,11 @@ class keepbottleController extends Controller
     }
     //キープボトルの詳細情報(各キープボトルをクリックする処理)
     public function GetInfoKeepBottle(Request $request){
+        if($request->ajax()){
         $liquorId = $request->input('liquor_id');
         $liquorNumber = $request->input('liquor_number');
         $customerId = $request->input('customer_id');
+        
         $KeepbotleInfo = liquor_link::join('liquor_mgs', 'liquor_links.liquor_id', '=', 'liquor_mgs.liquor_id')
         ->join('customers', 'liquor_links.customer_id', '=', 'customers.customer_id')
         ->select('customers.customer_id','customers.customer_name','liquor_mgs.liquor_id','liquor_links.liquor_number','liquor_mgs.liquor_name','liquor_mgs.liquor_type','liquor_links.liquor_day','liquor_links.remarks')
@@ -119,5 +120,8 @@ class keepbottleController extends Controller
             ])
         ->first();
         return response()->json($KeepbotleInfo);
+    }
+        
+        return response()->json(['message' => 'This is not an Ajax request']);
     }
 }

@@ -1,5 +1,4 @@
 $(document).ready(function(){
-    console.log("console-run")
     const chkbox = $("#checkbox");
     const inptxt = $("input[type='text']");
     const plus = $(".plus");
@@ -43,7 +42,6 @@ $(document).ready(function(){
             ListPush.addClass("kinds-aft");
             ListPush.find(kindsInp).val("");
         }else{
-            console.log($(this).text())
             ListPush.addClass("kinds-aft");
             ListPush.find(kindsInp).val($(this).text());
             ListPush.find(kindsInpHidden).attr('value', $(this).attr('data'));
@@ -70,46 +68,62 @@ $(document).ready(function(){
             var ListClone = previousElements.clone();
             $(plus).parent().before(ListClone);
         }
-    $(".alcohol li").click(function (e) { 
-        let liquor_type = $(this).text();
-        $.ajaxSetup({
-            headers:{
-                'X-CSRF-TOKEN' : $('meta[name="csrf-token"]').attr('content')
-            }
-        });
-          $.ajax({
-            type: "post",
-            url: "/getLiquorType/{liquor_name}",
-            data: {"liquor_type":liquor_type
-                },
-            datatype:"json",
-            success: function (datas) {
-              showInfo(datas);
-            }
-            });
+    $(".alcohol li").click(function (event) { 
+        const clickedElement = event.target;
+        console.log("clicked liquorName")
+        if (clickedElement.tagName === "LI" ) {
+
+            let liquor_type=clickedElement.textContent;
+            let liquor_id=clickedElement.textContent;
+            console.log("Clicked liquor_id: " + liquor_id);
+            
+            console.log("Clicked liquor_type: " + liquor_type);
+            $(".liquorType").addClass("kinds-aft")
+            $("#liquor_id").val(liquor_id);
+            
+        }
     });
 
+        
+        //クリックイベントの処理
+        $(".liquorName ul").click(function(event){
+            const clickedElement = event.target;
+            console.log("clicked liquorName")
+            if (clickedElement.tagName === "LI" ) {
+
+                let liquor_name=clickedElement.textContent;
+                console.log("Clicked liquorName: " + liquor_name);
+                $(".liquorType").addClass("kinds-aft")
+                $("#liquor_name").val(liquor_name);
+                //選択した酒のすべての種類をゲットする
+                $.ajaxSetup({
+                    headers:{
+                        'X-CSRF-TOKEN' : $('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+                $.ajax({
+                    type: "post",
+                    url: "/getLiquorType/{liquor_name}",
+                    data:{ "liquor_name":liquor_name,
+                    },
+                    datatype:"json",
+                    success: function (datas) {
+                        console.log(datas)
+                        
+                        showInfo(datas);
+                    }
+                });
+            }
+        })
         //酒の種類リストを作る。
         function showInfo(datas) {
             let htmlString="";
             datas.forEach(data => {
-                htmlString +="<li data-value = "+data["liquor_id"]+">"+data["liquor_name"]+"</li>";
+                htmlString +="<li data-id = "+data["liquor_id"]+">"+data["liquor_type"]+"</li>";
             });
-            $(".liquorType ul").html(htmlString);
+            console.log(htmlString)
+            $(".alcohol ul").html(htmlString);
         }
-        //クリックイベントの処理
-        $(".liquorType ul").click(function(event){
-            const clickedElement = event.target;
-            if (clickedElement.tagName === "LI" ) {
-                let liquor_name=clickedElement.textContent;
-                let liquor_id = clickedElement.dataset.value;
-                console.log("id :"+liquor_id);
-                console.log("Clicked liquorType: " + liquor_name);
-                $(".liquorType").addClass("kinds-aft")
-                $("#liquor_name").val(liquor_name);
-                $("#liquor_id").attr("value",liquor_id); 
-            }
-        })
     // 金額に自動的追加　”、”　
     function updateTextView(_obj) {
         var num = getNumber(_obj.val());
@@ -196,7 +210,7 @@ $(document).ready(function(){
                 console.log($(this).text())
                 ListPush.addClass("kinds-aft");
                 ListPush.find(kindsInp).val($(this).text());
-                ListPush.find(kindsInpHidden).attr('value', $(this).attr('data'));
+                ListPush.find(kindsInpHidden).attr('value', $(this).attr('data-id'));
             }
             thisList.find(kindList).removeClass("kind-list-aft");
             thisList.find(kindsSelecter).removeClass("kinds-selecter-aft");

@@ -42,15 +42,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/customer-register', [CustomerController::class,'indexRegister'])->name('indexCusRegister');
     //社員一覧
     Route::get('list-staff' ,[EmployeeController::class,'index'])->name('list-staff');
-<<<<<<< HEAD
-    Route::post('/getInfoStaff/{id}', [EmployeeController::class,'GetListStaff']);
-    Route::get('/emp-editor' ,[EmployeeController::class,'indexEmpEditor']);
-    Route::post('/emp-editor' ,[EmployeeController::class,'editor']);
-    
-=======
     // Route::get('/getInfoStaff/{id}', [EmployeeController::class,'GetListStaff']);
     Route::post('/getInfoStaff/{id}',[EmployeeController::class,'GetListStaff']);
->>>>>>> 7eaaae2e491d6968acf70e02438885b1d5b0d15d
     //社員プロフィール
     Route::get('staffProfile' ,[EmployeeController::class,'indexstaffProfile'])->name('staffProfile');
     // Route::post('/getInfoStaff/{id}', [EmployeeController::class,'GetListStaff']);
@@ -70,15 +63,11 @@ Route::middleware(['auth'])->group(function () {
     Route::get('emp-register', function () {
         return view('emp-register');
     })->name('indexEmpRegister');
-<<<<<<< HEAD
-    Route::post('/emp-register',[ EmployeeController::class,'changePass']);
-=======
     //社員編集
     Route::get("emp-editor",function(){
         return view("emp-editor");
     })->name("indxEmpEditor");
     Route::post('/emp-register',[ EmployeeController::class,'register']);
->>>>>>> 7eaaae2e491d6968acf70e02438885b1d5b0d15d
     //出勤退勤履歴
     Route::get('/history', [employeeController::class,'indexHistory'])->name('history');
     Route::post('/history',[employeeController::class,'graphHistory']);
@@ -90,26 +79,17 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/getLiquorType/{liquor_name}', [keepbottleController::class,'GetLiquorType']);
     Route::post('/getInfoKeepBottle', [keepbottleController::class,'GetInfoKeepBottle']);
     Route::get('/keepBottleEditor', [keepbottleController::class,'indexEditor']);
-    
-    
-    // ボトル登録
-    Route::get('/bottle-register', [bottleController::class,'index'])->name('indexRegister');
-    Route::post('/bottle-register', [bottleController::class,'RegisterBottle']);
-<<<<<<< HEAD
-    
-        // Route::post('/editor', [bottleController::class,'RegisterBottle']);
-    // ボトル一覧
-    Route::get('/list-bottle', function () {
-        return view('bottle-list');
-    })->name('list-bottle'); 
-    // Route::post('/list-bottle', [bottleController::class,'RegisterBottle']);
-=======
-    // キープボトル編集
+        // キープボトル編集
     Route::get("keepbottle-editor",[keepbottleController::class,"indexRegister"])->name("IndexKeepBottleEditor");
     Route::get('/KeepBottle-editor',function(){
         return view('KeepBottle-editor');
     });
 
+    
+    // ボトル登録
+    Route::get('/bottle-register', [bottleController::class,'index'])->name('indexRegister');
+    Route::post('/bottle-register', [bottleController::class,'RegisterBottle']);
+    
         // Route::post('/editor', [bottleController::class,'RegisterBottle']);
     // ボトル一覧
     Route::get('/list-bottle', [bottleController::class,'indexList'])->name('list-bottle');
@@ -120,7 +100,6 @@ Route::middleware(['auth'])->group(function () {
     Route::get("bottle-editor",function(){
         return view("bottle-editor");
     })->name("IndexBottleEditor");
->>>>>>> 7eaaae2e491d6968acf70e02438885b1d5b0d15d
     //予約
     Route::get ('/reserve-register',  [resrveController::class,'index'])->name('indexResRegister');
     Route::post('/reserve-register',  [resrveController::class,'register']);

@@ -30,9 +30,6 @@ class bottleController extends Controller
         ]);
         return redirect()->route('indexRegister')->with('message','登録完成しました。');
     }
-<<<<<<< HEAD
-    
-=======
     public function indexList(){
         $liquors=liquor_mg::select('liquor_name','liquor_type','liquor_id')
                         ->orderBy('liquor_id')
@@ -52,6 +49,5 @@ class bottleController extends Controller
         return response()->json($bottleInfo);
         
     }
->>>>>>> 7eaaae2e491d6968acf70e02438885b1d5b0d15d
 }
 
