@@ -76,9 +76,10 @@
                 </ol>
             </li>
             <li class="menu_list">
-                <span>ニュース</span>
+                <span>その他</span>
                 <ol>
                     <div class="menu_ele">
+                        <li><a href="{{route('FullCalendar')}}">カレンダー</a></li>
                         <li><a href="{{route('news')}}">お知らせ</a></li>
                         <li><a href="{{route('indexNewsRegister')}}">お知らせ登録</a></li>
                     </div>

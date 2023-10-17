@@ -126,6 +126,6 @@ Route::middleware(['auth'])->group(function () {
         return view('list-bill');
     })->name('list-bill');
     //カレンダー仕事
-    Route::get('/full-calendar',[FullCalendarController::class,'index']);
+    Route::get('/full-calendar',[FullCalendarController::class,'index'])->name("FullCalendar");
     Route::get('get_events', [FullCalendarController::class, 'getEvents']);
 });
