@@ -27,27 +27,29 @@
         <div class="intell-button">
             <div></div>
         </div>
-            <h1 id ="TxtNameHeader">〇〇の情報</h1>
+            <h1 id ="TxtNameHeader">ボトルの情報</h1>
             <ul>
-                    <li itemprop="identifier">
+                    <li itemprop="LiquorId">
                         <span>番号</span>
-                        <span id ="liquor_id">01</span>
+                        <span id ="liquor_id"></span>
                     </li>
-                    <li itemprop="Liquorname">
+                    <li itemprop="LiquorName">
                         <span>酒名</span>
-                        <span id ="liquor_name">山崎55年</span>
+                        <span id ="liquor_name"></span>
                     </li>
                     <li itemprop="kinds">
                         <span>種類</span>
-                        <span id ="liquor_type">ウイスキー</span>
+                        <span id ="liquor_type"></span>
                     </li>
-                    <li itemprop="date">
-                        <span>日付</span>
-                        <span id ="date">2023年5月8日</span>
+                    <li itemprop="LiquorNumber">
+                        <span>数</span>
+                        <span id ="liquor_number"></span>
                     </li>
-                    <li itemprop="description">
-                        <span>備考</span>
-                        <span id="remarks">テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</span>
+                    <li>
+                        <form>
+                            <img src="img\edit.png" alt="">
+                            <button id="editBtn">編集</button>
+                        </form>
                     </li>
             </ul>
         </div>

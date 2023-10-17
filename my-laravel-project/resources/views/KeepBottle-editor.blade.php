@@ -6,16 +6,12 @@
 <link rel="stylesheet" href="./css/information.css">
 @endsection
 @section('content')
-<div class="message text-center">
-        <div class="alert alert-primary" role="alert">
-            <strong>{{session('message')}}</strong>
-        </div>
-    </div>
+
     <section class="register">
         <div class="register-area">
             <h1>キープボトル情報編集</h1>
             <ul class="register-areaUL">
-                <form action="/keepbottle-register" method="POST">
+                <form action="/KeepBottle-editor" method="POST">
                     @csrf
                     <li class="kinds kinds-aft">
                         <span>所有者</span>
@@ -37,8 +33,8 @@
                         <div class="kinds-selecter">
                             <span>選択してください</span>
                             <ul class="kind-list">
-                                @foreach ($liquorLists as $liquorList)
-                                    <li>{{$liquorList->liquor_name}}</li>
+                                @foreach ($liquorNames as $liquorName)
+                                    <li>{{$liquorName->liquor_name}}</li>
                                 @endforeach
                             </ul>
                         </div>
@@ -49,22 +45,34 @@
                         <span>種類</span>
                         <div class="kinds-selecter">
                             <span>選択してください</span>
-                            <ul class="kind-list" ></ul>
+                            <ul class="kind-list" >
+                                @foreach ($liquorTypes as $liquorType)
+                                    <li>{{$liquorType->liquor_type}}</li>
+                                @endforeach
+                            </ul>
                         </div>
-                        <input type="text" id="liquor_type" class="kinds-inp" name="liquor_type"
+                        <input type="text" id="liquor_types" class="kinds-inp" name="liquor_type"
                             value="{{ old('liquor_type')?? $liquor->liquor_type }}" placeholder="種類を入力してください">
-                        <input type="text" id="liquor_id" class="kinds-inp-hidden" name="liquor_id"
-                            value="{{ $liquor->liquor_id}}" hidden>
+
+                            <input type="text" id="liquor_id" class="kinds-inp-hidden" name="liquor_id"
+                        value="{{ old('liquor_id')??  $liquor->liquor_id }}" hidden>
+                        <input type="text" id="liquor_id_old"  name="liquor_id_old"
+                        value="{{ old('liquor_id_old')??  $liquor->liquor_id}}" hidden>
+                        <input type="text" id="liquor_number"  name="liquor_number"
+                        value="{{ old('liquor_number')??  $liquor->liquor_number}}" hidden>
                     </li>
                     <li>
                         <span>日付</span>
-                        <input type="text" name="liquor_day" value="{{ old('liquor_day')?? $liquor->name}}">
+                        <input type="text" name="liquor_day" value="{{ old('liquor_day')?? $liquor->liquor_day}}">
+                        @if ($errors->has('liquor_day'))
+                            <span class="error">{{ $errors->first('liquor_day') }}</span>
+                        @endif
                     </li>
                     <li>
                         <span>備考</span>
-                        <textarea name="remarks" value="{{ old('remarks') ?? $liquor->remarks }}"></textarea>
+                        <textarea name="remarks" value="">{{ old('remarks') ?? $liquor->remarks }}</textarea>
                     </li>
-                    <input type="submit" value="編集">
+                    <input type="submit" value="編集">  
                 </form>
             </ul>
         </div>

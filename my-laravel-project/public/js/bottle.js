@@ -61,18 +61,13 @@ $(document).ready(function () {
         $("#liquor_id").text(data["liquor_id"]);
         $("#liquor_name").text(data["liquor_name"]);
         $("#liquor_type").text(data["liquor_type"]);
-        $("#date").text(data["liquor_day"]);
-        if(data["remarks"]){
-        $("remarks").text(data["remarks"]);
-        }else{
-            $("remarks").text("");
-        }
+        $("#liquor_number").text(data["liquor_number"]);
+        
     }
       // 編集ボタン
     $("#editBtn").click(function (e) { 
         e.preventDefault();
-        var customer_id = $("#customer_name").attr("data-id");
-        console.log(customer_id)
-        window.location.href = "/editor?id=" + customer_id;
+        let liquor_id = $("#liquor_id").text();
+        window.location.href = "/bottle-editor?liquor_id=" + liquor_id;
     });
 });

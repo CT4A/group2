@@ -19,7 +19,7 @@ class liquor_mgFactory extends Factory
     public function definition(): array
     {   
         static $i =1;
-        
+        $list_liquor=["whisky","Rum","Brandy"];
         return [            
             'liquor_name'=>"whisky".Str::random(4),
 

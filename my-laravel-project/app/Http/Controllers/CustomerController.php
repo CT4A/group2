@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\customer;
 use App\Models\employee;
+use App\Models\liquor_mg;
 use App\Models\slip_mg;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;

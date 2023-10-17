@@ -74,6 +74,7 @@ $(document).ready(function () {
       $("#liquor_type").attr("data-id", data["liquor_number"]);
 
       $("#date").text(data["liquor_day"]);
+      
       if(data["remarks"]){
       $("remarks").text(data["remarks"]);
       }else{

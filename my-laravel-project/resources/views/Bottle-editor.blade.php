@@ -15,31 +15,28 @@
     <section class="register">
         <div class="register-area">
             <h1>ボトル情報編集</h1>
-            <form action="/bottle-register" method="POST">
+            <form action="/bottle-editor" method="POST">
                     @csrf
             <ul class="register-areaUL">
+                <li>
+                    <span>酒名</span>
+                    <input type="text" name="liquor_name" value="{{ old('liquor_name')?? $liquor->liquor_name }}" readonly>
+                        @if ($errors->has('liquor_name'))
+                            <span class="error">{{ $errors->first('liquor_name') }}</span>
+                        @endif
+                        <input type="text" name="liquor_id" value="{{ old('liquor_id')?? $liquor->liquor_id }}" hidden>
+                </li>
                     <li class="kinds">
                         <span>種類</span>
-                        <div class="kinds-selecter">
-                            <span>選択してください</span>
-                            <ul class="kind-list" id="">
-                                <li>その他</li>
-                            </ul>
-                        </div>
-                        <input type="text" id="liquor_type" value="{{ old('liquor_type') }}" class="kinds-inp"
-                            name="liquor_type" placeholder="種類を入力してください">
-                        @if ($errors->has('liquor_type'))
-                        <span class="error">{{ $errors->first('liquor_type') }}</span>
-                        @endif
+                        
+                        <input type="text" id="liquor_type" value="{{ old('liquor_type')?? $liquor->liquor_type }}" class="kinds-inp"
+                            name="liquor_type" placeholder="種類を入力してください" style="height: 100%;width:100%;">
+                            @if ($errors->has('liquor_type'))
+                                <span class="error">{{ $errors->first('liquor_type') }}</span>
+                            @endif
                     </li>
-                    <li>
-                        <span>酒名</span>
-                        <input type="text" name="liquor_name" value="{{ old('liquor_name') }}">
-                        @if ($errors->has('liquor_name'))
-                        <span class="error">{{ $errors->first('liquor_name') }}</span>
-                        @endif
-                    </li>
-                    <input type="submit" value="登録">            
+                    
+                    <input type="submit" value="編集    ">            
                 </ul>
         </div>
         </form>

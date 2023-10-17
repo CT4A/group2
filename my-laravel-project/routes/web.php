@@ -78,14 +78,10 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/keepbottle-list', [keepbottleController::class,'indexList'])->name('keepbottle-list');
     Route::post('/getLiquorType/{liquor_name}', [keepbottleController::class,'GetLiquorType']);
     Route::post('/getInfoKeepBottle', [keepbottleController::class,'GetInfoKeepBottle']);
-    Route::get('/keepBottleEditor', [keepbottleController::class,'indexEditor']);
         // キープボトル編集
-    Route::get("keepbottle-editor",[keepbottleController::class,"indexRegister"])->name("IndexKeepBottleEditor");
-    Route::get('/KeepBottle-editor',function(){
-        return view('KeepBottle-editor');
-    });
+    Route::get('/keepBottleEditor', [keepbottleController::class,'indexEditor']);
+    Route::post('/KeepBottle-editor',[keepbottleController::class,"editor"]);
 
-    
     // ボトル登録
     Route::get('/bottle-register', [bottleController::class,'index'])->name('indexRegister');
     Route::post('/bottle-register', [bottleController::class,'RegisterBottle']);
@@ -96,10 +92,9 @@ Route::middleware(['auth'])->group(function () {
     Route::post('list-bottle',[bottleController::class,'indexList']) ;
     Route::post('/GetInfoBottle/{id}', [bottleController::class,'GetInfoBottle']);
     //ボトル編集
-    Route::get("bottle-editor",[bottleController::class,"indexList"])->name('IndexBottleEditor');
-    Route::get("bottle-editor",function(){
-        return view("bottle-editor");
-    })->name("IndexBottleEditor");
+    Route::get("bottle-editor",[bottleController::class,"indexEditor"])->name('indexEditor');
+    Route::post("bottle-editor",[bottleController::class,"editor"]);
+
     //予約
     Route::get ('/reserve-register',  [resrveController::class,'index'])->name('indexResRegister');
     Route::post('/reserve-register',  [resrveController::class,'register']);
