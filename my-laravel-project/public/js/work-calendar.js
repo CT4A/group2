@@ -7,7 +7,6 @@ document.addEventListener('DOMContentLoaded', function() {
         firstDay: 1,
         headerToolbar: {
             left: "today prev,next",
-            // center: "title",
             center: "title",
             right: "dayGridMonth,listDay"
         },
@@ -18,7 +17,6 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         dayCellDidMount : function(e) {
             var el = e.el.querySelector('.fc-daygrid-day-number');
-
             // el.textContent = el.textContent.replace("日","");
           },
         noEventsContent: 'スケジュールはありません',
@@ -26,7 +24,15 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     calendar.render();
 });
-// $(document).ready(function () {
+$(document).ready(function () {
+    $(".fc-day").click(function(){
+        console.log("test")
+        console.log(this);
+        window.valueToPass= this.getAttribute("data-date");
+        console.log(valueToPass);
+        window.location.href = "http://localhost:8000/shift-register?param=" + valueToPass;
+
+    })
 //   // FullCalendarを初期化する
 //   var calendar = new FullCalendar.Calendar(document.getElementById('calendar'), {
 //     // FullCalendarのオプション設定...
@@ -39,7 +45,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 //   // 別のスクリプトやイベントによって、FullCalendarの横幅変更を無効化する必要がある場合にこの関数を呼び出す
 //   disableFullCalendarWidthAdjustment();
-// });
+});
 function updatecalendarTitle(){
   console,log("test");
   var updateTitlecalendar = document.getElementById('calendar');
