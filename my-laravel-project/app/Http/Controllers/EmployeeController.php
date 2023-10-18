@@ -15,6 +15,9 @@ use Illuminate\Support\Facades\Validator;
 class EmployeeController extends Controller
 {
     public function index(){
+        if (!Auth::user()->isAdmin()) {
+            return redirect('/news');
+        }
         $staffs=employee::select('staff_id','staff_name')->get();
         return view('list-staff',compact('staffs'));        
     }
@@ -32,6 +35,17 @@ class EmployeeController extends Controller
             return response()->json($staffs); 
         }
         return response();
+    }
+    //編集画面のindex
+    public function indexEmpEditor(Request $request){
+        if($request->id){
+            $staff_id = $request->id;
+            $staff = employee::select('staff_id','staff_name','tel','residence','birthday','remarks','hourly_wage')
+                                        ->where('staff_id',$staff_id)
+                                        ->first();
+            return view("emp-editor",compact("staff"));
+        }
+        return redirect()->route('list-staff');
     }
     //編集処理
     public function editor(Request $request){
@@ -64,6 +78,9 @@ class EmployeeController extends Controller
         }
     } 
     public function register(Request $request){
+        if (!Auth::user()->isAdmin()) {
+            return redirect('/news');
+        }
         // $hourly_wage=$request->hourly_wage;
         // $hourly_wage = intval(str_replace(',','', $hourly_wage));//,消してintに変換
         $hourly_wage = (float) str_replace(',', '', $request->input('hourly_wage'));
@@ -95,30 +112,41 @@ class EmployeeController extends Controller
         ]);
         return redirect()->route('list-staff')->with('message','登録完成しました。');
     }
-    //編集画面のindex
-    public function indexEmpEditor(Request $request){
-        if($request->id){
-            $staff_id = $request->id;
-            $staff = employee::select('staff_id','staff_name','tel','residence','birthday','remarks','hourly_wage')
-                                        ->where('staff_id',$staff_id)
-                                        ->first();
-            return view("emp-editor",compact("staff"));
-        }
-        return redirect()->route('list-staff');
-    }
+    
     //出勤の履歴
     public function indexHistory(Request $request)
     {
+        $currentYear = now()->format('Y');
+        $currentMon = now()->format('m');
         $id = Auth::user()->staff_id;
-        // $id = 1;
         $staff_name = employee::select('staff_name')
                                     ->where('staff_id',$id)
                                     ->first();
+
         $staffs = attend_leave::select('work_date','attend_time','leaving_work')
                                 ->where('staff_id',$id)
+                                ->whereYear('work_date',$currentYear)
+                                ->whereMonth('work_date',$currentMon)
                                 ->get();
         return view('history',compact('staffs','staff_name'));
-        header('Content-Type: application/json');
+    }
+    //出勤の履歴
+    public function removeHistory(Request $request)
+    {
+        $staff_id = $request->staff_id;
+        $time = $request->time;
+        $deleted = attend_leave::where([
+                            ['staff_id',"=",$staff_id],
+                            ['work_date',"=",$time]]
+                            )
+                            ->delete();
+        if($deleted){
+            return response()->json(["message"=>"success"]);
+        }else{
+            
+            return response()->json(["message"=>"fail"]);
+        }
+
     }
     //給料計算
     public function indexPay(Request $request)
