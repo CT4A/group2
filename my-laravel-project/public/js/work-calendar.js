@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
         dayCellDidMount : function(e) {
             var el = e.el.querySelector('.fc-daygrid-day-number');
             // el.textContent = el.textContent.replace("日","");
-          },
+        },
         noEventsContent: 'スケジュールはありません',
         events:'/get_events',
     });
@@ -26,14 +26,10 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 $(document).ready(function () {
     $(".fc-day").click(function(){
-        console.log("test")
-        console.log(this);
         window.valueToPass= this.getAttribute("data-date");
-        console.log(valueToPass);
         localStorage.setItem("myValue",valueToPass);
-        window.location.href = "http://localhost:8000/shift-register?param=" + valueToPass;
-
-    })
+        window.location.href = "http://localhost:8000/shift-register";
+    });
 //   // FullCalendarを初期化する
 //   var calendar = new FullCalendar.Calendar(document.getElementById('calendar'), {
 //     // FullCalendarのオプション設定...

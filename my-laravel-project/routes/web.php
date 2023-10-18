@@ -9,6 +9,7 @@ use App\Http\Controllers\FullCalendarController;
 use App\Http\Controllers\homeController;
 use App\Http\Controllers\registerController;
 use App\Http\Controllers\keepbottleController;
+use App\Http\Controllers\ListAttendController;
 use App\Http\Controllers\resrveController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BillController;
@@ -58,7 +59,9 @@ Route::middleware(['auth'])->group(function () {
     //出勤用社員一覧
     Route::get('/list-attend', function () {
         return view('list-attend');
-    });
+    })->name("ListAttend");
+
+    Route::post('/list-attend', [ListAttendController::class,'index']);
     //社員登録
     Route::get('emp-register', function () {
         return view('emp-register');

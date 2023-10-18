@@ -54,7 +54,7 @@ class EmployeeController extends Controller
             'hourly_wage.numeric'=>'数字をを入力してください。'
         ]);
 
-        $test = employee::where('staff_id', 1)->update($validatedData);
+        $test = employee::where('staff_id', $id)->update($validatedData);
         //アップデート成功のチェック
         if ($test > 0) {
             return redirect()->route('list-staff')->with('message','登録完成しました。');
@@ -109,8 +109,8 @@ class EmployeeController extends Controller
     //出勤の履歴
     public function indexHistory(Request $request)
     {
-        // $id = $request->id;
-        $id = 1;
+        $id = Auth::user()->staff_id;
+        // $id = 1;
         $staff_name = employee::select('staff_name')
                                     ->where('staff_id',$id)
                                     ->first();

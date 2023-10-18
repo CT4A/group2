@@ -22,7 +22,6 @@
                 <span>社員</span>
                 <ol>
                     <div class="menu_ele">
-                        <li><a href="{{route('staffProfile')}}">個人情報</a></li>
                         <li><a href="{{route('list-staff')}}">社員一覧</a></li>
                         <li><a href="{{route('indexEmpRegister')}}">社員登録</a></li>
                         <li><a href="{{route('passChange')}}">パスワード変更</a></li>
