@@ -3,7 +3,7 @@ use Carbon\Carbon;
 $today = Carbon::now()->format('Y/m/d');
 @endphp
 @extends('main')
-@yield('title','register')
+@section('title','register')
 @section('styles')
 <link rel="stylesheet" href="./css/register.css">
 <link rel="stylesheet" href="./css/information.css">
@@ -22,7 +22,7 @@ $today = Carbon::now()->format('Y/m/d');
             <ul class="register-areaUL">
                 <li>
                     <span>日付</span>
-                    <input type="text" name="request_date" value="{{$today}}">
+                    <input type="date" name="request_date" value="" id = "SelDate">
                     @if ($errors->has('request_date'))
                     <span class="error">{{ $errors->first('request_date') }}</span>
                     @endif

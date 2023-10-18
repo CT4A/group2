@@ -28,6 +28,7 @@
                         <li><a href="{{route('passChange')}}">パスワード変更</a></li>
                         <li><a href="{{route('payStatement')}}">給料</a></li>
                         <li><a href="{{route('indexEmpRegister')}}">社員新規作成</a></li>
+                        <li><a href="{{route('indexShiftRegister')}}">シフト登録</a></li>
                     </div>
                 </ol>
             </li>

@@ -30,6 +30,7 @@ $(document).ready(function () {
         console.log(this);
         window.valueToPass= this.getAttribute("data-date");
         console.log(valueToPass);
+        localStorage.setItem("myValue",valueToPass);
         window.location.href = "http://localhost:8000/shift-register?param=" + valueToPass;
 
     })

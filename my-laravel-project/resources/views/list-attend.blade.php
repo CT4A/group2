@@ -20,25 +20,19 @@
                 <input id="search" type="text" placeholder="社員の名前を入力してください">
         </form>
         <div class="emp-name">
-        <ul>
-                <li><span id="">1</span><span id="">chin君です</span></li>
-                <li><span id="">2</span><span id="">chin君です</span></li>
-                <li><span id="">3</span><span id="">chin君です</span></li>
-                <li><span id="">4</span><span id="">chin君です</span></li>
-                <li><span id="">5</span><span id="">chin君です</span></li>
-                <li><span id="">6</span><span id="">chin君です</span></li>
-                <li><span id="">6</span><span id="">chin君です</span></li>
-                <li><span id="">6</span><span id="">chin君です</span></li>
-                <li><span id="">6</span><span id="">chin君です</span></li>
-                <li><span id="">6</span><span id="">chin君です</span></li>
-                <li><span id="">6</span><span id="">chin君です</span></li>
-                <li><span id="">6</span><span id="">chin君です</span></li>
-
-                                <li><span id="">6</span><span id="">chin君です</span></li>
-        </ul>
+            <form action="syukkin.blade.php">
+            <ul>
+                @foreach ($staffs as $staff)
+                    <li id="{{$staff->staff_id}}">
+                        <span id="">{{$staff->staff_id}}</span>
+                        <span>{{$staff->staff_name}}</span>
+                    </li>
+                @endforeach
+            </ul>
+        </form>
     </div>
 </div>
-        </section>
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="{{asset('js/ListAttend.js')}}"></script>
     </body>
 </html>

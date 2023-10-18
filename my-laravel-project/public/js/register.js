@@ -10,7 +10,12 @@ $(document).ready(function(){
     const kindsInpHidden =$(".kinds-inp-hidden");
     var plusCnt =1;
     
-    
+    var myValue = localStorage.getItem("myValue");
+    var targetElement = $("#SelDate"); // 挿入する要素を選択
+    console.log(myValue)
+    console.log(targetElement)
+    $(targetElement).val(myValue);
+
     $(chkbox).click(function () {
         if ($("#checkbox").prop("checked") == true) {
             $('ol').removeClass("close").addClass("open");
@@ -225,7 +230,6 @@ $(document).ready(function(){
 $(window).on('load', function (){
     var date = new Date();
     console.log("window road")
-    $("input[type='date']").val(date.toISOString().split('T')[0]);
     $("input[type='time']").val(date.toISOString().split('T')[0]);
 });
 // newsform　送信禁止
