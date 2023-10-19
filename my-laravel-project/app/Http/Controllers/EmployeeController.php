@@ -36,9 +36,7 @@ class EmployeeController extends Controller
         }
         return response();
     }
-<<<<<<< HEAD
-    
-=======
+
     //編集画面のindex
     public function indexEmpEditor(Request $request){
         if($request->id){
@@ -50,7 +48,6 @@ class EmployeeController extends Controller
         }
         return redirect()->route('list-staff');
     }
->>>>>>> 92052919652388eccb578f6f40d3d7f5407e022b
     //編集処理
     public function editor(Request $request){
         $id = $request->id;
@@ -116,7 +113,6 @@ class EmployeeController extends Controller
         ]);
         return redirect()->route('list-staff')->with('message','登録完成しました。');
     }
-<<<<<<< HEAD
     //編集画面のindex
     public function indxEmpEditor(Request $request){
         if($request->id){
@@ -128,9 +124,7 @@ class EmployeeController extends Controller
         }
         return redirect()->route('list-staff');
     }
-=======
-    
->>>>>>> 92052919652388eccb578f6f40d3d7f5407e022b
+
     //出勤の履歴
     public function indexHistory(Request $request)
     {

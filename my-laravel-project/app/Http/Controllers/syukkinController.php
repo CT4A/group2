@@ -28,8 +28,7 @@ class syukkinController extends Controller
             ->orderBy('t.time')
             ->select('t.staff_name', 't.time', 't.type')
             ->get();
-        
-
+            
         return view('syukkin',compact('syukkins'));
     }
 

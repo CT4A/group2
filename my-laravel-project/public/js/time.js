@@ -1,4 +1,10 @@
 $(document).ready(function(){
+
+    var myValueID = localStorage.getItem("myValue");
+    console.log(myValueID)
+
+
+
     customerNumbeList =(".customer-number-list li");
     empNumberList = (".emp-number-list li");
     
@@ -81,9 +87,9 @@ $(document).ready(function(){
         }else{
             num_people = cus_num/emp_num; 
         }
-
+    
         let data={
-            'staff_id':1,
+            'staff_id':myValueID,
             'work_date'  :today,
             'attend_time':now,
             'num_people' : num_people
@@ -126,7 +132,7 @@ $(document).ready(function(){
 
         //送信データ。
         let data={
-            'staff_id':1,
+            'staff_id':myValueID,
             'work_date'  :today,
             'leaving_work':now
         }
@@ -144,4 +150,5 @@ $(document).ready(function(){
             }
           });
     });
+
 });

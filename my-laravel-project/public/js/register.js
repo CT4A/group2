@@ -9,11 +9,10 @@ $(document).ready(function(){
     const kindsInp =$(".kinds-inp");
     const kindsInpHidden =$(".kinds-inp-hidden");
     var plusCnt =1;
-    
+
+    // カレンダーのデータ送信　編集用
     var myValue = localStorage.getItem("myValue");
     var targetElement = $("#SelDate"); // 挿入する要素を選択
-    console.log(myValue)
-    console.log(targetElement)
     $(targetElement).val(myValue);
 
     $(chkbox).click(function () {
@@ -75,14 +74,10 @@ $(document).ready(function(){
         }
     $(".alcohol li").click(function (event) { 
         const clickedElement = event.target;
-        console.log("clicked liquorName")
         if (clickedElement.tagName === "LI" ) {
 
             let liquor_type=clickedElement.textContent;
             let liquor_id=clickedElement.textContent;
-            console.log("Clicked liquor_id: " + liquor_id);
-            
-            console.log("Clicked liquor_type: " + liquor_type);
             $(".liquorType").addClass("kinds-aft")
             $("#liquor_id").val(liquor_id);
             
@@ -93,11 +88,9 @@ $(document).ready(function(){
         //クリックイベントの処理
         $(".liquorName ul").click(function(event){
             const clickedElement = event.target;
-            console.log("clicked liquorName")
             if (clickedElement.tagName === "LI" ) {
 
                 let liquor_name=clickedElement.textContent;
-                console.log("Clicked liquorName: " + liquor_name);
                 $(".liquorType").addClass("kinds-aft")
                 $("#liquor_name").val(liquor_name);
                 //選択した酒のすべての種類をゲットする
@@ -113,8 +106,6 @@ $(document).ready(function(){
                     },
                     datatype:"json",
                     success: function (datas) {
-                        console.log(datas)
-                        
                         showInfo(datas);
                     }
                 });
@@ -126,7 +117,6 @@ $(document).ready(function(){
             datas.forEach(data => {
                 htmlString +="<li data-id = "+data["liquor_id"]+">"+data["liquor_type"]+"</li>";
             });
-            console.log(htmlString)
             $(".alcohol ul").html(htmlString);
         }
     // 金額に自動的追加　”、”　
@@ -212,7 +202,6 @@ $(document).ready(function(){
                 $(kinds).addClass("kinds-aft");
                 ListPush.find(kindsInp).val("");
             }else{
-                console.log($(this).text())
                 ListPush.addClass("kinds-aft");
                 ListPush.find(kindsInp).val($(this).text());
                 ListPush.find(kindsInpHidden).attr('value', $(this).attr('data-id'));
@@ -229,7 +218,6 @@ $(document).ready(function(){
 });
 $(window).on('load', function (){
     var date = new Date();
-    console.log("window road")
     $("input[type='time']").val(date.toISOString().split('T')[0]);
 });
 // newsform　送信禁止

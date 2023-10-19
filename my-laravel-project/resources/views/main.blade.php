@@ -94,15 +94,7 @@
     <div class="hamburgerContents">
         <ul>
             <li>
-                <div>
-                    <span>社員</span>
-                    <div class="accordion-content">
-                        <a href="{{route('staffProfile')}}">個人情報</a>
-                        <a href="{{route('indexEmpRegister')}}">社員一覧</a>
-                        <a href="{{route('payStatement')}}">社員登録</a>
-                        <a href="{{route('indexEmpRegister')}}">社員編集</a>
-                    </div>
-                    <div class="hamburger-area">
+                <div class="hamburger-area">
                 <div class="hamburgerContents">
                 <ul>
                     <li>

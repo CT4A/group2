@@ -49,8 +49,6 @@ $(document).ready(function () {
             data: {"id":id
             },
             success: function (data) {
-                console.log(data[0])
-
             showInfo(data[0]);
             }
         });

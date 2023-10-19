@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\employee;
 
-class BillController extends Controller
+class ListAttendController extends Controller
 {
     function index(){
         $staffs=employee::select('staff_id','staff_name')->get();

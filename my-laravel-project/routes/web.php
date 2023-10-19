@@ -22,7 +22,7 @@ Route::get('/', function () {
     return view('welcome');
 })->middleware('auth');
 Route::get('test',[testController::class,'index']);
-
+    
 //login
 Route::get('login',[LoginController::class,'index'])->name('login');
 Route::post('login',[LoginController::class,'login']);
@@ -51,24 +51,18 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/shift-register', [shiftController::class,'register']);
     Route::post('/registerSchedule', [registerController::class,'register']);
     // 出勤退勤
-    Route::get('/syukkin', [syukkinController::class,'index']);
+    Route::get('/syukkin', [syukkinController::class,'index'])->name('syukkin');
     Route::post('/syukkin/start', [syukkinController::class,'attend']);
     Route::post('/syukkin/end', [syukkinController::class,'leave']);
     //出勤用社員一覧
-    Route::get('/list-attend', function () {
-        return view('list-attend');
-    })->name("ListAttend");
-
-    Route::post('/list-attend', [ListAttendController::class,'index']);
+    Route::get("/list-attend",[ListAttendController::class,"index"])->name("ListAttend");
     //社員登録
     Route::get('emp-register', function () {
         return view('emp-register');
     })->name('indexEmpRegister');
-<<<<<<< HEAD
+
     //社員編集
     Route::get("emp-editor",[employeeController::class,'indxEmpEditor'])->name("indxEmpEditor");
-=======
->>>>>>> 92052919652388eccb578f6f40d3d7f5407e022b
     Route::post('/emp-register',[ EmployeeController::class,'register']);
     //社員編集
     Route::get("emp-editor",[employeeController::class,'indexEmpEditor'])->name('indexEmpEditor');
@@ -93,8 +87,6 @@ Route::middleware(['auth'])->group(function () {
     // ボトル登録
     Route::get('/bottle-register', [bottleController::class,'index'])->name('indexRegister');
     Route::post('/bottle-register', [bottleController::class,'RegisterBottle']);
-    
-        // Route::post('/editor', [bottleController::class,'RegisterBottle']);
     // ボトル一覧
     Route::get('/list-bottle', [bottleController::class,'indexList'])->name('list-bottle');
     Route::post('list-bottle',[bottleController::class,'indexList']) ;
@@ -102,18 +94,14 @@ Route::middleware(['auth'])->group(function () {
     //ボトル編集
     Route::get("bottle-editor",[bottleController::class,"indexEditor"])->name('indexEditor');
     Route::post("bottle-editor",[bottleController::class,"editor"]);
-
     //予約
     Route::get ('/reserve-register',  [resrveController::class,'index'])->name('indexResRegister');
     Route::post('/reserve-register',  [resrveController::class,'register']);
     // 給料明細
-    // Route::get('/pay-statement', [EmployeeController::class,'indexPay'])->name('payStatement');
     Route::get('/pay-statement', function(){
         return view('pay-statement');
     })->name('payStatement');
     Route::post('/pay-statement', [EmployeeController::class,'personPay']);
-    // Route::get('/pay-statement', [EmployeeController::class,'indexPay']);
-    // Route::post('/getPayStaff/{id}', [EmployeeController::class,'personPay']);
     // パスワード変更
     Route::get('/pass-change', function () {
         return view('pass-change');
