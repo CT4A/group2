@@ -283,17 +283,17 @@ $result = DB::table($slip, 'slip')
         $user = Auth::user();
         $staff_id = $user->staff_id;
         $staff=employee::find($staff_id);
-        // Kiểm tra mật khẩu hiện tại
+        // 現在のパスワードをチェック
         if (!Hash::check($request->input('now_password'), $staff->password)) {
             return redirect()->back()->with('message', '現在のパスワードは間違ってます');
         }
-        // Kiểm tra mật khẩu mới
+        // 新しいパスワードをチェック
         if ($request->input('now_password') === $request->input('new_password')) {
             return redirect()->back()->with('message', '新パスワードは現在のパスワードと同じです');
         }
-        // Cập nhật mật khẩu mới
+        // パスワードを変更
         $staff->password = Hash::make($request->input('new_password'));
-        $staff->first_login = 2;
+        $staff->first_login = 0;
         $staff->save(); 
         return redirect()->back()->with('message','パスワードを変更しました');
     }

@@ -34,18 +34,33 @@ class syukkinController extends Controller
 
     function attend(Request $request){
         
-        $existsattend = DB::table('customers')->where('customer_id', $id)->exists();
+        $existsattend = attend_leave::where([
+                                ['staff_id', $request->input('staff_id')],
+                                ['work_date', $request->input('work_date')]
+                            ])
+                            ->exists();
+        if($existsattend){
+            return response()->json(['error' => true]);
+        }
         $attendLeave= attend_leave::create([
             'staff_id' => $request->input('staff_id'),
             'work_date' => $request->input('work_date'),
             'attend_time' => $request->input('attend_time'),
             'num_people' => $request->input('num_people'),
         ]);
+        
         $data=['message'=> 'success'];
         return response()->json($data);
     }
     function leave(Request $request){
-
+        $existsattend = attend_leave::where([
+                                        ['staff_id', $request->input('staff_id')],
+                                        ['work_date', $request->input('work_date')]
+                                    ])
+                                    ->exists();
+        if(!$existsattend){
+        return response()->json(['error' => true]);
+        }
         $attendLeave = attend_leave::where('staff_id','=',$request->input('staff_id'))
                                     ->where('work_date','=',$request->input('work_date'))
                                     ->update(['leaving_work' => $request->input('leaving_work')]);
