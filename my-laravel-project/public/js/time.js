@@ -101,9 +101,14 @@ $(document).ready(function(){
             url: "/syukkin/start",
             data: data,
             dataType: "json",
-            success: function () {
-                alert("今日も頑張りましょう");
-                window.location.href = "/list-attend'";
+            success: function (message) {
+                if(message.error){
+                    alert("今日は出勤しました");
+                }else{
+                    alert("今日も頑張りましょう");
+                    window.location.href = "/list-attend'";
+                }
+
             },
             error:function(){
                 alert("エラーは発生しました。オーナに連絡してください。");
@@ -142,9 +147,13 @@ $(document).ready(function(){
             type: "post",
             url: "/syukkin/end",
             data: data,
-            success: function (data) {
-                alert("本日お疲れ様でした。また明日");
-                window.location.href = "/list-attend'";
+            success: function (message) {
+                if(message.error){
+                    alert("今日はまだ出勤しましせんでした。");
+                }else{
+                    alert("本日お疲れ様でした。またね");
+                window.location.href = "/list-attend";
+                }
             }
           });
     });

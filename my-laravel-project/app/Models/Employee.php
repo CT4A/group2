@@ -54,4 +54,7 @@ class Employee extends Authenticatable
     function isAdmin(){
         return $this->role === 'admin';
     }
+    function isSyukkin(){
+        return $this->role === 'syukkin';
+    }
 }
