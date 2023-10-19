@@ -9,7 +9,7 @@
     <section class="register">
         <div class="register-area">
             <h1>パスワード変更</h1>
-            <form action="/emp-register" method="POST">
+            <form action="/passChange" method="POST">
             <ul class="register-areaUL">
                 <div class="message text-center">
                     <div class="alert alert-primary" role="alert">
@@ -30,7 +30,7 @@
                     <input type="password" name="new_passwordConf" required>
                 </li>
                 
-                <input type="submit" value="登録" id ="passSubmit">
+                <input type="submit" value="変更" id ="passSubmit">
                 </form>
             </ul>
         </div>
