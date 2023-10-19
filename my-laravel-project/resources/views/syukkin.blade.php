@@ -39,70 +39,6 @@
                         <span>{{$syukkin->time}}に{{$syukkin->type}}</span>
                     </li>
                     @endforeach
-                    <li>
-                        <span>testさん</span>
-                        <span>00:00に出勤</span>
-                    </li>
-                    <li>
-                        <span>testさん</span>
-                        <span>00:00に出勤</span>
-                    </li>
-                    <li>
-                        <span>testさん</span>
-                        <span>00:00に出勤</span>
-                    </li>
-                    <li>
-                        <span>testさん</span>
-                        <span>00:00に出勤</span>
-                    </li>
-                    <li>
-                        <span>testさん</span>
-                        <span>00:00に出勤</span>
-                    </li>
-                    <li>
-                        <span>testさん</span>
-                        <span>00:00に出勤</span>
-                    </li>
-                    <li>
-                        <span>testさん</span>
-                        <span>00:00に出勤</span>
-                    </li>
-                    <li>
-                        <span>testさん</span>
-                        <span>00:00に出勤</span>
-                    </li>
-                    <li>
-                        <span>testさん</span>
-                        <span>00:00に出勤</span>
-                    </li>
-                    <li>
-                        <span>testさん</span>
-                        <span>00:00に出勤</span>
-                    </li>
-                    <li>
-                        <span>testさん</span>
-                        <span>00:00に出勤</span>
-                    </li>
-                    <li>
-                        <span>testさん</span>
-                        <span>00:00に出勤</span>
-                    </li>
-                    <li>
-                        <span>testさん</span>
-                        <span>00:00に出勤</span>
-                    </li>
-                    <li>
-                        <span>testさん</span>
-                        <span>00:00に出勤</span>
-                    </li>
-                    <li>
-                        <span>testさん</span>
-                        <span>00:00に出勤</span>
-                    </li>
-                    <li>
-                        <span>testさん</span>
-                        <span>00:00に出勤</span>
-                    </li>
                 </ul>
             </div>
             <div class="customer-number">
@@ -118,7 +54,7 @@
                 <ul class="emp-number-list" id='employee-list'>
                     <li id="emp-select-number"><span>0</span></li>
                     @for ($i = 1; $i <= 50; $i++) <li><span>{{$i}}</span></li>
-                        @endfor
+                    @endfor
                 </ul>
             </div>
         </section>

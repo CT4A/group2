@@ -3,7 +3,6 @@ $(document).ready(function(){
 
     $("li").click(function(){
         window.valueToPass= $(this).attr("id");
-        console.log(valueToPass)
         localStorage.setItem("myValue",valueToPass);
     });
     $('#search').keyup(function (e) {

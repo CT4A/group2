@@ -1,9 +1,6 @@
 $(document).ready(function(){
 
-    var myValueID = localStorage.getItem("myValue");
-    console.log(myValueID)
-
-
+    var myValueID = parseInt(localStorage.getItem("myValue"),10);
 
     customerNumbeList =(".customer-number-list li");
     empNumberList = (".emp-number-list li");
