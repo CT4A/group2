@@ -78,13 +78,13 @@ $(document).ready(function(){
       $("#birthday").text(data["birthday"]);
       $("#remarks").text(data["remarks"]);
     }
-        // 編集ボタン
-        $("#editBtn").click(function (e) { 
-          e.preventDefault();
-          var staff_id = $("#staff_id").text();
-          if(staff_id!=0){
-            window.location.href = "/emp-editor?id=" + staff_id;
-          }else{
-            alert("スタッフを選択してください。");
-          }});
+    // 編集ボタン
+    $("#editBtn").click(function (e) { 
+      e.preventDefault();
+      var staff_id = $("#staff_id").text();
+      if(staff_id!=0){
+        window.location.href = "/emp-editor?id=" + staff_id;
+      }else{
+        alert("スタッフを選択してください。");
+      }});
 });

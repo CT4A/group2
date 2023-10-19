@@ -58,20 +58,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/list-attend', function () {
         return view('list-attend');
     });
-    //社員編集
-    Route::get("emp-editor",function(){
-        return view("emp-editor");
-    })->name("indxEmpEditor");
-    //社員登録
-    Route::get('emp-register', function () {
-        return view('emp-register');
-    })->name('indexEmpRegister');
-
     Route::post('/list-attend', [ListAttendController::class,'index']);
-    //社員登録
-    Route::get('emp-register', function () {
-        return view('emp-register');
-    })->name('indexEmpRegister');
+
     //社員編集
     Route::get("emp-editor",[employeeController::class,'indxEmpEditor'])->name("indxEmpEditor");
     Route::post('/emp-register',[ EmployeeController::class,'register']);

@@ -36,7 +36,6 @@ $(document).ready(function(){
 
     //顧客の情報を表示する
     function showInfo(data){
-      console.log(data)
       $("#TxtNameHeader").text(data["customer_name"]+"様の情報");
       $("#customer_name").text(data["customer_name"]);
       $("#customer_name").attr("data-id",data["customer_id"]);
@@ -68,7 +67,6 @@ $(document).ready(function(){
     $("#editBtn").click(function (e) { 
       e.preventDefault();
       var customer_id = $("#customer_name").attr("data-id");
-      console.log(customer_id)
       window.location.href = "/customer-editor?id=" + customer_id;
     });
   });
