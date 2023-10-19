@@ -23,8 +23,7 @@ class BillController extends Controller
                         ->orderBy('slip_mgs.ap_day')
                         ->get();
         
-        // return view('list-bill',compact('slips'));
-        return view('test',compact('slips'));
+        return view('list-bill',compact('slips'));
     }
     //伝票登録
     function register(Request $request){
