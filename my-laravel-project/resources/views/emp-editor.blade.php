@@ -63,7 +63,7 @@
                             <span class="error">※{{ $errors->first('remarks') }}</span>
                         @endif
             </ul>
-            <input type="submit" value="登録">
+            <input type="submit" value="編集">
             </form>
         </div>
     </section>

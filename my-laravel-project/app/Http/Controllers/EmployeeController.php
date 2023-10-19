@@ -33,6 +33,7 @@ class EmployeeController extends Controller
         }
         return response();
     }
+    
     //編集処理
     public function editor(Request $request){
         $id = $request->id;
@@ -96,7 +97,7 @@ class EmployeeController extends Controller
         return redirect()->route('list-staff')->with('message','登録完成しました。');
     }
     //編集画面のindex
-    public function indexEmpEditor(Request $request){
+    public function indxEmpEditor(Request $request){
         if($request->id){
             $staff_id = $request->id;
             $staff = employee::select('staff_id','staff_name','tel','residence','birthday','remarks','hourly_wage')
