@@ -51,29 +51,52 @@ class EmployeeController extends Controller
     }
     //編集処理
     public function editor(Request $request){
-        $id = $request->id;
+        $id = $request->staff_id;
         $hourlyWage = str_replace(',', '', $request->input('hourly_wage'));
         $request->merge(['hourly_wage' => $hourlyWage]);
-        $validatedData = $request->validate([
-            'staff_name' => 'required|string',
-            'tel' => 'required',
-            'residence' => 'required|string',
-            'birthday' => 'required|date',
-            'hourly_wage' => 'required|numeric'
-        ],[
-            'staff_name.required'=>'スタッフの名前を入力してください。',
-            'tel.required'=>'電話番号を入力してください。',
-            'tel.numeric'=>'数字をを入力してください。',
-            'residence.required'=>'住所を入力してください。',
-            'birthday.required'=>'誕生日を入力してください。',
-            'birthday.date'=>'年-月-日の形を入力してください。',
-            'hourly_wage.numeric'=>'数字をを入力してください。'
-        ]);
+        
+        if(Auth::user()->isAdmin()){
+            //adminの場合時給を編集あるため。
+            $validatedData = $request->validate([
+                'staff_name' => 'required|string',
+                'tel' => 'required',
+                'residence' => 'required|string',
+                'birthday' => 'required|date',
+                'hourly_wage' => 'required|numeric'
+            ],[
+                'staff_name.required'=>'スタッフの名前を入力してください。',
+                'tel.required'=>'電話番号を入力してください。',
+                'tel.numeric'=>'数字をを入力してください。',
+                'residence.required'=>'住所を入力してください。',
+                'birthday.required'=>'誕生日を入力してください。',
+                'birthday.date'=>'年-月-日の形を入力してください。',
+                'hourly_wage.required'=>'時給を入力してください。',
+                'hourly_wage.numeric'=>'数字を入力してください。'
+            ]);
+        }
+        if(!Auth::user()->isAdmin()){            
+            $validatedData = $request->validate([
+                'staff_name' => 'required|string',
+                'tel' => 'required',
+                'residence' => 'required|string',
+                'birthday' => 'required|date'
+            ],[
+                'staff_name.required'=>'スタッフの名前を入力してください。',
+                'tel.required'=>'電話番号を入力してください。',
+                'tel.numeric'=>'数字をを入力してください。',
+                'residence.required'=>'住所を入力してください。',
+                'birthday.required'=>'誕生日を入力してください。',
+                'birthday.date'=>'年-月-日の形を入力してください。'
+            ]);
+        }
 
         $test = employee::where('staff_id', $id)->update($validatedData);
         //アップデート成功のチェック
         if ($test > 0) {
-            return redirect()->route('list-staff')->with('message','登録完成しました。');
+            if(!Auth::user()->isAdmin()){
+                return redirect()->route('staffProfile');
+            }
+            return redirect()->route('list-staff');
 
         } else {
             return back();
@@ -83,10 +106,7 @@ class EmployeeController extends Controller
         if (!Auth::user()->isAdmin()) {
             return redirect('/news');
         }
-        // $hourly_wage=$request->hourly_wage;
-        // $hourly_wage = intval(str_replace(',','', $hourly_wage));//,消してintに変換
         $hourly_wage = (float) str_replace(',', '', $request->input('hourly_wage'));
-        
         $validatedData = $request->validate([
             'staff_name' => 'required|string',
             'tel' => 'required',

@@ -53,11 +53,12 @@
                             <span>時給</span>
                             <input type="text" name="hourly_wage"  value="{{ $staff->hourly_wage }}"  placeholder="￥">
                         </li>
-                    @endif
-                    
-                    @if ($errors->has('hourly_wage'))
+                        @if ($errors->has('hourly_wage'))
                             <span class="error">※{{ $errors->first('hourly_wage') }}</span>
                         @endif
+                    @endif
+                    
+                    
                     <li>
                         <span>備考</span>
                         <textarea name="remarks"  value="{{ $staff->remarks }}"></textarea>

@@ -20,16 +20,17 @@
                 <input id="search" type="text" placeholder="社員の名前を入力してください">
         </form>
         <div class="emp-name">
-            <form action="syukkin.blade.php">
             <ul>
                 @foreach ($staffs as $staff)
-                    <li id="{{$staff->staff_id}}">
-                        <span id="">{{$staff->staff_id}}</span>
-                        <span>{{$staff->staff_name}}</span>
+                <a href="{{route('syukkin')}}">
+                    <li id="{{$staff->staff_id}}" >
+                        <span class="StaffID">{{$staff->staff_id}}</span>
+                        <span class="StaffName">{{$staff->staff_name}}</span>
                     </li>
+                </a>
+
                 @endforeach
             </ul>
-        </form>
     </div>
 </div>
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

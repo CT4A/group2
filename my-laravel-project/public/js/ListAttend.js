@@ -1,20 +1,10 @@
 $(document).ready(function(){
 
+
     $("li").click(function(){
-        $.ajaxSetup({
-            headers:{
-                'X-CSRF-TOKEN' : $('meta[name="csrf-token"]').attr('content')
-            }
-        });
-        $.ajax({
-            type: "post",
-            url: "/getInfoStaff/{id}",
-            data: {"id":id
-                },
-            success: function (data) {
-                showInfo(data[0]);
-            }
-        });
+        window.valueToPass= $(this).attr("id");
+        console.log(valueToPass)
+        localStorage.setItem("myValue",valueToPass);
     });
     $('#search').keyup(function (e) {
     let keySearch=$(this).val();
@@ -26,4 +16,7 @@ $(document).ready(function(){
       }
     }
   });
+    function AttendInfo(data) {
+        
+    }
 });
