@@ -43,11 +43,9 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/customer-register', [CustomerController::class,'indexRegister'])->name('indexCusRegister');
     //社員一覧
     Route::get('list-staff' ,[EmployeeController::class,'index'])->name('list-staff');
-    // Route::get('/getInfoStaff/{id}', [EmployeeController::class,'GetListStaff']);
     Route::post('/getInfoStaff/{id}',[EmployeeController::class,'GetListStaff']);
     //社員プロフィール
     Route::get('staffProfile' ,[EmployeeController::class,'indexstaffProfile'])->name('staffProfile');
-    // Route::post('/getInfoStaff/{id}', [EmployeeController::class,'GetListStaff']);
     // 登録
     Route::get('/shift-register', [shiftController::class,'index'])->name('indexShiftRegister');
     Route::post('/shift-register', [shiftController::class,'register']);
@@ -66,12 +64,21 @@ Route::middleware(['auth'])->group(function () {
     Route::get('emp-register', function () {
         return view('emp-register');
     })->name('indexEmpRegister');
+<<<<<<< HEAD
     //社員編集
     Route::get("emp-editor",[employeeController::class,'indxEmpEditor'])->name("indxEmpEditor");
+=======
+>>>>>>> 92052919652388eccb578f6f40d3d7f5407e022b
     Route::post('/emp-register',[ EmployeeController::class,'register']);
+    //社員編集
+    Route::get("emp-editor",[employeeController::class,'indexEmpEditor'])->name('indexEmpEditor');
+   
     //出勤退勤履歴
     Route::get('/history', [employeeController::class,'indexHistory'])->name('history');
     Route::post('/history',[employeeController::class,'graphHistory']);
+        //
+    Route::post('/removeHistory/{id}',[employeeController::class,'removeHistory']);
+
 
     //キープボトル
     Route::get('/keepbottle-register', [keepbottleController::class,'indexRegister'])->name('indexKeepRegister');

@@ -1,3 +1,6 @@
+@php
+    $today = new Datetime();
+@endphp
 @extends('main')
 <!-- @yield('title','出勤退勤履歴') -->
 @section('title','出勤退勤履歴')
@@ -15,8 +18,8 @@
                 <a href="" class="calendar_item"><img src="/img/calendar.webp" alt=""></a>
             </figure>
             <figcaption>
-            <h1 datetime="2023-01">2023年1月</h1>
-            <h2 id="staff_name">{{$staff_name->staff_name}}</h2>
+            <h1 datetime="2023-01">{{ $today->format('Y-m') }}</h1>
+            <h2 id="staff_name" data-id={{ auth()->user()->staff_id }}>{{$staff_name->staff_name}}</h2>
             </figcaption>
         </div>
             @foreach ($staffs as $staff)

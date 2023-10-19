@@ -48,10 +48,13 @@
                             <span class="error">※{{ $errors->first('birthday') }}</span>
                         @endif
                     </li>
-                    <li>
-                        <span>時給</span>
-                        <input type="text" name="hourly_wage"  value="{{ $staff->hourly_wage }}"  placeholder="￥">
-                    </li>
+                    @if (Auth::user()->isAdmin())
+                        <li>
+                            <span>時給</span>
+                            <input type="text" name="hourly_wage"  value="{{ $staff->hourly_wage }}"  placeholder="￥">
+                        </li>
+                    @endif
+                    
                     @if ($errors->has('hourly_wage'))
                             <span class="error">※{{ $errors->first('hourly_wage') }}</span>
                         @endif
