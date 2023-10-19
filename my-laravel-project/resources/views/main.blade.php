@@ -22,12 +22,13 @@
                 <span>社員</span>
                 <ol>
                     <div class="menu_ele">
-                        <li><a href="{{route('staffProfile')}}">個人情報</a></li>
-                        <li><a href="{{route('list-staff')}}">社員一覧</a></li>
-                        <li><a href="{{route('indexEmpRegister')}}">社員登録</a></li>
+                        @if (Auth::user()->isAdmin())
+                            <li><a href="{{route('list-staff')}}">社員一覧</a></li>
+                            <li><a href="{{route('indexEmpRegister')}}">社員新規作成</a></li>
+                        @endif
+
                         <li><a href="{{route('passChange')}}">パスワード変更</a></li>
                         <li><a href="{{route('payStatement')}}">給料</a></li>
-                        <li><a href="{{route('indexEmpRegister')}}">社員新規作成</a></li>
                         <li><a href="{{route('indexShiftRegister')}}">シフト登録</a></li>
                     </div>
                 </ol>

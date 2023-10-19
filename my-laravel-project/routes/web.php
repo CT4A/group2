@@ -9,6 +9,7 @@ use App\Http\Controllers\FullCalendarController;
 use App\Http\Controllers\homeController;
 use App\Http\Controllers\registerController;
 use App\Http\Controllers\keepbottleController;
+use App\Http\Controllers\ListAttendController;
 use App\Http\Controllers\resrveController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BillController;
@@ -42,11 +43,9 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/customer-register', [CustomerController::class,'indexRegister'])->name('indexCusRegister');
     //社員一覧
     Route::get('list-staff' ,[EmployeeController::class,'index'])->name('list-staff');
-    // Route::get('/getInfoStaff/{id}', [EmployeeController::class,'GetListStaff']);
     Route::post('/getInfoStaff/{id}',[EmployeeController::class,'GetListStaff']);
     //社員プロフィール
     Route::get('staffProfile' ,[EmployeeController::class,'indexstaffProfile'])->name('staffProfile');
-    // Route::post('/getInfoStaff/{id}', [EmployeeController::class,'GetListStaff']);
     // 登録
     Route::get('/shift-register', [shiftController::class,'index'])->name('indexShiftRegister');
     Route::post('/shift-register', [shiftController::class,'register']);
@@ -67,10 +66,22 @@ Route::middleware(['auth'])->group(function () {
     Route::get('emp-register', function () {
         return view('emp-register');
     })->name('indexEmpRegister');
+
+    Route::post('/list-attend', [ListAttendController::class,'index']);
+    //社員登録
+    Route::get('emp-register', function () {
+        return view('emp-register');
+    })->name('indexEmpRegister');
+    //社員編集
+    Route::get("emp-editor",[employeeController::class,'indxEmpEditor'])->name("indxEmpEditor");
     Route::post('/emp-register',[ EmployeeController::class,'register']);
+   
     //出勤退勤履歴
     Route::get('/history', [employeeController::class,'indexHistory'])->name('history');
     Route::post('/history',[employeeController::class,'graphHistory']);
+        //
+    Route::post('/removeHistory/{id}',[employeeController::class,'removeHistory']);
+
 
     //キープボトル
     Route::get('/keepbottle-register', [keepbottleController::class,'indexRegister'])->name('indexKeepRegister');
@@ -104,8 +115,6 @@ Route::middleware(['auth'])->group(function () {
         return view('pay-statement');
     })->name('payStatement');
     Route::post('/pay-statement', [EmployeeController::class,'personPay']);
-    // Route::get('/pay-statement', [EmployeeController::class,'indexPay']);
-    // Route::post('/getPayStaff/{id}', [EmployeeController::class,'personPay']);
     // パスワード変更
     Route::get('/pass-change', function () {
         return view('pass-change');

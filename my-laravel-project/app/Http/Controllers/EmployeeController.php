@@ -15,6 +15,9 @@ use Illuminate\Support\Facades\Validator;
 class EmployeeController extends Controller
 {
     public function index(){
+        if (!Auth::user()->isAdmin()) {
+            return redirect('/news');
+        }
         $staffs=employee::select('staff_id','staff_name')->get();
         return view('list-staff',compact('staffs'));        
     }
@@ -33,6 +36,21 @@ class EmployeeController extends Controller
         }
         return response();
     }
+<<<<<<< HEAD
+    
+=======
+    //編集画面のindex
+    public function indexEmpEditor(Request $request){
+        if($request->id){
+            $staff_id = $request->id;
+            $staff = employee::select('staff_id','staff_name','tel','residence','birthday','remarks','hourly_wage')
+                                        ->where('staff_id',$staff_id)
+                                        ->first();
+            return view("emp-editor",compact("staff"));
+        }
+        return redirect()->route('list-staff');
+    }
+>>>>>>> 92052919652388eccb578f6f40d3d7f5407e022b
     //編集処理
     public function editor(Request $request){
         $id = $request->id;
@@ -54,7 +72,7 @@ class EmployeeController extends Controller
             'hourly_wage.numeric'=>'数字をを入力してください。'
         ]);
 
-        $test = employee::where('staff_id', 1)->update($validatedData);
+        $test = employee::where('staff_id', $id)->update($validatedData);
         //アップデート成功のチェック
         if ($test > 0) {
             return redirect()->route('list-staff')->with('message','登録完成しました。');
@@ -64,6 +82,9 @@ class EmployeeController extends Controller
         }
     } 
     public function register(Request $request){
+        if (!Auth::user()->isAdmin()) {
+            return redirect('/news');
+        }
         // $hourly_wage=$request->hourly_wage;
         // $hourly_wage = intval(str_replace(',','', $hourly_wage));//,消してintに変換
         $hourly_wage = (float) str_replace(',', '', $request->input('hourly_wage'));
@@ -95,8 +116,9 @@ class EmployeeController extends Controller
         ]);
         return redirect()->route('list-staff')->with('message','登録完成しました。');
     }
+<<<<<<< HEAD
     //編集画面のindex
-    public function indexEmpEditor(Request $request){
+    public function indxEmpEditor(Request $request){
         if($request->id){
             $staff_id = $request->id;
             $staff = employee::select('staff_id','staff_name','tel','residence','birthday','remarks','hourly_wage')
@@ -106,19 +128,43 @@ class EmployeeController extends Controller
         }
         return redirect()->route('list-staff');
     }
+=======
+    
+>>>>>>> 92052919652388eccb578f6f40d3d7f5407e022b
     //出勤の履歴
     public function indexHistory(Request $request)
     {
-        // $id = $request->id;
-        $id = 1;
+        $currentYear = now()->format('Y');
+        $currentMon = now()->format('m');
+        $id = Auth::user()->staff_id;
         $staff_name = employee::select('staff_name')
                                     ->where('staff_id',$id)
                                     ->first();
+
         $staffs = attend_leave::select('work_date','attend_time','leaving_work')
                                 ->where('staff_id',$id)
+                                ->whereYear('work_date',$currentYear)
+                                ->whereMonth('work_date',$currentMon)
                                 ->get();
         return view('history',compact('staffs','staff_name'));
-        header('Content-Type: application/json');
+    }
+    //出勤の履歴
+    public function removeHistory(Request $request)
+    {
+        $staff_id = $request->staff_id;
+        $time = $request->time;
+        $deleted = attend_leave::where([
+                            ['staff_id',"=",$staff_id],
+                            ['work_date',"=",$time]]
+                            )
+                            ->delete();
+        if($deleted){
+            return response()->json(["message"=>"success"]);
+        }else{
+            
+            return response()->json(["message"=>"fail"]);
+        }
+
     }
     //給料計算
     public function indexPay(Request $request)

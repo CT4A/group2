@@ -1,3 +1,8 @@
+@if (!Auth::user()->isAdmin())
+    @php
+        return redirect('/news');
+    @endphp
+@endif
 @extends('main')
 @section('title','社員登録')
 @section('styles')
