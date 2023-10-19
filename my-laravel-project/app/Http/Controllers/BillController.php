@@ -23,7 +23,8 @@ class BillController extends Controller
                         ->orderBy('slip_mgs.ap_day')
                         ->get();
         
-        return view('list-bill',compact('slips'));
+        // return view('list-bill',compact('slips'));
+        return view('test',compact('slips'));
     }
     //伝票登録
     function register(Request $request){
@@ -46,16 +47,16 @@ class BillController extends Controller
             'total.numeric'=>'数字を入力してください。',
         ]);
         $ap_day = $request->input('day') . " " . $request->input('time');
-        $request->string('customer_id')->nullable();
-        $request->string('customer_id')->default('default_value_here');
+        // $request->string('customer_id')->nullable();
+        // $request->string('customer_id')->default('default_value_here');
         $customer = slip_mg::create([
-            'customer_id' => $request->input('customer_id',0),
-            'slip_id' => $request->input('slip_id',0),
-            'ap_day' => $request->input('ap_day'),
-            'total' => $request->input('total',0)
+            'customer_id' => $request->input('customer_id'),
+            'responsibility' => $request->input('staff_id'),
+            'slip_id' => $request->input('slip_id'),
+            'ap_day' => $request->input('day'),
+            'total' => $request->input('total')
         ]);
         
-        $date = \Carbon\Carbon::parse($customer['ap_day']);
-        return  redirect()->route('indexEmpRegister')->with('message','登録完成しました。');
+        return  redirect()->route('list-bill');
     }
 }

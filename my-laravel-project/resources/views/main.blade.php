@@ -111,8 +111,10 @@
                             <span>社員</span>
                             <div class="accordion-content">
                                 <a href="{{route('staffProfile')}}">個人情報</a>
+                                @if (Auth::user()->isAdmin())
                                 <a href="{{route('list-staff')}}">社員一覧</a>
                                 <a href="{{route('indexEmpRegister')}}">社員登録</a>
+                                @endif
                                 <a href="{{route('passChange')}}">パスワード変更</a>
                                 <a href="{{route('payStatement')}}">給料</a>
                                 <a href="{{route('indexEmpRegister')}}">社員新規作成</a>
@@ -156,8 +158,9 @@
                         </div>
                     </li>
                     <div class="accordion">
-                            <span>ニュース</span>
+                            <span>その他</span>
                             <div class="accordion-content">
+                                <a href="{{route('FullCalendar')}}">カレンダー</a>
                                 <a href="{{route('news')}}">お知らせ</a>
                                 <a href="{{route('indexNewsRegister')}}">お知らせ登録</a>
                             </div>
