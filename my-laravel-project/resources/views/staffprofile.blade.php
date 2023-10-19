@@ -12,32 +12,32 @@
             <ul>
                 <li itemprop="identifier">
                     <span>番号</span>
-                    <span id="staff_id"></span>
+                    <span id="staff_id">{{$staff->staff_id}}</span>
                 </li>
                 <li itemprop="name">
                     <span>名前</span>
-                    <span id="staff_name"></span>
+                    <span id="staff_name">{{$staff->staff_name}}</span>
                 </li>
                 <li itemprop="telephone">
                     <span>電話番号</span>
-                    <span id="tel"></span>
+                    <span id="tel">{{$staff->tel}}</span>
                 </li>
                 <li itemprop="address">
                     <span>住所</span>
-                    <span id="residence"></span>
+                    <span id="residence">{{$staff->residence}}</span>
                 </li>
                 <li itemprop="birthDate">
                     <span>誕生日</span>
-                    <span id="birthday"></span>
+                    <span id="birthday">{{$staff->birthday}}</span>
                 </li>
                 <li itemprop="description">
                     <span>備考</span>
-                    <span id="remarks"></span>
+                    <span id="remarks">{{$staff->remarks}}</span>
                 </li>
                 <li>
                     <form action="#">
                         <img src="img\edit.png" alt="">
-                        <button type="submit">編集</button>
+                        <button id ="editBtn">編集</button>
                     </form>
                 </li>
             </ul>
@@ -46,5 +46,5 @@
     </section>
 @endsection
 @section('scripts')
-<script src="{{asset('js/itiran.js')}}"></script>
+<script src="{{asset('js/staffprofile.js')}}"></script>
 @endsection

@@ -15,8 +15,8 @@
         <section class="leawork">
             <div class="leaworkArea">
                 <div class="currtimefiled">
-                    <span class="currDate">2022年00月00日(月)</span>
-                    <span class="currTime">00:00</span>
+                    <span class="currDate"></span>
+                    <span class="currTime"></span>
                 </div>
                 <div class="leawork">
                     <button id="start">

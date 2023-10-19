@@ -33,6 +33,8 @@ class syukkinController extends Controller
     }
 
     function attend(Request $request){
+        
+        $existsattend = DB::table('customers')->where('customer_id', $id)->exists();
         $attendLeave= attend_leave::create([
             'staff_id' => $request->input('staff_id'),
             'work_date' => $request->input('work_date'),
@@ -40,7 +42,7 @@ class syukkinController extends Controller
             'num_people' => $request->input('num_people'),
         ]);
         $data=['message'=> 'success'];
-        return response()->json($request);
+        return response()->json($data);
     }
     function leave(Request $request){
 

@@ -1,7 +1,6 @@
 $(document).ready(function(){
-
-    var myValueID = parseInt(localStorage.getItem("myValue"),10);
-
+    var myValueID = localStorage.getItem("myValue");
+    console.log(myValueID)
     customerNumbeList =(".customer-number-list li");
     empNumberList = (".emp-number-list li");
     
@@ -91,7 +90,7 @@ $(document).ready(function(){
             'attend_time':now,
             'num_people' : num_people
         }
-
+        console.log(data)
         $.ajaxSetup({
             headers:{
                 'X-CSRF-TOKEN' : $('meta[name="csrf-token"]').attr('content')
@@ -99,14 +98,15 @@ $(document).ready(function(){
         });
         $.ajax({
             type: "post",
-            url: "/api/syukkin/start",
+            url: "/syukkin/start",
             data: data,
             dataType: "json",
-            success: function (response) {
-                console.log(response);
+            success: function () {
+                alert("今日も頑張りましょう");
+                window.location.href = "/list-attend'";
             },
-            error:function(e){
-                console.log(e);
+            error:function(){
+                alert("エラーは発生しました。オーナに連絡してください。");
             }
         });
 
@@ -140,10 +140,11 @@ $(document).ready(function(){
         });
         $.ajax({
             type: "post",
-            url: "/api/syukkin/end",
+            url: "/syukkin/end",
             data: data,
             success: function (data) {
-                console.log(data);
+                alert("本日お疲れ様でした。また明日");
+                window.location.href = "/list-attend'";
             }
           });
     });
