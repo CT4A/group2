@@ -17,15 +17,28 @@ class liquor_mgFactory extends Factory
      * @return array<string, mixed>
      */
     public function definition(): array
-    {   
-        static $i =1;
-        $list_liquor=["whisky","Rum","Brandy"];
-        return [            
-            'liquor_name'=>"whisky".Str::random(4),
+    // {   
+    //     static $i =1;
+    //     $list_liquor=["whisky","Rum","Brandy","Tequila","Gin"];
+    //     return [            
+    //         'liquor_name'=>"whisky".Str::random(4),
 
-            'liquor_type'=>"whiskyの種類".Str::random(4),
+    //         'liquor_type'=>"whiskyの種類".Str::random(4),
+    //         'liquor_number'=>fake()->randomNumber(1),
+    //         //
+    //     ];
+    // }
+
+    {
+        $liquorTypes = ["whisky", "Rum", "Brandy", "Tequila", "Gin"];
+        $liquorType = $this->faker->randomElement($liquorTypes);
+        $liquorNumber = $this->faker->numberBetween(1, 10);
+        $liquorName = $liquorType . $liquorNumber;
+
+        return [
+            'liquor_type' => $liquorType,
+            'liquor_name' => $liquorName,
             'liquor_number'=>fake()->randomNumber(1),
-            //
         ];
     }
 }

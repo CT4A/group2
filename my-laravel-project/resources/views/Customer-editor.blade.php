@@ -35,10 +35,12 @@
                     </li>
                     <li>
                         <span>誕生日</span>
-                        <input type="text" name="birthday" value="{{ old('birthday') ?? $customer->birthday }}">
+                        <input type="date" name="birthday" value="2033-10-19">
+
+                        {{-- <input type="date" name="birthday" value="{{ old('birthday') ?? $customer->birthday }}">
                         @if ($errors->has('birthday'))
-                            <span class="error">{{ $errors->first('birthday') }}</span>
-                        @endif
+                            <span class="error">{{ $errors->first('birthday') }}</span> --}}
+                        {{-- @endif --}}
                     </li>
                    
                     <li class="kinds">

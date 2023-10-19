@@ -14,6 +14,17 @@ class BillController extends Controller
         $customers=customer::select('customer_id','customer_name')->get();
         return view('bill-register',compact('staffs','customers'));
     }
+    //伝票一覧
+    function indexList(){
+        $slips=slip_mg::leftJoin('slip_links','slip_links.slip_id','=','slip_mgs.slip_id')
+                        ->leftJoin('customers','slip_mgs.customer_id','=','customers.customer_id')
+                        ->leftJoin('employees','slip_links.staff_id','=','employees.staff_id')
+                        ->select('employees.staff_name','slip_mgs.ap_day','slip_mgs.total','customers.customer_name')
+                        ->orderBy('slip_mgs.ap_day')
+                        ->get();
+        
+        return view('list-bill',compact('slips'));
+    }
     //伝票登録
     function register(Request $request){
         $validatedData = $request->validate([

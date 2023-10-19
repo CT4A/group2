@@ -2,7 +2,6 @@
     $today = new Datetime();
 @endphp
 @extends('main')
-<!-- @yield('title','出勤退勤履歴') -->
 @section('title','出勤退勤履歴')
 @section('styles')
 <link rel="stylesheet" href="./css/history.css">
@@ -33,8 +32,8 @@
                 </div>
                 <div class="history_info_btn">
                     <div class="history_info_btn-field">
-                        <button name="editbtn">編集</button>
-                        <button name="delbtn">削除</button>
+                        <button id="editbtn">編集</button>
+                        <button id="delbtn">削除</button>
                     </div>
                 </div>
             </div>

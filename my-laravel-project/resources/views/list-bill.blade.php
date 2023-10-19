@@ -32,7 +32,6 @@
                         <div class="filter-item-filed">  
                         <div class="filter-items" id="time-filter">
                             <h2>日時</h2>
-                            <button type="button" class="filter-element" data-filter ="1hour" >1時間前</button>
                             <button type="button" class="filter-element" data-filter="week">今週</button>
                             <button type="button" class="filter-element" data-filter="month">今月</button>
                             <button type="button" class="filter-element" data-filter="year">今年</button>
@@ -40,10 +39,10 @@
                         </div>
                         <div class="filter-items" id="money-filter">
                             <h2>金額</h2>
-                            <button type="button" class="filter-element" data-filter="money1">15,000~50,000</button>
+                            <button type="button" class="filter-element" data-filter="money1">~50,000</button>
                             <button type="button" class="filter-element" data-filter="money2">50,001~100,000</button>
                             <button type="button" class="filter-element" data-filter="money3">100,001~150,000</button>
-                            <button type="button" class="filter-element" data-filter="money4">150,000以上</button>
+                            <button type="button" class="filter-element" data-filter="money4">150,000~</button>
                         </div>
                         </div>
                     </div>
@@ -51,93 +50,61 @@
             </form>
             </div>
             <div class="bill-list-items">
-                <ul>
-                    <span class="timer">2023-09-05</span>
-                    <li data-filter="1hour money1">
-                        <span class="customer_name">グエンnnnnnnnnnnnnnnn</span>
-                        <span class="staff_name">片山</span>
-                        <span class="money">1,500,00000</span>
+                @php
+                    $previousDate = null;
+                @endphp
+
+                @foreach ($slips as $slip)
+                    @if ($slip->ap_day !== $previousDate)
+                    <ul>
+                    <span class="timer">{{date('Y-m-d',strtotime($slip->ap_day))   }}</span>
+                    @endif
+                        @php
+                    //日付のフィルターの処理    
+                        //比較日付定義
+                            $currentDate = new DateTime(); 
+                            $oneYearAgo = clone $currentDate;
+                            $oneYearAgo->modify('-1 year');
+                            $oneMonthAgo = clone $currentDate;
+                            $oneMonthAgo->modify('-1 month');
+                            $oneWeekAgo = clone $currentDate;
+                            $oneWeekAgo->modify('-1 week');
+                            $slip_date = $slip->ap_day;
+                        //比較日付定義　ここまで
+                            $slip_date = new Datetime($slip->ap_day);
+                            if($slip_date >= $oneWeekAgo){
+                                $timeFilter = "week";
+                            }elseif ($slip_date >= $oneMonthAgo) {
+                                $timeFilter = "month";
+                            }elseif ($slip_date >= $oneYearAgo) {
+                                $timeFilter = "year";
+                            }else {
+                                $timeFilter = "OneYearAgo";
+                            }
+                            
+                    //金額のフィルターの処理
+                            $total = $slip->total;
+                            if($total >= 150000){
+                                $totalFilter = "money4";
+                            }elseif ($total >= 100001 ) {
+                                $totalFilter = "money3";
+                            }elseif ($total >= 50001) {
+                                $totalFilter = "money2";
+                            }else{
+                                $totalFilter = "money1";
+                            }
+                        @endphp
+
+                    <li data-filter="{{$timeFilter .' '. $totalFilter}}">
+                        <span class="customer_name">{{$slip->customer_name}}</span>
+                        <span class="staff_name">{{$slip->staff_name}}</span>
+                        <span class="money">{{$slip->total}}</span>
                     </li>
-                    <li data-filter="week money1">
-                        <span class="customer_name">グエン</span>
-                        <span class="staff_name">松岡chin</span>
-                        <span>￥</span>
-                    </li>
-                    <li data-filter="week money2">
-                        <span class ="customer_name">野々川</span>
-                        <span class="staff_name">松岡chin</span>
-                        <span>money2</span>
-                    </li>
-                    <li data-filter="week money2">
-                        <span class ="customer_name">野々川</span>
-                        <span class="staff_name">松岡chin</span>
-                        <span>money2</span>
-                    </li>
-                    <li data-filter="week money2">
-                        <span class ="customer_name">野々川</span>
-                        <span class="staff_name">松岡chin</span>
-                        <span>money2</span>
-                    </li>
-                </ul>
-                <ul>
-                <span class="timer">2023-09-05</span>
-                    <li data-filter="week money1">
-                        <span class="customer_name">グエン</span>
-                        <span class="staff_name">松岡chin</span>
-                        <span>￥</span>
-                    </li>
-                    <li data-filter="week money2">
-                        <span class ="customer_name">野々川</span>
-                        <span class="staff_name">松岡chin</span>
-                        <span>money2</span>
-                    </li>
-                </ul>
-                <ul>
-                    <span class="timer">2023-09-06</span>
-                    <li data-filter="1hour money1">
-                        <span class="customer_name">グエンnnnnnnnnnnnnnnn</span>
-                        <span class="staff_name">片山</span>
-                        <span class="money">1,500,00000</span>
-                    </li>
-                    <li data-filter="week money1">
-                        <span class="customer_name">グエン</span>
-                        <span class="staff_name">松岡chin</span>
-                        <span>￥</span>
-                    </li>
-                    <li data-filter="week money2">
-                        <span class ="customer_name">野々川</span>
-                        <span class="staff_name">松岡chin</span>
-                        <span>money2</span>
-                    </li>
-                </ul>
-                <ul>
-                    <span class="timer">2023-09-06</span>
-                    <li data-filter="1hour money1">
-                        <span class="customer_name">グエンnnnnnnnnnnnnnnn</span>
-                        <span class="staff_name">片山</span>
-                        <span class="money">1,500,00000</span>
-                    </li>
-                    <li data-filter="week money1">
-                        <span class="customer_name">グエン</span>
-                        <span class="staff_name">松岡chin</span>
-                        <span>￥</span>
-                    </li>
-                    <li data-filter="week money2">
-                        <span class ="customer_name">野々川</span>
-                        <span class="staff_name">松岡chin</span>
-                        <span>money2</span>
-                    </li>
-                    <li data-filter="week money2">
-                        <span class ="customer_name">野々川</span>
-                        <span class="staff_name">松岡chin</span>
-                        <span>money2</span>
-                    </li>
-                    <li data-filter="week money2">
-                        <span class ="customer_name">野々川</span>
-                        <span class="staff_name">松岡chin</span>
-                        <span>money2</span>
-                    </li>
-                </ul>
+                    @php
+                        $previousDate = $slip->ap_day;
+                    @endphp
+                @endforeach
+                
 
             </div>
     </section>

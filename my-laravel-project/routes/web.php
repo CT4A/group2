@@ -60,13 +60,9 @@ Route::middleware(['auth'])->group(function () {
     Route::get('emp-register', function () {
         return view('emp-register');
     })->name('indexEmpRegister');
-
     //社員編集
     Route::get("emp-editor",[employeeController::class,'indxEmpEditor'])->name("indxEmpEditor");
     Route::post('/emp-register',[ EmployeeController::class,'register']);
-    //社員編集
-    Route::get("emp-editor",[employeeController::class,'indexEmpEditor'])->name('indexEmpEditor');
-   
     //出勤退勤履歴
     Route::get('/history', [employeeController::class,'indexHistory'])->name('history');
     Route::post('/history',[employeeController::class,'graphHistory']);
@@ -118,9 +114,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/bill-register', [BillController::class,'index'])->name('indexBillRegister');
     Route::post('/bill-register', [BillController::class,'register']);
     // 伝票一覧
-    Route::get('list-bill', function () {
-        return view('list-bill');
-    })->name('list-bill');
+    Route::get('list-bill', [BillController::class,'indexList'])->name('list-bill');
     //カレンダー仕事
     Route::get('/full-calendar',[FullCalendarController::class,'index'])->name("FullCalendar");
     Route::get('get_events', [FullCalendarController::class, 'getEvents']);
