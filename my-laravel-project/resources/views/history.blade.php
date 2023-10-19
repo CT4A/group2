@@ -1,5 +1,5 @@
 @extends('main')
-<!-- @yield('title','出勤退勤履歴') -->
+{{-- @yield('title','出勤退勤履歴')  --}}
 @section('title','出勤退勤履歴')
 @section('styles')
 <link rel="stylesheet" href="./css/history.css">
@@ -15,7 +15,7 @@
                 <a href="" class="calendar_item"><img src="/img/calendar.webp" alt=""></a>
             </figure>
             <figcaption>
-            <h1 datetime="2023-01">2023年1月</h1>
+            <h1 >{{}}</h1>
             <h2 id="staff_name">{{$staff_name->staff_name}}</h2>
             </figcaption>
         </div>
@@ -30,8 +30,8 @@
                 </div>
                 <div class="history_info_btn">
                     <div class="history_info_btn-field">
-                        <button name="editbtn">編集</button>
-                        <button name="delbtn">削除</button>
+                        <button id="editbtn">編集</button>
+                        <button id="delbtn">削除</button>
                     </div>
                 </div>
             </div>
