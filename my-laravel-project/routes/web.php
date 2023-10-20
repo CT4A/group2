@@ -18,10 +18,8 @@ use App\Http\Controllers\shiftController;
 use App\Http\Controllers\syukkinController;
 use App\Http\Controllers\EditorCustomer;
 use App\Http\Controllers\testController;
-Route::get('/', function () {
-    return view('welcome');
-})->middleware('auth');
-Route::get('test',[testController::class,'index']);
+Route::get('/', [LoginController::class,'index'])->name('login');
+// Route::get('test',[testController::class,'index']);
     
 //login
 Route::get('login',[LoginController::class,'index'])->name('login');
