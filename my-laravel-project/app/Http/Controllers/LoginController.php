@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use PHPUnit\Metadata\Uses;
+
 class LoginController extends Controller
 {
     function index(){
@@ -21,6 +23,9 @@ class LoginController extends Controller
             }
             // ログイン成功
             $request->session()->regenerate();
+            if(Auth::user()->isSyukkin()){
+                return redirect()->route('/ListAttend');
+            }
             return redirect()->intended('/news');
         } else {
             // ログイン失敗

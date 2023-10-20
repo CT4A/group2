@@ -10,6 +10,9 @@ use Illuminate\Support\Facades\DB;
 class syukkinController extends Controller
 {
     function index(){
+        if(!Auth::user()->isSyukkin()){
+            return redirect()->route('/news');
+        }
         $syukkins = DB::table(function ($subquery) {
             $today = Carbon::now()->format('Y/m/d');
             $subquery->select('staff_name', 'attend_time as time', DB::raw("'出勤' as type",))
@@ -33,7 +36,9 @@ class syukkinController extends Controller
     }
 
     function attend(Request $request){
-        
+        if(!Auth::user()->isSyukkin()){
+            return redirect()->route('/news');
+        }
         $existsattend = attend_leave::where([
                                 ['staff_id', $request->input('staff_id')],
                                 ['work_date', $request->input('work_date')]
@@ -53,6 +58,9 @@ class syukkinController extends Controller
         return response()->json($data);
     }
     function leave(Request $request){
+        if(!Auth::user()->isSyukkin()){
+            return redirect()->route('/news');
+        }
         $existsattend = attend_leave::where([
                                         ['staff_id', $request->input('staff_id')],
                                         ['work_date', $request->input('work_date')]

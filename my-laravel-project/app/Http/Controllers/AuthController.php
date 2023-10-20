@@ -8,7 +8,6 @@ class AuthController extends Controller
 {
     public function login(Request $request)
     {
-        
         $credentials = $request->validate([
             'tel' => 'required',
             'password' => 'required'
