@@ -106,7 +106,7 @@ $(document).ready(function(){
                     alert("今日は出勤しました");
                 }else{
                     alert("今日も頑張りましょう");
-                    window.location.href = "/list-attend'";
+                    window.location.href = "/list-attend";
                 }
 
             },
