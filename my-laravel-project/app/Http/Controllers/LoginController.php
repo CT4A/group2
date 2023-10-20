@@ -24,7 +24,7 @@ class LoginController extends Controller
             // ログイン成功
             $request->session()->regenerate();
             if(Auth::user()->isSyukkin()){
-                return redirect()->route('/ListAttend');
+                return redirect()->route('ListAttend');
             }
             return redirect()->intended('/news');
         } else {
