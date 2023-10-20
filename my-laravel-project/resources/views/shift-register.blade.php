@@ -63,8 +63,8 @@ $today = Carbon::now()->format('Y/m/d');
                         @endif
                     </li>
                 </ol>
-                <input type="submit" value="登録">
             </ul>
+            <input type="submit" value="登録">
             </form>
         </div>
     </section>
