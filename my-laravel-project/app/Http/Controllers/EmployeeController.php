@@ -50,6 +50,20 @@ class EmployeeController extends Controller
     //     }
     //     return redirect()->route('list-staff');
     // }
+    //編集画面のindex
+    public function indxEmpEditor(Request $request){
+        if($request->id){
+            $staff_id = $request->id;
+            if(!Auth::user()->isAdmin() || Auth::user()->staff_id != $staff_id){
+                return redirect()->route('staffProfile');
+            }
+            $staff = employee::select('staff_id','staff_name','tel','residence','birthday','remarks','hourly_wage')
+                                        ->where('staff_id',$staff_id)
+                                        ->first();
+            return view("emp-editor",compact("staff"));
+        }
+        return redirect()->route('list-staff');
+    }
     //編集処理
     public function editor(Request $request){
         $id = $request->staff_id;
@@ -135,20 +149,7 @@ class EmployeeController extends Controller
         ]);
         return redirect()->route('list-staff')->with('message','登録完成しました。');
     }
-    //編集画面のindex
-    public function indxEmpEditor(Request $request){
-        if($request->id){
-            $staff_id = $request->id;
-            if(!Auth::user()->isAdmin() || Auth::user()->staff_id != $staff_id){
-                return redirect()->route('staffProfile');
-            }
-            $staff = employee::select('staff_id','staff_name','tel','residence','birthday','remarks','hourly_wage')
-                                        ->where('staff_id',$staff_id)
-                                        ->first();
-            return view("emp-editor",compact("staff"));
-        }
-        return redirect()->route('list-staff');
-    }
+    
     //出勤の履歴
     public function indexHistory(Request $request)
     {
