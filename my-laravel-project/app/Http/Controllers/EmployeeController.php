@@ -42,6 +42,9 @@ class EmployeeController extends Controller
     public function indexEmpEditor(Request $request){
         if($request->id){
             $staff_id = $request->id;
+            if(!Auth::user()->isAdmin() || !Auth::user()->staff_id != $staff_id){
+                return redirect()->route('staffProfile');
+            }
             $staff = employee::select('staff_id','staff_name','tel','residence','birthday','remarks','hourly_wage')
                                         ->where('staff_id',$staff_id)
                                         ->first();

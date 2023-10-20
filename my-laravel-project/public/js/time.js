@@ -108,7 +108,6 @@ $(document).ready(function(){
                     alert("今日も頑張りましょう");
                     window.location.href = "/list-attend";
                 }
-
             },
             error:function(){
                 alert("エラーは発生しました。オーナに連絡してください。");
