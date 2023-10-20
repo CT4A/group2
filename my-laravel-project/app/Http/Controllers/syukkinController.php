@@ -6,6 +6,7 @@ use App\Models\attend_leave;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class syukkinController extends Controller
 {
