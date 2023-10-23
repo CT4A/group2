@@ -9,9 +9,9 @@
 @endsection
 @section('content')
     <section class="history">
-    <div id="History-Graph">
-    <canvas id = "graph"></canvas>
-    </div>
+    <!-- <div id="History-Graph"> -->
+    <!-- <canvas id = "graph"></canvas>
+    </div> -->
         <div class="history_item">
             <figure class="history-date">
                 <a href="" class="calendar_item"><img src="/img/calendar.webp" alt=""></a>
@@ -30,12 +30,14 @@
                         <span class="">退勤{{$staff->leaving_work}}</span>
                     </div>
                 </div>
+                @if (Auth::user()->isAdmin())
                 <div class="history_info_btn">
                     <div class="history_info_btn-field">
-                        <button id="editbtn">編集</button>
+                        <button id="editbtn"><a href="{{route('indexHistoryEditor')}}">編集</a></button>
                         <button id="delbtn">削除</button>
                     </div>
                 </div>
+                @endif
             </div>
             @endforeach
     </section>

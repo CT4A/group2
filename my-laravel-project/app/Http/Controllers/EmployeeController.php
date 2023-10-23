@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 class EmployeeController extends Controller
 {
+
     public function index(){
         if (!Auth::user()->isAdmin()) {
             return redirect('/news');
@@ -21,7 +22,9 @@ class EmployeeController extends Controller
         $staffs=employee::select('staff_id','staff_name')->get();
         return view('list-staff',compact('staffs'));        
     }
-
+    public function IndexHistoryEditor(){
+        return view('history_editor');     
+    }
     public function indexstaffProfile(){
         $staff_id = Auth::user()->staff_id;
         $staff=employee::find($staff_id)->first();
