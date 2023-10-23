@@ -16,9 +16,8 @@ class BillController extends Controller
     }
     //伝票一覧
     function indexList(){
-        $slips=slip_mg::leftJoin('slip_links','slip_links.slip_id','=','slip_mgs.slip_id')
-                        ->leftJoin('customers','slip_mgs.customer_id','=','customers.customer_id')
-                        ->leftJoin('employees','slip_links.staff_id','=','employees.staff_id')
+        $slips=slip_mg::leftJoin('customers','slip_mgs.customer_id','=','customers.customer_id')
+                        ->leftJoin('employees','slip_mgs.responsibility','=','employees.staff_id')
                         ->select('employees.staff_name','slip_mgs.ap_day','slip_mgs.total','customers.customer_name')
                         ->orderBy('slip_mgs.ap_day')
                         ->get();
@@ -46,8 +45,6 @@ class BillController extends Controller
             'total.numeric'=>'数字を入力してください。',
         ]);
         $ap_day = $request->input('day') . " " . $request->input('time');
-        // $request->string('customer_id')->nullable();
-        // $request->string('customer_id')->default('default_value_here');
         $customer = slip_mg::create([
             'customer_id' => $request->input('customer_id'),
             'responsibility' => $request->input('staff_id'),

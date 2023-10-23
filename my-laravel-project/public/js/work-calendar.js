@@ -27,7 +27,7 @@ $(document).ready(function () {
     $(".fc-day").click(function(){
         window.valueToPass= this.getAttribute("data-date");
         localStorage.setItem("myValue",valueToPass);
-        window.location.href = "http://localhost:8000/shift-register";
+        window.location.href = "/shift-register";
     });
 });
 function updatecalendarTitle(){

@@ -22,7 +22,9 @@
                 <span>社員</span>
                 <ol>
                     <div class="menu_ele">
-                        <li><a href="{{route('staffProfile')}}">個人情報</a></li>
+                        @if (!Auth::user()->isAdmin())
+                            <li><a href="{{route('staffProfile')}}">個人情報</a></li>
+                        @endif                        
                         @if (Auth::user()->isAdmin())
                             <li><a href="{{route('list-staff')}}">社員一覧</a></li>
                             <li><a href="{{route('indexEmpRegister')}}">社員新規作成</a></li>
@@ -110,7 +112,10 @@
                         <div class="accordion">
                             <span>社員</span>
                             <div class="accordion-content">
-                                <a href="{{route('staffProfile')}}">個人情報</a>
+                                @if (!(Auth::user()->isAdmin()))
+                                    <a href="{{route('staffProfile')}}">個人情報</a>
+                                @endif
+
                                 @if (Auth::user()->isAdmin())
                                 <a href="{{route('list-staff')}}">社員一覧</a>
                                 <a href="{{route('indexEmpRegister')}}">社員登録</a>
