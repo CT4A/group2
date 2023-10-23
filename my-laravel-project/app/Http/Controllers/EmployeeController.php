@@ -22,8 +22,59 @@ class EmployeeController extends Controller
         $staffs=employee::select('staff_id','staff_name')->get();
         return view('list-staff',compact('staffs'));        
     }
-    public function IndexHistoryEditor(){
-        return view('history_editor');     
+    public function IndexHistoryEditor(Request $request){
+        $staff_id = $request->id;
+        $work_date = $request->work_date;
+        $staffAttend = attend_leave::where([
+                            ['staff_id',$staff_id],
+                            ['work_date',$work_date]
+                        ])
+                        ->first();
+        return view('history_editor',compact('staffAttend'));     
+    }
+    public function HistoryEditor(Request $request){
+        // $validatedData = $request->validate([
+        //     'work_date' => 'required|date',
+        //     'attend_time' => 'required|time',
+        //     'leaving_work' => 'required|time',
+        //     'num_people' => 'required|numeric',
+        // ],[
+        //     'work_date.required'=>'日付を入力してください。',
+        //     'work_date.time'=>'日付を入力してください。例：10/31/1999',
+            
+        //     'attend_time.required'=>'出勤時間を入力してください。',
+        //     'attend_time.time'=>'出勤時間を入力してください。例：10:00:00',
+            
+        //     'leaving_work.required'=>'退勤時間を入力してください。',
+        //     'leaving_work.time'=>'退勤時間を入力してください。例：10:00:00',
+        //     'num_people.required'=>'同伴人数を入力してください。',
+        //     'num_people.numeric'=>'数字を入力してください。',
+        // ]);
+
+        $existsattend = attend_leave::where([
+                                    ['staff_id', $request->input('staff_id')],
+                                    ['work_date', $request->input('work_date_old')]
+                                ])
+                                ->exists();
+        if(!$existsattend){
+            redirect()->route('list-staff');
+        }
+        $attendLeave= attend_leave::where([
+                                ['staff_id','=', $request->input('staff_id')],
+                                ['work_date','=', $request->input('work_date_old')]
+                            ])
+                            ->update([
+                                'staff_id' => $request->input('staff_id'),
+                                'work_date' => $request->input('work_date'),
+                                'attend_time' => $request->input('attend_time'),
+                                'leaving_work' => $request->input('leaving_work'),
+                                'num_people' => $request->input('num_people'),
+                            ]);
+        if($attendLeave){
+            return redirect()->route('history',['id'=>$request->input('staff_id')]); 
+        }
+        return redirect()->route('news');
+          
     }
     public function indexstaffProfile(){
         $staff_id = Auth::user()->staff_id;
@@ -41,18 +92,6 @@ class EmployeeController extends Controller
         }
         return response();
     }
-    // //編集画面のindex
-    // public function indexEmpEditor(Request $request){
-    //     if($request->id){
-    //         $staff_id = $request->id;
-            
-    //         $staff = employee::select('staff_id','staff_name','tel','residence','birthday','remarks','hourly_wage')
-    //                                     ->where('staff_id',$staff_id)
-    //                                     ->first();
-    //         return view("emp-editor",compact("staff"));
-    //     }
-    //     return redirect()->route('list-staff');
-    // }
     //編集画面のindex
     public function indxEmpEditor(Request $request){
         if($request->id){
@@ -158,8 +197,12 @@ class EmployeeController extends Controller
     {
         $currentYear = now()->format('Y');
         $currentMon = now()->format('m');
-        $id = Auth::user()->staff_id;
-        $staff_name = employee::select('staff_name')
+        if($request->has('id')){
+            $id = $request->id;
+        }else{
+            $id = Auth::user()->staff_id;
+        }
+        $staff_name = employee::select('staff_name','staff_id')
                                     ->where('staff_id',$id)
                                     ->first();
 
