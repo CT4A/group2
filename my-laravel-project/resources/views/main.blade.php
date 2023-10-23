@@ -67,7 +67,12 @@
                 <span>出勤退勤履歴</span>
                 <ol>
                     <div class="menu_ele">
-                        <li><a href="{{route('history')}}">履歴編集画面</a></li>
+                        <li><a href="
+                            @if (Auth::user()->isAdmin())
+                            {{route('ListAttend')}}
+                            @else
+                            {{route('history')}}
+                            @endif">履歴編集画面</a></li>
                     </div>
                 </ol>
             </li>

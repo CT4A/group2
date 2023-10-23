@@ -7,11 +7,11 @@ use Illuminate\Support\Facades\Auth;
 class ListAttendController extends Controller
 {
     function index(){
-        if(!Auth::user()->isSyukkin()){
-            return redirect()->route('/news');
+        if(Auth::user()->isSyukkin() || Auth::user()->isAdmin()){   
+            $staffs=employee::select('staff_id','staff_name')->get();
+            return view('list-attend',compact('staffs'));
         }
-        $staffs=employee::select('staff_id','staff_name')->get();
-        return view('list-attend',compact('staffs'));
+        return redirect()->route('news');
     }
     
 }

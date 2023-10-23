@@ -71,4 +71,6 @@ $today = Carbon::now()->format('Y/m/d');
 @endsection
 @section('scripts')
 <script src="js/register.js"></script>
+<script src="js/history.js"></script>
+
 @endsection

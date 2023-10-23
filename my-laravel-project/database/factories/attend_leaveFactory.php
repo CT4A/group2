@@ -16,8 +16,8 @@ class attend_leaveFactory extends Factory
      */
     public function definition(): array
     {
-        $attend_time=fake()->time();
-        $leaving_work=fake()->time();
+        $attend_time = fake()->time();
+        $leaving_work = fake()->time();
         while($attend_time >= $leaving_work){
             $attend_time=fake()->time();
             $leaving_work=fake()->time();
