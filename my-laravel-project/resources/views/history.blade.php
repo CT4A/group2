@@ -18,7 +18,7 @@
             </figure>
             <figcaption>
             <h1 datetime="2023-01">{{ $today->format('Y-m') }}</h1>
-            <h2 id="staff_name" data-id={{ auth()->user()->staff_id }}>{{$staff_name->staff_name}}</h2>
+            <h2 id="staff_name" data-id={{$staff_name->staff_id }}>{{$staff_name->staff_name}}</h2>
             </figcaption>
         </div>
             @foreach ($staffs as $staff)
@@ -33,7 +33,7 @@
                 @if (Auth::user()->isAdmin())
                 <div class="history_info_btn">
                     <div class="history_info_btn-field">
-                        <button id="editbtn"><a href="{{route('indexHistoryEditor')}}">編集</a></button>
+                        <button id="editbtn"><a href="{{route('indexHistoryEditor',['id' => $staff_name->staff_id, 'work_date' => $staff->work_date])}}">編集</a></button>
                         <button id="delbtn">削除</button>
                     </div>
                 </div>
