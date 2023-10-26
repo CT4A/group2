@@ -8,13 +8,25 @@ $(document).ready(function(){
     const kindsSelecter = $(".kinds-selecter");
     const kindsInp =$(".kinds-inp");
     const kindsInpHidden =$(".kinds-inp-hidden");
+    const AccordionSearchInput = $(".AccordionSearchInput")
     var plusCnt =1;
 
     // カレンダーのデータ送信　編集用
     var myValue = localStorage.getItem("myValue");
     var targetElement = $("#SelDate"); // 挿入する要素を選択
     $(targetElement).val(myValue);
-
+    
+    // accordionリストの検索機能
+    $(AccordionSearchInput).keyup(function (e) {
+        var keySearch = $(this).val();
+        let staffList = $(".kind-list li");
+        staffList.show();
+        for (let i = 0; i < staffList.length; i++) {
+          if (staffList[i].textContent.indexOf(keySearch) == -1 && i >= 1) {
+            $(staffList).eq(i).hide();
+          }
+        }
+    });
     $(chkbox).click(function () {
         if ($("#checkbox").prop("checked") == true) {
             $('ol').removeClass("close").addClass("open");
@@ -23,10 +35,10 @@ $(document).ready(function(){
         };
     });
 
-    $(kindsSelecter).click(function(){
+    $(kindsSelecter).on("click",function(event){
         var ksSelecterPush = $(this)
-        // var ksSelecterPush = $(this).find(".kinds-selecter");
-        if(!$(ksSelecterPush).hasClass("kinds-selecter-aft" )){
+        event.stopPropagation();
+        if(!$(ksSelecterPush).hasClass("kinds-selecter-aft")){
             $(kindsSelecter).removeClass("kinds-selecter-aft");
             $(kindsSelecter).find(kindList).removeClass("kind-list-aft");
             $(ksSelecterPush).addClass("kinds-selecter-aft");
@@ -36,23 +48,30 @@ $(document).ready(function(){
             $(ksSelecterPush).find(kindList).removeClass("kind-list-aft");
         }
     })
-
     // プルトダウン(選択後の処理)
-    $(kindsli).click(function () {
+    $(kindsli).on("click",function (event) {
+        event.stopPropagation();
         var thisList = $(this).parent();
         var ListPush = thisList.parent().parent();
         thisList.find(kindsInp).addClass("kind-Click");
-        if($(this).text() == "その他"){
-            ListPush.addClass("kinds-aft");
-            ListPush.find(kindsInp).val("");
-        }else{
-            ListPush.addClass("kinds-aft");
-            ListPush.find(kindsInp).val($(this).text());
-            ListPush.find(kindsInpHidden).attr('value', $(this).attr('data'));
+            if(!$(this).hasClass("AccordionSearch")){
+            if($(this).text() == "その他"){
+                ListPush.addClass("kinds-aft");
+                ListPush.find(kindsInp).val("");
+                $(this).parent().parent(".kinds-selecter").removeClass("kinds-selecter-aft");
+                $(this).parent().removeClass("kind-list-aft");
+                $(kindsSelecter).removeClass("kind-list-aft");
+            }else{
+                ListPush.addClass("kinds-aft");
+                ListPush.find(kindsInp).val($(this).text());
+                ListPush.find(kindsInpHidden).attr('value', $(this).attr('data'));
+                thisList.find(kindList).removeClass("kind-list-aft");
+                $(this).parent().parent(".kinds-selecter").removeClass("kinds-selecter-aft");
+                $(this).parent().removeClass("kind-list-aft");
+                $(kindsSelecter).removeClass("kind-list-aft");
+            }
+            console.log(this.tagName)
         }
-        thisList.find(kindList).removeClass("kind-list-aft");
-        thisList.find(kindsSelecter).removeClass("kinds-selecter-aft");
-        $(kindsSelecter).removeClass("kind-list-aft");
     });
         // 入力項目の追加
         $(inptxt).click(function(event) {
@@ -190,25 +209,24 @@ $(document).ready(function(){
                 $(ThisFind).removeClass("kinds-selecter-aft");
                 $(ThisFind).find(".kind-list").removeClass("kind-list-aft");
             }
-
         });
-
         //   リストを選択する
         $(kindsli).click(function () {
             var thisList = $(this).parent();
             var ListPush = thisList.parent().parent();
             thisList.find(kindsInp).addClass("kind-Click");
-            if($(this).text() == "その他"){
-                $(kinds).addClass("kinds-aft");
-                ListPush.find(kindsInp).val("");
-            }else{
-                ListPush.addClass("kinds-aft");
-                ListPush.find(kindsInp).val($(this).text());
-                ListPush.find(kindsInpHidden).attr('value', $(this).attr('data-id'));
-            }
-            thisList.find(kindList).removeClass("kind-list-aft");
-            thisList.find(kindsSelecter).removeClass("kinds-selecter-aft");
-            $(kindsSelecter).removeClass("kind-list-aft");
+                if($(this).text() == "その他"){
+                    $(kinds).addClass("kinds-aft");
+                    ListPush.find(kindsInp).val("");
+                }else{
+                    ListPush.addClass("kinds-aft");
+                    ListPush.find(kindsInp).val($(this).text());
+                    ListPush.find(kindsInpHidden).attr('value', $(this).attr('data-id'));
+                    thisList.find(kindList).removeClass("kind-list-aft");
+                    thisList.find(kindsSelecter).removeClass("kinds-selecter-aft");
+                    $(kindsSelecter).removeClass("kind-list-aft");
+                }
+            
         });
         };
       var observer = new MutationObserver(callback);

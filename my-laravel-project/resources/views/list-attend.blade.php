@@ -10,6 +10,7 @@
         @else
             <title>出勤用社員一覧</title>
         @endif
+        <link rel="stylesheet" href="{{asset('css/itiran.css')}}">
         <link rel="stylesheet" href="{{asset('css/header.css')}}">
     </head>
     <body>

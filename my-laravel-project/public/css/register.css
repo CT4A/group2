@@ -103,6 +103,7 @@ html {
 .register-area .register-areaUL .close {
   opacity: 0;
   height: 0;
+  width: 0;
 }
 .register-area .register-areaUL ol {
   padding: 0;
@@ -184,7 +185,7 @@ html {
 .register-area .register-areaUL .kinds {
   position: relative;
 }
-.register-area .register-areaUL .kinds input[type=text] {
+.register-area .register-areaUL .kinds input[type=text]:not(.AccordionSearchInput) {
   height: 0%;
   width: 0%;
 }
@@ -226,6 +227,10 @@ html {
   padding: 5px 0;
   width: 100% !important;
   margin: 0px !important;
+}
+.kind-list .AccordionSearch input[type=text] {
+  width: 100%;
+  height: auto;
 }
 
 .kind-list-aft {
