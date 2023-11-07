@@ -70,7 +70,6 @@ $(document).ready(function(){
                 $(this).parent().removeClass("kind-list-aft");
                 $(kindsSelecter).removeClass("kind-list-aft");
             }
-            console.log(this.tagName)
         }
     });
         // 入力項目の追加

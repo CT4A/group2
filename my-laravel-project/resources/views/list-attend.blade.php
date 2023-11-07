@@ -5,15 +5,12 @@
         <meta name="csrf-token" content="{{ csrf_token() }}" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<<<<<<< HEAD
         @if (Auth::user()->isAdmin())
             <title>出勤退勤履歴用社員一覧</title>
         @else
             <title>出勤用社員一覧</title>
         @endif
         <link rel="stylesheet" href="{{asset('css/itiran.css')}}">
-=======
->>>>>>> e8ed32e958c0dcefc9b00f26e5338c84b10b53a3
         <link rel="stylesheet" href="{{asset('css/header.css')}}">
         <link rel="stylesheet" href="{{asset('css/itiran.css')}}">
 @if (Auth::user()->isAdmin())

@@ -3,10 +3,12 @@
         #History-Graph{
             display: flex;
             align-items: center;
+            margin: auto;
             #graph{
                 display: flex;
-                background-color: #fff;
-                width: 80% !important; //chart.js自動サイズ変更対策
+                background: rgb(244, 241, 236);
+                border: solid 1px #0000004a;
+                width: 100% !important; //chart.js自動サイズ変更対策
                 height: 80% !important;//chart.js自動サイズ変更対策
                 max-width: 80%;
                 max-height: 100%;

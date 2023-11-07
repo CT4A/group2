@@ -20,4 +20,5 @@
 @section('scripts')
 <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js"></script>
 <script src="js/work-calendar.js"></script>
+<script src="js/calendar.js"></script>
 @endsection
