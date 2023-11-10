@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -16,21 +17,22 @@ class shift_mgFactory extends Factory
      */
     public function definition(): array
     {   
-        $start_time=fake()->time();
-        $end_time=fake()->time();
-        
-        while($start_time >= $end_time){
-            $start_time=fake()->time();
-            $end_time=fake()->time();
-        }
+        // $start_time=fake()->time();
+        $start_time  = Carbon::parse('20:00:00')->addMinutes(rand(1, 60));
+        $end_time    = Carbon::parse('20:00:00')->addMinutes(rand(180, 480));
         return [
             'staff_id'=>function(){
                 return \App\Models\employee::inRandomOrder()->first()->staff_id;
             },
-            'request_date'=>fake()->date(),
-            'start_time'=>$start_time,
+            'request_date'=>$this->createdateTimeRequeset(),
+            'start_time'=> $start_time,
             'end_time'=>$end_time
             //
         ];
+    }
+    function createdateTimeRequeset(){
+        $da = fake()->dateTimeThisMonth('+12 days');
+        // $da = explode(' ',$da);
+        return $da->format('Y-m-d');
     }
 }

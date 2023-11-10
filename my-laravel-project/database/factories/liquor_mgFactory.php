@@ -30,15 +30,14 @@ class liquor_mgFactory extends Factory
     // }
 
     {
-        $liquorTypes = ["whisky", "Rum", "Brandy", "Tequila", "Gin"];
-        $liquorType = $this->faker->randomElement($liquorTypes);
-        $liquorNumber = $this->faker->numberBetween(1, 10);
-        $liquorName = $liquorType . $liquorNumber;
+        $liquorNames = ["―ウイスキー", "ラム", "テキーラ", "ジン"];
+        $liquorName = $this->faker->randomElement($liquorNames);
+        $liquorNumber = $this->faker->numberBetween(1, 100);
+        $liquorType = $liquorName . $liquorNumber;
 
         return [
             'liquor_type' => $liquorType,
-            'liquor_name' => $liquorName,
-            'liquor_number'=>fake()->randomNumber(1),
+            'liquor_name' => $liquorName
         ];
     }
 }

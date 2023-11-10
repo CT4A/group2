@@ -19,6 +19,6 @@ class FullCalendarController extends Controller
 											DB::raw("CONCAT(request_date, ' ', start_time) AS start"),
 											DB::raw("CONCAT(request_date, ' ', end_time) AS end"))
 									->get();
-            return response()->json($shift_mgs);
+            return response()->json($shift_mgs);	
 	}
 }

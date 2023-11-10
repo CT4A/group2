@@ -12,7 +12,17 @@ class EmployeeSeeder extends Seeder
      */
     public function run(): void
     {
+        \App\Models\Employee::factory()->state([
+            'role' => 'admin',
+            
+        ])->create();
+        \App\Models\Employee::factory()->state([
+            'tel'=>'000-0000-0000',
+            'role' => 'syukkin',
+        ])->create();
+        
         \App\Models\Employee::factory(10)->create();
+        
         //
     }
 }

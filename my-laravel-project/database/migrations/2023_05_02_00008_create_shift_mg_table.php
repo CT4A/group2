@@ -20,7 +20,7 @@ return new class extends Migration
             $table->Time('end_time')->nullable()->default(null);
             $table->unsignedBigInteger('num_people')->nullable()->default(null);//同伴人数
             $table->timestamps();
-            
+        
             $table->unique(['staff_id','request_date']);
             //制約
             $table->foreign('staff_id')->references('staff_id')->on('employees');//外部キー
