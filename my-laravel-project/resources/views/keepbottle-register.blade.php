@@ -27,11 +27,12 @@ $today = Carbon::now()->format('Y/m/d');
                         <span>所有者</span>
                         <div class="kinds-selecter">
                             <span>選択してください</span>
-                            <ul class="kind-list" id="">
+                            <ul class="kind-list">
+                            <li class="AccordionSearch"><input type="text" class="AccordionSearchInput" placeholder="名前を入力してください"></li>
+                            <li>その他</li>
                                 @foreach ($customers as $customer)
                                     <li data="{{$customer->customer_id}}">{{$customer->customer_name}}</li>
                                 @endforeach
-                                <li>その他</li>
                             </ul>
                         </div>
                         <input type="text" id="customer_name" class="kinds-inp" name="customer_name"

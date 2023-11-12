@@ -23,12 +23,6 @@
 </div>
     </section>
     <section class="intell">
-        <div class="intell-close">
-            <button>
-                <img src="../img/close.png" alt="">
-                <span>閉じる</span>
-            </button>
-        </div>
         <div class="intell-aera" itemscope itemtype="http://schema.org/Person">
         <h1 id="TxtNameHeader">情報</h1>
             <ul>
@@ -65,6 +59,12 @@
             </ul>
         </div>
         @csrf
+        <div class="intell-close">
+            <button>
+                <img src="../img/close.png" alt="">
+                <span>閉じる</span>
+            </button>
+        </div>
     </section>
 @endsection
 @section('scripts')

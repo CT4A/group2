@@ -53,6 +53,12 @@
                     </li>
             </ul>
         </div>
+        <div class="intell-close">
+            <button>
+                <img src="../img/close.png" alt="">
+                <span>閉じる</span>
+            </button>
+        </div>
     </section>
 @endsection
 @section('scripts')

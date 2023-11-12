@@ -226,6 +226,9 @@ section span {
 
 .intell .intell-close button {
   display: none;
+  background: #f4f1ec;
+  border: none;
+  border-radius: 25px;
 }
 
 @media screen and (max-width: 780px) {
@@ -248,7 +251,8 @@ section span {
   .intell .intell-close {
     display: none;
     position: absolute;
-    top: -65px;
+    bottom: -65px;
+    left: 0;
     width: 100%;
   }
   .intell .intell-close button {

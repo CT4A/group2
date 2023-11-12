@@ -237,8 +237,12 @@ html {
 .register-area .register-areaUL .kinds {
   position: relative;
 }
+<<<<<<< HEAD
 
 .register-area .register-areaUL .kinds input[type="text"] {
+=======
+.register-area .register-areaUL .kinds input[type=text]:not(.AccordionSearchInput) {
+>>>>>>> ef1449946fdb3b2ffb6d5e973d6f3b65058570fa
   height: 0%;
   width: 0%;
 }
@@ -287,6 +291,10 @@ html {
   padding: 5px 0;
   width: 100% !important;
   margin: 0px !important;
+}
+.kind-list .AccordionSearch input[type=text] {
+  width: 100%;
+  height: auto;
 }
 
 .kind-list-aft {

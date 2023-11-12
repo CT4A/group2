@@ -32,6 +32,21 @@ class EmployeeController extends Controller
                         ->first();
         return view('history_editor',compact('staffAttend'));     
     }
+    public function graphHistory(Request $request)
+    {
+        if ($request->ajax()) {
+            $id = $request->Dataid;
+            $data = attend_leave::
+            select(DB::raw('DATE_FORMAT(work_date, "%m") AS FormatMonth'))
+            ->selectRaw('SUM(TIMESTAMPDIFF(HOUR, attend_time, leaving_work)) AS totalHours')
+            ->where('staff_id', $id)
+            ->whereYear('work_date', '=', date('Y'))
+            ->groupBy("FormatMonth")
+            ->get();
+            return response()->json($data);
+        }
+        return response();
+    }
     public function HistoryEditor(Request $request){
         // $validatedData = $request->validate([
         //     'work_date' => 'required|date',

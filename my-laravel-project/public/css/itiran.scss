@@ -162,6 +162,9 @@ section{
     .intell-close{
         button{
             display: none;
+            background: #f4f1ec;
+            border: none;
+            border-radius: 25px;
         }
     }
     height: auto;
@@ -181,7 +184,8 @@ section{
     .intell-close{
         display: none;
         position: absolute;
-        top: -65px;
+        bottom: -65px;
+        left: 0;
         width: 100%;
         button{
             display: flex;

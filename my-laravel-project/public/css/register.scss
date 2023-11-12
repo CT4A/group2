@@ -174,7 +174,7 @@ html{
             }
         }
         .kinds{
-            input[type="text"]{
+            input[type="text"]:not(.AccordionSearchInput){
                 height: 0%;
                 width: 0%;
             }
@@ -220,6 +220,10 @@ html{
             padding: 5px 0;
             width: 100% !important;
             margin: 0px !important;
+        }
+        .AccordionSearch input[type ="text"]{
+            width: 100% ;
+            height: auto;
         }
     }
     .kind-list-aft{

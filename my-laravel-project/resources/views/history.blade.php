@@ -9,9 +9,9 @@
 @endsection
 @section('content')
     <section class="history">
-    <!-- <div id="History-Graph"> -->
-    <!-- <canvas id = "graph"></canvas>
-    </div> -->
+    <div id="History-Graph" style="width:80%;height:100%">
+    <canvas id = "graph" ></canvas>
+    </div> 
         <div class="history_item">
             <figure class="history-date">
                 <a href="" class="calendar_item"><img src="/img/calendar.webp" alt=""></a>
