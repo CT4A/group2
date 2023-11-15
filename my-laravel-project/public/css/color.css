@@ -1,5 +1,10 @@
 .ContentCenter {
+  display: -ms-grid;
   display: grid;
-  grid-template-columns: 1fr;
-  justify-content: center;
-}/*# sourceMappingURL=color.css.map */
+  -ms-grid-columns: 1fr;
+      grid-template-columns: 1fr;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+/*# sourceMappingURL=color.css.map */

@@ -16,7 +16,6 @@ return new class extends Migration
             $table->unsignedBigInteger('staff_id');
             $table->rememberToken();
             $table->timestamps(); 
-
             //外部キー
             $table->foreign('staff_id')->references('staff_id')->on('employees');
             $table->foreign('slip_id')->references('slip_id')->on('slip_mgs');

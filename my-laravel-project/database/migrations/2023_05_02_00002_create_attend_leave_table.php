@@ -19,16 +19,14 @@ return new class extends Migration
             $table->date('work_date');//日付
             $table->time('attend_time');
             $table->time('leaving_work')->nullable();
-            $table->int('flag')->default(0);
+            $table->integer('flag')->default(0);
             $table->unsignedBigInteger('num_people')->nullable()->default(0);
             $table->rememberToken();
             $table->timestamps();
             $table->primary(['staff_id','work_date']);
-            $table->foreign('staff_id')->references('staff_id')->on('employees');
-            
+            $table->foreign('staff_id')->references('staff_id')->on('employees'); 
         });
     }
-
     /**
      * Reverse the migrations.
      */

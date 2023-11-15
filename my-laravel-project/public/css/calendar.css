@@ -78,7 +78,7 @@ body {
 }
 
 thead tr th {
-  border-bottom: none !important;
+  border-bottom: none  !important;
 }
 
 .fc-theme-standard td, .fc-theme-standard th {
@@ -89,13 +89,16 @@ thead tr th {
   margin: 0 1%;
   font-size: 14px;
 }
+
 .fc-header-toolbar button {
   color: #000 !important;
   background: none !important;
 }
+
 .fc-header-toolbar .fc-toolbar-chunk :nth-child(0) {
   background-color: #333 !important;
 }
+
 .fc-header-toolbar .fc-toolbar-chunk .fc-button-group button {
   font-size: 18px;
   border: none !important;
@@ -104,6 +107,7 @@ thead tr th {
 .fc th {
   background: darkcyan;
 }
+
 .fc th .fc-scrollgrid-sync-inner {
   background: #333;
 }
@@ -112,6 +116,7 @@ thead tr th {
   height: 100%;
   width: 100%;
 }
+
 .calendar-field #calendarTitle {
   border-right: solid 1px gold;
   background-color: darkcyan;
@@ -119,60 +124,77 @@ thead tr th {
   margin-top: -10%;
   margin-bottom: -5%;
   text-align: center;
-  align-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
+
 .calendar-field #calendarTitle .calendar-title-field {
   margin-top: 100px;
   line-height: 1.3;
 }
+
 .calendar-field #calendarTitle .calendar-title-field h1 {
   margin-top: 250px;
 }
+
 .calendar-field #calendarTitle .calendar-title-field span {
   font-size: 16px;
 }
+
 .calendar-field #calendarTitle .calendar-title-field :nth-child(3) {
   text-align: right;
 }
+
 .calendar-field #calendar {
   font-weight: bold;
   width: 100%;
   margin: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
 }
+
 @media screen and (max-width: 780px) {
   .calendar-field #calendar {
     width: 100%;
   }
 }
+
 @media screen and (max-width: 780px) {
   .calendar-field #calendar .fc-header-toolbar {
     width: 90%;
     margin: 10px auto;
   }
 }
+
 @media screen and (max-width: 780px) {
   .calendar-field #calendar .fc-button-group {
     width: 100px;
   }
 }
+
 .calendar-field #calendar .fc-scrollgrid-sync-table {
   width: 100% !important;
   height: 80vh;
 }
+
 @media screen and (max-width: 780px) {
   .calendar-field #calendar .fc-scrollgrid-sync-table {
     height: 100vh;
   }
 }
+
 .calendar-field #calendar .fc-theme-standard td {
   background-color: #333 !important;
   border: 1px solid gold !important;
 }
+
 .calendar-field .fc-daygrid-day-number {
   color: #000;
 }
 
 * {
   font-weight: bold;
-}/*# sourceMappingURL=calendar.css.map */
+}
+/*# sourceMappingURL=calendar.css.map */

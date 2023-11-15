@@ -2,6 +2,7 @@
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 999;
 }
+
 .info-aft .information {
   position: relative;
   position: fixed;
@@ -11,6 +12,7 @@
   margin: 50px 10%;
   height: 100ch;
 }
+
 .info-aft .information .info-close {
   background-color: #000;
   position: absolute;
@@ -19,11 +21,13 @@
   height: 50px;
   width: 50px;
 }
+
 .info-aft .information .info-close .infoClose-area {
   position: absolute;
   top: 50%;
   left: 20%;
 }
+
 .info-aft .information .info-close .infoClose-area::before {
   content: "";
   display: block;
@@ -31,11 +35,13 @@
   height: 3px;
   position: absolute;
   background: #fff;
-  transform: rotateZ(-315deg);
+  -webkit-transform: rotateZ(-315deg);
+          transform: rotateZ(-315deg);
   margin-top: 38.0952380952%;
   left: 3%;
   top: 3%;
 }
+
 .info-aft .information .info-close .infoClose-area::after {
   content: "";
   display: block;
@@ -45,15 +51,18 @@
   top: 3%;
   position: absolute;
   background: #fff;
-  transform: rotateZ(315deg);
+  -webkit-transform: rotateZ(315deg);
+          transform: rotateZ(315deg);
   margin-top: 38.0952380952%;
 }
+
 .info-aft .information h1 {
   position: relative;
   top: 0;
   font-size: 44px;
   border-bottom: #000 solid 1px;
 }
+
 .info-aft .information .information-area {
   z-index: 1;
   margin: 20px;
@@ -61,21 +70,28 @@
   overflow-y: scroll;
   background-color: #fff;
 }
+
 .info-aft .information .information-area ul {
   margin-bottom: 50px 0;
 }
+
 .info-aft .information .information-area ul li img {
-  aspect-ratio: 1/1;
+  aspect-ratio: 1 / 1;
   border-radius: 50%;
   -o-object-fit: cover;
      object-fit: cover;
   border: 5px #000 solid;
 }
+
 .info-aft .information ul li {
   border-bottom: solid 3px #000;
   margin: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
 }
+
 .info-aft .information ul li .info-mess p {
   margin: 20px;
-}/*# sourceMappingURL=information.css.map */
+}
+/*# sourceMappingURL=information.css.map */

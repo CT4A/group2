@@ -19,7 +19,6 @@ return new class extends Migration
             $table->date('reserve_date');
             $table->time('reserve_time')->nullable()->default(null);
             $table->unsignedInteger('reserve_people')->nullable()->default(null);
-            $table->unsignedInteger('table_num')->nullable()->default(null);
             $table->string('remarks')->nullable()->default(null);
             $table->unsignedBigInteger('upper_limit')->default(0);
             $table->rememberToken();

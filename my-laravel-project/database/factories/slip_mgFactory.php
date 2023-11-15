@@ -23,9 +23,12 @@ class slip_mgFactory extends Factory
             'responsibility'=>function(){
                 return \App\Models\employee::inRandomOrder()->first()->staff_id;
             },
-            'ap_day'=>fake()->unique()->date(),
+            'ap_day'=>$this->createdateTimeRequeset(),
             'total'=>random_int(1, 100)*10000
-            //
         ];
+    }
+    function createdateTimeRequeset(){
+        $da = fake()->unique()->dateTimeThisMonth('+12 days');
+        return $da->format('Y-m-d');
     }
 }

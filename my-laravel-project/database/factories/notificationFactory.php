@@ -16,13 +16,16 @@ class notificationFactory extends Factory
      */
     public function definition(): array
     {        
+        $staff_id = $this->getStaff()->staff_id;
+        $staff_name = $this->getStaff()->staff_name;
         return [
-            'staff_id'=>function () {
-                return \App\Models\employee::inRandomOrder()->first()->staff_id;
-            },
-            'day'=>fake()->date(),
-            'message'=>'オーナーか連絡事項です。ご注意ください。',
-            
+            'staff_id'=>$staff_id,
+            'day'=>fake()->dateTimeThisMonth('+12 days'),
+            'message'=>$staff_name.'さんからのテストメッセージです。',
         ];
+    }
+    function getStaff() {
+        $staff = \App\Models\employee::inRandomOrder()->select('staff_id','staff_name')->first();
+        return $staff;
     }
 }

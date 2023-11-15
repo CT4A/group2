@@ -13,45 +13,62 @@ html {
   width: 70%;
   margin: auto;
 }
+
 @media screen and (max-width: 780px) {
   .register-area {
     width: 100%;
   }
 }
+
 .register-area h1 {
   text-align: center;
   width: auto;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
+
 @media screen and (max-width: 780px) {
   .register-area h1 {
     font-size: 24px;
   }
 }
+
 .register-area form {
   width: 80%;
   margin: 10%;
 }
+
 @media screen and (max-width: 780px) {
   .register-area form {
     width: 90%;
     margin: 10% auto;
   }
 }
+
 .register-area form .news-resist {
   margin: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   margin-bottom: 5%;
-  justify-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
+
 .register-area form .news-resist span {
   margin: 5px;
   font-size: 18px;
 }
+
 .register-area form .news-resist textarea {
   background: rgba(255, 255, 255, 0.5);
-  box-shadow: 1 1 1 1, rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 1 1 1 1, rgba(0, 0, 0, 0.5);
+          box-shadow: 1 1 1 1, rgba(0, 0, 0, 0.5);
   outline: none;
   border: none;
   font-size: 18px;
@@ -62,37 +79,45 @@ html {
   height: 300px;
   text-transform: capitalize;
 }
-.register-area form input[type=submit] {
+
+.register-area form input[type="submit"] {
+  -webkit-transition: all 0.3s;
   transition: all 0.3s;
   font-weight: 900;
   border-radius: 25px;
   color: #000;
   border: solid 2px #000;
-  box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.1);
+          box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.1);
   width: 60%;
   margin: 0 20%;
   padding: 25px;
   font-size: 24px;
   background: none;
 }
-.register-area form input[type=submit]::before {
+
+.register-area form input[type="submit"]::before {
   content: "";
   display: block;
   width: 0%;
 }
-.register-area form input[type=submit]:active {
+
+.register-area form input[type="submit"]:active {
   background: #666;
   color: #F4F1EC;
 }
+
 .register-area .register-areaUL {
   margin: 10px;
 }
+
 .register-area .register-areaUL .error {
   display: block;
   width: 90%;
   margin: auto;
   color: red;
 }
+
 @media screen and (min-width: 780px) {
   .register-area .register-areaUL {
     height: 500px;
@@ -100,34 +125,50 @@ html {
     overflow-x: hidden;
   }
 }
+
 .register-area .register-areaUL .close {
   opacity: 0;
   height: 0;
   width: 0;
 }
+
 .register-area .register-areaUL ol {
   padding: 0;
 }
+
 .register-area .register-areaUL li {
   width: 90%;
+  display: -ms-grid;
   display: grid;
   font-size: 24px;
   border-bottom: #000 3px solid;
   margin: 10px auto;
 }
-.register-area .register-areaUL li input[type=text] {
+
+.register-area .register-areaUL li input[type="text"] {
   font-size: 24px;
   width: 100%;
   outline: none;
   background: none;
   border: none;
 }
-.register-area .register-areaUL li input::-moz-placeholder {
+
+.register-area .register-areaUL li input::-webkit-input-placeholder {
   color: rgba(255, 215, 0, 0.8);
 }
+
+.register-area .register-areaUL li input:-ms-input-placeholder {
+  color: rgba(255, 215, 0, 0.8);
+}
+
+.register-area .register-areaUL li input::-ms-input-placeholder {
+  color: rgba(255, 215, 0, 0.8);
+}
+
 .register-area .register-areaUL li input::placeholder {
   color: rgba(255, 215, 0, 0.8);
 }
+
 .register-area .register-areaUL li textarea {
   border: none;
   background: none;
@@ -138,32 +179,39 @@ html {
   width: 100%;
   outline: none;
 }
-.register-area .register-areaUL li input[type=checkbox] {
+
+.register-area .register-areaUL li input[type="checkbox"] {
   height: 50px;
   width: 50px;
 }
-.register-area .register-areaUL input[type=time] {
+
+.register-area .register-areaUL input[type="time"] {
   font-size: 24px;
   width: 100%;
   outline: none;
   background: none;
   border: none;
 }
-.register-area .register-areaUL input[type=datetime-local] {
+
+.register-area .register-areaUL input[type="datetime-local"] {
   width: 100%;
   outline: none;
   background: none;
   border: none;
   font-size: 24px;
 }
-.register-area .register-areaUL input[type=date] {
+
+.register-area .register-areaUL input[type="date"] {
   width: 100%;
   outline: none;
   background: none;
   border: none;
   font-size: 24px;
 }
+
 .register-area .register-areaUL .plus-btn .plus {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   background-color: snow;
   padding: 20px 20px;
@@ -172,26 +220,42 @@ html {
   color: #333;
   border: solid 2px #333;
 }
+
 .register-area .register-areaUL .plus-btn ::before {
   content: "";
   display: block;
+  -webkit-transition: all 0.5s;
   transition: all 0.5s;
   height: 0%;
 }
+
 .register-area .register-areaUL .plus-btn :hover::before {
   content: "追加する";
   height: 100%;
 }
+
 .register-area .register-areaUL .kinds {
   position: relative;
 }
+<<<<<<< HEAD
+
+.register-area .register-areaUL .kinds input[type="text"] {
+=======
 .register-area .register-areaUL .kinds input[type=text]:not(.AccordionSearchInput) {
+>>>>>>> ef1449946fdb3b2ffb6d5e973d6f3b65058570fa
   height: 0%;
   width: 0%;
 }
+<<<<<<< HEAD
 .register-area .register-areaUL .kinds-aft input[type=text] {
   height: auto !important;
   width: 100% !important;
+=======
+
+.register-area .register-areaUL .kinds-aft input[type="text"] {
+  height: auto;
+  width: 100%;
+>>>>>>> a912dc1facc2983bf52fadbda8b6993551a82383
 }
 
 .kinds-selecter {
@@ -200,16 +264,20 @@ html {
   width: 80%;
   margin: auto;
 }
+
 .kinds-selecter::after {
   content: "▼";
   position: absolute;
   right: 0;
+  -webkit-transition: all 0.3s;
   transition: all 0.3s;
 }
 
 .kinds-selecter-aft::after {
+  -webkit-transition: all 0.3s;
   transition: all 0.3s;
-  transform: rotateZ(-180deg);
+  -webkit-transform: rotateZ(-180deg);
+          transform: rotateZ(-180deg);
 }
 
 .kind-list {
@@ -219,10 +287,12 @@ html {
   color: #333;
   height: 0;
   overflow-x: hidden;
+  -webkit-transition: all 0s;
   transition: all 0s;
   z-index: 100;
   width: 100%;
 }
+
 .kind-list li {
   padding: 5px 0;
   width: 100% !important;
@@ -234,38 +304,45 @@ html {
 }
 
 .kind-list-aft {
+  -webkit-transition: all 0.5s;
   transition: all 0.5s;
   height: 150px;
   overflow-x: scroll;
   overflow-x: hidden;
   border: #000 solid 2px;
 }
+
 @media screen and (max-width: 780px) {
   .kind-list-aft {
     height: 400px;
   }
 }
+
 .kind-list-aft li:hover {
-  background-color: rgb(149, 149, 149);
+  background-color: #959595;
 }
+
 .kind-list-aft::-webkit-scrollbar {
   width: 5px;
 }
+
 .kind-list-aft::-webkit-scrollbar-track {
   background-color: none;
 }
+
 .kind-list-aft::-webkit-scrollbar-thumb {
   background: #666;
   border-radius: 25px;
 }
 
-.passList input[type=password] {
+.passList input[type="password"] {
   border: none;
   background: none;
   outline: none;
   font-size: 24px;
 }
-.passList input[type=password]:valid + span::after {
+
+.passList input[type="password"]:valid + span::after {
   position: absolute;
   content: "";
   display: block;
@@ -273,14 +350,16 @@ html {
   font-size: 24px;
   width: 100%;
 }
-.passList input[type=password]:invalid + span::after {
+
+.passList input[type="password"]:invalid + span::after {
   content: "パスワードを入力してください";
   display: block;
   color: #fff;
   font-size: 24px;
   width: 100%;
 }
-.passList input[type=text]:valid + span::after {
+
+.passList input[type="text"]:valid + span::after {
   position: absolute;
   content: "";
   display: block;
@@ -288,7 +367,8 @@ html {
   font-size: 24px;
   width: 100%;
 }
-.passList input[type=text]:invalid + span::after {
+
+.passList input[type="text"]:invalid + span::after {
   content: "パスワードを入力してください";
   display: block;
   color: #fff;
@@ -301,4 +381,5 @@ html {
   margin: 10px auto;
   font-size: 8px;
   width: 80%;
-}/*# sourceMappingURL=register.css.map */
+}
+/*# sourceMappingURL=register.css.map */
