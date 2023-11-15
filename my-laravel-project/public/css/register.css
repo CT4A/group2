@@ -190,8 +190,8 @@ html {
   width: 0%;
 }
 .register-area .register-areaUL .kinds-aft input[type=text] {
-  height: auto;
-  width: 100%;
+  height: auto !important;
+  width: 100% !important;
 }
 
 .kinds-selecter {
