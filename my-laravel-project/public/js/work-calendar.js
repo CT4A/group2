@@ -34,8 +34,7 @@
                     if(!$(clickedElement).hasClass("fc-daygrid-more-link")){
                         window.valueToPass= this.getAttribute("data-date");
                         localStorage.setItem("myValue",valueToPass);
-                        adjustHeight();
-                        // window.location.href = "/shift-register";
+                        window.location.href = "/shift-register";
                     }
                 });
               },
@@ -59,7 +58,6 @@
             await doAsyncTask();
             var FcPopoverBody = $(".fc-popover-body");
             var elementsWithUserSelectNone = document.querySelectorAll("[style*='user-select: none']");
-            console.log(elementsWithUserSelectNone);
             FcPopoverBody.prepend("<div id = 'popover-body-EL'><button class ='shift-Btn'>シフト登録</button><button class ='reserve-Btn'>予約登録</button><button class ='event-Btn'>イベント追加</button></div>");
             var test = $(".popover-body-EL")
             test.append("<div><span>シフト登録</span> <input type = 'text'></div>");

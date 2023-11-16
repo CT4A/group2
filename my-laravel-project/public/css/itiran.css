@@ -1,28 +1,20 @@
 .ContentCenter {
-  display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 1fr;
-      grid-template-columns: 1fr;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  grid-template-columns: 1fr;
+  justify-content: center;
 }
 
 body {
   color: #000;
   background: #F4F1EC;
-  -webkit-transition: all 0.5s;
   transition: all 0.5s;
 }
-
 body::-webkit-scrollbar {
   width: 10px;
 }
-
 body::-webkit-scrollbar-track {
   background-color: none;
 }
-
 body::-webkit-scrollbar-thumb {
   background: #ccc;
   border-radius: 50px;
@@ -33,12 +25,9 @@ li {
 }
 
 main {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   width: 100%;
 }
-
 @media screen and (max-width: 780px) {
   main {
     display: block;
@@ -49,20 +38,17 @@ section {
   width: 80%;
   height: 100%;
 }
-
 @media screen and (max-width: 780px) {
   section {
     width: 100%;
   }
 }
-
 section h1 {
   font-size: 48px;
   border-bottom: solid 1px #000;
   width: 70%;
   margin: 10px auto;
 }
-
 section h1:after {
   content: "";
   display: block;
@@ -70,7 +56,6 @@ section h1:after {
   height: 3px;
   background: #555;
 }
-
 section span {
   position: relative;
 }
@@ -78,47 +63,32 @@ section span {
 .emp-list-area .date-button-area {
   margin-top: 10%;
   width: 100%;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  display: -webkit-box;
-  display: -ms-flexbox;
+  justify-content: center;
   display: flex;
   font-size: 24px;
 }
-
 .emp-list-area .date-button-area div {
   cursor: pointer;
   margin: 0px 25px;
 }
-
 .emp-list-area .search {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: center;
+  align-items: center;
   width: 80%;
   margin: 50px auto;
   background-color: #F6F6F6;
   border-radius: 25px;
 }
-
 .emp-list-area .search button {
   background-color: #F6F6F6;
   border: solid 1px #F6F6F6;
   border-radius: 25px;
 }
-
 .emp-list-area .search button img {
   width: 20px;
 }
-
-.emp-list-area .search input[type="text"] {
+.emp-list-area .search input[type=text] {
   background-color: #F6F6F6;
   width: 100%;
   font-size: 24px;
@@ -126,44 +96,31 @@ section span {
   outline: none;
   border-radius: 50px;
 }
-
-.emp-list-area .search input[type="date"] {
+.emp-list-area .search input[type=date] {
   width: 100%;
   border: solid 0px;
   outline: none;
 }
-
 .emp-list-area .emp-name ul {
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  display: -ms-grid;
+  justify-content: center;
+  align-items: center;
   display: grid;
   height: 300px;
   overflow-y: scroll;
   overflow-x: hidden;
 }
-
 .emp-list-area .emp-name ul div {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
 }
-
 .emp-list-area .emp-name ul div p {
   line-height: 2;
 }
-
 .emp-list-area .emp-name ul li {
   margin: 10px 0;
   white-space: nowrap;
   border-bottom: #000 solid 2px;
   position: relative;
 }
-
 .emp-list-area .emp-name ul li::after {
   content: "";
   display: block;
@@ -174,7 +131,6 @@ section span {
   bottom: 0px;
   left: 0;
 }
-
 .emp-list-area .emp-name ul li span {
   line-height: 2;
   cursor: pointer;
@@ -185,22 +141,17 @@ section span {
   margin: auto;
   height: auto;
 }
-
 .staff-profile form {
   padding: 5px 15px;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   border: solid #000 3px;
   border-radius: 25px;
 }
-
 .staff-profile form img {
   width: 50px;
   -o-object-fit: cover;
      object-fit: cover;
 }
-
 .staff-profile form button {
   width: 0px;
   padding: 0px;
@@ -212,10 +163,8 @@ section span {
   overflow: hidden;
   white-space: nowrap;
 }
-
 .staff-profile form:hover button {
   opacity: 1;
-  -webkit-transition: width 0.5s;
   transition: width 0.5s;
   width: 50px;
 }
@@ -223,23 +172,19 @@ section span {
 .intell {
   height: auto;
 }
-
 .intell .intell-close button {
   display: none;
   background: #f4f1ec;
   border: none;
   border-radius: 25px;
 }
-
 @media screen and (max-width: 780px) {
   .intell {
     border-radius: 25px;
-    -webkit-box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.1);
-            box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.1);
+    box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.1);
     padding: 25px 10px;
     border-radius: 25px;
     background-color: #ccc;
-    -webkit-transition: all 1s;
     transition: all 1s;
     position: fixed;
     left: 500px;
@@ -256,16 +201,10 @@ section span {
     width: 100%;
   }
   .intell .intell-close button {
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
     margin: auto;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
+    justify-content: center;
+    align-items: center;
     width: 80%;
     padding: 10px;
     width: 80%;
@@ -283,22 +222,17 @@ section span {
     font-size: 24px;
   }
 }
-
 .intell form {
   padding: 5px 15px;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   border: solid #000 3px;
   border-radius: 25px;
 }
-
 .intell form img {
   width: 50px;
   -o-object-fit: cover;
      object-fit: cover;
 }
-
 .intell form button {
   width: 0px;
   padding: 0px;
@@ -309,20 +243,16 @@ section span {
   opacity: 0;
   overflow: hidden;
   white-space: nowrap;
-  -webkit-transition: width 0.5s;
   transition: width 0.5s;
 }
-
 @media screen and (max-width: 780px) {
   .intell form button {
     width: 50px;
     opacity: 1;
   }
 }
-
 .intell form:hover button {
   opacity: 1;
-  -webkit-transition: width 0.5s;
   transition: width 0.5s;
   width: 50px;
 }
@@ -331,17 +261,15 @@ ul:not(.menu, .hamburgerContents ul) {
   margin: 50px auto;
   font-size: 24px;
 }
-
-ul li {
-  display: -webkit-box;
-  display: -ms-flexbox;
+ul:not(.menu, .hamburgerContents ul) li {
   display: flex;
 }
-
-ul li span {
-  margin: 10px;
+ul:not(.menu, .hamburgerContents ul) li span {
   word-wrap: break-word;
   overflow-wrap: break-word;
+}
+ul:not(.menu, .hamburgerContents ul) li span:not(header) {
+  margin: 10px;
 }
 
 @media screen and (max-width: 780px) {
@@ -354,16 +282,10 @@ ul li span {
     display: block;
   }
   .intell-aft .intell-close button {
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
     margin: auto;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
+    justify-content: center;
+    align-items: center;
     width: 80%;
     padding: 10px;
     width: 80%;
@@ -386,7 +308,6 @@ ul li span {
     top: 0px;
     background: #F4F1EC;
     pointer-events: all;
-    -webkit-transition: all 0.5s;
     transition: all 0.5s;
   }
 }
@@ -394,7 +315,6 @@ ul li span {
 .filter-header {
   width: 100%;
 }
-
 .filter-header #filter-btn {
   border: none;
 }
@@ -402,7 +322,6 @@ ul li span {
 .bill-list {
   width: 100%;
 }
-
 .bill-list .bill-header {
   position: fixed;
   width: 100%;
@@ -411,12 +330,10 @@ ul li span {
   border-bottom: solid 1px rgba(0, 0, 0, 0.1);
   z-index: 500;
 }
-
 .bill-list .bill-header h1 {
   margin-top: 70px;
 }
-
-.bill-list .bill-header input[type="text"] {
+.bill-list .bill-header input[type=text] {
   padding: 10px;
   border-radius: 25px;
   border: 0px;
@@ -424,89 +341,66 @@ ul li span {
   height: 30px;
   margin: auto;
 }
-
 .bill-list .bill-list-items {
   width: 90%;
   margin: 100px auto;
 }
-
 .bill-list .bill-list-items ul {
   width: 100%;
 }
-
 .bill-list .bill-list-items ul:nth-child(1) {
   padding-top: 90px;
 }
-
 @media screen and (max-width: 780px) {
   .bill-list .bill-list-items ul:nth-child(1) {
     padding-top: 180px;
   }
 }
-
 .bill-list .bill-list-items ul .timer {
   position: relative;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: center;
+  align-items: center;
   font-size: 14px;
   color: #666;
   width: 100%;
   white-space: pre;
   font-size: 16px;
 }
-
 .bill-list .bill-list-items ul .timer::before {
   content: "";
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   margin: 3px;
   width: 80%;
   height: 1px;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  align-items: center;
   background: #666;
   border-radius: 25px;
 }
-
 @media screen and (max-width: 780px) {
   .bill-list .bill-list-items ul .timer::before {
     width: 33%;
   }
 }
-
 .bill-list .bill-list-items ul .timer::after {
   content: "";
   display: block;
   width: 80%;
   margin: 3px;
   height: 1px;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  align-items: center;
   background: #666;
   border-radius: 25px;
 }
-
 @media screen and (max-width: 780px) {
   .bill-list .bill-list-items ul .timer::after {
     width: 33%;
   }
 }
-
 .bill-list .bill-list-items ul li {
   width: 100%;
   border-bottom: solid 1px #000;
 }
-
 .bill-list .bill-list-items ul li span {
   max-width: 100%;
   white-space: nowrap;
@@ -516,39 +410,29 @@ ul li span {
   margin-right: 0;
   width: 100%;
 }
-
 @media screen and (max-width: 780px) {
   .bill-list .bill-list-items ul li span {
     font-size: 18px;
   }
 }
-
 .bill-list #filter {
   width: 90%;
   margin: auto;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
 }
-
 .bill-list #filter :nth-child(1) {
   margin: auto;
 }
-
 .bill-list #filter button {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   font-weight: 800;
   border: none;
   background: none;
 }
-
 .bill-list #filter button img {
   padding: 5px;
   width: 30px;
 }
-
 .bill-list .filter-area {
   background-color: #ccc;
   width: 100%;
@@ -558,22 +442,16 @@ ul li span {
   top: 300%;
   left: 0;
   padding-top: 50px;
-  -webkit-transition: all 0.5s ease-in;
   transition: all 0.5s ease-in;
 }
-
 .bill-list .filter-area .filter-header {
   border-bottom: solid 3px #000;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
 }
-
 .bill-list .filter-area .filter-header .filter-close span {
   position: relative;
   left: 20px;
 }
-
 .bill-list .filter-area .filter-header .filter-close span::before {
   position: absolute;
   content: "";
@@ -582,10 +460,8 @@ ul li span {
   height: 2px;
   background-color: #000;
   top: 0;
-  -webkit-transform: rotateZ(-315deg);
-          transform: rotateZ(-315deg);
+  transform: rotateZ(-315deg);
 }
-
 .bill-list .filter-area .filter-header .filter-close span::after {
   position: absolute;
   content: "";
@@ -594,39 +470,29 @@ ul li span {
   width: 20px;
   height: 2px;
   top: 0;
-  -webkit-transform: rotateZ(315deg);
-          transform: rotateZ(315deg);
+  transform: rotateZ(315deg);
 }
-
 .bill-list .filter-area .filter-header li {
   width: 100%;
 }
-
 .bill-list .filter-area .filter-header li :nth-child(1) {
   width: 100%;
 }
-
 .bill-list .filter-area .filter-header li .filter-clear {
   text-align: right;
   margin-right: 40px;
 }
-
 .bill-list .filter-area .filter-header h2 {
   text-align: center;
   margin: 0;
 }
-
 .bill-list .filter-area .filter-items {
   width: 95%;
-  margin: 20px  auto;
+  margin: 20px auto;
   position: relative;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  flex-wrap: wrap;
 }
-
 .bill-list .filter-area .filter-items h2 {
   border-bottom: #000;
   font-size: 18px;
@@ -635,29 +501,23 @@ ul li span {
   left: 30px;
   margin: 0;
 }
-
 .bill-list .filter-area .filter-items button {
   border-radius: 25px;
   border: none;
-  -webkit-box-flex: 0;
-      -ms-flex: 0 0 calc(100% / 5);
-          flex: 0 0 calc(100% / 5);
+  flex: 0 0 20%;
   width: 100%;
   margin: 20px;
   padding: 15px;
   font-size: 24px;
 }
-
-.bill-list .filter-area .filter-items input[type="text"] {
+.bill-list .filter-area .filter-items input[type=text] {
   width: 100%;
   margin: 20px;
   padding: 20px;
 }
-
 .bill-list .filter-area .filter-items .fileter-element-aft {
   background-color: gold;
 }
-
 @media screen and (max-width: 780px) {
   .bill-list .filter-area .filter-item-filed {
     overflow-x: scroll;
@@ -673,29 +533,23 @@ ul li span {
     margin: 5px 0;
   }
 }
-
 .bill-list .filter-area-aft {
   position: fixed;
   top: 0%;
-  -webkit-transition: top 0.5s;
   transition: top 0.5s;
   overflow: hidden;
 }
 
 .bill-list-items-header {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   width: 90%;
   margin: auto;
 }
-
 .bill-list-items-header span {
   font-size: 24px;
   text-align: left;
   width: 100%;
 }
-
 @media screen and (max-width: 780px) {
   .bill-list-items-header span {
     font-size: 18px;
@@ -705,23 +559,18 @@ ul li span {
 .attend-list {
   width: 100%;
 }
-
 .attend-list ul {
   height: 600px !important;
   width: 80%;
   margin: auto;
-  -webkit-box-pack: inherit !important;
-      -ms-flex-pack: inherit !important;
-          justify-content: inherit !important;
+  justify-content: inherit !important;
 }
-
 .attend-list ul li {
   cursor: pointer;
   pointer-events: painted;
   border: solid 1px #555;
   margin-right: 10px !important;
 }
-
 .attend-list ul li::before {
   content: "";
   display: block;
@@ -732,17 +581,14 @@ ul li span {
   left: 0;
   bottom: 0;
 }
-
 .attend-list ul li:hover::before {
   width: 100%;
   background: rgba(255, 215, 0, 0.5);
 }
-
 .attend-list ul li::after {
   height: 0;
   width: 0;
 }
-
 .attend-list ul li span {
   margin-left: 10px;
 }
@@ -753,15 +599,7 @@ ul li span {
     width: 100%;
     margin: 0;
   }
-  input::-webkit-input-placeholder {
-    width: 100%;
-    font-size: 20px;
-  }
-  input:-ms-input-placeholder {
-    width: 100%;
-    font-size: 20px;
-  }
-  input::-ms-input-placeholder {
+  input::-moz-placeholder {
     width: 100%;
     font-size: 20px;
   }
@@ -770,9 +608,6 @@ ul li span {
     font-size: 20px;
   }
   .emp-list-area .emp-name ul li {
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
   }
-}
-/*# sourceMappingURL=itiran.css.map */
+}/*# sourceMappingURL=itiran.css.map */

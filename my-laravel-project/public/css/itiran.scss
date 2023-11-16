@@ -249,9 +249,11 @@ section{
             li{
                 display: flex;
                 span{
-                    margin: 10px;
                     word-wrap: break-word;
                     overflow-wrap: break-word; 
+                    &:not(header){
+                        margin: 10px;
+                    }
                 }
         }
     }

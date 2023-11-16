@@ -11,15 +11,9 @@
   background: #F4F1EC;
   height: 100vh;
   width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: center;
+  align-items: center;
 }
 
 .loginBox {
@@ -27,7 +21,6 @@
   height: 500px;
   width: 500px;
 }
-
 .loginBox::before {
   content: "";
   position: absolute;
@@ -40,7 +33,6 @@
   background: rgba(255, 255, 255, 0.7);
   z-index: 1;
 }
-
 .loginBox::after {
   content: "";
   top: 0;
@@ -48,21 +40,17 @@
   display: block;
   width: 100%;
   height: 15px;
-  background: -webkit-gradient(linear, left top, right top, from(#ddff00), to(#f8b21b));
-  background: linear-gradient(90deg, #ddff00, #f8b21b);
+  background: linear-gradient(90deg, #ddff00, hsl(41, 94%, 54%));
   position: absolute;
 }
-
 .loginBox .loginBox-main {
   position: relative;
   z-index: 2;
   color: #666;
 }
-
 .loginBox input {
   outline: none;
 }
-
 .loginBox .inputArea {
   margin: 0 auto;
   position: relative;
@@ -70,11 +58,9 @@
   margin-top: 20%;
   font-size: 20px;
 }
-
 .loginBox .inputArea div {
   position: relative;
 }
-
 .loginBox .inputArea div::before {
   content: "";
   display: block;
@@ -84,30 +70,25 @@
   bottom: 0;
   background: #666;
 }
-
-.loginBox input[type="text"] {
+.loginBox input[type=text] {
   width: 100%;
   height: 100%;
   margin-bottom: 10px;
   background-color: rgba(0, 0, 0, 0);
   border: none;
 }
-
-.loginBox input[type="password"] {
+.loginBox input[type=password] {
   width: 100%;
   height: 100%;
   margin-bottom: 10px;
   background-color: rgba(0, 0, 0, 0);
   border: none;
 }
-
 .loginBox .userIdArea,
 .loginBox .passArea {
   border-bottom: 1px solid #000;
   height: 3em;
   margin-bottom: 10px;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
 }
 
@@ -157,13 +138,10 @@ img {
 /* スマホ画面 */
 @media only screen and (min-width: 220px) and (max-width: 860px) {
   body {
-    background: -webkit-gradient(linear, left top, right top, from(#cdffd8), to(#94b9ff));
     background: linear-gradient(90deg, #cdffd8, #94b9ff);
   }
   .main {
     width: 100%;
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
     position: fixed;
     height: 100%;
@@ -172,5 +150,4 @@ img {
     width: 100%;
     height: 500px;
   }
-}
-/*# sourceMappingURL=login.css.map */
+}/*# sourceMappingURL=login.css.map */

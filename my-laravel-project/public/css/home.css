@@ -3,21 +3,16 @@ body {
 }
 
 .row {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
 }
-
 .row :nth-child(1) {
   border-right: solid 5px #FFD83F;
 }
-
 .row div {
   width: 100%;
   text-align: center;
   font-size: 21px;
 }
-
 .row .event-eleent {
   background-color: #666;
 }
@@ -39,58 +34,40 @@ body {
   border: 2px solid #000;
   height: 100%;
   width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: center;
+  align-items: center;
 }
 
 .header {
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: center;
+  align-items: center;
   margin: 40px 0;
   padding: 10px 10%;
   height: 100px;
 }
-
 .header .ImgBtn {
   width: 40%;
   white-space: nowrap;
 }
-
 .header .ImgBtn .calendarBtn {
   width: 100%;
 }
-
 .header .ImgBtn .calendarBtn img {
   margin-right: 10px;
   height: 109px;
 }
-
 .header .imgLetter {
   width: 164px;
   height: 113px;
   margin-left: 40px;
 }
-
 .header .imgLetter img {
   height: 109px;
 }
 
 .eventHeaderColor {
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  justify-content: center;
   width: 41%;
   font-size: 40px;
-}
-/*# sourceMappingURL=home.css.map */
+}/*# sourceMappingURL=home.css.map */
