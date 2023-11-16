@@ -18,6 +18,8 @@ use App\Http\Controllers\shiftController;
 use App\Http\Controllers\syukkinController;
 use App\Http\Controllers\EditorCustomer;
 use App\Http\Controllers\testController;
+use App\Models\Employee;
+
 Route::get('/', [LoginController::class,'index'])->name('login');
 // Route::get('test',[testController::class,'index']);
     
@@ -119,6 +121,8 @@ Route::middleware(['auth'])->group(function () {
     // 伝票一覧
     Route::get('list-bill', [BillController::class,'indexList'])->name('list-bill');
     //カレンダー仕事
+
     Route::get('/full-calendar',[FullCalendarController::class,'index'])->name("FullCalendar");
     Route::get('get_events', [FullCalendarController::class, 'getEvents']);
+    Route::post('/get-list',[EmployeeController::class,'GetListStaffs']);
 });

@@ -2,15 +2,14 @@ $(document).ready(function(){
     const chkbox = $("#checkbox");
     const inptxt = $("input[type='text']");
     const plus = $(".plus");
-    const kindsli = $(".kinds li");
     const kinds = $(".kinds");
     const kindList = $(".kind-list");
+    const kindsli = $(".kinds li");
     const kindsSelecter = $(".kinds-selecter");
     const kindsInp =$(".kinds-inp");
     const kindsInpHidden =$(".kinds-inp-hidden");
     const AccordionSearchInput = $(".AccordionSearchInput")
     var plusCnt =1;
-
     // カレンダーのデータ送信　編集用
     var myValue = localStorage.getItem("myValue");
     var targetElement = $("#SelDate"); // 挿入する要素を選択
@@ -27,7 +26,7 @@ $(document).ready(function(){
           }
         }
     });
-    $(chkbox).click(function () {
+    $(chkbox).on("click",function () {
         if ($("#checkbox").prop("checked") == true) {
             $('ol').removeClass("close").addClass("open");
         } else {
@@ -37,6 +36,7 @@ $(document).ready(function(){
 
     $(kindsSelecter).on("click",function(event){
         var ksSelecterPush = $(this)
+        console.log(ksSelecterPush)
         event.stopPropagation();
         if(!$(ksSelecterPush).hasClass("kinds-selecter-aft")){
             $(kindsSelecter).removeClass("kinds-selecter-aft");
@@ -104,7 +104,7 @@ $(document).ready(function(){
 
         
         //クリックイベントの処理
-        $(".liquorName ul").click(function(event){
+        $(".liquorName ul").on("click",function(event){
             const clickedElement = event.target;
             if (clickedElement.tagName === "LI" ) {
 
@@ -210,7 +210,7 @@ $(document).ready(function(){
             }
         });
         //   リストを選択する
-        $(kindsli).click(function () {
+        $(kindsli).on("click",function () {
             var thisList = $(this).parent();
             var ListPush = thisList.parent().parent();
             thisList.find(kindsInp).addClass("kind-Click");

@@ -107,6 +107,14 @@ class EmployeeController extends Controller
         }
         return response();
     }
+    public function GetListStaffs(Request $request){
+        if($request->ajax()){
+            $staffs = employee::select('staff_id','staff_name')
+                                        ->get();
+            return response()->json($staffs); 
+        }
+        return response();
+    }
     //編集画面のindex
     public function indxEmpEditor(Request $request){
         if($request->id){

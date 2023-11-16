@@ -246,10 +246,16 @@ html {
   height: 0%;
   width: 0%;
 }
+<<<<<<< HEAD
+.register-area .register-areaUL .kinds-aft input[type=text] {
+  height: auto !important;
+  width: 100% !important;
+=======
 
 .register-area .register-areaUL .kinds-aft input[type="text"] {
   height: auto;
   width: 100%;
+>>>>>>> a912dc1facc2983bf52fadbda8b6993551a82383
 }
 
 .kinds-selecter {
