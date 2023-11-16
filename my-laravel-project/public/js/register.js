@@ -36,7 +36,6 @@ $(document).ready(function(){
 
     $(kindsSelecter).on("click",function(event){
         var ksSelecterPush = $(this)
-        console.log(ksSelecterPush)
         event.stopPropagation();
         if(!$(ksSelecterPush).hasClass("kinds-selecter-aft")){
             $(kindsSelecter).removeClass("kinds-selecter-aft");

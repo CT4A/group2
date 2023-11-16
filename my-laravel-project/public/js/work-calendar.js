@@ -49,7 +49,6 @@
         async function doAsyncTask() {
             return new Promise(function(resolve) {
                 setTimeout(function() {
-                    console.log("非同期処理が完了しました");
                     resolve();
                 }, );
             });
@@ -68,16 +67,13 @@
     $(document).on("click",".kinds-selecter",function(event){
         const kindList = $(".kind-list");
         var ksSelecterPush = this
-        console.log(ksSelecterPush)
         event.stopPropagation();
         if(!$(ksSelecterPush).hasClass("kinds-selecter-aft")){
-            console.log("test");
             $(".kinds-selecter").removeClass("kinds-selecter-aft");
             $(".kinds-selecter").find(kindList).removeClass("kind-list-aft");
             $(ksSelecterPush).addClass("kinds-selecter-aft");
             $(ksSelecterPush).find(kindList).addClass("kind-list-aft");
         }else{
-            console.log("test2");
             $(ksSelecterPush).removeClass("kinds-selecter-aft");
             $(ksSelecterPush).find(kindList).removeClass("kind-list-aft");
         }
@@ -230,13 +226,10 @@
                         success: function (datas) {
                             // datass = JSON.parse(datass);
                             datas.forEach(element => {
-                                console.log("チンは最強");
                                 htmlElement += '<li data="'+element["staff_id"]+'">'+element["staff_name"]+'</li>';
                             });
-                            console.log($("#staffList"))
                             
                             $("#staffList").append(htmlElement);
-                            console.log("成功！！！！！！！！！！！！！！！！！！！！！！")
                         },error: function(xhr, status, error) {
                             console.error("Ajaxリクエストエラー:", status, error);
                             // エラーが発生した場合の処理

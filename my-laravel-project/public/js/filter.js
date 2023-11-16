@@ -54,17 +54,14 @@ $(document).ready(function(){
                 i  += 1
                 if(!$(this).hasClass('timer') && 
                     $(this).is(":visible")){
-                        console.log(this)
                         allClHidden = false;
                         return false
                 }
             });
             if(allClHidden){
-                console.log("該当データがありません");
                 $(this).find(".timer").hide();
             }else{
                 $(this).find(".timer").show();
-                console.log("該当データがありました");
             }
             allClHidden = true;
         });
@@ -124,17 +121,14 @@ $(document).ready(function(){
             i  += 1
             if(!$(this).hasClass('timer') && 
                 $(this).is(":visible")){
-                    console.log(this)
                     allClHidden = false;
                     return false
             }
         });
         if(allClHidden){
-            console.log("該当データがありません");
             $(this).find(".timer").hide();
         }else{
             $(this).find(".timer").show();
-            console.log("該当データがありました");
         }
         allClHidden = true;
     });

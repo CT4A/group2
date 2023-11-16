@@ -67,6 +67,10 @@ $(document).ready(function(){
     $("#editBtn").click(function (e) { 
       e.preventDefault();
       var customer_id = $("#customer_name").attr("data-id");
-      window.location.href = "/customer-editor?id=" + customer_id;
+      if(!isNaN(customer_id)){
+        window.location.href = "/customer-editor?id=" + customer_id;
+      }else{
+        alert("顧客を選択してください。");
+      }
     });
   });

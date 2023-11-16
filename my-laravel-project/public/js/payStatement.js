@@ -23,7 +23,6 @@ $(document).ready(function(){
       }
     })
     $(filBtn).click(function(){
-      console.log("test");
       $(filArea).addClass("filter-area-aft");
     });
     $(filterClose).click(function(){
@@ -44,7 +43,6 @@ $(document).ready(function(){
         data: {"id":id
             },
         success: function (data) {
-            console.log(data);
         }
       });
     });
@@ -54,7 +52,6 @@ $(document).ready(function(){
       let BillCustomername = $(".bill-list-items ul .customer_name");
       let BillStaffname = $(".bill-list-items ul .staff_name");
       BillCustomername.parent().show();
-      console.log(BillCustomername.length)
       for (let i = 0 ; i < BillCustomername.length; i++){
         if($(BillCustomername[i]).text().indexOf(BillSearch) == -1){
           if($(BillStaffname[i]).text().indexOf(BillSearch) == -1 ){
@@ -93,7 +90,6 @@ $(document).ready(function(){
       let currentDate = $("#currentDate").text();
       let dateObject = new Date(currentDate);
       //次の月をまとめる。string型
-      console.log(dateObject)
       if(dateObject.getMonth() <= 10){
       currentDate = dateObject.getFullYear()+"-"+(dateObject.getMonth() + 2).toString().padStart(2, '0');
       $("#currentDate").text(currentDate);

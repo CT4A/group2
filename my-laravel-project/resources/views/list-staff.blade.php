@@ -58,7 +58,7 @@
                     <span id="remarks"></span>
                 </li>
                 <li>
-                        <form action="#">
+                        <form action = "#">
                             <img src="img\edit.png" alt="">
                             <button id="editBtn">編集</button>
                         </form>

@@ -35,10 +35,8 @@ $(document).ready(function() {
             });
         },
         error:function(xhr,status,error){
-            console.log(error)
         }
     });
-    console.log(monthDate)
 
     var canvas = $("#graph")[0]; // canvas要素を取得
     var ctx = canvas.getContext("2d"); // 2D描画コンテキストを取得

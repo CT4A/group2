@@ -34,10 +34,8 @@ $(document).ready(function () {
     });
     $(accordion).click(function(){
         if($(this).hasClass('accordion-aft')){
-            console.log("test1");
             $(this).removeClass('accordion-aft');
         }else{
-            console.log("test2");
             $(accordion).removeClass('accordion-aft');
             $(this).addClass('accordion-aft');
             var numChildren = $(this).find('a').length;
@@ -45,7 +43,6 @@ $(document).ready(function () {
     });
     $(window).resize(function(){
         windowNow =$(window);
-        console.log(windowNow);
     });
     $(menuList).hover( 
         function(){     

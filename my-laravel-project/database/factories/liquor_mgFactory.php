@@ -17,24 +17,28 @@ class liquor_mgFactory extends Factory
      * @return array<string, mixed>
      */
     public function definition(): array
-    // {   
-    //     static $i =1;
-    //     $list_liquor=["whisky","Rum","Brandy","Tequila","Gin"];
-    //     return [            
-    //         'liquor_name'=>"whisky".Str::random(4),
-
-    //         'liquor_type'=>"whiskyの種類".Str::random(4),
-    //         'liquor_number'=>fake()->randomNumber(1),
-    //         //
-    //     ];
-    // }
-
     {
+       
         $liquorNames = ["―ウイスキー", "ラム", "テキーラ", "ジン"];
-        $liquorName = $this->faker->randomElement($liquorNames);
         $liquorNumber = $this->faker->numberBetween(1, 100);
+        $liquorName = $this->faker->randomElement($liquorNames);
         $liquorType = $liquorName . $liquorNumber;
+        
+        $checkPrimary = liquor_mg::where([
+            ["liquor_type",$liquorType],
+            ["liquor_name",$liquorName]
+        ])->exists();
+        while($checkPrimary){
+            $liquorNumber = $this->faker->numberBetween(1, 100);
+            $liquorName = $this->faker->randomElement($liquorNames);
+            $liquorType = $liquorName . $liquorNumber;
 
+            $checkPrimary = liquor_mg::where([
+                ["liquor_type",$liquorType],
+                ["liquor_name",$liquorName]
+            ])->exists();
+        }
+        
         return [
             'liquor_type' => $liquorType,
             'liquor_name' => $liquorName

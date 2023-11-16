@@ -34,7 +34,6 @@ $(document).ready(function () {
     //各キープボトルをクリックする処理
     $(empName).on('click', function(event) {
         var id = Number($(this).attr("data-id"));
-        console.log(id);
         if($(event.target).closest("span").length) {
             $('body').addClass("intell-aft");
         }

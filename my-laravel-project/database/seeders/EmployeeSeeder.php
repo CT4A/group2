@@ -14,6 +14,7 @@ class EmployeeSeeder extends Seeder
     {
         \App\Models\Employee::factory()->state([
             'role' => 'admin',
+            'tel'=>'111-1111-1111',
             
         ])->create();
         \App\Models\Employee::factory()->state([

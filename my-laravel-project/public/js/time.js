@@ -1,6 +1,5 @@
 $(document).ready(function(){
     var myValueID = localStorage.getItem("myValue");
-    console.log(myValueID)
     customerNumbeList =(".customer-number-list li");
     empNumberList = (".emp-number-list li");
     
@@ -53,17 +52,14 @@ $(document).ready(function(){
     var num_people;
     $("#customer-list li").click(function(){
         cus_num = $('#customer-select-number span').text();
-        console.log(cus_num);
     });
     $("#employee-list li").click(function(){
         emp_num = $('#emp-select-number span').text();
-        console.log(emp_num);
     });
     
 
     //出勤ボタンの処理
     $("#start").click(function(){
-        console.log("click start button"); 
         var date = new Date();
         var day = date.getDate();
         var month = date.getMonth() + 1; 
@@ -90,7 +86,6 @@ $(document).ready(function(){
             'attend_time':now,
             'num_people' : num_people
         }
-        console.log(data)
         $.ajaxSetup({
             headers:{
                 'X-CSRF-TOKEN' : $('meta[name="csrf-token"]').attr('content')
@@ -118,7 +113,6 @@ $(document).ready(function(){
     
     //退勤ボタンの処理
     $("#end").click(function(){
-        console.log("click end button"); 
         var date = new Date();
         var day = date.getDate();
         var month = date.getMonth() + 1; 
