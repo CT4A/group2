@@ -56,8 +56,7 @@
 
                 @foreach ($slips as $slip)
                     @if ($slip->ap_day !== $previousDate)
-                    <ul>
-                    <span class="timer">{{date('Y-m-d',strtotime($slip->ap_day))   }}</span>
+
                     @endif
                         @php
                     //日付のフィルターの処理    
@@ -94,18 +93,18 @@
                                 $totalFilter = "money1";
                             }
                         @endphp
-
-                    <li data-filter="{{$timeFilter .' '. $totalFilter}}">
-                        <span class="customer_name">{{$slip->customer_name}}</span>
-                        <span class="staff_name">{{$slip->staff_name}}</span>
-                        <span class="money">{{$slip->total}}</span>
-                    </li>
+                        <ul>
+                            <span class="timer">{{date('Y-m-d',strtotime($slip->ap_day))   }}</span>
+                            <li data-filter="{{$timeFilter .' '. $totalFilter}}">
+                                <span class="customer_name">{{$slip->customer_name}}</span>
+                                <span class="staff_name">{{$slip->staff_name}}</span>
+                                <span class="money">{{$slip->total}}</span>
+                            </li>
                     @php
                         $previousDate = $slip->ap_day;
                     @endphp
+                    </ul>
                 @endforeach
-                
-
             </div>
     </section>
 

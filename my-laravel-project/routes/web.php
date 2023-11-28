@@ -125,4 +125,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/full-calendar',[FullCalendarController::class,'index'])->name("FullCalendar");
     Route::get('get_events', [FullCalendarController::class, 'getEvents']);
     Route::post('/get-list',[EmployeeController::class,'GetListStaffs']);
+
+    //logout
+    Route::get('/logout', [LoginController::class, 'logout']);
+    
 });

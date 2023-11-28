@@ -92,12 +92,21 @@ section{
     .emp-name{
 
         ul{
+            a{
+                transition: all 0.5s;
+                &[style*="display: none"]{
+                    height: 0;
+                    width: 0;
+                }
+            }
             div{
                 display: flex;
                 p{
                     line-height: 2;
                 }
             }
+            transition: all 0.5s;
+            align-content: baseline;
             justify-content: center;
             align-items: center;
             display: grid;
@@ -120,6 +129,8 @@ section{
                     left: 0;
                 }
                 span{
+                    width: 100%;
+                    height: 100%;
                     line-height: 2;
                     cursor: pointer;
                 } 
@@ -213,7 +224,6 @@ section{
     }
     form{
         padding: 5px 15px ;
-        display: flex;
         border: solid #000 3px;
         border-radius: 25px;
         img{
@@ -221,25 +231,15 @@ section{
             object-fit: cover;
         }
         button{
-            width: 0px;
-            padding: 0px;
+            display: flex;
+            align-items: center;
             font-weight: 800;
             background: none;
             outline: none;
             border: none;
-            opacity: 0;
             overflow: hidden;
             white-space: nowrap;
             transition: width 0.5s;
-            @media screen and (max-width:780px){
-            width: 50px;
-            opacity: 1;
-            }
-        }
-        &:hover button{
-            opacity: 1;
-            transition: width 0.5s;
-            width: 50px;
         }
     }
 }

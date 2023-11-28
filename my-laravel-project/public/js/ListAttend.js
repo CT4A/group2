@@ -7,7 +7,7 @@ $(document).ready(function(){
     });
     $('#search').keyup(function (e) {
     let keySearch=$(this).val();
-    let staffList = $(".emp-name ul li");
+    let staffList = $(".emp-name ul a");
     staffList.show();
     for (let i = 0; i < staffList.length; i++) {
       if (staffList[i].textContent.indexOf(keySearch) == -1) {

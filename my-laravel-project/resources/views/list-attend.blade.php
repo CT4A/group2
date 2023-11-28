@@ -60,7 +60,7 @@
                         <span class="StaffID">{{$staff->staff_id}}</span>
                         <span class="StaffName">{{$staff->staff_name}}</span>
                     </li>
-                </a>
+                    </a>
                 @endforeach
             </ul>
     </div>

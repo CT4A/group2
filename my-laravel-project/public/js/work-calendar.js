@@ -2,7 +2,7 @@
 
         
         var calendarEl = document.getElementById('calendar');
-
+        var valueToPass = ""
         var calendar = new FullCalendar.Calendar(calendarEl, {
             userSelect: 'text' ,
             initialView: 'dayGridMonth',
@@ -28,19 +28,51 @@
             noEventsContent: 'スケジュールはありません',
             events:'/get_events',
             viewDidMount: function (view) {
-                $(document).on("click",".fc-day",function(clickElement){
-                    var clickedElement = $(clickElement.target);
-                    clickedElement.focus();
-                    if(!$(clickedElement).hasClass("fc-daygrid-more-link")){
-                        window.valueToPass= this.getAttribute("data-date");
-                        localStorage.setItem("myValue",valueToPass);
-                        window.location.href = "/shift-register";
-                    }
+                $(document).on("click",".fc-icon-x",function(clickElement){
+                    $(".fc-popover").remove();
+
                 });
+                $(document).on("click",".fc-daygrid-day",function(clickElement){
+                    valueToPass = this.getAttribute("data-date");
+                    var clickedElement = $(clickElement.target);
+                    var test = $(".fc-view-harness");
+                    var elementOffset = $(".fc-view-harness").offset();
+                    var elementY = elementOffset.top;
+                    localStorage.setItem("myValue",valueToPass);
+                    let [year, month, day] = valueToPass.split('-');
+                    let formattedDate = `${year}年${parseInt(month)}月${parseInt(day)}日`;
+                    console.log(formattedDate)
+                    clickedElement.focus();
+                    // if(!$(clickedElement).hasClass("fc-daygrid-more-link")){
+                    //     if($(clickedElement).hasClass("fc-daygrid-day-frame")){
+                            
+                            // window.location.href = "/shift-register";
+                            // var client_rect = test.getBoundingClientRect();
+                            var calendarX = clickElement.clientX ;
+                            var calendarY = clickElement.clientY-elementY ;	
+                            console.log(calendarX+"test");
+                            console.log(calendarY+"test");
+                            $(".fc-popover").remove();
+                            if(!$(clickElement.target).hasClass("fc-daygrid-more-link")){
+                            $(".fc-view-harness").append("<div class='fc-popover fc-more-popover fc-day ' style='top: " + calendarY + "px; left: " + calendarX + "px;'>"+
+                                                        "<div class = fc-popover-header><span class ='fc-popover-title'>"+formattedDate+"</span>"+
+                                                        "<span class ='fc-popover-close fc-icon fc-icon-x' title ='close'></span></div>"+
+                                                        "<div class = fc-popover-body></div>"+
+                                                        "</div>");
+                            }
+                            var childrenElements = $(".list").children();
+                                childrenElements.each(function() {
+                                    console.log($(this));
+                            });
+                            var FcPopoverBody = $(".fc-popover-body");
+                            FcPopoverBody.prepend("<div id = 'popover-body-EL'><button class ='shift-Btn'>シフト登録</button><button class ='reserve-Btn'>予約登録</button><button class ='event-Btn'>イベント追加</button></div>");
+                        // }
+                        // }
+                    });
               },
         });
         calendar.render();
-    // });
+c    // });
     $(document).ready(function(){
         const kindsli = $(".kinds li");
         const kindsSelecter = $(".kinds-selecter");
@@ -58,11 +90,10 @@
             var FcPopoverBody = $(".fc-popover-body");
             var elementsWithUserSelectNone = document.querySelectorAll("[style*='user-select: none']");
             FcPopoverBody.prepend("<div id = 'popover-body-EL'><button class ='shift-Btn'>シフト登録</button><button class ='reserve-Btn'>予約登録</button><button class ='event-Btn'>イベント追加</button></div>");
-            var test = $(".popover-body-EL")
+            var popoverBodyEL = $(".popover-body-EL")
             test.append("<div><span>シフト登録</span> <input type = 'text'></div>");
             ShiftBtn = $("#popover-body-EL").find("button");
         }      
-        main();
     });
     $(document).on("click",".kinds-selecter",function(event){
         const kindList = $(".kind-list");
@@ -121,7 +152,7 @@
                 '<ul class="register-areaUL">'+
                     '<li>'+
                         '<span>日付</span>'+
-                        '<input type="date" name="request_date" value="" id = "SelDate">'+
+                        '<input type="date" name="request_date" value='+valueToPass+' id = "SelDate">'+
                         // ' {{@if ($errors->has("request_date"))}}'+
                         // '<span class="error">{{ $errors->first("request_date") }}</span>'+
                         // '@endif'+
@@ -194,6 +225,7 @@
                                         '</li>'+
                                         '<li>'+
                                             '<span>日付</span>'+
+                                            // '<input type="date" id="reserve_date" name="reserve_date" value="{{$today}}">'+
                                             '<input type="date" id="reserve_date" name="reserve_date" value="{{$today}}">'+
                                         '</li>'+
                                         '<li>'+
@@ -266,11 +298,11 @@ $(document).on("click","#checkbox",function () {
         $('ol').removeClass("open").addClass("close");
     };
 });
-function updatecalendarTitle(jsEvent , view ){
-    var updateTitlecalendar = document.getElementById('calendar');
-    var calendarTitle = document.getElementById("#calendar-month");
-    var currentTitle = updateTitlecalendar.FullCalendar('getView').title;
-    calendarTitle.text(currentTitle);
-    }
-    $('#calendar').fullCalendar('option','viewRender',updatecalendarTitle);
-    updatecalendarTitle();
+// function updatecalendarTitle(jsEvent , view ){
+//     var updateTitlecalendar = document.getElementById('calendar');
+//     var calendarTitle = document.getElementById("#calendar-month");
+//     var currentTitle = updateTitlecalendar.FullCalendar('getView').title;
+//     calendarTitle.text(currentTitle);
+//     }
+//     $('#calendar').fullCalendar('option','viewRender',updatecalendarTitle);
+//     updatecalendarTitle();
