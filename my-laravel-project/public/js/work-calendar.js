@@ -28,9 +28,12 @@
             noEventsContent: 'スケジュールはありません',
             events:'/get_events',
             viewDidMount: function (view) {
+                
                 $(document).on("click",".fc-icon-x",function(clickElement){
                     $(".fc-popover").remove();
-
+                });
+                $(document).on("click",".fc-listDay-button",function(clickElement){
+                    $(".fc-popover").remove();
                 });
                 $(document).on("click",".fc-daygrid-day",function(clickElement){
                     valueToPass = this.getAttribute("data-date");
@@ -49,12 +52,14 @@
                             // window.location.href = "/shift-register";
                             // var client_rect = test.getBoundingClientRect();
                             var calendarX = clickElement.clientX ;
-                            var calendarY = clickElement.clientY-elementY ;	
-                            console.log(calendarX+"test");
-                            console.log(calendarY+"test");
+                            var calendarY = clickElement.clientY-elementY;
+                            var HarnesPassiveY=document.getElementsByClassName("fc-view-harness-passive")[0];	
+                            if( $(window).width() <=780){
+                                calendarY = HarnesPassiveY.scrollTop;
+                            }
                             $(".fc-popover").remove();
                             if(!$(clickElement.target).hasClass("fc-daygrid-more-link")){
-                            $(".fc-view-harness").append("<div class='fc-popover fc-more-popover fc-day ' style='top: " + calendarY + "px; left: " + calendarX + "px;'>"+
+                            $(".fc-view-harness").append("<div class='fc-popover fc-more-popover fc-day ' style='top: " + calendarY+ "px; left: " + calendarX + "px;'>"+
                                                         "<div class = fc-popover-header><span class ='fc-popover-title'>"+formattedDate+"</span>"+
                                                         "<span class ='fc-popover-close fc-icon fc-icon-x' title ='close'></span></div>"+
                                                         "<div class = fc-popover-body></div>"+
@@ -62,7 +67,6 @@
                             }
                             var childrenElements = $(".list").children();
                                 childrenElements.each(function() {
-                                    console.log($(this));
                             });
                             var FcPopoverBody = $(".fc-popover-body");
                             FcPopoverBody.prepend("<div id = 'popover-body-EL'><button class ='shift-Btn'>シフト登録</button><button class ='reserve-Btn'>予約登録</button><button class ='event-Btn'>イベント追加</button></div>");
@@ -72,7 +76,7 @@
               },
         });
         calendar.render();
-c    // });
+
     $(document).ready(function(){
         const kindsli = $(".kinds li");
         const kindsSelecter = $(".kinds-selecter");
@@ -138,9 +142,10 @@ c    // });
     });
     
     $(document).on("click","#popover-body-EL button",function(BtnElement){
-        var BtnEl = $(BtnElement.target)
+        var BtnEl = $(BtnElement.target);
         var FcPopoverBody = $(".fc-popover-body");
         var popoverBodyEL = $("#popover-body-EL");
+        console.log("Onclick");
         $("#register-field").remove();
         if(BtnEl.hasClass("shift-Btn")){
             popoverBodyEL.after(
@@ -148,28 +153,18 @@ c    // });
             '<div class="register-area">'+
             '<h1>シフト登録</h1>'+
             '<form action="/shift-register" method="POST">'+
-            // '{{@csrf}}'+
                 '<ul class="register-areaUL">'+
                     '<li>'+
                         '<span>日付</span>'+
                         '<input type="date" name="request_date" value='+valueToPass+' id = "SelDate">'+
-                        // ' {{@if ($errors->has("request_date"))}}'+
-                        // '<span class="error">{{ $errors->first("request_date") }}</span>'+
-                        // '@endif'+
                     '</li>'+
                     '<li>'+
                         '<span>開始時間</span>'+
                         '<input type="time" name="start_time">'+
-                        // '@if ($errors->has("start_time"))'+
-                        // '<span class="error">{{ $errors->first("start_time") }}</span>'+
-                        // '@endif'+
                     '</li>'+
                     '<li>'+
                         '<span>終了時間</span>'+
                         '<input type="time" name="end_time">'+
-                        // '@if ($errors->has("end_time"))'+
-                        // '<span class="error">{{ $errors->first("end_time") }}</span>'+
-                        // '@endif'+
                     '</li>'+
                     '<li>'+
                         '<input type="checkbox" name="time" id="checkbox">'+
@@ -184,9 +179,6 @@ c    // });
                             '</ul> '+
                             '</div>'+
                             '<input type="text" id="num_people" class="kinds-inp" name="num_people"value="{{ old(num_people) }}">'+
-                            // '@if ($errors->has("num_people"))'+
-                            // '<span class="error">{{ $errors->first("num_people") }}</span>'+
-                            // ' @endif'+
                         '</li>'+
                     '</ol>'+
                 '</ul>'+
@@ -194,7 +186,6 @@ c    // });
                 '</form>'+
             '</div>'+
         '</section>');
-        
         }else if(BtnEl.hasClass("reserve-Btn")){
             popoverBodyEL.after('<section class="register" id =register-field>'+
                                     '<div class="register-area">'+
@@ -225,7 +216,6 @@ c    // });
                                         '</li>'+
                                         '<li>'+
                                             '<span>日付</span>'+
-                                            // '<input type="date" id="reserve_date" name="reserve_date" value="{{$today}}">'+
                                             '<input type="date" id="reserve_date" name="reserve_date" value="{{$today}}">'+
                                         '</li>'+
                                         '<li>'+

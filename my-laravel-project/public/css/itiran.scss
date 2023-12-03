@@ -317,11 +317,11 @@ section{
             margin-top: 70px;
         }
         input[type="text"]{
-            padding: 10px;
+            padding: 15px;
             border-radius: 25px;
             border: 0px;
             width: 90%;
-            height: 30px;
+            height: 16px;
             margin: auto;
         }
     }
@@ -458,8 +458,9 @@ section{
                 
             }
             .filter-clear{
-                    text-align: right; 
-                    margin-right: 40px;  
+                text-align: right; 
+                margin-right: 40px;
+                cursor: pointer;  
             }
         }
         display: flex;
@@ -579,7 +580,9 @@ section{
         width: 100%;
         margin: 0;
     }
-
+    input[type = "text"]{
+        font-size: 20px;
+    }
     input::placeholder {
         width: 100%;
         font-size: 20px;

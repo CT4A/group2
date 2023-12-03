@@ -332,11 +332,11 @@ ul:not(.menu, .hamburgerContents ul) li span:not(header) {
   margin-top: 70px;
 }
 .bill-list .bill-header input[type=text] {
-  padding: 10px;
+  padding: 15px;
   border-radius: 25px;
   border: 0px;
   width: 90%;
-  height: 30px;
+  height: 16px;
   margin: auto;
 }
 .bill-list .bill-list-items {
@@ -479,6 +479,7 @@ ul:not(.menu, .hamburgerContents ul) li span:not(header) {
 .bill-list .filter-area .filter-header li .filter-clear {
   text-align: right;
   margin-right: 40px;
+  cursor: pointer;
 }
 .bill-list .filter-area .filter-header h2 {
   text-align: center;
@@ -596,6 +597,9 @@ ul:not(.menu, .hamburgerContents ul) li span:not(header) {
     left: 500px;
     width: 100%;
     margin: 0;
+  }
+  input[type=text] {
+    font-size: 20px;
   }
   input::-moz-placeholder {
     width: 100%;

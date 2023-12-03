@@ -71,9 +71,16 @@ Route::middleware(['auth'])->group(function () {
     Route::post('graphHistory',[employeeController::class,'graphHistory']);
     Route::get('/history_editor', [employeeController::class,'indexHistoryEditor'])->name('indexHistoryEditor');
     Route::post('/history_editor',[employeeController::class,'HistoryEditor']);
-        //
     Route::post('/removeHistory/{id}',[employeeController::class,'removeHistory']);
 
+
+    //出勤退勤編集履歴画面
+    Route::get('/HistoryView', [employeeController::class,'indexHistory'])->name('history');
+    Route::post('graphHistory',[employeeController::class,'graphHistory']);
+    Route::get('/history_editor', [employeeController::class,'indexHistoryEditor'])->name('indexHistoryEditor');
+    Route::post('/history_editor',[employeeController::class,'HistoryEditor']);
+    Route::post('/removeHistory/{id}',[employeeController::class,'removeHistory']);
+    
 
     //キープボトル
     Route::get('/keepbottle-register', [keepbottleController::class,'indexRegister'])->name('indexKeepRegister');

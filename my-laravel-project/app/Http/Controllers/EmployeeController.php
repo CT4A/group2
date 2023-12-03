@@ -226,11 +226,12 @@ class EmployeeController extends Controller
             $id = Auth::user()->staff_id;
         }
         $staff_name = employee::select('staff_name','staff_id')
-                                    ->where('staff_id',$id)
+                                    ->where('staff_id',$id )
                                     ->first();
 
         $staffs = attend_leave::select('work_date','attend_time','leaving_work')
                                 ->where('staff_id',$id)
+                                ->where('flag',0)
                                 ->whereYear('work_date',$currentYear)
                                 ->whereMonth('work_date',$currentMon)
                                 ->get();
@@ -245,7 +246,7 @@ class EmployeeController extends Controller
                             ['staff_id',"=",$staff_id],
                             ['work_date',"=",$time]]
                             )
-                            ->delete();
+                            ->update(['flag' => 1]);
         if($deleted){
             return response()->json(["message"=>"success"]);
         }else{

@@ -25,7 +25,9 @@
     <section class="intell">
         <div class="intell-aera" itemscope itemtype="http://schema.org/Person">
         <div class="intell-button">
-            <div></div>
+            <div>
+                
+            </div>
         </div>
             <h1 id ="TxtNameHeader">ボトルの情報</h1>
             <ul>

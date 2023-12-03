@@ -92,7 +92,7 @@ thead tr th {
   background-color: #333 !important;
 }
 .fc-header-toolbar .fc-toolbar-chunk .fc-button-group button {
-  font-size: 18px;
+  font-size: 16px;
   border: none;
 }
 
@@ -107,10 +107,24 @@ thead tr th {
   height: 100%;
   width: 100%;
 }
-.calendar-field .fc-view-harness {
-  overflow-y: scroll;
-  overflow-x: hidden;
-  height: 500px;
+@media screen and (max-width: 780px) {
+  .calendar-field .fc-popover-header {
+    flex-direction: row-reverse;
+    font-size: 16px;
+  }
+  .calendar-field .fc-popover-header .fc-popover-close {
+    margin: 5px;
+  }
+}
+.calendar-field .fc .fc-toolbar.fc-header-toolbar {
+  margin: 0;
+}
+@media screen and (max-width: 780px) {
+  .calendar-field .fc-view-harness {
+    overflow-y: scroll;
+    overflow-x: hidden;
+    height: 500px;
+  }
 }
 @media screen and (max-width: 780px) {
   .calendar-field thead {
@@ -188,8 +202,10 @@ thead tr th {
     margin: 10px auto;
   }
 }
-.calendar-field #calendar .fc-header-toolbar :nth-child(3) .fc-button-group {
-  display: grid;
+@media screen and (max-width: 780px) {
+  .calendar-field #calendar .fc-header-toolbar :nth-child(3) .fc-button-group {
+    display: grid;
+  }
 }
 .calendar-field #calendar .fc-header-toolbar :nth-child(3) .fc-button-group button {
   border-radius: 5px;
