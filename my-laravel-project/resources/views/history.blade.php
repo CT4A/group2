@@ -14,7 +14,7 @@
     </div> 
         <div class="history_item">
             <figure class="history-date">
-                <a href="" class="calendar_item"><img src="/img/calendar.webp" alt=""></a>
+                <a href="{{ route('HistoryEditView') }}" class="calendar_item">変更履歴</a>
             </figure>
             <figcaption>
             <h1 datetime="2023-01">{{ $today->format('Y-m') }}</h1>
@@ -33,8 +33,8 @@
                 @if (Auth::user()->isAdmin())
                 <div class="history_info_btn">
                     <div class="history_info_btn-field">
-                        <button id="editbtn"><a href="{{route('indexHistoryEditor',['id' => $staff_name->staff_id, 'work_date' => $staff->work_date])}}">編集</a></button>
-                        <button id="delbtn">削除</button>
+                        <button class="editbtn"><a href="{{route('indexHistoryEditor',['id' => $staff_name->staff_id, 'work_date' => $staff->work_date])}}">編集</a></button>
+                        <button class="delbtn">削除</button>
                     </div>
                 </div>
                 @endif

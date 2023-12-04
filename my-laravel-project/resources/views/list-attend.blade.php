@@ -1,21 +1,16 @@
-<!DOCTYPE html>
-<html lang="ja">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="csrf-token" content="{{ csrf_token() }}" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+@extends('main')
+        @section('styles')
+        <link rel="stylesheet" href="{{asset('css/itiran.css')}}">
+        <link rel="stylesheet" href="{{asset('css/header.css')}}">
+        <link rel="stylesheet" href="{{asset('css/itiran.css')}}">
+        @endsection
         @if (Auth::user()->isAdmin())
             <title>出勤退勤履歴用社員一覧</title>
         @else
             <title>出勤用社員一覧</title>
         @endif
-        <link rel="stylesheet" href="{{asset('css/itiran.css')}}">
-        <link rel="stylesheet" href="{{asset('css/header.css')}}">
-        <link rel="stylesheet" href="{{asset('css/itiran.css')}}">
 @if (Auth::user()->isAdmin())
-    <title>出勤退勤履歴用社員一覧</title>
-    </head>
+    @section('content')
     <body>
         <section class="attend-list">
         <div class="emp-list-area">
@@ -66,7 +61,10 @@
     </div>
 </div>
 @endif
+@endsection
+@section('scripts')
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="{{asset('js/ListAttend.js')}}"></script>
+@endsection
 </body>
 </html>

@@ -26,15 +26,15 @@
                 <div class="history_info_item">
                     <time datetime="2023-01">{{$staff->work_date}}</time>
                     <div>
-                        <span class="">出勤{{$staff->attend_time}}</span>
-                        <span class="">退勤{{$staff->leaving_work}}</span>
+                        <span >出勤{{$staff->attend_time}}</span>
+                        <span >退勤{{$staff->leaving_work}}</span>
                     </div>
                 </div>
                 @if (Auth::user()->isAdmin())
                 <div class="history_info_btn">
                     <div class="history_info_btn-field">
-                        <button id="editbtn"><a href="{{route('indexHistoryEditor',['id' => $staff_name->staff_id, 'work_date' => $staff->work_date])}}">編集</a></button>
-                        <button id="delbtn">削除</button>
+                        <button class="editbtn"><a href="{{route('indexHistoryEditor',['id' => $staff_name->staff_id, 'work_date' => $staff->work_date])}}">編集</a></button>
+                        <button class="Addbtn">付加</button>
                     </div>
                 </div>
                 @endif

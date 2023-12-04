@@ -116,9 +116,6 @@ thead tr th {
     margin: 5px;
   }
 }
-.calendar-field .fc .fc-toolbar.fc-header-toolbar {
-  margin: 0;
-}
 @media screen and (max-width: 780px) {
   .calendar-field .fc-view-harness {
     overflow-y: scroll;
