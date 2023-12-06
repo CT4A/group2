@@ -125,7 +125,8 @@ section span {
   line-height: 2;
 }
 .emp-list-area .emp-name ul li {
-  margin: 10px 0;
+  width: 50%;
+  margin: 10px auto;
   white-space: nowrap;
   border-bottom: #000 solid 2px;
   position: relative;
@@ -145,6 +146,10 @@ section span {
   height: 100%;
   line-height: 2;
   cursor: pointer;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
 }
 
 .staff-profile {

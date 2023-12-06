@@ -1,8 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\customer;
-use App\Models\employee;
+use App\Models\Customer;
+use App\Models\Employee;
 use App\Models\liquor_mg;
 use App\Models\slip_mg;
 use Illuminate\Http\Request;
@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\DB;
 class CustomerController extends Controller
 {
     public function index(){
-        $customers=customer::select('customer_id','customer_name')->get();
+        $customers=Customer::select('customer_id','customer_name')->get();
         return view('list-customer',compact('customers'));
         // return view('test');
         
@@ -27,7 +27,7 @@ class CustomerController extends Controller
                                 ->select('customers.staff_id','customers.customer_id', 'customers.customer_name', 'customers.company_name', 'customers.birthday', 'customers.staff_id', 'customers.remarks', 'employees.staff_name')
                                 ->join('employees', 'customers.staff_id', '=', 'employees.staff_id')
                                 ->first();
-            $staffs=employee::select('staff_id','staff_name')->get();  
+            $staffs=Employee::select('staff_id','staff_name')->get();  
             return view('customer-editor',compact('staffs','customer'));
             } else {
                 //存在してない場合顧客リストページに転送します。
@@ -51,7 +51,7 @@ class CustomerController extends Controller
             'staff_id.required'=>'担当スタッフをを入力してください。'
         ]);
         $customer_id = $request->customer_id;
-        $test = customer::where('customer_id', $customer_id)->update($validatedData);
+        $test = Customer::where('customer_id', $customer_id)->update($validatedData);
         //アップデート成功のチェック
         if ($test > 0) {
             return redirect()->route('list-customer')->with('message','登録完成しました。');
@@ -63,7 +63,7 @@ class CustomerController extends Controller
         if($request->ajax()){
             $id = $request->id;
             
-            $customerInfo = customer::leftJoin('employees','employees.staff_id','=','customers.staff_id')
+            $customerInfo = Customer::leftJoin('employees','employees.staff_id','=','customers.staff_id')
                                     ->select('customers.customer_id','customers.customer_name','customers.birthday','customers.company_name','customers.staff_id','employees.staff_name')
                                     ->where('customer_id',$id)
                                     ->get();
@@ -93,7 +93,7 @@ class CustomerController extends Controller
             'birthday.date'=>'年-月-日の形を入力してください。',
             'staff_id.required'=>'担当スタッフをを入力してください。'
         ]);
-        $customer = customer::create([
+        $customer = Customer::create([
             'customer_name' => $request->input('customer_name'),
             'company_name' => $request->input('company_name'),
             'birthday' => $request->input('birthday'),

@@ -1,3 +1,8 @@
+:root {
+  --calendarX:0px;
+  --calendarY:0px;
+}
+
 body {
   -webkit-user-select: text !important;
      -moz-user-select: text !important;
@@ -58,14 +63,23 @@ body {
 .fc-popover-body .register-area form input[type=submit] {
   padding: 0;
 }
+.fc-popover-body .register-area form {
+  width: 100%;
+  margin: 10px 0;
+}
 
 #popover-body-EL {
   margin: 10px;
+  text-align: center;
 }
 #popover-body-EL button {
   border: none;
-  padding: 5px;
+  padding: 10px;
   margin: 5px;
+  font-weight: 800;
+  border-radius: 25px;
+  background: bottom;
+  box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.3);
 }
 
 .register-area {
@@ -106,6 +120,12 @@ thead tr th {
 .calendar-field {
   height: 100%;
   width: 100%;
+}
+@media screen and (max-width: 780px) {
+  .calendar-field .fc-more-popover {
+    top: var(--calendarY);
+    left: var(--calendarX);
+  }
 }
 @media screen and (max-width: 780px) {
   .calendar-field .fc-popover-header {

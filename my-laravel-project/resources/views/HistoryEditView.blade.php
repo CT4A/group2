@@ -14,13 +14,16 @@
     </div> 
         <div class="history_item">
             <figure class="history-date">
-                <a href="" class="calendar_item"><img src="/img/calendar.webp" alt=""></a>
+                <a href="{{ route('history') }}" class="calendar_item">戻る</a>
             </figure>
             <figcaption>
             <h1 datetime="2023-01">{{ $today->format('Y-m') }}</h1>
             <h2 id="staff_name" data-id={{$staff_name->staff_id }}>{{$staff_name->staff_name}}</h2>
             </figcaption>
         </div>
+        @if ($staffs->isEmpty())
+                    <p class="HistoryEmp">削除履歴はありません。</p>
+                @endif
             @foreach ($staffs as $staff)
             <div class="history_info">
                 <div class="history_info_item">

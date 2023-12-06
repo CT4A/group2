@@ -1,7 +1,7 @@
 @extends('main')
 @yield('title','')
 @section('styles')
-<link rel="stylesheet" href="./css/itiran.css">
+<link rel="stylesheet" href="{{asset('css/itiran.css')}}">
 @endsection
 @section('content')
     <section class="emp-list">

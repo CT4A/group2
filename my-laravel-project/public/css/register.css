@@ -149,6 +149,13 @@ html {
   background: none;
   border: none;
 }
+.register-area .register-areaUL input[type=number] {
+  font-size: 24px;
+  width: 100%;
+  outline: none;
+  background: none;
+  border: none;
+}
 .register-area .register-areaUL input[type=datetime-local] {
   width: 100%;
   outline: none;
@@ -165,22 +172,18 @@ html {
 }
 .register-area .register-areaUL .plus-btn .plus {
   display: flex;
-  background-color: snow;
-  padding: 20px 20px;
+  background: content-box;
+  padding: 5px 20px;
+  font-weight: 800;
+  width: 60%;
+  margin: auto;
+  justify-content: center;
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.3);
+  border: 0px;
   cursor: pointer;
   border-radius: 25px;
   color: #333;
-  border: solid 2px #333;
-}
-.register-area .register-areaUL .plus-btn ::before {
-  content: "";
-  display: block;
-  transition: all 0.5s;
-  height: 0%;
-}
-.register-area .register-areaUL .plus-btn :hover::before {
-  content: "追加する";
-  height: 100%;
+  border: solid 1px;
 }
 .register-area .register-areaUL .kinds {
   position: relative;

@@ -21,6 +21,9 @@
             <h2 id="staff_name" data-id={{$staff_name->staff_id }}>{{$staff_name->staff_name}}</h2>
             </figcaption>
         </div>
+        @if ($staffs->isEmpty())
+                    <p class="HistoryEmp">履歴はありませんでした。</p>
+                @endif
             @foreach ($staffs as $staff)
             <div class="history_info">
                 <div class="history_info_item">
@@ -37,8 +40,8 @@
                         <button class="delbtn">削除</button>
                     </div>
                 </div>
-                @endif
             </div>
+            @endif
             @endforeach
     </section>
 @endsection

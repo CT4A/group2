@@ -1,6 +1,4 @@
-    // document.addEventListener('DOMContentLoaded', function() {
-
-        
+    // document.addEventListener('DOMContentLoaded', function() {        
         var calendarEl = document.getElementById('calendar');
         var valueToPass = ""
         var calendar = new FullCalendar.Calendar(calendarEl, {
@@ -25,10 +23,10 @@
                 month: '月',
                 list: 'リスト'
             },
+            
             noEventsContent: 'スケジュールはありません',
             events:'/get_events',
             viewDidMount: function (view) {
-                
                 $(document).on("click",".fc-icon-x",function(clickElement){
                     $(".fc-popover").remove();
                 });
@@ -38,19 +36,12 @@
                 $(document).on("click",".fc-daygrid-day",function(clickElement){
                     valueToPass = this.getAttribute("data-date");
                     var clickedElement = $(clickElement.target);
-                    var test = $(".fc-view-harness");
                     var elementOffset = $(".fc-view-harness").offset();
                     var elementY = elementOffset.top;
                     localStorage.setItem("myValue",valueToPass);
                     let [year, month, day] = valueToPass.split('-');
                     let formattedDate = `${year}年${parseInt(month)}月${parseInt(day)}日`;
-                    console.log(formattedDate)
                     clickedElement.focus();
-                    // if(!$(clickedElement).hasClass("fc-daygrid-more-link")){
-                    //     if($(clickedElement).hasClass("fc-daygrid-day-frame")){
-                            
-                            // window.location.href = "/shift-register";
-                            // var client_rect = test.getBoundingClientRect();
                             var calendarX = clickElement.clientX ;
                             var calendarY = clickElement.clientY-elementY;
                             var HarnesPassiveY=document.getElementsByClassName("fc-view-harness-passive")[0];	
@@ -70,10 +61,8 @@
                             });
                             var FcPopoverBody = $(".fc-popover-body");
                             FcPopoverBody.prepend("<div id = 'popover-body-EL'><button class ='shift-Btn'>シフト登録</button><button class ='reserve-Btn'>予約登録</button><button class ='event-Btn'>イベント追加</button></div>");
-                        // }
-                        // }
                     });
-              },
+                },
         });
         calendar.render();
 
@@ -98,6 +87,21 @@
             test.append("<div><span>シフト登録</span> <input type = 'text'></div>");
             ShiftBtn = $("#popover-body-EL").find("button");
         }      
+    });
+    $(document).on("click",".fc-daygrid-more-link",function(clickElement){ 
+        var clickedElement = $(clickElement.target);
+        var elementOffset = $(".fc-view-harness").offset();
+        clickedElement.focus();
+        console.log(elementOffset)
+        var elementY = elementOffset.top;
+        var calendarX = clickedElement.clientX ;         //leftの座標
+        var calendarY = clickedElement.clientY-elementY; //topの座標
+        var HarnesPassiveY=document.getElementsByClassName("fc-view-harness-passive")[0];
+        if( $(window).width() <=780){
+            calendarY = HarnesPassiveY.scrollTop;
+        }
+        document.documentElement.style.setProperty('--calendarX', calendarX);
+        document.documentElement.style.setProperty('--calendarY', calendarY);
     });
     $(document).on("click",".kinds-selecter",function(event){
         const kindList = $(".kind-list");
@@ -178,7 +182,7 @@
                             '<ul class="kind-list" id ="staffList">'+
                             '</ul> '+
                             '</div>'+
-                            '<input type="text" id="num_people" class="kinds-inp" name="num_people"value="{{ old(num_people) }}">'+
+                            '<input type="text" id="num_people" class="kinds-inp numInput" name="num_people" pattern="^[a-zA-Z0-9]+$" maxlength="2" value="{{ old(num_people) }}">'+
                         '</li>'+
                     '</ol>'+
                 '</ul>'+
@@ -198,11 +202,12 @@
                                             '</li>'+ 
                                             '<li>'+
                                                 '<span>人数</span>'+
-                                                '<input type="text" name="reserve_people">'+
+                                                '<input type="text" pattern="^[a-zA-Z0-9]+$" maxlength="2" value =0 name="reserve_people" class ="numInput" >'+
                                         '</li>'+
                                         '<li>'+
                                             '<span>テーブル番号</span>'+
-                                            '<input type="text" name="table_number">'+
+                                            '<input type="text" pattern="^[a-zA-Z0-9]+$" maxlength="2" value =0 name="table_number" class ="numInput" >'+
+                                            // '<input type="text" pattern="^[a-zA-Z0-9]+$"  maxlength="3" value =0 name="table_number" >'+
                                         '</li>'+                     
                                         '<li class="kinds">'+
                                             '<span>担当者</span>'+
@@ -220,11 +225,12 @@
                                         '</li>'+
                                         '<li>'+
                                             '<span>予約時間</span>'+
-                                            '<input type="text" name="reserve_time">'+
+                                            '<input type="time" name="reserve_time">'+
                                         '</li>'+
                                         '<li>'+
                                             '<span>制限</span>'+
-                                            '<input type="text" name="upper_limit" placeholder="￥">'+
+                                            '<input type="text" pattern="^[a-zA-Z0-9]+$" maxlength="6" value =0 name="upper_limit" placeholder="￥" class ="numInput">'+
+                                            // '<input type="text" pattern="^[a-zA-Z0-9]+$"  maxlength="5" value =0  name="upper_limit" placeholder="￥">'+
                                         '</li>'+
                                         '<li>'+
                                             '<span>備考</span>'+
@@ -275,6 +281,12 @@
                                 " </section>");
                             }
     });
+});
+
+$(document).on('input','.numInput',function(){
+    // 整数以外の文字を削除する
+    console.log("test");
+    this.value = this.value.replace(/[^0-9]/g, ''); 
 });
 $(document).on("click","#checkbox",function () {
     var listnumber = ""

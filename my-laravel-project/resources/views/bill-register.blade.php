@@ -70,7 +70,7 @@ $today = Carbon::now()->format('Y/m/d');
                     </li>
                     <li>
                         <span>金額</span>
-                        <input class="money" type="text" id='demo_input' value="{{ old('demo_input') }}" name="total" placeholder="￥">
+                        <input class="money" type="text" id='demo_input' maxlength="7" oninput="value = value.replace(/[^0-9]+/i,'');" value="{{ old('demo_input') }}" name="total" placeholder="￥">
                         @if ($errors->has('total'))
                             <span class="error">{{ $errors->first('total') }}</span>
                         @endif
