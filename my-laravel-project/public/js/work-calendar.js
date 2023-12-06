@@ -48,17 +48,16 @@
                             if( $(window).width() <=780){
                                 calendarY = HarnesPassiveY.scrollTop;
                             }
+                            console.log(calendarY)
                             $(".fc-popover").remove();
                             if(!$(clickElement.target).hasClass("fc-daygrid-more-link")){
-                            $(".fc-view-harness").append("<div class='fc-popover fc-more-popover fc-day ' style='top: " + calendarY+ "px; left: " + calendarX + "px;'>"+
+                            $(".fc-view-harness").append("<div class='fc-popover  fc-day '>"+
                                                         "<div class = fc-popover-header><span class ='fc-popover-title'>"+formattedDate+"</span>"+
                                                         "<span class ='fc-popover-close fc-icon fc-icon-x' title ='close'></span></div>"+
                                                         "<div class = fc-popover-body></div>"+
                                                         "</div>");
                             }
-                            var childrenElements = $(".list").children();
-                                childrenElements.each(function() {
-                            });
+                            document.documentElement.style.setProperty('--calendarY', calendarY+"px");
                             var FcPopoverBody = $(".fc-popover-body");
                             FcPopoverBody.prepend("<div id = 'popover-body-EL'><button class ='shift-Btn'>シフト登録</button><button class ='reserve-Btn'>予約登録</button><button class ='event-Btn'>イベント追加</button></div>");
                     });
@@ -91,18 +90,18 @@
     $(document).on("click",".fc-daygrid-more-link",function(clickElement){ 
         var clickedElement = $(clickElement.target);
         var elementOffset = $(".fc-view-harness").offset();
-        clickedElement.focus();
-        console.log(elementOffset)
         var elementY = elementOffset.top;
-        var calendarX = clickedElement.clientX ;         //leftの座標
-        var calendarY = clickedElement.clientY-elementY; //topの座標
-        var HarnesPassiveY=document.getElementsByClassName("fc-view-harness-passive")[0];
+        clickedElement.focus();
+        var calendarX = clickElement.clientX ;         //leftの座標
+        var calendarY = clickElement.clientY-elementY; //topの座標
+        var HarnesPassiveY=document.getElementsByClassName("fc-view-harness-passive")[0];	
         if( $(window).width() <=780){
             calendarY = HarnesPassiveY.scrollTop;
         }
-        document.documentElement.style.setProperty('--calendarX', calendarX);
-        document.documentElement.style.setProperty('--calendarY', calendarY);
+        document.documentElement.style.setProperty('--calendarY', calendarY+"px");
     });
+
+    
     $(document).on("click",".kinds-selecter",function(event){
         const kindList = $(".kind-list");
         var ksSelecterPush = this
