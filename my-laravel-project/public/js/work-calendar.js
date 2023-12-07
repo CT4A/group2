@@ -245,7 +245,7 @@
                                         '</li>'+
                                         '<li>'+
                                             '<span>日付</span>'+
-                                            '<input type="date" id="reserve_date" name="reserve_date" value="{{$today}}">'+
+                                            '<input type="date" id="reserve_date" name="reserve_date" value="'+valueToPass+'">'+
                                         '</li>'+
                                         '<li>'+
                                             '<span>予約時間</span>'+
@@ -292,6 +292,8 @@
                                         "<h1>お知らせ登録</h1>"+
                                         "<form action='/news' method='POST' id ='newsForm'>"+
                                         `<input type="hidden" name="_token" value="${token}">` +
+                                        
+                                        '<input type="date" name="noti_date" value="'+valueToPass+'" hidden>'+
                                         "<ul class = register-areaUL>"+
                                                 "<li class='news-resist'>"+
                                                     "<span>内容</span>"+
