@@ -206,7 +206,7 @@
                             '<ul class="kind-list" id ="staffList">'+
                             '</ul> '+
                             '</div>'+
-                            '<input type="number" id="num_people" class="kinds-inp numInput" name="num_people"  value="{{ old(num_people) }}">'+
+                            '<input type="number" id="num_people" class="kinds-inp numInput" name="num_people"  value="0">'+
                         '</li>'+
                     '</ol>'+
                 '</ul>'+
@@ -227,11 +227,11 @@
                                             '</li>'+ 
                                             '<li>'+
                                                 '<span>人数</span>'+
-                                                '<input type="text" pattern="^[a-zA-Z0-9]+$" maxlength="2" value =0 name="reserve_people" class ="numInput" >'+
+                                                '<input type="text"  value = 0 name="reserve_people" class ="numInput" >'+
                                         '</li>'+
                                         '<li>'+
                                             '<span>テーブル番号</span>'+
-                                            '<input type="text" pattern="^[a-zA-Z0-9]+$" maxlength="2" value =0 name="table_number" class ="numInput" >'+
+                                            '<input type="text" value =0 name="table_number" class ="numInput" >'+
                                         '</li>'+                     
                                         '<li class="kinds">'+
                                             '<span>担当者</span>'+
