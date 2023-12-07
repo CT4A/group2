@@ -1,7 +1,11 @@
 @php
     use Carbon\Carbon;
-
-    $current = Carbon::now()->format('Y-m');
+    if(request()->has('date')){
+        $current = request()->date; 
+    }else {
+        $current = Carbon::now()->format('Y-m');    
+    }
+    
 @endphp
 @extends('main')
 @section('styles')
@@ -24,14 +28,17 @@
                         <span id="c1">名前</span>
                         <span id="c2">給料</span>
                     </div>
-                    {{-- @foreach ($staffs as $staff) --}}
-                        <li>
-                            {{-- 
-                            <span data-id="{{$staff->staff_id}}">{{$staff->staff_name}}</span>
-                            <span data-id="{{$staff->staff_id}}">{{$staff->total_salary}}円</span> 
-                            --}}
-                        </li>
-                    {{-- @endforeach --}}
+                    @if ($staffs->isEmpty())
+                        <p>データが存在しておりません</p>
+                    @else
+                        @foreach ($staffs as $staff)
+                            <li>
+                                <span data-id="{{$staff->staff_id}}">{{$staff->staff_name}}</span>
+                                <span data-id="{{$staff->staff_id}}">{{$staff->total}}円</span> 
+                            </li>
+                        @endforeach
+                    @endif
+                    
             </ul>
         </div>
     </div>
@@ -42,43 +49,38 @@
         <ul>
             <li itemprop="identifier">
                 <span >基本給</span>
-                <span id="salary">1000円</span>
+                <span id="basic_salary"></span>
                 <span ></span>
             </li>
             <li itemprop="name">
                 <span >出勤日数</span>
-                <span id="total_working_days">24日</span>
+                <span id="total_working_days"></span>
                 <span ></span>
             </li>
             <li itemprop="telephone">
                 <span >実働時間</span>
-                <span id="total_time">170時間</span>
+                <span id="total_time"></span>
                 <span ></span>
             </li>
             <li itemprop="address">
                 <span >同伴</span>
-                <span id="total_money_people">5,0000円</span>
+                <span id="total_money_people"></span>
                 <span ></span>
             </li>
             <li itemprop="birthDate">
                 <span >控除金額</span>
-                <span id="deduction">6000円</span>
-                <span ></span>
-            </li>
-            <li itemprop="description">
-                <span >基本給総合</span>
-                <span id="basic_salary">19,0000円</span>
+                <span id="deduction"></span>
                 <span ></span>
             </li>
             {{-- まだ引かれない --}}
             <li itemprop="description">
                 <span >総合金額</span>
-                <span id="basic_salary">19,0000円</span>
+                <span id="total_branch"></span>
                 <span ></span>
             </li>
             <li itemprop="description">
                 <span >総支給額</span>
-                <span id="total_salary">23,0000円</span>
+                <span id="total_salary"></span>
                 <span ></span>
             </li>
 

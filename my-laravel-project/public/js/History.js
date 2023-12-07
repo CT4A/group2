@@ -14,8 +14,7 @@ $(document).ready(function(){
         let timeELe = history_infoEle.find("time")[0];
         let time = timeELe.textContent;
         let staff_id = $('#staff_name').attr("data-id");
-        console.log(time)
-        console.log(staff_id)
+
         $.ajaxSetup({
             headers:{
                 'X-CSRF-TOKEN' : $('meta[name="csrf-token"]').attr('content')

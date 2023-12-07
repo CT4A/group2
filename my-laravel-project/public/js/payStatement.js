@@ -32,6 +32,7 @@ $(document).ready(function(){
     $(empName).on('click', function(event) {
       event.stopPropagation();
       var id =$(this).data('id');
+      var currentDate = $("#currentDate").text();
       $.ajaxSetup({
         headers:{
             'X-CSRF-TOKEN' : $('meta[name="csrf-token"]').attr('content')
@@ -40,9 +41,26 @@ $(document).ready(function(){
       $.ajax({
         type: "post",
         url: "/getPayStaff/{id}",
-        data: {"id":id
+        data: {"id":id,"currentDate":currentDate
             },
         success: function (data) {
+          if (data.message === 'fail') {
+            console.log('Lỗi: ' + data.message);
+            $('#salary').before('<p>今月出勤しませんでした</p>');
+          } else {
+            let response = data[0];
+            
+            $('#basic_salary').text(response.basic_salary+"円");
+            $('#total_working_days').text(response.total_working_days+"円");
+            $('#total_time').text(response.total_time+"円");
+            $('#total_money_people').text(response.total_money_people+"円");
+            $('#deduction').text(response.deduction+"円");
+            $('#total_branch').text(response.total_branch+"円");
+            $('#total_salary').text(response.total+"円");
+            
+          }
+        },
+        error:function(data){
         }
       });
     });
@@ -93,6 +111,8 @@ $(document).ready(function(){
       if(dateObject.getMonth() <= 10){
       currentDate = dateObject.getFullYear()+"-"+(dateObject.getMonth() + 2).toString().padStart(2, '0');
       $("#currentDate").text(currentDate);
+      
+      window.location.href = '?date='+currentDate;
       }
     });
     //previousbtnの処理
@@ -105,5 +125,7 @@ $(document).ready(function(){
       currentDate = dateObject.getFullYear()+"-"+dateObject.getMonth().toString().padStart(2, '0');
       $("#currentDate").text(currentDate);
       }
+      window.location.href = '?date='+currentDate;
     });
+    
 });

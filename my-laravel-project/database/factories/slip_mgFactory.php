@@ -28,7 +28,7 @@ class slip_mgFactory extends Factory
         ];
     }
     function createdateTimeRequeset(){
-        $da = fake()->unique()->dateTimeThisMonth('+12 days');
+        $da = fake()->unique()->dateTimeThisMonth();
         return $da->format('Y-m-d');
     }
 }

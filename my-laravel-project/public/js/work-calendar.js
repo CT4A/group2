@@ -122,23 +122,14 @@
                     '<li>'+
                         '<span>日付</span>'+
                         '<input type="date" name="request_date" value="" id = "SelDate">'+
-                        // ' {{@if ($errors->has("request_date"))}}'+
-                        // '<span class="error">{{ $errors->first("request_date") }}</span>'+
-                        // '@endif'+
                     '</li>'+
                     '<li>'+
                         '<span>開始時間</span>'+
                         '<input type="time" name="start_time">'+
-                        // '@if ($errors->has("start_time"))'+
-                        // '<span class="error">{{ $errors->first("start_time") }}</span>'+
-                        // '@endif'+
                     '</li>'+
                     '<li>'+
                         '<span>終了時間</span>'+
                         '<input type="time" name="end_time">'+
-                        // '@if ($errors->has("end_time"))'+
-                        // '<span class="error">{{ $errors->first("end_time") }}</span>'+
-                        // '@endif'+
                     '</li>'+
                     '<li>'+
                         '<input type="checkbox" name="time" id="checkbox">'+
@@ -231,7 +222,6 @@
                             
                             $("#staffList").append(htmlElement);
                         },error: function(xhr, status, error) {
-                            console.error("Ajaxリクエストエラー:", status, error);
                             // エラーが発生した場合の処理
                         }
                         })
@@ -239,7 +229,7 @@
             popoverBodyEL.after("<section class='register' id ='register-field'>"+
                                     "<div class='register-area'>"+
                                         "<h1>お知らせ登録</h1>"+
-                                        "<form action='' method='POST' id ='newsForm'>"+
+                                        "<form action='/news' method='POST' id ='newsForm'>"+
                                         "<ul class = register-areaUL>"+
                                                 "<li class='news-resist'>"+
                                                     "<span>内容</span>"+

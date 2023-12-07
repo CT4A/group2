@@ -32,8 +32,8 @@ class bottleController extends Controller
         return redirect()->route('indexRegister')->with('message','登録完成しました。');
     }
     public function indexList(){
-        $liquors=liquor_mg::select('liquor_name','liquor_type','liquor_id')
-                        ->orderBy('liquor_id')
+        $liquors=liquor_mg::select('liquor_type','liquor_id')
+                        ->orderBy('liquor_type')
                         ->get();
         return view('list-bottle',compact('liquors'));
     }
