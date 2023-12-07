@@ -561,10 +561,11 @@ ul:not(.menu, .hamburgerContents ul) li span:not(header) {
   }
 }
 
-.attend-list {
-  width: 100%;
+.attend-list .emp-list-area .emp-name ul {
+  margin: 10px;
 }
 .attend-list .emp-list-area .emp-name ul li {
+  width: 100%;
   width: 100%;
 }
 .attend-list ul {

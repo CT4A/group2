@@ -38,6 +38,7 @@
                     var clickedElement = $(clickElement.target);
                     var elementOffset = $(".fc-view-harness").offset();
                     var elementY = elementOffset.top;
+                    var HarnesPassive=document.getElementsByClassName("fc-view-harness-passive")[0];
                     localStorage.setItem("myValue",valueToPass);
                     let [year, month, day] = valueToPass.split('-');
                     let formattedDate = `${year}年${parseInt(month)}月${parseInt(day)}日`;
@@ -46,6 +47,7 @@
                             var calendarY = clickElement.clientY-elementY;
                             if( $(window).width() <=780){
                                 calendarY = HarnesPassive.scrollTop;
+                                console.log("test");
                             }
                             $(".fc-popover").remove();
                             if(!$(clickElement.target).hasClass("fc-daygrid-more-link")){
@@ -59,6 +61,27 @@
                             document.documentElement.style.setProperty('--calendarX', calendarX+"px");
                             var FcPopoverBody = $(".fc-popover-body");
                             FcPopoverBody.prepend("<div id = 'popover-body-EL'><button class ='shift-Btn'>シフト登録</button><button class ='reserve-Btn'>予約登録</button><button class ='event-Btn'>イベント追加</button></div>");
+                            var FcPopover = $(".fc-popover")[0];
+                            var bottomPosition = HarnesPassive.offsetTop + HarnesPassive.offsetHeight;
+                            var leftPosition = HarnesPassive.offsetLeft + HarnesPassive.offsetWidth;
+                            var bottomFcPopover = FcPopover.offsetTop + FcPopover.offsetHeight;
+                            var leftFcPopover = FcPopover.offsetLeft + FcPopover.offsetWidth;
+                            var elementOffset = $(".fc-view-harness").offset();
+                            var elementY = elementOffset.top;
+                            console.log(elementY)
+                            console.log("bottomFcPopover"+(bottomFcPopover+elementY))
+                            console.log("bottomFcPopover"+FcPopover.offsetHeight)
+                            console.log("bottomPosition"+bottomPosition)
+                                //下にはみ出てしまった時の処理
+                            if(bottomPosition < bottomFcPopover+elementY && $(window).width() >=780){
+                                bottomPosition = bottomFcPopover -elementY -FcPopover.offsetHeight - (bottomFcPopover - bottomPosition)
+                                document.documentElement.style.setProperty('--calendarY', bottomPosition+"px");
+                            }
+                            //横にはみ出てしまった時の処理
+                            if(leftPosition < leftFcPopover && $(window).width() >=780 ){
+                                leftPosition   = leftFcPopover - FcPopover.offsetWidth -(leftFcPopover - leftPosition) 
+                                document.documentElement.style.setProperty('--calendarX', leftPosition+"px");    
+                            }
                     });
                 },
         });
@@ -93,15 +116,12 @@
         var elementY = elementOffset.top;
         clickedElement.focus();
         var calendarX = clickElement.clientX ;         //leftの座標
-        var calendarY = clickElement.clientY-elementY; //topの座標
-        // var HarnesPassive=document.getElementsByClassName("fc-view-harness-passive")[0];	
+        var calendarY = clickElement.clientY-elementY; //topの座標	
         if( $(window).width() <=780){
             calendarY = HarnesPassive.scrollTop;
         }
-        var bottomPosition = HarnesPassive.offsetTop + HarnesPassive.offsetHeight;
-        var leftPosition = HarnesPassive.offsetLeft + HarnesPassive.offsetWidth;
-        console.log(leftPosition)
-        console.log(bottomPosition)
+        // var bottomPosition = HarnesPassive.offsetTop + HarnesPassive.offsetHeight;
+        // var leftPosition = HarnesPassive.offsetLeft + HarnesPassive.offsetWidth;
         document.documentElement.style.setProperty('--calendarY', calendarY+"px");
     });
 
@@ -150,8 +170,8 @@
     
     $(document).on("click","#popover-body-EL button",function(BtnElement){
         var BtnEl = $(BtnElement.target);
-        var FcPopoverBody = $(".fc-popover-body");
         var popoverBodyEL = $("#popover-body-EL");
+        var FcPopover = $(".fc-popover")[0];
         console.log("Onclick");
         $("#register-field").remove();
         if(BtnEl.hasClass("shift-Btn")){
@@ -282,13 +302,29 @@
                                     "</div>"+
                                 " </section>");
                             }
-    var bottomPosition = HarnesPassive.offsetTop + HarnesPassive.offsetHeight;
-    var leftPosition = HarnesPassive.offsetLeft + HarnesPassive.offsetWidth;
-    console.log(bottomPosition)
-    console.log(leftPosition)
-    });
-});
+                            var bottomPosition = HarnesPassive.offsetTop + HarnesPassive.offsetHeight;
+                            var leftPosition = HarnesPassive.offsetLeft + HarnesPassive.offsetWidth;
+                            var bottomFcPopover = FcPopover.offsetTop + FcPopover.offsetHeight;
+                            var leftFcPopover = FcPopover.offsetLeft + FcPopover.offsetWidth;
+                            var elementOffset = $(".fc-view-harness").offset();
+                            var elementY = elementOffset.top;
+                            var elementOffset = $(".fc-view-harness").offset();
+                            var elementY = elementOffset.top;
+                            console.log("bottomFcPopover"+bottomFcPopover)
+                            console.log("bottomPosition"+bottomPosition)
 
+                                //下にはみ出てしまった時の処理
+                            if(bottomPosition < bottomFcPopover && $(window).width() >=780){
+                                bottomPosition = bottomFcPopover -elementY -FcPopover.offsetHeight - (bottomFcPopover - bottomPosition)
+                                document.documentElement.style.setProperty('--calendarY', bottomPosition+"px");
+                            }
+                            //横にはみ出てしまった時の処理
+                            if(leftPosition < leftFcPopover && $(window).width() >=780){
+                                leftPosition   = leftFcPopover - FcPopover.offsetWidth -(leftFcPopover - leftPosition) 
+                                document.documentElement.style.setProperty('--calendarX', leftPosition+"px");    
+                            }
+                            });
+                        });
 $(document).on('input','.numInput',function(){
     // 整数以外の文字を削除する
     console.log("test");
@@ -306,25 +342,3 @@ $(document).on("click","#checkbox",function () {
         $('ol').removeClass("open").addClass("close");
     };
 });
-
-
-
-function restrictElementToBounds() {
-    // 対象の要素を取得
-    var element = document.getElementsByClassName('fc-more-popover');
-    // ウィンドウの幅と高さを取得
-    var windowWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
-    var windowHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
-    console.log(windowWidth)
-    console.log(windowHeight)
-    // 要素の幅と高さを取得
-    var elementWidth = element.offsetWidth;
-    var elementHeight = element.offsetHeight;
-    // 要素がはみ出る場合は位置を調整
-    if (element.offsetLeft + elementWidth > windowWidth) {
-        element.style.left = (windowWidth - elementWidth) + 'px';
-    }
-    if (element.offsetTop + elementHeight > windowHeight) {
-        element.style.top = (windowHeight - elementHeight) + 'px';
-    }
-}
