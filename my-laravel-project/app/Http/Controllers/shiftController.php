@@ -17,7 +17,7 @@ class shiftController extends Controller
     public function register(Request $request){
         $staff_id = Auth::user()->staff_id;
         $validatedData = $request->validate([
-            'request_date' => 'required|date',
+            'request_date' => 'required',
             'start_time' => 'required',
             'end_time' => 'required',
         ],[
@@ -26,16 +26,22 @@ class shiftController extends Controller
             'start_time.required'=>'出勤時間を入力してください。',
             'end_time.required'=>'退勤時間を入力してください。',            
         ]);
-
+        if ($request->has('num_people') && !empty($request->num_people)) {
+            
+            $numPeople = $request->num_people;
+            } else {
+                $numPeople = 0;
+            }
         $slip_mgs = shift_mg::create([
             'staff_id' => $staff_id,
             'request_date'=>$request->input('request_date'),
             'start_time' => $request->input('start_time'),
             'end_time' => $request->input('end_time'),
-            'num_people' => $request->input('num_people')
+            'num_people' => $numPeople
         ]);
 
-        return redirect()->route('indexShiftRegister')->with('message','登録完成しました。');
+        // return redirect()->route('indexShiftRegister')->with('message','登録完成しました。');
+        return back();
 
 
     }

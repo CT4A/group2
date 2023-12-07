@@ -1,4 +1,6 @@
     // document.addEventListener('DOMContentLoaded', function() {        
+        const token = document.head.querySelector('meta[name="csrf-token"]').getAttribute('content');        $("#register-field").remove();
+           
         var calendarEl = document.getElementById('calendar');
         var valueToPass = ""
         var calendar = new FullCalendar.Calendar(calendarEl, {
@@ -172,14 +174,13 @@
         var BtnEl = $(BtnElement.target);
         var popoverBodyEL = $("#popover-body-EL");
         var FcPopover = $(".fc-popover")[0];
-        console.log("Onclick");
-        $("#register-field").remove();
         if(BtnEl.hasClass("shift-Btn")){
             popoverBodyEL.after(
             '<section class="register" id = register-field>'+
             '<div class="register-area">'+
             '<h1>シフト登録</h1>'+
             '<form action="/shift-register" method="POST">'+
+            `<input type="hidden" name="_token" value="${token}">` +
                 '<ul class="register-areaUL">'+
                     '<li>'+
                         '<span>日付</span>'+
@@ -205,7 +206,7 @@
                             '<ul class="kind-list" id ="staffList">'+
                             '</ul> '+
                             '</div>'+
-                            '<input type="text" id="num_people" class="kinds-inp numInput" name="num_people" pattern="^[a-zA-Z0-9]+$" maxlength="2" value="{{ old(num_people) }}">'+
+                            '<input type="number" id="num_people" class="kinds-inp numInput" name="num_people"  value="{{ old(num_people) }}">'+
                         '</li>'+
                     '</ol>'+
                 '</ul>'+
@@ -218,7 +219,8 @@
                                     '<div class="register-area">'+
                                     '<h1>予約</h1>'+
                                     '<form action="/reserve-register" method="POST">'+
-                                        '<ul class="register-areaUL">'+
+                                    `<input type="hidden" name="_token" value="${token}">` +    
+                                    '<ul class="register-areaUL">'+
                                             '<li>'+
                                                 '<span>顧客名</span>'+
                                                 '<input type="text" name="customer_name">'+
@@ -289,6 +291,7 @@
                                     "<div class='register-area'>"+
                                         "<h1>お知らせ登録</h1>"+
                                         "<form action='/news' method='POST' id ='newsForm'>"+
+                                        `<input type="hidden" name="_token" value="${token}">` +
                                         "<ul class = register-areaUL>"+
                                                 "<li class='news-resist'>"+
                                                     "<span>内容</span>"+

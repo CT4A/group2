@@ -37,6 +37,6 @@ class newsController extends Controller
             'message' => $request->remarks,
             'day' =>$today,
         ]);
-        return redirect()->route(('news'));
+        return redirect()->route('news');
     }
 }

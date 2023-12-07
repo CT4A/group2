@@ -13,8 +13,9 @@ class EmployeeSeeder extends Seeder
     public function run(): void
     {
         \App\Models\Employee::factory()->state([
-            'role' => 'admin',
             'tel'=>'111-1111-1111',
+            'role' => 'admin',
+            
             
         ])->create();
         \App\Models\Employee::factory()->state([
