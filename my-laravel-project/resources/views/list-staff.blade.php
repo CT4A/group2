@@ -59,8 +59,10 @@
                 </li>
                 <li>
                         <form action = "#">
-                            <img src="img\edit.png" alt="">
-                            <button id="editBtn">編集</button>
+                            <button id="editBtn">    
+                                <img src="img\edit.png" alt="">
+                                <span>編集</span>
+                            </button>
                         </form>
                     </li>
             </ul>

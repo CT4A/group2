@@ -24,14 +24,14 @@
                     @csrf
                     <div class="inputArea">
                         <div class="userIdArea">
-                            <input type="text" name="tel" id="" placeholder="電話番号:080-999-999">
+                            <input type="text" name="tel" id="" placeholder="電話番号:080-999-999"  autocomplete="off">
                             <img src="{{asset('img/t.webp')}}" alt="">
                         </div>
                         @if ($errors->has('tel'))
                         <span class="error">{{ $errors->first('tel') }}</span>
                         @endif
                         <div class="passArea">
-                            <input type="password" name="password" id="" placeholder="パスワード">
+                            <input type="password" name="password" id=""  placeholder="パスワード">
                             <img src="{{asset('img/lock.png')}}" alt="">
                         </div>
                         @if ($errors->has('password'))

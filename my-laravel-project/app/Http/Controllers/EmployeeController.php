@@ -41,6 +41,7 @@ class EmployeeController extends Controller
             select(DB::raw('DATE_FORMAT(work_date, "%m") AS FormatMonth'))
             ->selectRaw('SUM(TIMESTAMPDIFF(HOUR, attend_time, leaving_work)) AS totalHours')
             ->where('staff_id', $id)
+            ->where('flag',0)
             ->whereYear('work_date', '=', date('Y'))
             ->groupBy("FormatMonth")
             ->get();
@@ -209,15 +210,37 @@ class EmployeeController extends Controller
             $id = Auth::user()->staff_id;
         }
         $staff_name = employee::select('staff_name','staff_id')
-                                    ->where('staff_id',$id)
+                                    ->where('staff_id',$id )
                                     ->first();
 
         $staffs = attend_leave::select('work_date','attend_time','leaving_work')
                                 ->where('staff_id',$id)
+                                ->where('flag',0)
                                 ->whereYear('work_date',$currentYear)
                                 ->whereMonth('work_date',$currentMon)
                                 ->get();
         return view('history',compact('staffs','staff_name'));
+    }
+    public function indexEditHistory(Request $request)
+    {
+        $currentYear = now()->format('Y');
+        $currentMon = now()->format('m');
+        if($request->has('id')){
+            $id = $request->id;
+        }else{
+            $id = Auth::user()->staff_id;
+        }
+        $staff_name = employee::select('staff_name','staff_id')
+                                    ->where('staff_id',$id )
+                                    ->first();
+
+        $staffs = attend_leave::select('work_date','attend_time','leaving_work')
+                                ->where('staff_id',$id)
+                                ->where('flag',1)
+                                ->whereYear('work_date',$currentYear)
+                                ->whereMonth('work_date',$currentMon)
+                                ->get();
+        return view('HistoryEditView',compact('staffs','staff_name'));
     }
     //出勤の履歴
     public function removeHistory(Request $request)
@@ -225,10 +248,27 @@ class EmployeeController extends Controller
         $staff_id = $request->staff_id;
         $time = $request->time;
         $deleted = attend_leave::where([
+                                ['staff_id',"=",$staff_id],
+                                ['work_date',"=",$time]]
+                            )
+                            ->update(['flag' => 1]);
+        if($deleted){
+            return response()->json(["message"=>"success"]);
+        }else{
+            
+            return response()->json(["message"=>"fail"]);
+        }
+
+    }
+    public function AdditionHistory(Request $request)
+    {
+        $staff_id = $request->staff_id;
+        $time = $request->time;
+        $deleted = attend_leave::where([
                             ['staff_id',"=",$staff_id],
                             ['work_date',"=",$time]]
                             )
-                            ->delete();
+                            ->update(['flag' => 0]);
         if($deleted){
             return response()->json(["message"=>"success"]);
         }else{

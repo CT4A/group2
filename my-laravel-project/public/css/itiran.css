@@ -102,12 +102,21 @@ section span {
   outline: none;
 }
 .emp-list-area .emp-name ul {
+  transition: all 0.5s;
+  align-content: baseline;
   justify-content: center;
   align-items: center;
   display: grid;
   height: 300px;
   overflow-y: scroll;
   overflow-x: hidden;
+}
+.emp-list-area .emp-name ul a {
+  transition: all 0.5s;
+}
+.emp-list-area .emp-name ul a[style*="display: none"] {
+  height: 0;
+  width: 0;
 }
 .emp-list-area .emp-name ul div {
   display: flex;
@@ -116,6 +125,8 @@ section span {
   line-height: 2;
 }
 .emp-list-area .emp-name ul li {
+  width: 50%;
+  margin: 10px auto;
   margin: 10px 0;
   white-space: nowrap;
   border-bottom: #000 solid 2px;
@@ -132,8 +143,14 @@ section span {
   left: 0;
 }
 .emp-list-area .emp-name ul li span {
+  width: 100%;
+  height: 100%;
   line-height: 2;
   cursor: pointer;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
 }
 
 .staff-profile {
@@ -224,7 +241,6 @@ section span {
 }
 .intell form {
   padding: 5px 15px;
-  display: flex;
   border: solid #000 3px;
   border-radius: 25px;
 }
@@ -234,27 +250,15 @@ section span {
      object-fit: cover;
 }
 .intell form button {
-  width: 0px;
-  padding: 0px;
+  display: flex;
+  align-items: center;
   font-weight: 800;
   background: none;
   outline: none;
   border: none;
-  opacity: 0;
   overflow: hidden;
   white-space: nowrap;
   transition: width 0.5s;
-}
-@media screen and (max-width: 780px) {
-  .intell form button {
-    width: 50px;
-    opacity: 1;
-  }
-}
-.intell form:hover button {
-  opacity: 1;
-  transition: width 0.5s;
-  width: 50px;
 }
 
 ul:not(.menu, .hamburgerContents ul) {
@@ -334,11 +338,11 @@ ul:not(.menu, .hamburgerContents ul) li span:not(header) {
   margin-top: 70px;
 }
 .bill-list .bill-header input[type=text] {
-  padding: 10px;
+  padding: 15px;
   border-radius: 25px;
   border: 0px;
   width: 90%;
-  height: 30px;
+  height: 16px;
   margin: auto;
 }
 .bill-list .bill-list-items {
@@ -481,6 +485,7 @@ ul:not(.menu, .hamburgerContents ul) li span:not(header) {
 .bill-list .filter-area .filter-header li .filter-clear {
   text-align: right;
   margin-right: 40px;
+  cursor: pointer;
 }
 .bill-list .filter-area .filter-header h2 {
   text-align: center;
@@ -556,7 +561,11 @@ ul:not(.menu, .hamburgerContents ul) li span:not(header) {
   }
 }
 
-.attend-list {
+.attend-list .emp-list-area .emp-name ul {
+  margin: 10px;
+}
+.attend-list .emp-list-area .emp-name ul li {
+  width: 100%;
   width: 100%;
 }
 .attend-list ul {
@@ -598,6 +607,9 @@ ul:not(.menu, .hamburgerContents ul) li span:not(header) {
     left: 500px;
     width: 100%;
     margin: 0;
+  }
+  input[type=text] {
+    font-size: 20px;
   }
   input::-moz-placeholder {
     width: 100%;

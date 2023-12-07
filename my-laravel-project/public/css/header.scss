@@ -51,11 +51,12 @@ header {
     display: flex;
     font-size: 16px;
     z-index: 9999;
-    img{
-        left: 0;
-        padding: 10px;
-        margin: auto 0;
-        width: 50px;
+    .Logout{
+        img{
+            left: 0;
+            margin: auto;
+            height: 38px;
+            }
     }
     .menu {
         justify-content: center;
@@ -94,7 +95,6 @@ header {
                 }
             }
             ol{
-
                 transition: all 0.3s;
                 color: #020000;
                 padding: 0;
@@ -238,6 +238,7 @@ header {
     height: 100%;
     cursor: pointer;
     font-size: 24px;
+    position: relative;
     .accordion-content{
         transition: height  0.5s, max-height 0.5s;
         // height: 100%;
@@ -245,7 +246,6 @@ header {
         font-size:0;
         max-height: 0;
         display: grid;
-        border-bottom: #c1ab05 solid 2px;
         }
         span{
             position: relative;
@@ -266,11 +266,34 @@ header {
         }
 }
 .accordion-aft {
+        span{
+            background-color: #555453;
+        }
     .accordion-content{
         max-height: 800px;
         font-size: 24px;
         opacity: 1;
+        margin-left: 20px;
         transition: height  0.5s  ,opacity 1s ,max-width 0.5s ;
+        position: relative;
+        &::before{
+            content: "";
+            display: block;
+            width: 1px;
+            background-color: gold;
+            position: absolute;
+            left: 10px;
+            height: 100%;
+        }
+        a{
+            margin: 10px;
+            &::before{
+                content: "-";
+                width: 100%;
+                height: 1px;
+                color: gold;
+            }
+        }
     }
     span{
         &::after{
@@ -281,10 +304,10 @@ header {
         a{
             display: flex;
         &::before{
-            margin-left: 25px;
-            margin-right: 5px;
             content: "-";
             display: block;
+            margin-left: 25px;
+            margin-right: 5px;
         }
     }
 }

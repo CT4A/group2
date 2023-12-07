@@ -14,7 +14,7 @@
     </div> 
         <div class="history_item">
             <figure class="history-date">
-                <a href="{{ route('HistoryEditView') }}" class="calendar_item">変更履歴</a>
+                <a href="{{ route('history') }}" class="calendar_item">戻る</a>
             </figure>
             <figcaption>
             <h1 datetime="2023-01">{{ $today->format('Y-m') }}</h1>
@@ -22,26 +22,26 @@
             </figcaption>
         </div>
         @if ($staffs->isEmpty())
-                    <p class="HistoryEmp">履歴はありませんでした。</p>
+                    <p class="HistoryEmp">削除履歴はありません。</p>
                 @endif
             @foreach ($staffs as $staff)
             <div class="history_info">
                 <div class="history_info_item">
                     <time datetime="2023-01">{{$staff->work_date}}</time>
                     <div>
-                        <span class="">出勤{{$staff->attend_time}}</span>
-                        <span class="">退勤{{$staff->leaving_work}}</span>
+                        <span >出勤{{$staff->attend_time}}</span>
+                        <span >退勤{{$staff->leaving_work}}</span>
                     </div>
                 </div>
                 @if (Auth::user()->isAdmin())
                 <div class="history_info_btn">
                     <div class="history_info_btn-field">
                         <button class="editbtn"><a href="{{route('indexHistoryEditor',['id' => $staff_name->staff_id, 'work_date' => $staff->work_date])}}">編集</a></button>
-                        <button class="delbtn">削除</button>
+                        <button class="Addbtn">付加</button>
                     </div>
                 </div>
+                @endif
             </div>
-            @endif
             @endforeach
     </section>
 @endsection

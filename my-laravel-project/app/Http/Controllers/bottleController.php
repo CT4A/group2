@@ -78,7 +78,6 @@ class bottleController extends Controller
     public function GetInfoBottle(Request $request){
        
             $id = $request->input("id");
-            // $id = 2;
             $bottleInfo = DB::table("liquor_mgs")
             ->select('liquor_mgs.*','liquor_links.*','customers.*')
             ->join('liquor_links','liquor_mgs.liquor_id','=','liquor_links.liquor_id')

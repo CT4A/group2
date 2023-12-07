@@ -33,7 +33,7 @@ $(document).ready(function () {
             });
     //各キープボトルをクリックする処理
     $(empName).on('click', function(event) {
-        var id = Number($(this).attr("data-id"));
+        var id = $(this).attr("data-id");
         if($(event.target).closest("span").length) {
             $('body').addClass("intell-aft");
         }
@@ -59,6 +59,7 @@ $(document).ready(function () {
         $("#liquor_name").text(data["liquor_name"]);
         $("#liquor_type").text(data["liquor_type"]);
         $("#liquor_number").text(data["liquor_number"]);
+        
         
     }
       // 編集ボタン

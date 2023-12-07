@@ -72,9 +72,16 @@ Route::middleware(['auth'])->group(function () {
     Route::post('graphHistory',[employeeController::class,'graphHistory']);
     Route::get('/history_editor', [employeeController::class,'indexHistoryEditor'])->name('indexHistoryEditor');
     Route::post('/history_editor',[employeeController::class,'HistoryEditor']);
-        //
     Route::post('/removeHistory/{id}',[employeeController::class,'removeHistory']);
 
+
+    //出勤退勤編集履歴画面
+    Route::get('/HistoryEditView', [employeeController::class,'indexEditHistory'])->name('HistoryEditView');
+    Route::post('graphHistory',[employeeController::class,'graphHistory']);
+    Route::get('/history_editor', [employeeController::class,'indexHistoryEditor'])->name('indexHistoryEditor');
+    Route::post('/history_editor',[employeeController::class,'HistoryEditor']);
+    Route::post('/additionHistory/{id}',[employeeController::class,'AdditionHistory']);
+    
 
     //キープボトル
     Route::get('/keepbottle-register', [keepbottleController::class,'indexRegister'])->name('indexKeepRegister');
@@ -129,4 +136,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/full-calendar',[FullCalendarController::class,'index'])->name("FullCalendar");
     Route::get('get_events', [FullCalendarController::class, 'getEvents']);
     Route::post('/get-list',[EmployeeController::class,'GetListStaffs']);
+
+    //logout
+    Route::get('/logout', [LoginController::class, 'logout']);
+    
 });

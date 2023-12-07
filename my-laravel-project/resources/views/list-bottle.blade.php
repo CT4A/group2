@@ -1,7 +1,7 @@
 @extends('main')
 @yield('title','')
 @section('styles')
-<link rel="stylesheet" href="./css/itiran.css">
+<link rel="stylesheet" href="{{asset('css/itiran.css')}}">
 @endsection
 @section('content')
     <section class="emp-list">
@@ -25,7 +25,9 @@
     <section class="intell">
         <div class="intell-aera" itemscope itemtype="http://schema.org/Person">
         <div class="intell-button">
-            <div></div>
+            <div>
+                
+            </div>
         </div>
             <h1 id ="TxtNameHeader">ボトルの情報</h1>
             <ul>
@@ -46,9 +48,11 @@
                         <span id ="liquor_number"></span>
                     </li>
                     <li>
-                        <form>
-                            <img src="img\edit.png" alt="">
-                            <button id="editBtn">編集</button>
+                    <form action = "#">
+                            <button id="editBtn">    
+                                <img src="img\edit.png" alt="">
+                                <span>編集</span>
+                            </button>
                         </form>
                     </li>
             </ul>

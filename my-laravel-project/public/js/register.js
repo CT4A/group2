@@ -72,21 +72,21 @@ $(document).ready(function(){
         }
     });
         // 入力項目の追加
-        $(inptxt).click(function(event) {
-            var test =$(inptxt).eq(event).parent();
-        });
+        // $(inptxt).click(function(event) {
+        //     var test =$(inptxt).eq(event).parent();
+        // });
 
-        plusCnt += 1; 
-        var previousElements = $('.customerList').eq(0);
-        var ListClone = previousElements.clone();
-        $($(this)).parent().before(ListClone);
+        // plusCnt += 1; 
+        // var previousElements = $('.customerList').eq(0);
+        // var ListClone = previousElements.clone();
+        // $($(this)).parent().before(ListClone);
         $(plus).click( function(event) {
             clone();
         });
         function clone(){
             plusCnt += 1; 
-            var previousElements = $('.customerList');
-            var ListClone = previousElements.clone();
+            var previousElements = $('.customerList')[0];
+            var ListClone = previousElements.cloneNode(true);
             $(plus).parent().before(ListClone);
         }
     $(".alcohol li").click(function (event) { 

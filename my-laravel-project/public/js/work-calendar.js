@@ -1,8 +1,6 @@
-    // document.addEventListener('DOMContentLoaded', function() {
-
-        
+    // document.addEventListener('DOMContentLoaded', function() {        
         var calendarEl = document.getElementById('calendar');
-
+        var valueToPass = ""
         var calendar = new FullCalendar.Calendar(calendarEl, {
             userSelect: 'text' ,
             initialView: 'dayGridMonth',
@@ -25,23 +23,72 @@
                 month: '月',
                 list: 'リスト'
             },
+            
             noEventsContent: 'スケジュールはありません',
             events:'/get_events',
             viewDidMount: function (view) {
-                $(document).on("click",".fc-day",function(clickElement){
-                    var clickedElement = $(clickElement.target);
-                    clickedElement.focus();
-                    if(!$(clickedElement).hasClass("fc-daygrid-more-link")){
-                        window.valueToPass= this.getAttribute("data-date");
-                        localStorage.setItem("myValue",valueToPass);
-                        window.location.href = "/shift-register";
-                    }
+                $(document).on("click",".fc-icon-x",function(clickElement){
+                    $(".fc-popover").remove();
                 });
-              },
+                $(document).on("click",".fc-listDay-button",function(clickElement){
+                    $(".fc-popover").remove();
+                });
+                $(document).on("click",".fc-daygrid-day",function(clickElement){
+                    valueToPass = this.getAttribute("data-date");
+                    var clickedElement = $(clickElement.target);
+                    var elementOffset = $(".fc-view-harness").offset();
+                    var elementY = elementOffset.top;
+                    var HarnesPassive=document.getElementsByClassName("fc-view-harness-passive")[0];
+                    localStorage.setItem("myValue",valueToPass);
+                    let [year, month, day] = valueToPass.split('-');
+                    let formattedDate = `${year}年${parseInt(month)}月${parseInt(day)}日`;
+                    clickedElement.focus();
+                            var calendarX = clickElement.clientX ;
+                            var calendarY = clickElement.clientY-elementY;
+                            if( $(window).width() <=780){
+                                calendarY = HarnesPassive.scrollTop;
+                                console.log("test");
+                            }
+                            $(".fc-popover").remove();
+                            if(!$(clickElement.target).hasClass("fc-daygrid-more-link")){
+                            $(".fc-view-harness").append("<div class='fc-popover fc-more-popover  fc-day '>"+
+                                                        "<div class = fc-popover-header><span class ='fc-popover-title'>"+formattedDate+"</span>"+
+                                                        "<span class ='fc-popover-close fc-icon fc-icon-x' title ='close'></span></div>"+
+                                                        "<div class = fc-popover-body></div>"+
+                                                        "</div>");
+                            }
+                            document.documentElement.style.setProperty('--calendarY', calendarY+"px");
+                            document.documentElement.style.setProperty('--calendarX', calendarX+"px");
+                            var FcPopoverBody = $(".fc-popover-body");
+                            FcPopoverBody.prepend("<div id = 'popover-body-EL'><button class ='shift-Btn'>シフト登録</button><button class ='reserve-Btn'>予約登録</button><button class ='event-Btn'>イベント追加</button></div>");
+                            var FcPopover = $(".fc-popover")[0];
+                            var bottomPosition = HarnesPassive.offsetTop + HarnesPassive.offsetHeight;
+                            var leftPosition = HarnesPassive.offsetLeft + HarnesPassive.offsetWidth;
+                            var bottomFcPopover = FcPopover.offsetTop + FcPopover.offsetHeight;
+                            var leftFcPopover = FcPopover.offsetLeft + FcPopover.offsetWidth;
+                            var elementOffset = $(".fc-view-harness").offset();
+                            var elementY = elementOffset.top;
+                            console.log(elementY)
+                            console.log("bottomFcPopover"+(bottomFcPopover+elementY))
+                            console.log("bottomFcPopover"+FcPopover.offsetHeight)
+                            console.log("bottomPosition"+bottomPosition)
+                                //下にはみ出てしまった時の処理
+                            if(bottomPosition < bottomFcPopover+elementY && $(window).width() >=780){
+                                bottomPosition = bottomFcPopover -elementY -FcPopover.offsetHeight - (bottomFcPopover - bottomPosition)
+                                document.documentElement.style.setProperty('--calendarY', bottomPosition+"px");
+                            }
+                            //横にはみ出てしまった時の処理
+                            if(leftPosition < leftFcPopover && $(window).width() >=780 ){
+                                leftPosition   = leftFcPopover - FcPopover.offsetWidth -(leftFcPopover - leftPosition) 
+                                document.documentElement.style.setProperty('--calendarX', leftPosition+"px");    
+                            }
+                    });
+                },
         });
         calendar.render();
-    // });
+
     $(document).ready(function(){
+        var HarnesPassive=document.getElementsByClassName("fc-view-harness-passive")[0];	
         const kindsli = $(".kinds li");
         const kindsSelecter = $(".kinds-selecter");
         var ShiftBtn = $("#popover-body-EL");
@@ -58,12 +105,27 @@
             var FcPopoverBody = $(".fc-popover-body");
             var elementsWithUserSelectNone = document.querySelectorAll("[style*='user-select: none']");
             FcPopoverBody.prepend("<div id = 'popover-body-EL'><button class ='shift-Btn'>シフト登録</button><button class ='reserve-Btn'>予約登録</button><button class ='event-Btn'>イベント追加</button></div>");
-            var test = $(".popover-body-EL")
+            var popoverBodyEL = $(".popover-body-EL")
             test.append("<div><span>シフト登録</span> <input type = 'text'></div>");
             ShiftBtn = $("#popover-body-EL").find("button");
         }      
-        main();
     });
+    $(document).on("click",".fc-daygrid-more-link",function(clickElement){ 
+        var clickedElement = $(clickElement.target);
+        var elementOffset = $(".fc-view-harness").offset();
+        var elementY = elementOffset.top;
+        clickedElement.focus();
+        var calendarX = clickElement.clientX ;         //leftの座標
+        var calendarY = clickElement.clientY-elementY; //topの座標	
+        if( $(window).width() <=780){
+            calendarY = HarnesPassive.scrollTop;
+        }
+        // var bottomPosition = HarnesPassive.offsetTop + HarnesPassive.offsetHeight;
+        // var leftPosition = HarnesPassive.offsetLeft + HarnesPassive.offsetWidth;
+        document.documentElement.style.setProperty('--calendarY', calendarY+"px");
+    });
+
+    
     $(document).on("click",".kinds-selecter",function(event){
         const kindList = $(".kind-list");
         var ksSelecterPush = this
@@ -107,9 +169,10 @@
     });
     
     $(document).on("click","#popover-body-EL button",function(BtnElement){
-        var BtnEl = $(BtnElement.target)
-        var FcPopoverBody = $(".fc-popover-body");
+        var BtnEl = $(BtnElement.target);
         var popoverBodyEL = $("#popover-body-EL");
+        var FcPopover = $(".fc-popover")[0];
+        console.log("Onclick");
         $("#register-field").remove();
         if(BtnEl.hasClass("shift-Btn")){
             popoverBodyEL.after(
@@ -117,11 +180,10 @@
             '<div class="register-area">'+
             '<h1>シフト登録</h1>'+
             '<form action="/shift-register" method="POST">'+
-            // '{{@csrf}}'+
                 '<ul class="register-areaUL">'+
                     '<li>'+
                         '<span>日付</span>'+
-                        '<input type="date" name="request_date" value="" id = "SelDate">'+
+                        '<input type="date" name="request_date" value='+valueToPass+' id = "SelDate">'+
                     '</li>'+
                     '<li>'+
                         '<span>開始時間</span>'+
@@ -143,10 +205,7 @@
                             '<ul class="kind-list" id ="staffList">'+
                             '</ul> '+
                             '</div>'+
-                            '<input type="text" id="num_people" class="kinds-inp" name="num_people"value="{{ old(num_people) }}">'+
-                            // '@if ($errors->has("num_people"))'+
-                            // '<span class="error">{{ $errors->first("num_people") }}</span>'+
-                            // ' @endif'+
+                            '<input type="text" id="num_people" class="kinds-inp numInput" name="num_people" pattern="^[a-zA-Z0-9]+$" maxlength="2" value="{{ old(num_people) }}">'+
                         '</li>'+
                     '</ol>'+
                 '</ul>'+
@@ -154,7 +213,6 @@
                 '</form>'+
             '</div>'+
         '</section>');
-        
         }else if(BtnEl.hasClass("reserve-Btn")){
             popoverBodyEL.after('<section class="register" id =register-field>'+
                                     '<div class="register-area">'+
@@ -167,11 +225,11 @@
                                             '</li>'+ 
                                             '<li>'+
                                                 '<span>人数</span>'+
-                                                '<input type="text" name="reserve_people">'+
+                                                '<input type="text" pattern="^[a-zA-Z0-9]+$" maxlength="2" value =0 name="reserve_people" class ="numInput" >'+
                                         '</li>'+
                                         '<li>'+
                                             '<span>テーブル番号</span>'+
-                                            '<input type="text" name="table_number">'+
+                                            '<input type="text" pattern="^[a-zA-Z0-9]+$" maxlength="2" value =0 name="table_number" class ="numInput" >'+
                                         '</li>'+                     
                                         '<li class="kinds">'+
                                             '<span>担当者</span>'+
@@ -189,11 +247,12 @@
                                         '</li>'+
                                         '<li>'+
                                             '<span>予約時間</span>'+
-                                            '<input type="text" name="reserve_time">'+
+                                            '<input type="time" name="reserve_time">'+
                                         '</li>'+
                                         '<li>'+
                                             '<span>制限</span>'+
-                                            '<input type="text" name="upper_limit" placeholder="￥">'+
+                                            '<input type="text" pattern="^[a-zA-Z0-9]+$" maxlength="6" value =0 name="upper_limit" placeholder="￥" class ="numInput">'+
+                                            // '<input type="text" pattern="^[a-zA-Z0-9]+$"  maxlength="5" value =0  name="upper_limit" placeholder="￥">'+
                                         '</li>'+
                                         '<li>'+
                                             '<span>備考</span>'+
@@ -242,7 +301,33 @@
                                     "</div>"+
                                 " </section>");
                             }
-    });
+                            var bottomPosition = HarnesPassive.offsetTop + HarnesPassive.offsetHeight;
+                            var leftPosition = HarnesPassive.offsetLeft + HarnesPassive.offsetWidth;
+                            var bottomFcPopover = FcPopover.offsetTop + FcPopover.offsetHeight;
+                            var leftFcPopover = FcPopover.offsetLeft + FcPopover.offsetWidth;
+                            var elementOffset = $(".fc-view-harness").offset();
+                            var elementY = elementOffset.top;
+                            var elementOffset = $(".fc-view-harness").offset();
+                            var elementY = elementOffset.top;
+                            console.log("bottomFcPopover"+bottomFcPopover)
+                            console.log("bottomPosition"+bottomPosition)
+
+                                //下にはみ出てしまった時の処理
+                            if(bottomPosition < bottomFcPopover && $(window).width() >=780){
+                                bottomPosition = bottomFcPopover -elementY -FcPopover.offsetHeight - (bottomFcPopover - bottomPosition)
+                                document.documentElement.style.setProperty('--calendarY', bottomPosition+"px");
+                            }
+                            //横にはみ出てしまった時の処理
+                            if(leftPosition < leftFcPopover && $(window).width() >=780){
+                                leftPosition   = leftFcPopover - FcPopover.offsetWidth -(leftFcPopover - leftPosition) 
+                                document.documentElement.style.setProperty('--calendarX', leftPosition+"px");    
+                            }
+                            });
+                        });
+$(document).on('input','.numInput',function(){
+    // 整数以外の文字を削除する
+    console.log("test");
+    this.value = this.value.replace(/[^0-9]/g, ''); 
 });
 $(document).on("click","#checkbox",function () {
     var listnumber = ""
@@ -256,11 +341,3 @@ $(document).on("click","#checkbox",function () {
         $('ol').removeClass("open").addClass("close");
     };
 });
-function updatecalendarTitle(jsEvent , view ){
-    var updateTitlecalendar = document.getElementById('calendar');
-    var calendarTitle = document.getElementById("#calendar-month");
-    var currentTitle = updateTitlecalendar.FullCalendar('getView').title;
-    calendarTitle.text(currentTitle);
-    }
-    $('#calendar').fullCalendar('option','viewRender',updatecalendarTitle);
-    updatecalendarTitle();

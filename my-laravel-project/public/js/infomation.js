@@ -5,7 +5,6 @@ $(document).ready(function(){
     $(infoAft).on('click', function(event) {
     if ($(event.target).closest(infoClose).length && !(event.target).closest("header")) 
         {
-        //console.log(information.before)
         $('body').removeClass("info-aft").addClass("info");
         $(information).empty();
     }
@@ -13,7 +12,6 @@ $(document).ready(function(){
     $(empName).on('click', function(event) {
         event.stopPropagation();
         if($(event.information).closest("span").length) {
-            //console.log("test");
             $('body').addClass("intell-aft");
     }
     });
