@@ -128,11 +128,12 @@ thead{
     }
 }
 .calendar-field{
-    @media screen and (max-width: 780px) {
         .fc-popover {
             top: var(--calendarY) !important;
-            left:var(--calendarX) !important;
-        }
+            @media screen and (min-width: 780px) {
+                left:var(--calendarX) !important;
+            }
+        // }
     }
     .fc-popover-header{
         @media screen and (max-width: 780px) {

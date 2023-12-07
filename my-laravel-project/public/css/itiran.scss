@@ -116,6 +116,7 @@ section{
             li{
                 width: 50%;
                 margin: 10px auto;
+                margin: 10px 0;
                 white-space: nowrap;
                 border-bottom: #000 solid 2px;
                 position: relative;
@@ -544,7 +545,11 @@ section{
     }
 }
 .attend-list{
-    width: 100%;
+    .emp-list-area .emp-name ul{
+        margin: 10px;
+     li{
+        width: 100%;
+        width: 100%;
     ul{
         height: 600px !important;
         width: 80%;

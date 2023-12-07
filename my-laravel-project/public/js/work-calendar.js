@@ -44,20 +44,19 @@
                     clickedElement.focus();
                             var calendarX = clickElement.clientX ;
                             var calendarY = clickElement.clientY-elementY;
-                            var HarnesPassiveY=document.getElementsByClassName("fc-view-harness-passive")[0];	
                             if( $(window).width() <=780){
-                                calendarY = HarnesPassiveY.scrollTop;
+                                calendarY = HarnesPassive.scrollTop;
                             }
-                            console.log(calendarY)
                             $(".fc-popover").remove();
                             if(!$(clickElement.target).hasClass("fc-daygrid-more-link")){
-                            $(".fc-view-harness").append("<div class='fc-popover  fc-day '>"+
+                            $(".fc-view-harness").append("<div class='fc-popover fc-more-popover  fc-day '>"+
                                                         "<div class = fc-popover-header><span class ='fc-popover-title'>"+formattedDate+"</span>"+
                                                         "<span class ='fc-popover-close fc-icon fc-icon-x' title ='close'></span></div>"+
                                                         "<div class = fc-popover-body></div>"+
                                                         "</div>");
                             }
                             document.documentElement.style.setProperty('--calendarY', calendarY+"px");
+                            document.documentElement.style.setProperty('--calendarX', calendarX+"px");
                             var FcPopoverBody = $(".fc-popover-body");
                             FcPopoverBody.prepend("<div id = 'popover-body-EL'><button class ='shift-Btn'>シフト登録</button><button class ='reserve-Btn'>予約登録</button><button class ='event-Btn'>イベント追加</button></div>");
                     });
@@ -66,6 +65,7 @@
         calendar.render();
 
     $(document).ready(function(){
+        var HarnesPassive=document.getElementsByClassName("fc-view-harness-passive")[0];	
         const kindsli = $(".kinds li");
         const kindsSelecter = $(".kinds-selecter");
         var ShiftBtn = $("#popover-body-EL");
@@ -94,10 +94,14 @@
         clickedElement.focus();
         var calendarX = clickElement.clientX ;         //leftの座標
         var calendarY = clickElement.clientY-elementY; //topの座標
-        var HarnesPassiveY=document.getElementsByClassName("fc-view-harness-passive")[0];	
+        // var HarnesPassive=document.getElementsByClassName("fc-view-harness-passive")[0];	
         if( $(window).width() <=780){
-            calendarY = HarnesPassiveY.scrollTop;
+            calendarY = HarnesPassive.scrollTop;
         }
+        var bottomPosition = HarnesPassive.offsetTop + HarnesPassive.offsetHeight;
+        var leftPosition = HarnesPassive.offsetLeft + HarnesPassive.offsetWidth;
+        console.log(leftPosition)
+        console.log(bottomPosition)
         document.documentElement.style.setProperty('--calendarY', calendarY+"px");
     });
 
@@ -206,7 +210,6 @@
                                         '<li>'+
                                             '<span>テーブル番号</span>'+
                                             '<input type="text" pattern="^[a-zA-Z0-9]+$" maxlength="2" value =0 name="table_number" class ="numInput" >'+
-                                            // '<input type="text" pattern="^[a-zA-Z0-9]+$"  maxlength="3" value =0 name="table_number" >'+
                                         '</li>'+                     
                                         '<li class="kinds">'+
                                             '<span>担当者</span>'+
@@ -279,6 +282,10 @@
                                     "</div>"+
                                 " </section>");
                             }
+    var bottomPosition = HarnesPassive.offsetTop + HarnesPassive.offsetHeight;
+    var leftPosition = HarnesPassive.offsetLeft + HarnesPassive.offsetWidth;
+    console.log(bottomPosition)
+    console.log(leftPosition)
     });
 });
 
@@ -299,11 +306,25 @@ $(document).on("click","#checkbox",function () {
         $('ol').removeClass("open").addClass("close");
     };
 });
-// function updatecalendarTitle(jsEvent , view ){
-//     var updateTitlecalendar = document.getElementById('calendar');
-//     var calendarTitle = document.getElementById("#calendar-month");
-//     var currentTitle = updateTitlecalendar.FullCalendar('getView').title;
-//     calendarTitle.text(currentTitle);
-//     }
-//     $('#calendar').fullCalendar('option','viewRender',updatecalendarTitle);
-//     updatecalendarTitle();
+
+
+
+function restrictElementToBounds() {
+    // 対象の要素を取得
+    var element = document.getElementsByClassName('fc-more-popover');
+    // ウィンドウの幅と高さを取得
+    var windowWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+    var windowHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+    console.log(windowWidth)
+    console.log(windowHeight)
+    // 要素の幅と高さを取得
+    var elementWidth = element.offsetWidth;
+    var elementHeight = element.offsetHeight;
+    // 要素がはみ出る場合は位置を調整
+    if (element.offsetLeft + elementWidth > windowWidth) {
+        element.style.left = (windowWidth - elementWidth) + 'px';
+    }
+    if (element.offsetTop + elementHeight > windowHeight) {
+        element.style.top = (windowHeight - elementHeight) + 'px';
+    }
+}

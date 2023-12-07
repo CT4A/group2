@@ -127,6 +127,7 @@ section span {
 .emp-list-area .emp-name ul li {
   width: 50%;
   margin: 10px auto;
+  margin: 10px 0;
   white-space: nowrap;
   border-bottom: #000 solid 2px;
   position: relative;
@@ -561,6 +562,9 @@ ul:not(.menu, .hamburgerContents ul) li span:not(header) {
 }
 
 .attend-list {
+  width: 100%;
+}
+.attend-list .emp-list-area .emp-name ul li {
   width: 100%;
 }
 .attend-list ul {

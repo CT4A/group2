@@ -121,9 +121,11 @@ thead tr th {
   height: 100%;
   width: 100%;
 }
-@media screen and (max-width: 780px) {
+.calendar-field .fc-popover {
+  top: var(--calendarY) !important;
+}
+@media screen and (min-width: 780px) {
   .calendar-field .fc-popover {
-    top: var(--calendarY) !important;
     left: var(--calendarX) !important;
   }
 }
