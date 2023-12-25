@@ -6,6 +6,8 @@ use App\Http\Middleware\RedirectIfAuthenticated;
 use App\Models\attend_leave;
 use App\Models\employee;
 use App\Models\slip_mg;
+use App\Models\salary;
+
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -14,7 +16,6 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 class EmployeeController extends Controller
 {
-
     public function index(){
         if (!Auth::user()->isAdmin()) {
             return redirect('/news');
@@ -49,24 +50,6 @@ class EmployeeController extends Controller
         return response();
     }
     public function HistoryEditor(Request $request){
-        // $validatedData = $request->validate([
-        //     'work_date' => 'required|date',
-        //     'attend_time' => 'required|time',
-        //     'leaving_work' => 'required|time',
-        //     'num_people' => 'required|numeric',
-        // ],[
-        //     'work_date.required'=>'日付を入力してください。',
-        //     'work_date.time'=>'日付を入力してください。例：10/31/1999',
-            
-        //     'attend_time.required'=>'出勤時間を入力してください。',
-        //     'attend_time.time'=>'出勤時間を入力してください。例：10:00:00',
-            
-        //     'leaving_work.required'=>'退勤時間を入力してください。',
-        //     'leaving_work.time'=>'退勤時間を入力してください。例：10:00:00',
-        //     'num_people.required'=>'同伴人数を入力してください。',
-        //     'num_people.numeric'=>'数字を入力してください。',
-        // ]);
-
         $existsattend = attend_leave::where([
                                     ['staff_id', $request->input('staff_id')],
                                     ['work_date', $request->input('work_date_old')]
@@ -297,89 +280,40 @@ class EmployeeController extends Controller
     //給料計算
     public function indexPay(Request $request)
     {
-        $subQuery = DB::table('slip_links')
-            ->select('slip_links.slip_id', DB::raw('COUNT(slip_links.staff_id) as cnt'))
-            ->join('slip_mgs', 'slip_links.slip_id', '=', 'slip_mgs.slip_id')
-            ->groupBy('slip_links.slip_id');
+        if(request()->has('date')){
+            $currentDate = $request->date;
+            $dateParts = explode('-', $currentDate);
+            $currentYear = $dateParts[0]; // 年
+            $currentMon = $dateParts[1]; // 月
+        }else{
+            $currentYear = now()->format('Y');
+            $currentMon = now()->format('m');
+        }
+        $staffs = employee::leftJoin("salarys","salarys.staff_id","=","employees.staff_id")
+                            ->select("employees.staff_id","employees.staff_name",
+                                    DB::raw('COALESCE(salarys.total,0) as total'),)
+                            ->whereMonth('salarys.salary_date', '=', $currentMon)
+                            ->whereYear('salarys.salary_date', '=', $currentYear)
+                            ->get();
+                            // return view('test',compact('staffs'));    
 
-        $slip = DB::table($subQuery, 'slip')
-            ->select('slip_links.staff_id', DB::raw('SUM(slip_mgs.total / slip.cnt) as total'))
-            ->join('slip_mgs', 'slip.slip_id', '=', 'slip_mgs.slip_id')
-            ->join('slip_links', 'slip_links.slip_id', '=', 'slip.slip_id')
-            ->groupBy('slip_links.staff_id');
-
-        $staff = DB::table('employees')
-            ->select(
-                'employees.staff_name',
-                'employees.staff_id',
-                DB::raw('SUM(FLOOR(TIMESTAMPDIFF(MINUTE, attend_leaves.attend_time, attend_leaves.leaving_work) / 30)) as total_time'),
-                DB::raw('SUM(FLOOR(TIMESTAMPDIFF(MINUTE, attend_leaves.attend_time, attend_leaves.leaving_work) / 30) * employees.hourly_wage) as total_salary'),
-                DB::raw('COUNT(attend_leaves.work_date) AS total_working_days'),
-                DB::raw('SUM(CASE
-                        WHEN attend_leaves.num_people > 0 THEN
-                            CASE
-                                WHEN attend_leaves.attend_time < "20:10:00" THEN attend_leaves.num_people * 2000
-                                WHEN attend_leaves.attend_time < "20:30:00" THEN attend_leaves.num_people * 1000
-                                ELSE 0
-                            END
-                        ELSE 0
-                    END) AS total_money_people')
-            )
-            ->join('attend_leaves', 'employees.staff_id', '=', 'attend_leaves.staff_id')
-            ->whereMonth('attend_leaves.work_date', '=', date('m'))
-            ->whereYear('attend_leaves.work_date', '=', date('Y'))
-            ->groupBy('employees.staff_id', 'employees.staff_name')
-            ->orderBy('employees.staff_id');
-
-        $result = DB::table($slip, 'slip')
-            ->rightJoinSub($staff, 'staff', function ($join) {
-                $join->on('slip.staff_id', '=', 'staff.staff_id');
-            })
-            ->select(
-                'staff.staff_id',
-                'staff.staff_name',
-                DB::raw('COALESCE(u, 0) as Earnings'),
-                DB::raw('total_salary + ((u - total_salary + total_money_people) * 0.1) as total_salary'),
-                'total_time',
-                'total_working_days',
-                'total_money_people',
-                'total_salary as basic_salary'
-            )
-            ->get();
-
-
-    
-        
-        return view('test',compact('result'));
-        // return view('pay-statement',compact('staffs'));
-        // return view('test',compact('staff'));
-    
+        return view('pay-statement',compact('staffs'));    
     }
     function personPay(Request $request){
         $staff_id = $request->id;
-
-        $results = DB::table('employees')
-        ->join('attend_leaves', 'employees.staff_id', '=', 'attend_leaves.staff_id')
-        ->leftJoin(DB::raw('(SELECT slip_links.staff_id, SUM(slip_mgs.total / slip.cnt) AS u
-                            FROM (
-                                SELECT slip_links.slip_id, COUNT(slip_links.staff_id) AS cnt
-                                FROM slip_links
-                                JOIN slip_mgs ON slip_links.slip_id = slip_mgs.slip_id
-                                GROUP BY slip_links.slip_id
-                            ) AS slip
-                            JOIN slip_mgs ON slip.slip_id = slip_mgs.slip_id
-                            JOIN slip_links ON slip_links.slip_id = slip.slip_id
-                            GROUP BY slip_links.staff_id) AS slip'), 'slip.staff_id', '=', 'staff.staff_id')
-        ->select('staff.staff_id', 'staff.staff_name', DB::raw('COALESCE(slip.u, 0) AS earnings'))
-        ->selectRaw('total_salary + ((slip.u - total_salary + total_money_people) * 0.1) AS total_salary')
-        ->select('total_time', 'total_working_days', 'total_money_people', 'total_salary AS basic_salary')
-        ->whereMonth('attend_leaves.work_date', '=', date('m'))
-        ->whereYear('attend_leaves.work_date', '=', date('Y'))
-        ->where('employees.staff_id',"=",$staff_id)
-        ->groupBy('employees.staff_id', 'employees.staff_name')
-        ->orderBy('employees.staff_id')
-        ->get();
-
+        $currentDate = $request->currentDate;
+        $dateParts = explode('-', $currentDate);
+        $year = $dateParts[0]; // Năm
+        $month = $dateParts[1]; // Tháng
+        $results = DB::table('salarys')->select("*")
+            ->join('employees', 'salarys.staff_id', '=', 'employees.staff_id')
+            ->where('salarys.staff_id',$staff_id)
+            ->whereMonth('salary_date', '=', $month)
+            ->whereYear('salary_date', '=', $year)              
+            ->get();
+        if($results->isEmpty()){
+            return response()->json(['message' => 'fail']);   
+        }
         return response()->json($results);
     }
 
@@ -416,4 +350,95 @@ class EmployeeController extends Controller
                 ->get();
         return view('pay-statement',compact('staffs'));
     }
+    function Calsalary(){
+        $results = DB::table('employees as e')
+        ->select(
+            'e.staff_id',
+            DB::raw('CASE  
+                        WHEN COALESCE(d.total, 0) = 0 OR COALESCE(a.basic_salary, 0) = 0 
+                        THEN 0
+                        ELSE  (d.total - a.basic_salary)*0.1 + a.basic_salary + COALESCE(a.total_money_people, 0)
+                    END AS total'),
+            DB::raw('CASE  
+                        WHEN COALESCE(d.total, 0) = 0 OR COALESCE(a.basic_salary, 0) = 0 
+                        THEN 0
+                        ELSE  ((d.total - a.basic_salary)*0.1 + a.basic_salary + COALESCE(a.total_money_people, 0))*0.1
+                    END AS deduction'),
+            DB::raw('CASE  
+                        WHEN COALESCE(d.total, 0) = 0 OR COALESCE(a.basic_salary, 0) = 0 
+                        THEN 0
+                        ELSE  (d.total - a.basic_salary)*0.1 + a.basic_salary + COALESCE(a.total_money_people, 0)-((d.total - a.basic_salary)*0.1 + a.basic_salary + COALESCE(a.total_money_people, 0))*0.1
+                    END AS total_branch'),
+            DB::raw('COALESCE(a.total_time, 0) as total_time'),
+            DB::raw('COALESCE(a.total_working_days, 0) as total_working_days'),
+            DB::raw('COALESCE(a.total_money_people, 0) as total_money_people'),
+            DB::raw('COALESCE(a.basic_salary, 0) as basic_salary')
+        )
+        ->leftJoin(DB::raw('(SELECT s.staff_id, SUM(b.total / a.cnt) as total
+                            FROM slip_links s
+                            JOIN (
+                                SELECT slip_id, COUNT(staff_id) as cnt
+                                FROM slip_links
+                                GROUP BY slip_id
+                            ) a ON a.slip_id = s.slip_id
+                            JOIN slip_mgs b ON b.slip_id = s.slip_id
+                            GROUP BY s.staff_id) as d'), 'd.staff_id', '=', 'e.staff_id')
+        ->leftJoin(DB::raw('(SELECT 
+                                    employees.staff_id,
+                                    SUM(
+                                        CASE 
+                                            WHEN attend_leaves.attend_time <= attend_leaves.leaving_work 
+                                                THEN FLOOR(TIMESTAMPDIFF(MINUTE, attend_leaves.attend_time, attend_leaves.leaving_work) / 30)
+                                            ELSE FLOOR(
+                                                        (TIMESTAMPDIFF(MINUTE, attend_leaves.attend_time, CAST("24:00:00" as time))
+                                                        + TIMESTAMPDIFF(MINUTE, CAST("00:00:00" as time), attend_leaves.leaving_work)) / 30
+                                                    )
+                                        END
+                                    ) AS total_time,
+                                    SUM(
+                                        CASE 
+                                            WHEN attend_leaves.attend_time <= attend_leaves.leaving_work 
+                                                THEN FLOOR(TIMESTAMPDIFF(MINUTE, attend_leaves.attend_time, attend_leaves.leaving_work) / 30)
+                                            ELSE FLOOR(
+                                                        (TIMESTAMPDIFF(MINUTE, attend_leaves.attend_time, CAST("24:00:00" as time))
+                                                        + TIMESTAMPDIFF(MINUTE, CAST("00:00:00" as time), attend_leaves.leaving_work)) / 30
+                                                    )
+                                        END * employees.hourly_wage
+                                    ) AS basic_salary,
+                                    COUNT(attend_leaves.work_date) AS total_working_days,
+                                    SUM(
+                                        CASE
+                                            WHEN attend_leaves.num_people > 0 THEN
+                                                CASE
+                                                    WHEN attend_leaves.attend_time < "20:10:00" THEN attend_leaves.num_people * 2000
+                                                    WHEN attend_leaves.attend_time < "20:30:00" THEN attend_leaves.num_people * 1000
+                                                    ELSE 0
+                                                END
+                                            ELSE 0
+                                        END
+                                    ) AS total_money_people
+                                FROM employees
+                                JOIN attend_leaves ON employees.staff_id = attend_leaves.staff_id
+                                WHERE MONTH(attend_leaves.work_date) = MONTH(CURRENT_DATE())
+                                    AND YEAR(attend_leaves.work_date) = YEAR(CURRENT_DATE())
+                                GROUP BY employees.staff_id) as a'), 'a.staff_id', '=', 'e.staff_id')
+        ->orderBy('e.staff_id')
+        ->get();
+        foreach ($results as $result) {
+            DB::table('salarys')->insert([
+                'staff_id' => $result->staff_id,
+                'basic_salary' => $result->basic_salary,
+                'total_working_days' => $result->total_working_days,
+                'total_time' => $result->total_time,
+                'total_money_people' => $result->total_money_people,
+                'deduction' => $result->deduction,
+                'total' => $result->total,
+                'total_branch' => $result->total_branch,
+        ]);
+        }
+        return view("test",compact('results'));
+    }
+    // function salary(){
+        
+    // }
 }

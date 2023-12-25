@@ -119,7 +119,8 @@ body {
 .fileter > div h2 {
   padding: 10px;
   font-weight: 800;
-  writing-mode: vertical-lr;
+  -ms-writing-mode: tb-lr;
+      writing-mode: vertical-lr;
   text-align: center;
   background: #7a7a7a;
   margin-left: 8px;

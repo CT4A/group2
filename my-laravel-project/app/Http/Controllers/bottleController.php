@@ -32,8 +32,8 @@ class bottleController extends Controller
         return redirect()->route('indexRegister')->with('message','登録完成しました。');
     }
     public function indexList(){
-        $liquors=liquor_mg::select('liquor_name','liquor_type','liquor_id')
-                        ->orderBy('liquor_id')
+        $liquors=liquor_mg::select('liquor_type','liquor_id')
+                        ->orderBy('liquor_type')
                         ->get();
         return view('list-bottle',compact('liquors'));
     }
@@ -76,14 +76,11 @@ class bottleController extends Controller
         }
     } 
     public function GetInfoBottle(Request $request){
-       
             $id = $request->input("id");
             $bottleInfo = DB::table("liquor_mgs")
-            ->select('liquor_mgs.*','liquor_links.*','customers.*')
-            ->join('liquor_links','liquor_mgs.liquor_id','=','liquor_links.liquor_id')
-            ->join('customers','liquor_links.customer_id','=','customers.customer_id')
-            ->where('liquor_mgs.liquor_id',$id)
-            ->get();
+                    ->select('*')
+                    ->where('liquor_id',$id)
+                    ->get();
         return response()->json($bottleInfo);
         
     }

@@ -25,16 +25,17 @@
             <ul>
                 @foreach ($staffs as $staff)
                 <a href="{{route('history',['id' => $staff->staff_id])}}">
-                    <li id="{{$staff->staff_id}}" >
-                        <span class="StaffID">{{$staff->staff_id}}</span>
-                        <span class="StaffName">{{$staff->staff_name}}</span>
-                    </li>
-                </a>
+                        <li id="{{$staff->staff_id}}" >
+                            <span class="StaffID">{{$staff->staff_id}}</span>
+                            <span class="StaffName">{{$staff->staff_name}}</span>
+                        </li>
+                    </a>
                 @endforeach
             </ul>
     </div>
 </div>
 @else
+@section('content')
     <title>出勤用社員一覧</title>
     </head>
     <body>
@@ -65,6 +66,5 @@
 @section('scripts')
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="{{asset('js/ListAttend.js')}}"></script>
-@endsection
 </body>
 </html>

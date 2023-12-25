@@ -32,11 +32,18 @@ class newsController extends Controller
     public function register(Request $request){
         $staff_id = Auth::user()->staff_id;
         $today = Carbon::now()->format('Y-m-d');
+        // news_date
+        if ($request->has('news_date') && !empty($request->news_date)) {
+            
+            $news_date = $request->news_date;
+            } else {
+                $news_date = $today;
+            }
         notification::create([
             'staff_id' => $staff_id,
             'message' => $request->remarks,
-            'day' =>$today,
+            'day' =>$news_date,
         ]);
-        return redirect()->route(('news'));
+        return redirect()->route('news');
     }
 }

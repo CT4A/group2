@@ -34,17 +34,29 @@ class resrveController extends Controller
             // 'reserve_time.time'=>'時間を入力してください。例：23:00',
             'upper_limit.numeric'=>'数字を入力してください。',
         ]);
+        if ($request->has('upper_limit') && !empty($request->upper_limit)) {
+            
+            $upper_limit = $request->upper_limit;
+            } else {
+                $upper_limit = 0;
+            }
+        if ($request->has('table_num') && !empty($request->table_num)) {
+        
+            $table_num = $request->table_num;
+            } else {
+                $table_num = 0;
+            }
         reserve_mg::create([
             'customer_name' => $request->input('customer_name'),
             'staff_id'=>$request->input('staff_id'),
             'reserve_date' => $request->input('reserve_date'),
             'reserve_time' => $request->input('reserve_time'),
             'reserve_people'=>$request->input('reserve_people'),
-            'table_num' =>$request->input('table_num'),
             'remarks' => $request->input('remarks'),
-            'upper_limit'=>$request->input('upper_limit'),
+            'upper_limit'=>$upper_limit,
         ]);
-        return redirect()->route('indexResRegister')->with('message','予約しました。');
+        return back();
+        // return redirect()->route('indexResRegister')->with('message','予約しました。');
     }
 }
   

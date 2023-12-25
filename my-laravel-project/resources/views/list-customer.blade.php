@@ -44,11 +44,11 @@
                 </li>
                 <li>
                     <span>今月の総合金額</span>
-                    <span id="this_month_money"></span>
+                    <span id="this_month_money" class="money"></span>
                 </li>
                 <li>
                     <span>先月の総合金額</span>
-                    <span id="that_month_money"></span>
+                    <span id="that_month_money" class="money"></span>
                 </li>
                 <li>
                 <form action = "#">

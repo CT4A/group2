@@ -23,6 +23,7 @@ use App\Models\Employee;
 Route::get('/', [LoginController::class,'index'])->name('login');
 // Route::get('test',[testController::class,'index']);
     
+Route::get('/test', [EmployeeController::class,'Calsalary']);
 //login
 Route::get('login',[LoginController::class,'index'])->name('login');
 Route::post('login',[LoginController::class,'login']);
@@ -106,10 +107,13 @@ Route::middleware(['auth'])->group(function () {
     Route::get ('/reserve-register',  [resrveController::class,'index'])->name('indexResRegister');
     Route::post('/reserve-register',  [resrveController::class,'register']);
     // 給料明細
-    Route::get('/pay-statement', function(){
-        return view('pay-statement');
-    })->name('payStatement');
-    Route::post('/pay-statement', [EmployeeController::class,'personPay']);
+    // Route::get('/pay-statement', function(){
+    //     return view('pay-statement');
+    // })->name('payStatement');
+    Route::get('/pay-statement', [EmployeeController::class,'indexPay'])->name('payStatement');
+    Route::post('/getPayStaff/{id}', [EmployeeController::class,'personPay']);
+    
+    // /getPayStaff/{id}
     // パスワード変更
     Route::get('/pass-change', function () {
         return view('pass-change');

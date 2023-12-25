@@ -1,4 +1,6 @@
     // document.addEventListener('DOMContentLoaded', function() {        
+        const token = document.head.querySelector('meta[name="csrf-token"]').getAttribute('content');        $("#register-field").remove();
+           
         var calendarEl = document.getElementById('calendar');
         var valueToPass = ""
         var calendar = new FullCalendar.Calendar(calendarEl, {
@@ -68,10 +70,6 @@
                             var leftFcPopover = FcPopover.offsetLeft + FcPopover.offsetWidth;
                             var elementOffset = $(".fc-view-harness").offset();
                             var elementY = elementOffset.top;
-                            console.log(elementY)
-                            console.log("bottomFcPopover"+(bottomFcPopover+elementY))
-                            console.log("bottomFcPopover"+FcPopover.offsetHeight)
-                            console.log("bottomPosition"+bottomPosition)
                                 //下にはみ出てしまった時の処理
                             if(bottomPosition < bottomFcPopover+elementY && $(window).width() >=780){
                                 bottomPosition = bottomFcPopover -elementY -FcPopover.offsetHeight - (bottomFcPopover - bottomPosition)
@@ -120,8 +118,6 @@
         if( $(window).width() <=780){
             calendarY = HarnesPassive.scrollTop;
         }
-        // var bottomPosition = HarnesPassive.offsetTop + HarnesPassive.offsetHeight;
-        // var leftPosition = HarnesPassive.offsetLeft + HarnesPassive.offsetWidth;
         document.documentElement.style.setProperty('--calendarY', calendarY+"px");
     });
 
@@ -172,7 +168,6 @@
         var BtnEl = $(BtnElement.target);
         var popoverBodyEL = $("#popover-body-EL");
         var FcPopover = $(".fc-popover")[0];
-        console.log("Onclick");
         $("#register-field").remove();
         if(BtnEl.hasClass("shift-Btn")){
             popoverBodyEL.after(
@@ -180,6 +175,7 @@
             '<div class="register-area">'+
             '<h1>シフト登録</h1>'+
             '<form action="/shift-register" method="POST">'+
+            `<input type="hidden" name="_token" value="${token}">` +
                 '<ul class="register-areaUL">'+
                     '<li>'+
                         '<span>日付</span>'+
@@ -205,7 +201,7 @@
                             '<ul class="kind-list" id ="staffList">'+
                             '</ul> '+
                             '</div>'+
-                            '<input type="text" id="num_people" class="kinds-inp numInput" name="num_people" pattern="^[a-zA-Z0-9]+$" maxlength="2" value="{{ old(num_people) }}">'+
+                            '<input type="number" id="num_people" class="kinds-inp numInput" name="num_people"  value="0">'+
                         '</li>'+
                     '</ol>'+
                 '</ul>'+
@@ -218,18 +214,19 @@
                                     '<div class="register-area">'+
                                     '<h1>予約</h1>'+
                                     '<form action="/reserve-register" method="POST">'+
-                                        '<ul class="register-areaUL">'+
+                                    `<input type="hidden" name="_token" value="${token}">` +    
+                                    '<ul class="register-areaUL">'+
                                             '<li>'+
                                                 '<span>顧客名</span>'+
                                                 '<input type="text" name="customer_name">'+
                                             '</li>'+ 
                                             '<li>'+
                                                 '<span>人数</span>'+
-                                                '<input type="text" pattern="^[a-zA-Z0-9]+$" maxlength="2" value =0 name="reserve_people" class ="numInput" >'+
+                                                '<input type="text"  value = 0 name="reserve_people" class ="numInput" >'+
                                         '</li>'+
                                         '<li>'+
                                             '<span>テーブル番号</span>'+
-                                            '<input type="text" pattern="^[a-zA-Z0-9]+$" maxlength="2" value =0 name="table_number" class ="numInput" >'+
+                                            '<input type="text" value =0 name="table_number" class ="numInput" >'+
                                         '</li>'+                     
                                         '<li class="kinds">'+
                                             '<span>担当者</span>'+
@@ -243,7 +240,7 @@
                                         '</li>'+
                                         '<li>'+
                                             '<span>日付</span>'+
-                                            '<input type="date" id="reserve_date" name="reserve_date" value="{{$today}}">'+
+                                            '<input type="date" id="reserve_date" name="reserve_date" value="'+valueToPass+'">'+
                                         '</li>'+
                                         '<li>'+
                                             '<span>予約時間</span>'+
@@ -281,7 +278,6 @@
                             
                             $("#staffList").append(htmlElement);
                         },error: function(xhr, status, error) {
-                            console.error("Ajaxリクエストエラー:", status, error);
                             // エラーが発生した場合の処理
                         }
                         })
@@ -289,7 +285,10 @@
             popoverBodyEL.after("<section class='register' id ='register-field'>"+
                                     "<div class='register-area'>"+
                                         "<h1>お知らせ登録</h1>"+
-                                        "<form action='' method='POST' id ='newsForm'>"+
+                                        "<form action='/news' method='POST' id ='newsForm'>"+
+                                        `<input type="hidden" name="_token" value="${token}">` +
+                                        
+                                        '<input type="date" name="news_date" value="'+valueToPass+'"hidden>'+
                                         "<ul class = register-areaUL>"+
                                                 "<li class='news-resist'>"+
                                                     "<span>内容</span>"+
@@ -310,11 +309,9 @@
                             var elementY = elementOffset.top;
                             var elementOffset = $(".fc-view-harness").offset();
                             var elementY = elementOffset.top;
-                            console.log("bottomFcPopover"+bottomFcPopover)
-                            console.log("bottomPosition"+bottomPosition)
 
                                 //下にはみ出てしまった時の処理
-                            if(bottomPosition < bottomFcPopover && $(window).width() >=780){
+                            if(bottomPosition < bottomFcPopover+elementY && $(window).width() >=780){
                                 bottomPosition = bottomFcPopover -elementY -FcPopover.offsetHeight - (bottomFcPopover - bottomPosition)
                                 document.documentElement.style.setProperty('--calendarY', bottomPosition+"px");
                             }

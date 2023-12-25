@@ -125,6 +125,9 @@ html {
 .register-area .register-areaUL li input::-moz-placeholder {
   color: rgba(255, 215, 0, 0.8);
 }
+.register-area .register-areaUL li input:-ms-input-placeholder {
+  color: rgba(255, 215, 0, 0.8);
+}
 .register-area .register-areaUL li input::placeholder {
   color: rgba(255, 215, 0, 0.8);
 }

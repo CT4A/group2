@@ -23,6 +23,9 @@
                         <div class="kinds-selecter">
                             <span>選択してください</span>
                             <ul class="kind-list" id="">
+                                @foreach ($liquors as $liquor)
+                                    <li data='{{$liquor->liquor_type}}'>{{$liquor->liquor_type}}</li>
+                                @endforeach
                                 <li>その他</li>
                             </ul>
                         </div>

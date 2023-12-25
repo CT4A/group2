@@ -1,6 +1,4 @@
 $(document).ready(function(){
-
-
     $("li").click(function(){
         window.valueToPass= $(this).attr("id");
         localStorage.setItem("myValue",valueToPass);
@@ -15,7 +13,9 @@ $(document).ready(function(){
       }
     }
   });
-    function AttendInfo(data) {
-        
-    }
+  var pageTitle = document.title;
+  if(pageTitle =="出勤用社員一覧"){
+    console.log(pageTitle)
+    document.documentElement.style.setProperty('--none', 'none');
+  }
 });

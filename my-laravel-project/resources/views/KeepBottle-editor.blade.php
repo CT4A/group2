@@ -6,6 +6,7 @@
 <link rel="stylesheet" href="./css/information.css">
 @endsection
 @section('content')
+
     <section class="register">
         <div class="register-area">
             <h1>キープボトル情報編集</h1>

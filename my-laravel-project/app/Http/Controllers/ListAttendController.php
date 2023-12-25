@@ -12,6 +12,5 @@ class ListAttendController extends Controller
             return view('list-attend',compact('staffs'));
         }
         return redirect()->route('news');
-    }
-    
+    }    
 }

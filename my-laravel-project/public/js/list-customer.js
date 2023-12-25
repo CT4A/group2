@@ -30,10 +30,14 @@ $(document).ready(function(){
         success: function (data) {
           showInfo(data["customerInfo"][0]);
           showMoney(data["slipMgsTotal"][0]);
+          $(".money").each(function(){
+            moneytxt = $(this).text();
+            console.log(moneytxt.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","))
+            $(this).text(moneytxt.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+"円");
+          })
         }
       });
     });
-
     //顧客の情報を表示する
     function showInfo(data){
       $("#TxtNameHeader").text(data["customer_name"]+"様の情報");
@@ -67,6 +71,7 @@ $(document).ready(function(){
     $("#editBtn").click(function (e) { 
       e.preventDefault();
       var customer_id = $("#customer_name").attr("data-id");
+      
       if(!isNaN(customer_id)){
         window.location.href = "/customer-editor?id=" + customer_id;
       }else{

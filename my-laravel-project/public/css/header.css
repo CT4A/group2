@@ -1,3 +1,7 @@
+:root {
+  --none:flex;
+}
+
 * {
   font-family: serif;
 }
@@ -54,7 +58,7 @@ header {
   margin: 0px auto 10px;
   background: #333;
   border-bottom: #c1ab05 solid 3px;
-  display: flex;
+  display: var(--none);
   font-size: 16px;
   z-index: 9999;
 }
@@ -138,6 +142,7 @@ header .menu_list ol li {
 }
 header .menu_list ol li a {
   opacity: 0;
+  position: -webkit-sticky;
   position: sticky;
   z-index: 10;
 }

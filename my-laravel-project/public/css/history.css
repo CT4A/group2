@@ -12,9 +12,14 @@
   border: solid 1px rgba(0, 0, 0, 0.2901960784);
   width: 100% !important;
   height: 80% !important;
-  max-width: 80%;
+  max-width: 65%;
   max-height: 100%;
   margin: auto;
+}
+@media screen and (max-width: 780px) {
+  .history #History-Graph #graph {
+    max-width: 100%;
+  }
 }
 .history .history_item {
   display: flex;
@@ -143,7 +148,6 @@
   position: relative;
   border-bottom: solid #000 1px;
   margin: auto;
-  width: 30%;
 }
 .history .HistoryEmp::after {
   content: "";

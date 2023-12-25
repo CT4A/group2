@@ -24,6 +24,11 @@ main{
     display: block;
     }
 }
+.attend-list{
+    width: 100% !important;
+    height: 100% !important  ;
+
+}
 section{
     width: 80%;
     height: 100%;
@@ -90,7 +95,6 @@ section{
         }
     }
     .emp-name{
-
         ul{
             a{
                 transition: all 0.5s;
@@ -114,9 +118,10 @@ section{
             overflow-y: scroll;
             overflow-x: hidden;
             li{
-                width: 50%;
+                width: 370px;
+                max-width: 100%;
                 margin: 10px auto;
-                margin: 10px 0;
+
                 white-space: nowrap;
                 border-bottom: #000 solid 2px;
                 position: relative;
@@ -546,7 +551,7 @@ section{
 }
 .attend-list{
     .emp-list-area .emp-name ul{
-        margin: 10px;
+        margin:  auto;
      li{
         width: 100%;
         width: 100%;

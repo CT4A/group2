@@ -82,10 +82,14 @@ $(document).ready(function(){
     $("#editBtn").click(function (e) { 
       e.preventDefault();
       var staff_id = $("#staff_id").text();
-
       if(!isNaN(staff_id)){
         window.location.href = "/emp-editor?id=" + staff_id;
       }else{
         alert("スタッフを選択してください。");
-      }});
+      }
+    });
+    $(".money").each(function(){
+      moneytxt = $(this).text();
+      $(this).text(moneytxt.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+"円");
+    })
 });

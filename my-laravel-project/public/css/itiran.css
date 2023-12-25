@@ -34,6 +34,11 @@ main {
   }
 }
 
+.attend-list {
+  width: 100% !important;
+  height: 100% !important;
+}
+
 section {
   width: 80%;
   height: 100%;
@@ -125,9 +130,9 @@ section span {
   line-height: 2;
 }
 .emp-list-area .emp-name ul li {
-  width: 50%;
+  width: 370px;
+  max-width: 100%;
   margin: 10px auto;
-  margin: 10px 0;
   white-space: nowrap;
   border-bottom: #000 solid 2px;
   position: relative;
@@ -562,7 +567,7 @@ ul:not(.menu, .hamburgerContents ul) li span:not(header) {
 }
 
 .attend-list .emp-list-area .emp-name ul {
-  margin: 10px;
+  margin: auto;
 }
 .attend-list .emp-list-area .emp-name ul li {
   width: 100%;
@@ -612,6 +617,10 @@ ul:not(.menu, .hamburgerContents ul) li span:not(header) {
     font-size: 20px;
   }
   input::-moz-placeholder {
+    width: 100%;
+    font-size: 20px;
+  }
+  input:-ms-input-placeholder {
     width: 100%;
     font-size: 20px;
   }

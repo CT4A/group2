@@ -10,9 +10,12 @@
                 border: solid 1px #0000004a;
                 width: 100% !important; //chart.js自動サイズ変更対策
                 height: 80% !important;//chart.js自動サイズ変更対策
-                max-width: 80%;
+                max-width: 65%;
                 max-height: 100%;
-                margin: auto;                
+                margin: auto;
+                @media screen and (max-width:780px) {
+                 max-width: 100%;   
+                }
             }
         }
         display: grid;
@@ -139,7 +142,6 @@
         position: relative;
         border-bottom:solid #000 1px;
         margin: auto;
-        width: 30%;
 
         &::after{
             content: "";

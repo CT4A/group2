@@ -12,8 +12,6 @@ class CustomerController extends Controller
     public function index(){
         $customers=Customer::select('customer_id','customer_name')->get();
         return view('list-customer',compact('customers'));
-        // return view('test');
-        
     }
     //編集表示
     public function indexCusEditor(Request $request){

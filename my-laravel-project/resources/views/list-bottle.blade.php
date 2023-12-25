@@ -16,7 +16,7 @@
         <div class="emp-name">
         <ul>
             @foreach ($liquors as $liquor)
-                <li><span data-id="{{$liquor->liquor_id}}">{{$liquor->liquor_name}}</span></li>
+                <li><span data-id="{{$liquor->liquor_id}}">{{$liquor->liquor_type}}</span></li>
             @endforeach
         </ul>
     </div>
