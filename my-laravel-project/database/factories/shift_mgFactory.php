@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\shift_mg;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -20,11 +21,27 @@ class shift_mgFactory extends Factory
         // $start_time=fake()->time();
         $start_time  = Carbon::parse('20:00:00')->addMinutes(rand(1, 60));
         $end_time    = Carbon::parse('20:00:00')->addMinutes(rand(180, 480));
+        
+        $staff_id = $this->createStaffId();
+        $request_date = $this->createdateTimeRequeset();
+        
+        $checkPrimary = shift_mg::where([
+            ["staff_id",$staff_id],
+            ["request_date",$request_date]
+        ])->exists();
+
+        while($checkPrimary){
+            $staff_id = $this->createStaffId();
+            $request_date = $this->createdateTimeRequeset();
+            
+            $checkPrimary = shift_mg::where([
+                ["staff_id",$staff_id],
+                ["request_date",$request_date]
+            ])->exists();
+    }
         return [
-            'staff_id'=>function(){
-                return \App\Models\employee::inRandomOrder()->first()->staff_id;
-            },
-            'request_date'=>$this->createdateTimeRequeset(),
+            'staff_id'=>$staff_id,
+            'request_date'=>$request_date,
             'start_time'=> $start_time,
             'end_time'=>$end_time
             //
@@ -34,5 +51,8 @@ class shift_mgFactory extends Factory
         $da = fake()->dateTimeThisMonth('+12 days');
         // $da = explode(' ',$da);
         return $da->format('Y-m-d');
+    }
+    function createStaffId(){
+        return \App\Models\employee::inRandomOrder()->first()->staff_id;
     }
 }

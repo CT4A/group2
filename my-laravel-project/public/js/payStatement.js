@@ -49,7 +49,11 @@ $(document).ready(function(){
             $('#salary').before('<p>今月出勤しませんでした</p>');
           } else {
             let response = data[0];
+<<<<<<< HEAD
             $('#TxtNameHeader').text(response.staff_name+"さんの給料明細");
+=======
+            
+>>>>>>> 1b345df3a67aacfae32ed016193e2345cb3df18c
             $('#basic_salary').text(response.basic_salary+"円");
             $('#total_working_days').text(response.total_working_days+"円");
             $('#total_time').text(response.total_time+"円");
@@ -127,6 +131,7 @@ $(document).ready(function(){
       }
       window.location.href = '?date='+currentDate;
     });
+<<<<<<< HEAD
     $(".emp-name ul li span").each(function(){
       console.log(this.textContent)
       var empstr =$(this).text()
@@ -137,4 +142,7 @@ $(document).ready(function(){
         $(this).textContent = empstrlim
     };
     })  
+=======
+    
+>>>>>>> 1b345df3a67aacfae32ed016193e2345cb3df18c
 });

@@ -19,7 +19,7 @@ return new class extends Migration
         Schema::create('slip_mgs', function (Blueprint $table) {
             $table->unsignedBigInteger('slip_id')->autoIncrement();
             $table->unsignedBigInteger('customer_id');
-            $table->dateTime('ap_day');
+            $table->date('ap_day');
             $table->unsignedInteger('total');
             $table->unsignedBigInteger('responsibility');//入力担当者ID
             $table->rememberToken();

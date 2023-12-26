@@ -12,12 +12,12 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('salarys', function (Blueprint $table) {
-            $table->unsignedBigInteger('staff_id')->primary();
-            $table->timestamp('salary_date')->useCurrent();
-            $table->unsignedBigInteger('basic_salary');
-            $table->unsignedBigInteger('total_working_days');
-            $table->unsignedBigInteger('total_time');
-            $table->unsignedBigInteger('total_money_people');//同伴金額
+            $table->unsignedBigInteger('staff_id')->primary();//ok
+            $table->timestamp('salary_date')->useCurrent();//ok
+            $table->unsignedBigInteger('basic_salary');//ok
+            $table->unsignedBigInteger('total_working_days');//ok
+            $table->unsignedBigInteger('total_time');//ok
+            $table->unsignedBigInteger('total_money_people');//同伴金額//ok
             $table->unsignedBigInteger('deduction');//控除金額
             $table->unsignedBigInteger('total');//総合金額
             $table->unsignedBigInteger('total_branch');//総支給額（手取り額）
@@ -25,6 +25,9 @@ return new class extends Migration
             $table->timestamps(); 
             //外部キー
             $table->foreign('staff_id')->references('staff_id')->on('employees');
+
+            $table->primary(['staff_id','salary_date']);
+
         });
     }
 
