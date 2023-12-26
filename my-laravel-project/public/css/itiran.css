@@ -80,10 +80,12 @@ section span {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 80%;
+  width: 60%;
+  transition: all 0.5s;
   margin: 50px auto;
   background-color: #F6F6F6;
   border-radius: 25px;
+  box-shadow: 0 0px 3px 0px rgba(0, 0, 0, 0.5);
 }
 .emp-list-area .search button {
   background-color: #F6F6F6;
@@ -107,14 +109,16 @@ section span {
   outline: none;
 }
 .emp-list-area .emp-name ul {
+  width: 60%;
+  margin: auto;
   transition: all 0.5s;
-  align-content: baseline;
-  justify-content: center;
-  align-items: center;
   display: grid;
   height: 300px;
   overflow-y: scroll;
   overflow-x: hidden;
+}
+.emp-list-area .emp-name ul p {
+  text-align: center;
 }
 .emp-list-area .emp-name ul a {
   transition: all 0.5s;
@@ -130,9 +134,9 @@ section span {
   line-height: 2;
 }
 .emp-list-area .emp-name ul li {
-  width: 370px;
+  width: 470px;
   max-width: 100%;
-  margin: 10px auto;
+  margin: 10px;
   white-space: nowrap;
   border-bottom: #000 solid 2px;
   position: relative;
@@ -165,7 +169,6 @@ section span {
 }
 .staff-profile form {
   padding: 5px 15px;
-  display: flex;
   border: solid #000 3px;
   border-radius: 25px;
 }
@@ -175,20 +178,15 @@ section span {
      object-fit: cover;
 }
 .staff-profile form button {
-  width: 0px;
-  padding: 0px;
+  display: flex;
+  align-items: center;
   font-weight: 800;
   background: none;
   outline: none;
   border: none;
-  opacity: 0;
   overflow: hidden;
   white-space: nowrap;
-}
-.staff-profile form:hover button {
-  opacity: 1;
   transition: width 0.5s;
-  width: 50px;
 }
 
 .intell {
@@ -280,6 +278,9 @@ ul:not(.menu, .hamburgerContents ul) li span {
 ul:not(.menu, .hamburgerContents ul) li span:not(header) {
   margin: 10px;
 }
+ul:not(.menu, .hamburgerContents ul) li span:not(header) :nth-child(0) {
+  white-space: nowrap;
+}
 
 @media screen and (max-width: 780px) {
   .intell-aft {
@@ -349,6 +350,9 @@ ul:not(.menu, .hamburgerContents ul) li span:not(header) {
   width: 90%;
   height: 16px;
   margin: auto;
+}
+.bill-list .bill-header div {
+  margin: 10px auto;
 }
 .bill-list .bill-list-items {
   width: 90%;
@@ -617,10 +621,6 @@ ul:not(.menu, .hamburgerContents ul) li span:not(header) {
     font-size: 20px;
   }
   input::-moz-placeholder {
-    width: 100%;
-    font-size: 20px;
-  }
-  input:-ms-input-placeholder {
     width: 100%;
     font-size: 20px;
   }

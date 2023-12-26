@@ -55,11 +55,8 @@
                 @endphp
 
                 @foreach ($slips as $slip)
-                    @if ($slip->ap_day !== $previousDate)
-
-                    @endif
-                        @php
-                    //日付のフィルターの処理    
+                @php
+    //日付のフィルターの処理    
                         //比較日付定義
                             $currentDate = new DateTime(); 
                             $oneYearAgo = clone $currentDate;
@@ -92,19 +89,34 @@
                             }else{
                                 $totalFilter = "money1";
                             }
-                        @endphp
-                        <ul>
-                            <span class="timer">{{date('Y-m-d',strtotime($slip->ap_day))   }}</span>
-                            <li data-filter="{{$timeFilter .' '. $totalFilter}}">
-                                <span class="customer_name">{{$slip->customer_name}}</span>
-                                <span class="staff_name">{{$slip->staff_name}}</span>
-                                <span class="money">{{$slip->total}}</span>
-                            </li>
-                    @php
-                        $previousDate = $slip->ap_day;
-                    @endphp
-                    </ul>
-                @endforeach
+    @endphp
+
+    @if ($slip->ap_day !== $previousDate)
+        @if (isset($currentUl))
+            </ul>
+        @endif
+
+        <ul>
+            <span class="timer">{{ date('Y-m-d', strtotime($slip->ap_day)) }}</span>
+            @php
+                $currentUl = true;
+            @endphp
+    @endif
+
+    <li data-filter="{{ $timeFilter . ' ' . $totalFilter }}">
+        <span class="customer_name">{{ $slip->customer_name }}</span>
+        <span class="staff_name">{{ $slip->staff_name }}</span>
+        <span class="money">{{ $slip->total }}</span>
+    </li>
+
+    @php
+        $previousDate = $slip->ap_day;
+    @endphp
+@endforeach
+
+@if (isset($currentUl))
+    </ul>
+@endif
             </div>
     </section>
 

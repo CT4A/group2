@@ -77,7 +77,7 @@ $today = Carbon::now()->format('Y/m/d');
                         @endif
                     <li>
                         <span>日付</span>
-                        <input type="text" name="liquor_day" value="{{$today}}">
+                        <input type="date" name="liquor_day" value="{{$today}}">
                     </li>
                     @if ($errors->has('liquor_day'))
                         <span class="error">{{ $errors->first('liquor_day') }}</span>

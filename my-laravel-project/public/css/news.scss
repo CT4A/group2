@@ -211,6 +211,19 @@
     padding: 10px 20px 20px;
     font-size: 16px;
     display: flex;
+    .news-edit{
+        display: grid;
+        button{
+            font-size: 18px;
+            margin: 5px;
+            padding: 5px 10px;
+            box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.1);
+            border: 0px;
+            border-radius: 25px;
+            background-color: #fff;
+
+        }
+    }
 }
 .newspage-link {
     word-wrap: break-word;

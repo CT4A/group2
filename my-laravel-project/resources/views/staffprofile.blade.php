@@ -4,7 +4,6 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 @endsection
 @section('title', '個人情報')
-
 @section('content')
     <section class="staff-profile">
         <div class="intell-aera" itemscope itemtype="http://schema.org/Person">
@@ -35,11 +34,13 @@
                     <span id="remarks">{{$staff->remarks}}</span>
                 </li>
                 <li>
-                    <form action="#">
-                        <img src="img\edit.png" alt="">
-                        <button id ="editBtn">編集</button>
-                    </form>
-                </li>
+                    <form action = "#">
+                            <button id="editBtn">    
+                                <img src="img\edit.png" alt="">
+                                <span>編集</span>
+                            </button>
+                        </form>
+                    </li>
             </ul>
         </div>
         @csrf

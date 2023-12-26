@@ -31,7 +31,7 @@ html {
 }
 .register-area form {
   width: 80%;
-  margin: 10%;
+  margin: 5% 10%;
 }
 @media screen and (max-width: 780px) {
   .register-area form {
@@ -125,9 +125,6 @@ html {
 .register-area .register-areaUL li input::-moz-placeholder {
   color: rgba(255, 215, 0, 0.8);
 }
-.register-area .register-areaUL li input:-ms-input-placeholder {
-  color: rgba(255, 215, 0, 0.8);
-}
 .register-area .register-areaUL li input::placeholder {
   color: rgba(255, 215, 0, 0.8);
 }
@@ -172,6 +169,16 @@ html {
   background: none;
   border: none;
   font-size: 24px;
+  position: relative;
+}
+.register-area .register-areaUL input[type=date]::-webkit-calendar-picker-indicator {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
 }
 .register-area .register-areaUL .plus-btn .plus {
   display: flex;

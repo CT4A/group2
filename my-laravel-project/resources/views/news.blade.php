@@ -36,6 +36,12 @@ $today = Carbon::now()->format('Y/m/d');
                                 </div>
                                 <div class="newspage-people ">{{$notification->staff_name}}</div>
                                 <p class="newspage-link">{{$notification->message}} </p>
+                                @if (Auth::user()->isAdmin())
+                                <div class="news-edit">
+                                    <button>編集</button>
+                                    <button>削除</button>
+                                </div>
+                                @endif
                             </div>
                         </div>
                     </div>

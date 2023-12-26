@@ -68,10 +68,12 @@ section{
         display: flex;
         justify-content: center;
         align-items: center;
-        width: 80%;
+        width: 60%;
+        transition: all 0.5s;
         margin: 50px auto;
         background-color: $form-color;
         border-radius: 25px;
+        box-shadow: 0 0px 3px 0px rgba(0,0,0,0.5);
         button{
             background-color: $form-color;
             border: solid 1px $form-color;
@@ -96,6 +98,12 @@ section{
     }
     .emp-name{
         ul{
+            width: 60%;
+            // width: fit-content;
+            margin: auto;
+            p{
+                text-align: center;
+            }
             a{
                 transition: all 0.5s;
                 &[style*="display: none"]{
@@ -110,18 +118,17 @@ section{
                 }
             }
             transition: all 0.5s;
-            align-content: baseline;
-            justify-content: center;
-            align-items: center;
+            // align-content: baseline;
+            // justify-content: center;
+            // align-items: center;
             display: grid;
             height: 300px;
             overflow-y: scroll;
             overflow-x: hidden;
             li{
-                width: 370px;
+                width: 470px;
                 max-width: 100%;
-                margin: 10px auto;
-
+                margin: 10px;
                 white-space: nowrap;
                 border-bottom: #000 solid 2px;
                 position: relative;
@@ -155,7 +162,6 @@ section{
     height: auto;
     form{
         padding: 5px 15px ;
-        display: flex;
         border: solid #000 3px;
         border-radius: 25px;
         img{
@@ -163,20 +169,15 @@ section{
             object-fit: cover;
         }
         button{
-            width: 0px;
-            padding: 0px;
+            display: flex;
+            align-items: center;
             font-weight: 800;
             background: none;
             outline: none;
             border: none;
-            opacity: 0;
             overflow: hidden;
             white-space: nowrap;
-        }
-        &:hover button{
-            opacity: 1;
             transition: width 0.5s;
-            width: 50px;
         }
     }
 }
@@ -264,6 +265,9 @@ section{
                     overflow-wrap: break-word; 
                     &:not(header){
                         margin: 10px;
+                        :nth-child(0){
+                            white-space: nowrap;
+                        }
                     }
                 }
         }
@@ -334,6 +338,9 @@ section{
             width: 90%;
             height: 16px;
             margin: auto;
+        }
+        div{
+            margin: 10px auto;
         }
     }
     .bill-list-items{
@@ -607,5 +614,6 @@ section{
 
     .emp-list-area .emp-name ul li {
         display: flex;
+
     }
 }

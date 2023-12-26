@@ -103,7 +103,8 @@ class EmployeeController extends Controller
     public function indxEmpEditor(Request $request){
         if($request->id){
             $staff_id = $request->id;
-            if(!Auth::user()->isAdmin() || Auth::user()->staff_id != $staff_id){
+            // if(!Auth::user()->isAdmin() || Auth::user()->staff_id != $staff_id){
+                if(!Auth::user()->isAdmin()){
                 return redirect()->route('staffProfile');
             }
             $staff = employee::select('staff_id','staff_name','tel','residence','birthday','remarks','hourly_wage')

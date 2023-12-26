@@ -56,7 +56,7 @@ $today = Carbon::now()->format('Y/m/d');
                     </div>
                     <li>
                         <span>日付</span>
-                        <input type="date" id="theDate" name="day" value="{{$today}}" placeholder="例：0000-00-00">
+                        <input type="date" id="theDate" name="day" value="{{$today}}" placeholder="例：0000-00-00" max="{{ date('Y-m-d') }}">
                         @if ($errors->has('ap_day'))
                             <span class="error">{{ $errors->first('day') }}</span>
                         @endif

@@ -10,8 +10,8 @@
     <section class="register">
         <div class="register-area">
             <h1>キープボトル情報編集</h1>
+            <form action="/KeepBottle-editor" method="POST">
             <ul class="register-areaUL">
-                <form action="/KeepBottle-editor" method="POST">
                     @csrf
                     <li class="kinds kinds-aft">
                         <span>所有者</span>
@@ -72,9 +72,9 @@
                         <span>備考</span>
                         <textarea name="remarks" value="">{{ old('remarks') ?? $liquor->remarks }}</textarea>
                     </li>
-                    <input type="submit" value="編集">  
-                </form>
             </ul>
+            <input type="submit" value="編集">  
+        </form>
         </div>
     </section>
 @endsection
