@@ -306,14 +306,9 @@ class EmployeeController extends Controller
         $dateParts = explode('-', $currentDate);
         $year = $dateParts[0]; // Năm
         $month = $dateParts[1]; // Tháng
-<<<<<<< HEAD
         $results = DB::table('salarys')->select("*")
             ->join('employees', 'salarys.staff_id', '=', 'employees.staff_id')
             ->where('salarys.staff_id',$staff_id)
-=======
-        $results = DB::table('salarys')->select('*')
-            ->where('staff_id',$staff_id)
->>>>>>> 1b345df3a67aacfae32ed016193e2345cb3df18c
             ->whereMonth('salary_date', '=', $month)
             ->whereYear('salary_date', '=', $year)              
             ->get();
@@ -444,13 +439,7 @@ class EmployeeController extends Controller
         }
         return view("test",compact('results'));
     }
-<<<<<<< HEAD
-    // function salary(){
-        
-    // }
-=======
     function salary(){
         
     }
->>>>>>> 1b345df3a67aacfae32ed016193e2345cb3df18c
 }

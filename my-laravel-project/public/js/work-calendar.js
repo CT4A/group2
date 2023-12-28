@@ -168,10 +168,7 @@
         var BtnEl = $(BtnElement.target);
         var popoverBodyEL = $("#popover-body-EL");
         var FcPopover = $(".fc-popover")[0];
-<<<<<<< HEAD
         $("#register-field").remove();
-=======
->>>>>>> 1b345df3a67aacfae32ed016193e2345cb3df18c
         if(BtnEl.hasClass("shift-Btn")){
             popoverBodyEL.after(
             '<section class="register" id = register-field>'+
@@ -291,11 +288,7 @@
                                         "<form action='/news' method='POST' id ='newsForm'>"+
                                         `<input type="hidden" name="_token" value="${token}">` +
                                         
-<<<<<<< HEAD
                                         '<input type="date" name="news_date" value="'+valueToPass+'"hidden>'+
-=======
-                                        '<input type="date" name="noti_date" value="'+valueToPass+'" hidden>'+
->>>>>>> 1b345df3a67aacfae32ed016193e2345cb3df18c
                                         "<ul class = register-areaUL>"+
                                                 "<li class='news-resist'>"+
                                                     "<span>内容</span>"+

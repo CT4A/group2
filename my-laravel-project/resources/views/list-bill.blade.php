@@ -56,7 +56,7 @@
 
                 @foreach ($slips as $slip)
                 @php
-    //日付のフィルターの処理    
+                //日付のフィルターの処理    
                         //比較日付定義
                             $currentDate = new DateTime(); 
                             $oneYearAgo = clone $currentDate;
@@ -66,7 +66,7 @@
                             $oneWeekAgo = clone $currentDate;
                             $oneWeekAgo->modify('-1 week');
                             $slip_date = $slip->ap_day;
-                        //比較日付定義　ここまで
+                            //比較日付定義　ここまで
                             $slip_date = new Datetime($slip->ap_day);
                             if($slip_date >= $oneWeekAgo){
                                 $timeFilter = "week";

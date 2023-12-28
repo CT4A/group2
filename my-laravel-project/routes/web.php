@@ -23,11 +23,8 @@ use App\Models\Employee;
 Route::get('/', [LoginController::class,'index'])->name('login');
 // Route::get('test',[testController::class,'index']);
     
-<<<<<<< HEAD
 Route::get('/test', [EmployeeController::class,'Calsalary']);
-=======
-Route::get('/test', [EmployeeController::class,'salary']);
->>>>>>> 1b345df3a67aacfae32ed016193e2345cb3df18c
+// Route::get('/test', [EmployeeController::class,'salary']);
 //login
 Route::get('login',[LoginController::class,'index'])->name('login');
 Route::post('login',[LoginController::class,'login']);
