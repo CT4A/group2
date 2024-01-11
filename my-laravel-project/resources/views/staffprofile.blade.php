@@ -34,7 +34,7 @@
                     <span id="remarks">{{$staff->remarks}}</span>
                 </li>
                 <li>
-                    <form action = "#">
+                    <form action = "#" method="get">
                             <button id="editBtn">    
                                 <img src="img\edit.png" alt="">
                                 <span>編集</span>

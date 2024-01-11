@@ -24,13 +24,6 @@
             </div>
             <div class="emp-name">
                 <ul>
-<<<<<<< HEAD
-=======
-                    <div class="container">
-                        <span id="c1">名前</span>
-                        <span id="c2">給料</span>
-                    </div>
->>>>>>> 1b345df3a67aacfae32ed016193e2345cb3df18c
                     @if ($staffs->isEmpty())
                         <p>データが存在しておりません</p>
                     @else

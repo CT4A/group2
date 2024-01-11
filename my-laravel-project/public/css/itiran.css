@@ -149,6 +149,10 @@ section span {
   position: absolute;
   bottom: 0px;
   left: 0;
+  transition: all 0.5s;
+}
+.emp-list-area .emp-name ul li:hover:after {
+  width: 100%;
 }
 .emp-list-area .emp-name ul li span {
   width: 100%;
@@ -410,8 +414,9 @@ ul:not(.menu, .hamburgerContents ul) li span:not(header) :nth-child(0) {
   }
 }
 .bill-list .bill-list-items ul li {
+  padding: 10px;
   width: 100%;
-  border-bottom: solid 1px #000;
+  border-bottom: solid 1px rgba(0, 0, 0, 0.3);
 }
 .bill-list .bill-list-items ul li span {
   max-width: 100%;

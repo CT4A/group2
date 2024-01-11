@@ -77,7 +77,7 @@ class EmployeeController extends Controller
     }
     public function indexstaffProfile(){
         $staff_id = Auth::user()->staff_id;
-        $staff=employee::find($staff_id)->first();
+        $staff = employee::where("staff_id",$staff_id)->first();
         return view('staffprofile',compact('staff'));        
     }
 
@@ -103,14 +103,18 @@ class EmployeeController extends Controller
     public function indxEmpEditor(Request $request){
         if($request->id){
             $staff_id = $request->id;
+            $nowStaffId = Auth::user()->staff_id;
+
             // if(!Auth::user()->isAdmin() || Auth::user()->staff_id != $staff_id){
-                if(!Auth::user()->isAdmin()){
-                return redirect()->route('staffProfile');
-            }
+                if(Auth::user()->isAdmin() || $staff_id == $nowStaffId){
+                 
             $staff = employee::select('staff_id','staff_name','tel','residence','birthday','remarks','hourly_wage')
-                                        ->where('staff_id',$staff_id)
-                                        ->first();
-            return view("emp-editor",compact("staff"));
+            ->where('staff_id',$staff_id)
+            ->first();
+return view("emp-editor",compact("staff"));
+                }
+                   
+                return redirect()->route('staffProfile');
         }
         return redirect()->route('list-staff');
     }

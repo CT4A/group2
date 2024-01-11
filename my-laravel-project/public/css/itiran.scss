@@ -141,6 +141,12 @@ section{
                     position: absolute;
                     bottom: 0px;
                     left: 0;
+                    transition: all 0.5s;
+                }
+                &:hover{
+                    &:after{
+                        width: 100%;
+                    }
                 }
                 span{
                     width: 100%;
@@ -392,8 +398,9 @@ section{
                 }
             }
             li{
+                padding: 10px;
                 width: 100%;
-                border-bottom: solid 1px #000;
+                border-bottom: solid 1px rgba(0,0,0,0.3);
                 span{
                     max-width: 100%;
                     white-space: nowrap;

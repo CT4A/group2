@@ -65,7 +65,7 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/emp-register',[ EmployeeController::class,'register']);
 
     //社員編集
-    Route::get("emp-editor",[employeeController::class,'indxEmpEditor'])->name("indxEmpEditor");
+    Route::get("/emp-editor",[employeeController::class,'indxEmpEditor'])->name("indxEmpEditor");
     Route::post('/emp-editor',[ EmployeeController::class,'editor']);
     
     //出勤退勤履歴
