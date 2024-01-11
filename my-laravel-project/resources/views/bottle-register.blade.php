@@ -7,6 +7,7 @@
 @section('title', 'ボトル登録')
 
 @section('content')
+    <div>aa</div>
     <div class="message text-center">
         <div class="alert alert-primary" role="alert">
             <strong>{{session('message')}}</strong>
