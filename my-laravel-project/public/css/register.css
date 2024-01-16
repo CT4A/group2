@@ -126,10 +126,10 @@ html {
   border: none;
 }
 .register-area .register-areaUL li input::-moz-placeholder {
-  color: rgba(255, 215, 0, 0.8);
+  color: rgba(0, 0, 0, 0.2);
 }
 .register-area .register-areaUL li input::placeholder {
-  color: rgba(255, 215, 0, 0.8);
+  color: rgba(0, 0, 0, 0.2);
 }
 .register-area .register-areaUL li textarea {
   border: none;

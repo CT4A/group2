@@ -49,11 +49,7 @@ $(document).ready(function(){
             $('#salary').before('<p>今月出勤しませんでした</p>');
           } else {
             let response = data[0];
-<<<<<<< HEAD
             $('#TxtNameHeader').text(response.staff_name+"さんの給料明細");
-=======
-            
->>>>>>> 1b345df3a67aacfae32ed016193e2345cb3df18c
             $('#basic_salary').text(response.basic_salary+"円");
             $('#total_working_days').text(response.total_working_days+"円");
             $('#total_time').text(response.total_time+"円");
@@ -112,12 +108,13 @@ $(document).ready(function(){
       let currentDate = $("#currentDate").text();
       let dateObject = new Date(currentDate);
       //次の月をまとめる。string型
-      if(dateObject.getMonth() <= 10){
       currentDate = dateObject.getFullYear()+"-"+(dateObject.getMonth() + 2).toString().padStart(2, '0');
-      $("#currentDate").text(currentDate);
-      
-      window.location.href = '?date='+currentDate;
+      console.log(dateObject.getMonth())
+      if(dateObject.getMonth() >10){
+        currentDate = (dateObject.getFullYear()+1)+"-"+(dateObject.getMonth()-10).toString().padStart(2,'0');
       }
+      $("#currentDate").text(currentDate);
+      window.location.href = '?date='+currentDate;
     });
     //previousbtnの処理
     $(".btn-previous").click(function (e) { 
@@ -125,13 +122,15 @@ $(document).ready(function(){
       let currentDate = $("#currentDate").text();
       let dateObject = new Date(currentDate);
       //次の月をまとめる。string型
-      if(dateObject.getMonth() >= 1){
+      // if(dateObject.getMonth() >= 1){
       currentDate = dateObject.getFullYear()+"-"+dateObject.getMonth().toString().padStart(2, '0');
-      $("#currentDate").text(currentDate);
+      if(dateObject.getMonth() <1){
+        currentDate = (dateObject.getFullYear()-1)+"-"+(dateObject.getMonth()+12).toString().padStart(2,'0');
       }
+      $("#currentDate").text(currentDate);
+      // }
       window.location.href = '?date='+currentDate;
     });
-<<<<<<< HEAD
     $(".emp-name ul li span").each(function(){
       console.log(this.textContent)
       var empstr =$(this).text()
@@ -142,7 +141,4 @@ $(document).ready(function(){
         $(this).textContent = empstrlim
     };
     })  
-=======
-    
->>>>>>> 1b345df3a67aacfae32ed016193e2345cb3df18c
 });

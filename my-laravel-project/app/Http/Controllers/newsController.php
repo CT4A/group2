@@ -13,6 +13,8 @@ class newsController extends Controller
         //get data from notifications
         $notifications = notification::leftJoin('employees','employees.staff_id','=','notifications.staff_id')
                                     ->select('employees.staff_name','day','message',"id")
+                                    ->orderBy('day','desc')
+                                    ->orderBy('notifications.updated_at','desc')
                                     ->get();     
         //get customer of birthday
         $today=now();
