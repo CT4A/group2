@@ -113,7 +113,6 @@ Route::middleware(['auth'])->group(function () {
     // })->name('payStatement');
     Route::get('/pay-statement', [EmployeeController::class,'indexPay'])->name('payStatement');
     Route::post('/getPayStaff/{id}', [EmployeeController::class,'personPay']);
-    
     // /getPayStaff/{id}
     // パスワード変更
     Route::get('/pass-change', function () {
@@ -123,21 +122,25 @@ Route::middleware(['auth'])->group(function () {
     //お知らせ追加画面
     Route::get('/news', [newsController::class,'index'])->name("news");
     Route::post('/news', [newsController::class,'register']);
+    //お知らせ編集
+        //お知らせ編集画面
+        Route::get('/news-editor', [newsController::class,'newsEditor']);
+        Route::post('/news-editor', [newsController::class,'newsEditored']);
+    // Route::get('/news-editor',[newsController::class,'newsEditor'])->name("newsEditor");
     // お知らせ登録
     Route::get('/news-register', function () {
         return view('news-register');
     })->name('indexNewsRegister');
+    Route::get('/newsDelete', [newsController::class,'newsDelete'])->name('newsDelete');
     // 伝票登録
     Route::get('/bill-register', [BillController::class,'index'])->name('indexBillRegister');
     Route::post('/bill-register', [BillController::class,'register']);
     // 伝票一覧
     Route::get('list-bill', [BillController::class,'indexList'])->name('list-bill');
     //カレンダー仕事
-
     Route::get('/full-calendar',[FullCalendarController::class,'index'])->name("FullCalendar");
     Route::get('get_events', [FullCalendarController::class, 'getEvents']);
     Route::post('/get-list',[EmployeeController::class,'GetListStaffs']);
-
     //logout
     Route::get('/logout', [LoginController::class, 'logout']);
     

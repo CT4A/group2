@@ -59,7 +59,10 @@ html {
   overflow-y: hidden;
   resize: none;
   max-width: 500px;
-  height: 300px;
+  background: none;
+  border-bottom: solid;
+  transition: all 0.5s;
+  height: 200px;
   text-transform: capitalize;
 }
 .register-area form input[type=submit] {

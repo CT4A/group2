@@ -38,8 +38,8 @@ $today = Carbon::now()->format('Y/m/d');
                                 <p class="newspage-link">{{$notification->message}} </p>
                                 @if (Auth::user()->isAdmin())
                                 <div class="news-edit">
-                                    <button><a href="{{route('news')}}">編集</a></button>
-                                    <button>削除</button>
+                                    <button><a href="/news-editor?id={{$notification->id}}">編集</a></button>
+                                    <button><a href="/newsDelete?id={{$notification->id}}">削除</a></button>
                                 </div>
                                 @endif
                             </div>

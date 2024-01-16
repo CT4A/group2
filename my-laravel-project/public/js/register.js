@@ -15,6 +15,12 @@ $(document).ready(function(){
     var targetElement = $("#SelDate"); // 挿入する要素を選択
     $(targetElement).val(myValue);
     
+    var newsTextarea = document.getElementById("newsTextarea");
+    newsTextarea.addEventListener("click",function(event){
+        newsTextarea.addClass("newsTextarea-after");
+        alert("test")
+    });
+
     // accordionリストの検索機能
     $(AccordionSearchInput).keyup(function (e) {
         var keySearch = $(this).val();

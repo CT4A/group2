@@ -12,7 +12,7 @@ class newsController extends Controller
     public function index(){
         //get data from notifications
         $notifications = notification::leftJoin('employees','employees.staff_id','=','notifications.staff_id')
-                                    ->select('employees.staff_name','day','message')
+                                    ->select('employees.staff_name','day','message',"id")
                                     ->get();     
         //get customer of birthday
         $today=now();
@@ -45,5 +45,25 @@ class newsController extends Controller
             'day' =>$news_date,
         ]);
         return redirect()->route('news');
+    }
+    // 
+    public function newsDelete(Request $request){
+        $id = $request->id;
+        notification::where('id', '=', $id)->delete();
+        return redirect()->route('news');
+    }
+    public function newsEditor(Request $request){
+        $id = $request->id;
+        $notification = notification::select('message','id')
+                                ->where('id',$id)
+                                ->first(); 
+        return view('news-editor',compact("notification"));
+    }
+    public function newsEditored(Request $request){
+        $id = $request->id;
+        $message = $request->remarks;
+        $notification = notification::where('id', $id)
+            ->update(['message' => $message]);
+            return view('news');
     }
 }

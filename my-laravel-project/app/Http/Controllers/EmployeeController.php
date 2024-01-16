@@ -73,7 +73,6 @@ class EmployeeController extends Controller
             return redirect()->route('history',['id'=>$request->input('staff_id')]); 
         }
         return redirect()->route('news');
-          
     }
     public function indexstaffProfile(){
         $staff_id = Auth::user()->staff_id;

@@ -4,7 +4,7 @@
 <link rel="stylesheet" href="./css/register.css">
 <link rel="stylesheet" href="./css/information.css">
 @endsection
-@section('title', 'お知らせ')
+@section('title', 'お知らせ編集')
 
 @section('content')
     <div class="message text-center">
@@ -20,10 +20,10 @@
                     @csrf
                     <li class="news-resist">
                         <span>内容</span>
-                        <textarea id="newsTextarea" name="remarks" value="{{ old('remarks') }}"></textarea>
+                        <textarea id="newsTextarea" name="remarks" value="{{$notification}}">{{$notification->message}}</textarea>
                     </li>
                     <p id = "NewsHidden"></p>
-                    <input type="submit" value="登録">
+                    <input type="submit" value="編集">
                 </form>
             </ul>
         </div>

@@ -112,7 +112,7 @@ section span {
   width: 60%;
   margin: auto;
   transition: all 0.5s;
-  height: 300px;
+  height: 320px;
   overflow-y: scroll;
   overflow-x: hidden;
 }
@@ -582,7 +582,7 @@ ul:not(.menu, .hamburgerContents ul) li span:not(header) :nth-child(0) {
   width: 100%;
 }
 .attend-list ul {
-  height: 600px !important;
+  height: 575px !important;
   width: 80%;
   margin: auto;
   justify-content: inherit !important;
