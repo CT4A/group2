@@ -120,17 +120,16 @@ Route::middleware(['auth'])->group(function () {
     })->name('passChange');
     Route::post("/passChange",[EmployeeController::class,'changePass']);
     //お知らせ追加画面
-    Route::get('/news', [newsController::class,'index'])->name("news");
+    Route::get ('/news',  [newsController::class,'index'])->name("news");
     Route::post('/news', [newsController::class,'register']);
-    //お知らせ編集
-        //お知らせ編集画面
-        Route::get('/news-editor', [newsController::class,'newsEditor']);
-        Route::post('/news-editor', [newsController::class,'newsEditored']);
-    // Route::get('/news-editor',[newsController::class,'newsEditor'])->name("newsEditor");
     // お知らせ登録
     Route::get('/news-register', function () {
         return view('news-register');
     })->name('indexNewsRegister');
+    //お知らせ編集画面
+    Route::get('/news-editor', [newsController::class,'newsEditor']);
+    Route::post('/newsEditored', [newsController::class,'newsEditored']);
+    // Route::get('/news-editor',[newsController::class,'newsEditor'])->name("newsEditor");
     Route::get('/newsDelete', [newsController::class,'newsDelete'])->name('newsDelete');
     // 伝票登録
     Route::get('/bill-register', [BillController::class,'index'])->name('indexBillRegister');

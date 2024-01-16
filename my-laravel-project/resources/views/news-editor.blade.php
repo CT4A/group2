@@ -16,7 +16,7 @@
         <div class="register-area">
             <h1>お知らせ編集</h1>
             <ul>
-                <form action="{{route('news')}}" method="POST" id ="newsForm">
+                <form action="/newsEditored?id={{$notification->id}}" method="POST" id ="newsForm">
                     @csrf
                     <li class="news-resist">
                         <span>内容</span>

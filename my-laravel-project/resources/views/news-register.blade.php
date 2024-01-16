@@ -14,7 +14,7 @@
     </div>
     <section class="register">
         <div class="register-area">
-            <h1>お知らせ編集</h1>
+            <h1>お知らせ登録</h1>
             <ul>
                 <form action="{{route('news')}}" method="POST" id ="newsForm">
                     @csrf

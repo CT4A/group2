@@ -62,8 +62,9 @@ class newsController extends Controller
     public function newsEditored(Request $request){
         $id = $request->id;
         $message = $request->remarks;
-        $notification = notification::where('id', $id)
+        notification::where('id','=', $id)
             ->update(['message' => $message]);
-            return view('news');
+            return redirect()->route('news');
+
     }
 }

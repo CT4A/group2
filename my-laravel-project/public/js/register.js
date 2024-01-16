@@ -15,11 +15,6 @@ $(document).ready(function(){
     var targetElement = $("#SelDate"); // 挿入する要素を選択
     $(targetElement).val(myValue);
     
-    var newsTextarea = document.getElementById("newsTextarea");
-    newsTextarea.addEventListener("click",function(event){
-        newsTextarea.addClass("newsTextarea-after");
-        alert("test")
-    });
 
     // accordionリストの検索機能
     $(AccordionSearchInput).keyup(function (e) {
@@ -245,6 +240,7 @@ $(window).on('load', function (){
 // newsform　送信禁止
 var newsForm = document.getElementById("newsForm");
 var NewsHidden = document.getElementById("NewsHidden");
+
 newsForm.addEventListener("submit", function(event) {
     var textareaValue = document.getElementById("newsTextarea").value;
     if (textareaValue.trim() === "") {
