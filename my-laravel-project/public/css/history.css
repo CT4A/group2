@@ -21,6 +21,12 @@
     max-width: 100%;
   }
 }
+.history .history-data {
+  display: flex;
+}
+.history .history-data a {
+  overflow: visible;
+}
 .history .history_item {
   display: flex;
   justify-content: center;

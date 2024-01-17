@@ -17,8 +17,9 @@
                 <a href="{{ route('HistoryEditView') }}" class="calendar_item">変更履歴</a>
             </figure>
             <figcaption>
-            <h1 datetime="2023-01">{{ $today->format('Y-m') }}</h1>
+            <h1 datetime="2023-01" class="history-data"><a href="">←</a>{{ $today->format('Y-m') }}<a href="">→</a></h1>
             <h2 id="staff_name" data-id={{$staff_name->staff_id }}>{{$staff_name->staff_name}}</h2>
+            <a href="">→</a>
             </figcaption>
         </div>
         @if ($staffs->isEmpty())
@@ -40,8 +41,8 @@
                         <button class="delbtn">削除</button>
                     </div>
                 </div>
-            </div>
             @endif
+            </div>
             @endforeach
     </section>
 @endsection

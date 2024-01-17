@@ -78,7 +78,6 @@ Route::middleware(['auth'])->group(function () {
 
     //出勤退勤編集履歴画面
     Route::get('/HistoryEditView', [employeeController::class,'indexEditHistory'])->name('HistoryEditView');
-    Route::post('graphHistory',[employeeController::class,'graphHistory']);
     Route::get('/history_editor', [employeeController::class,'indexHistoryEditor'])->name('indexHistoryEditor');
     Route::post('/history_editor',[employeeController::class,'HistoryEditor']);
     Route::post('/additionHistory/{id}',[employeeController::class,'AdditionHistory']);

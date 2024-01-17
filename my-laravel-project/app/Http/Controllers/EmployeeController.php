@@ -42,7 +42,7 @@ class EmployeeController extends Controller
             ->selectRaw('SUM(TIMESTAMPDIFF(HOUR, attend_time, leaving_work)) AS totalHours')
             ->where('staff_id', $id)
             ->where('flag',0)
-            ->whereYear('work_date', '=', date('Y'))
+            ->whereYear('work_date', '=', DB::raw('YEAR(CURDATE())'))
             ->groupBy("FormatMonth")
             ->get();
             return response()->json($data);
@@ -222,6 +222,7 @@ return view("emp-editor",compact("staff"));
                                 ->where('flag',0)
                                 ->whereYear('work_date',$currentYear)
                                 ->whereMonth('work_date',$currentMon)
+                                ->orderBy('work_date','desc')
                                 ->get();
         return view('history',compact('staffs','staff_name'));
     }

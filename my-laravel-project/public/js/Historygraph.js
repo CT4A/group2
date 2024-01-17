@@ -1,6 +1,9 @@
 // const { response } = require("express");
 $(document).ready(function() {
+    var currentYear = new Date().getFullYear();
+    console.log(currentYear)
     var Dataid = parseInt($("#staff_name").attr("data-id"));
+    console.log(Dataid)
     let monthDate = {
         "1月":0,
         "2月":0,
@@ -15,7 +18,6 @@ $(document).ready(function() {
         "11月":0,
         "12月":0,
     };
-    
     var graphData =[]
     $.ajaxSetup({
         headers:{
@@ -24,14 +26,17 @@ $(document).ready(function() {
     });
     $.ajax({
         url:"graphHistory",
-        data:{"Dataid":Dataid,},
+        data:{"Dataid":Dataid},
         method:"POST",
         async:false,
         dataType:"json",
         success:function(data){
             graphData = data;
             graphData.forEach(function(element) {
-                monthDate["0"+element.FormatMonth-1+"月"] = parseInt(element.totalHours);
+                console.log(element.FormatMonth)
+                let graphmonth = element.FormatMonth;
+                graphmonth = graphmonth.replace(/^0+/, "");
+                monthDate[graphmonth+"月"] = parseInt(element.totalHours);
             });
         },
         error:function(xhr,status,error){
@@ -41,7 +46,7 @@ $(document).ready(function() {
     var canvas = $("#graph")[0]; // canvas要素を取得
     var ctx = canvas.getContext("2d"); // 2D描画コンテキストを取得
     var data1 = {
-        label: "勤務時間",
+        label: currentYear+"年",
         data: monthDate, // データポイント
         borderColor: "rgba(0, 0, 0, 1)", // 折れ線の色
         backgroundColor: "rgba(0, 0, 0, 0.3)", // 折れ線の色
@@ -74,6 +79,7 @@ $(document).ready(function() {
                 },
                 y:{
                     display:true,
+                    suggestedMax: 100 // メモリの最大値を設定
                 }
             },
             // グラフのオプションを設定
@@ -82,7 +88,8 @@ $(document).ready(function() {
                 label:'',
                 
             }]
-
         }
     });
+    console.log(myChart.data.labels); // グラフのラベルをコンソールに出力
+    console.log(myChart.data.datasets[0].data); // グラフのデータをコンソールに出力
 });

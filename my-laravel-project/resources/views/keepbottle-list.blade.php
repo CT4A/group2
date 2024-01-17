@@ -17,7 +17,7 @@
         <div class="emp-name">
         <ul>
             @foreach ($liquors as $liquor)
-                <li><span data-liquorId="{{$liquor->liquor_id}}" data-customerId="{{$liquor->customer_id}}" data-liquorNumber="{{$liquor->liquor_number}}">{{$liquor->liquor_number}}. {{$liquor->liquor_type}}</span></li>
+                <li><span customer_name = "{{$liquor->customer_name}}" data-liquorId="{{$liquor->liquor_id}}" data-customerId="{{$liquor->customer_id}}" data-liquorNumber="{{$liquor->liquor_number}}">{{$liquor->liquor_number}}. {{$liquor->liquor_type}}</span></li>
             @endforeach
         </ul>
     </div>

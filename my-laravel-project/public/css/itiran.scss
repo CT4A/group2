@@ -368,16 +368,17 @@ section{
                 font-size: 14px;
                 color: #666;
                 width: 100%;
+                margin: auto;
                 white-space: pre;
                 font-size: 16px;
                 &::before{
                     content: "";
-                    display: flex;
-                    margin: 3px;
+                    display: inline-block;
+                    margin-right: 1%;
                     @media screen and (max-width:780px) {
                         width: 33%;
                     }
-                    width: 80%;
+                    width: 100%;
                     height: 1px;
                     align-items: center;
                     background: #666;
@@ -385,12 +386,12 @@ section{
                 }
                 &::after{
                     content: "";
-                    display: block;
+                    display: inline-block;
+                    margin-left: 1%;
                     @media screen and (max-width:780px) {
                         width: 33%;
                     }
-                    width: 80%;
-                    margin: 3px;
+                    width: 100%;
                     height: 1px;
                     align-items: center;
                     background: #666;
@@ -398,7 +399,7 @@ section{
                 }
             }
             li{
-                padding: 10px;
+                padding: 10px 0;
                 width: 100%;
                 border-bottom: solid 1px rgba(0,0,0,0.3);
                 span{

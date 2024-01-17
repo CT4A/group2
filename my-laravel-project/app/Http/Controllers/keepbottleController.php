@@ -14,8 +14,10 @@ class keepbottleController extends Controller
     public function indexList(){
 
         // $liquors=liquor_link::select('liquor_id','liquor_name')->orderBy('liquor_id')->get();
+
         $liquors = liquor_link::leftJoin('liquor_mgs','liquor_links.liquor_id','=','liquor_mgs.liquor_id')
-                                ->select('liquor_links.liquor_number','liquor_links.liquor_id','liquor_links.customer_id','liquor_mgs.liquor_type')
+                                ->join('customers', 'liquor_links.customer_id', '=', 'customers.customer_id')
+                                ->select('customers.customer_name','liquor_links.liquor_number','liquor_links.liquor_id','liquor_links.customer_id','liquor_mgs.liquor_type')
                                 ->orderBy('liquor_type')
                                 ->get();                            
         return view('keepbottle-list',compact('liquors'));

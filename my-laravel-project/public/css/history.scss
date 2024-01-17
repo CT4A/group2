@@ -18,6 +18,12 @@
                 }
             }
         }
+        .history-data{
+            display: flex;
+            a{
+                overflow:visible;
+            }
+        } 
         display: grid;
     .history_item{
         display: flex;
@@ -41,7 +47,7 @@
             @media screen and (max-width:780px) {
                 font-size:22px;
                 margin: 10px;
-            }   
+            }  
         }
         @media screen and (max-width:780px) {
             figcaption{
