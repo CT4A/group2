@@ -14,25 +14,40 @@ class syukkinController extends Controller
         if(!Auth::user()->isSyukkin()){
             return redirect()->route('/news');
         }
-        $syukkins = DB::table(function ($subquery) {
+        // $syukkins = DB::table(function ($subquery) {
+        //     $today = Carbon::now()->format('Y/m/d');
+        //     $subquery->select('staff_name', 'attend_time as time', DB::raw("'出勤' as type",))
+        //         ->from('attend_leaves')
+        //         ->leftJoin('employees','employees.staff_id','=','attend_leaves.staff_id')
+        //         ->where('work_date',$today);
+
+        //     $subquery->unionAll(function ($unionQuery) {
+        //         $today = Carbon::now()->format('Y/m/d');
+        //         $unionQuery->select('staff_name', 'leaving_work as time', DB::raw("'退勤' as type"))
+        //             ->from('attend_leaves')
+        //             ->leftJoin('employees','employees.staff_id','=','attend_leaves.staff_id')
+        //             ->where('work_date',$today);
+        //     });
+        // }, 't')
+        //     ->orderBy('t.time')
+        //     ->select('t.staff_name', 't.time', 't.type')
+        //     ->get();
+
             $today = Carbon::now()->format('Y/m/d');
-            $subquery->select('staff_name', 'attend_time as time', DB::raw("'出勤' as type",))
-                ->from('attend_leaves')
-                ->leftJoin('employees','employees.staff_id','=','attend_leaves.staff_id')
-                ->where('work_date',$today);
 
-            $subquery->unionAll(function ($unionQuery) {
-                $today = Carbon::now()->format('Y/m/d');
-                $unionQuery->select('staff_name', 'leaving_work as time', DB::raw("'退勤' as type"))
-                    ->from('attend_leaves')
-                    ->leftJoin('employees','employees.staff_id','=','attend_leaves.staff_id')
-                    ->where('work_date',$today);
-            });
-        }, 't')
-            ->orderBy('t.time')
-            ->select('t.staff_name', 't.time', 't.type')
-            ->get();
-
+$syukkins = DB::table(DB::raw("(SELECT staff_name, attend_time AS time, '出勤' AS type
+                            FROM attend_leaves
+                            LEFT JOIN employees ON employees.staff_id = attend_leaves.staff_id
+                            WHERE work_date = '$today' AND attend_time is not null
+                            UNION ALL
+                            SELECT staff_name, leaving_work AS time, '退勤' AS type
+                            FROM attend_leaves
+                            LEFT JOIN employees ON employees.staff_id = attend_leaves.staff_id
+                            WHERE work_date = '$today' AND leaving_work is not null
+                            ) AS t"))
+    ->orderBy('t.time')
+    ->select('t.staff_name', 't.time', 't.type')
+    ->get();
         return view('syukkin',compact('syukkins'));
     }
 
