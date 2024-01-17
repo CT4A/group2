@@ -142,7 +142,7 @@ $(document).ready(function(){
             data: data,
             success: function (message) {
                 if(message.error){
-                    alert("今日はまだ出勤しましせんでした。");
+                    alert(message.message);
                 }else{
                     alert("本日お疲れ様でした。またね");
                 window.location.href = "/list-attend";

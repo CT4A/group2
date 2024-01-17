@@ -14,26 +14,7 @@ class syukkinController extends Controller
         if(!Auth::user()->isSyukkin()){
             return redirect()->route('/news');
         }
-        // $syukkins = DB::table(function ($subquery) {
-        //     $today = Carbon::now()->format('Y/m/d');
-        //     $subquery->select('staff_name', 'attend_time as time', DB::raw("'出勤' as type",))
-        //         ->from('attend_leaves')
-        //         ->leftJoin('employees','employees.staff_id','=','attend_leaves.staff_id')
-        //         ->where('work_date',$today);
-
-        //     $subquery->unionAll(function ($unionQuery) {
-        //         $today = Carbon::now()->format('Y/m/d');
-        //         $unionQuery->select('staff_name', 'leaving_work as time', DB::raw("'退勤' as type"))
-        //             ->from('attend_leaves')
-        //             ->leftJoin('employees','employees.staff_id','=','attend_leaves.staff_id')
-        //             ->where('work_date',$today);
-        //     });
-        // }, 't')
-        //     ->orderBy('t.time')
-        //     ->select('t.staff_name', 't.time', 't.type')
-        //     ->get();
-
-            $today = Carbon::now()->format('Y/m/d');
+        $today = Carbon::now()->format('Y/m/d');
 
 $syukkins = DB::table(DB::raw("(SELECT staff_name, attend_time AS time, '出勤' AS type
                             FROM attend_leaves
@@ -78,12 +59,21 @@ $syukkins = DB::table(DB::raw("(SELECT staff_name, attend_time AS time, '出勤'
             return redirect()->route('/news');
         }
         $existsattend = attend_leave::where([
-                                        ['staff_id', $request->input('staff_id')],
-                                        ['work_date', $request->input('work_date')]
-                                    ])
-                                    ->exists();
+            ['staff_id', $request->input('staff_id')],
+            ['work_date', $request->input('work_date')]
+        ])
+        ->exists();
+        $existsLeave = attend_leave::where([
+            ['staff_id', $request->input('staff_id')],
+            ['work_date', $request->input('work_date')],
+            ['leaving_work', null]
+        ])
+        ->exists();
         if(!$existsattend){
-        return response()->json(['error' => true]);
+            return response()->json(['error' => true,'message' => '今日はまだ出勤しましせんでした。']);
+        }
+        if(!$existsLeave){
+            return response()->json(['error' => true,'message' => '今日は退勤しました。']);
         }
         $attendLeave = attend_leave::where('staff_id','=',$request->input('staff_id'))
                                     ->where('work_date','=',$request->input('work_date'))
