@@ -19,14 +19,16 @@ class LoginController extends Controller
         ];
         if (Auth::attempt($keys)) {
 
-            if(auth()->user()->first_login){
-                return redirect()->intended('/pass-change');
-            }
             // ログイン成功
             $request->session()->regenerate();
             if(Auth::user()->role==="syukkin"){
                 return redirect()->route('ListAttend');
             }
+            
+            if(auth()->user()->first_login){
+                return redirect()->intended('/pass-change');
+            }
+            
             return redirect()->intended('/news');
         } else {
             // ログイン失敗
