@@ -12,7 +12,7 @@
                 <button type="submit" >
                     <img src="./img/oqCh3X9ndfQ__xOuxd5Oww==.png" alt="">
                 </button>
-                <input id ="search" type="text" placeholder="ボトルの名前を入力してください">
+                <input id ="search" type="text" placeholder="ボトル名また所有者名を入力してください">
         </form>
         <div class="emp-name">
         <ul>

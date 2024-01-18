@@ -21,7 +21,7 @@
         .history-data{
             display: flex;
             a{
-                overflow:visible;
+                overflow:visible !important;
             }
         } 
         display: grid;

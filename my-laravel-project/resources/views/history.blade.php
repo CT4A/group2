@@ -17,9 +17,9 @@
                 <a href="{{ route('HistoryEditView') }}" class="calendar_item">変更履歴</a>
             </figure>
             <figcaption>
-            <h1 datetime="2023-01" class="history-data"><a href="">←</a>{{ $today->format('Y-m') }}<a href="">→</a></h1>
+            <!-- <h1 datetime="2023-01" class="history-data"><a href="HistoryBack?date={{ $today->format('Y-m') }}">←</a>{{ $today->format('Y-m') }}<a href="HistoryNEXT?date={{ $today->format('Y-m') }}">→</a></h1> -->
+            <h1 datetime="$progressdate" class="history-data"><a href="HistoryBack?date={{ $progressdate }}">←</a>{{ $progressdate }}<a href="HistoryNEXT?date={{ $progressdate}}">→</a></h1>
             <h2 id="staff_name" data-id={{$staff_name->staff_id }}>{{$staff_name->staff_name}}</h2>
-            <a href="">→</a>
             </figcaption>
         </div>
         @if ($staffs->isEmpty())

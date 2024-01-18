@@ -25,7 +25,7 @@
   display: flex;
 }
 .history .history-data a {
-  overflow: visible;
+  overflow: visible !important;
 }
 .history .history_item {
   display: flex;
