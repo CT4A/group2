@@ -128,7 +128,6 @@ $(document).ready(function(){
         currentDate = (dateObject.getFullYear()-1)+"-"+(dateObject.getMonth()+12).toString().padStart(2,'0');
       }
       $("#currentDate").text(currentDate);
-      // }
       window.location.href = '?date='+currentDate;
     });
     $(".emp-name ul li span").each(function(){
@@ -136,7 +135,6 @@ $(document).ready(function(){
       var empstr =$(this).text()
       var maxLength = 6;
       if (empstr.length >= maxLength) {
-        console.log("test")
         var empstrlim =empstr.substring(6);
         $(this).textContent = empstrlim
     };

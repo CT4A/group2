@@ -17,7 +17,7 @@
                 <a href="{{ route('history') }}" class="calendar_item">戻る</a>
             </figure>
             <figcaption>
-            <h1 datetime="2023-01">{{ $today->format('Y-m') }}</h1>
+            <h1 datetime="$progressdate" class="history-data">{{ $progressdate }}</h1>
             <h2 id="staff_name" data-id={{$staff_name->staff_id }}>{{$staff_name->staff_name}}</h2>
             </figcaption>
         </div>

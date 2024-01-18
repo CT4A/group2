@@ -98,6 +98,7 @@ $(document).ready(function(){
             dataType: "json",
             success: function (message) {
                 if(message.error){
+                    window.location.href = "/list-attend";
                     alert("今日は出勤しました");
                 }else{
                     alert("今日も頑張りましょう");

@@ -210,9 +210,9 @@ return view("emp-editor",compact("staff"));
         $currentYear = now()->format('Y');
         $currentMon = now()->format('m');
         $progressdate = now()->format('Y-m');
-        if($request->has('id')){
-            $id = $request->id;
-        }else{
+        if(  Auth::user()->staff_id==1 || $request->input('id') === Auth::user()->staff_id ){
+            $id = $request->input('id');
+        } else {
             $id = Auth::user()->staff_id;
         }
         $staff_name = employee::select('staff_name','staff_id')
@@ -229,18 +229,20 @@ return view("emp-editor",compact("staff"));
         return view('history',compact('staffs','staff_name','progressdate'));
     }
     public function HistoryBack(Request $request){
-        $date = $request->today;
-        $progressdate =Carbon::parse($request->date)->subMonth()->format('Y-m');
-        $currentMon =\Carbon\Carbon::createFromFormat('Y-m', $request->date)->subMonth();
-        $currentYear = \Carbon\Carbon::createFromFormat('Y-m', $request->date)->subYear();
-        if($request->has('id')){
-            $id = $request->id;
+        if(  Auth::user()->staff_id==1 || $request->input('id') === Auth::user()->staff_id ){
+            $id = $request->input('$id');
         }else{
             $id = Auth::user()->staff_id;
         }
+        $date = $request->date;
+        $progressdate =Carbon::parse($request->date)->subMonth()->format('Y-m');
+        $currentMon =\Carbon\Carbon::createFromFormat('Y-m', $progressdate);
+        $currentYear = \Carbon\Carbon::createFromFormat('Y-m', $progressdate);
+        
         $staff_name = employee::select('staff_name','staff_id')
                                     ->where('staff_id',$id )
                                     ->first();
+
         $staffs = attend_leave::select('work_date','attend_time','leaving_work')
                                 ->where('staff_id',$id)
                                 ->where('flag',0)
@@ -251,15 +253,16 @@ return view("emp-editor",compact("staff"));
         return view('history',compact('staffs','staff_name','progressdate'));
     }
     public function HistoryNEXT(Request $request){
-        $date = $request->date;
-        $progressdate =Carbon::parse($request->date)->addMonth()->format('Y-m');
-        $currentMon =\Carbon\Carbon::createFromFormat('Y-m', $request->date)->addMonth();
-        $currentYear = \Carbon\Carbon::createFromFormat('Y-m', $request->date)->addYear();
-        if($request->has('id')){
-            $id = $request->id;
+        if(  Auth::user()->staff_id==1 || $request->input('id') === Auth::user()->staff_id ){
+            $id = $request->input('$id');
         }else{
             $id = Auth::user()->staff_id;
         }
+        $date = $request->date;
+        $progressdate =Carbon::parse($request->date)->addMonth()->format('Y-m');
+        $currentMon =\Carbon\Carbon::createFromFormat('Y-m', $progressdate);
+        $currentYear = \Carbon\Carbon::createFromFormat('Y-m', $progressdate);
+        
         $staff_name = employee::select('staff_name','staff_id')
                                     ->where('staff_id',$id )
                                     ->first();
@@ -277,8 +280,9 @@ return view("emp-editor",compact("staff"));
     {
         $currentYear = now()->format('Y');
         $currentMon = now()->format('m');
-        if($request->has('id')){
-            $id = $request->id;
+        $progressdate = now()->format('Y-m');
+        if($request->input('$id')){
+            $id = $request->input('$id');
         }else{
             $id = Auth::user()->staff_id;
         }
@@ -291,8 +295,9 @@ return view("emp-editor",compact("staff"));
                                 ->where('flag',1)
                                 ->whereYear('work_date',$currentYear)
                                 ->whereMonth('work_date',$currentMon)
+                                ->orderBy('work_date','desc')
                                 ->get();
-        return view('HistoryEditView',compact('staffs','staff_name'));
+        return view('HistoryEditView',compact('staffs','staff_name','progressdate'));
     }
     //出勤の履歴
     public function removeHistory(Request $request)

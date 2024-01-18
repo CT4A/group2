@@ -17,8 +17,7 @@
                 <a href="{{ route('HistoryEditView') }}" class="calendar_item">変更履歴</a>
             </figure>
             <figcaption>
-            <!-- <h1 datetime="2023-01" class="history-data"><a href="HistoryBack?date={{ $today->format('Y-m') }}">←</a>{{ $today->format('Y-m') }}<a href="HistoryNEXT?date={{ $today->format('Y-m') }}">→</a></h1> -->
-            <h1 datetime="$progressdate" class="history-data"><a href="HistoryBack?date={{ $progressdate }}">←</a>{{ $progressdate }}<a href="HistoryNEXT?date={{ $progressdate}}">→</a></h1>
+            <h1 datetime="$progressdate" class="history-data"><a href="HistoryBack?date={{ $progressdate }}&$id={{$staff_name->staff_id}}" >←</a>{{ $progressdate }}<a href="HistoryNEXT?date={{ $progressdate}}&$id={{$staff_name->staff_id}}">→</a></h1>
             <h2 id="staff_name" data-id={{$staff_name->staff_id}}>{{$staff_name->staff_name}}</h2>
             </figcaption>
         </div>
@@ -28,7 +27,7 @@
             @foreach ($staffs as $staff)
             <div class="history_info">
                 <div class="history_info_item">
-                    <time datetime="2023-01">{{$staff->work_date}}</time>
+                    <time datetime="$progressdate">{{$staff->work_date}}</time>
                     <div>
                         <span class="">出勤{{$staff->attend_time}}</span>
                         <span class="">退勤{{$staff->leaving_work}}</span>
