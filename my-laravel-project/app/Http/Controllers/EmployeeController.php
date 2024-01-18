@@ -228,13 +228,11 @@ return view("emp-editor",compact("staff"));
                                 ->get();
         return view('history',compact('staffs','staff_name','progressdate'));
     }
-    public function HistoryBack(Request $request)
-    {
+    public function HistoryBack(Request $request){
         $date = $request->today;
         $progressdate =Carbon::parse($request->date)->subMonth()->format('Y-m');
         $currentMon =\Carbon\Carbon::createFromFormat('Y-m', $request->date)->subMonth();
         $currentYear = \Carbon\Carbon::createFromFormat('Y-m', $request->date)->subYear();
-
         if($request->has('id')){
             $id = $request->id;
         }else{
@@ -252,8 +250,7 @@ return view("emp-editor",compact("staff"));
                                 ->get();
         return view('history',compact('staffs','staff_name','progressdate'));
     }
-    public function HistoryNEXT(Request $request)
-    {
+    public function HistoryNEXT(Request $request){
         $date = $request->date;
         $progressdate =Carbon::parse($request->date)->addMonth()->format('Y-m');
         $currentMon =\Carbon\Carbon::createFromFormat('Y-m', $request->date)->addMonth();

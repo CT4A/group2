@@ -26,6 +26,11 @@
 }
 .history .history-data a {
   overflow: visible !important;
+  border-bottom: none !important;
+}
+.history .history-data a::after {
+  content: "" !important;
+  display: none !important;
 }
 .history .history_item {
   display: flex;

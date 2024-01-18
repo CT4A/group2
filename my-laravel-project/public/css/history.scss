@@ -22,6 +22,11 @@
             display: flex;
             a{
                 overflow:visible !important;
+                border-bottom: none !important;
+                &::after{
+                    content: "" !important;
+                    display: none !important;
+                }
             }
         } 
         display: grid;
